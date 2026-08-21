@@ -1,0 +1,310 @@
+<!DOCTYPE html><html class="light" lang="es" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Sabri Studios - Landing Page</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                "on-secondary-fixed": "#001c37",
+                "surface-dim": "#dbdad6",
+                "tertiary-fixed-dim": "#ffb68c",
+                "inverse-surface": "#30312e",
+                "surface-container": "#f0eeea",
+                "surface-tint": "#455f87",
+                "surface-variant": "#e4e2de",
+                "secondary-fixed": "#d2e4ff",
+                "inverse-on-surface": "#f2f0ec",
+                "on-surface": "#1b1c1a",
+                "on-primary-fixed": "#001c3b",
+                "on-error": "#ffffff",
+                "text-strong": "#12202E",
+                "error-container": "#ffdad6",
+                "on-primary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "surface-container-highest": "#e4e2de",
+                "outline": "#74777f",
+                "primary-fixed": "#d5e3ff",
+                "tertiary-fixed": "#ffdbc9",
+                "surface-bright": "#fbf9f5",
+                "on-error-container": "#93000a",
+                "on-tertiary-container": "#ec894a",
+                "tertiary": "#3f1800",
+                "secondary-container": "#6fb2fd",
+                "on-primary-fixed-variant": "#2d486d",
+                "background": "#F5F3EF",
+                "input-border": "#D0CCC0",
+                "on-tertiary-fixed": "#321200",
+                "on-surface-variant": "#43474e",
+                "on-tertiary": "#ffffff",
+                "outline-variant": "#c4c6cf",
+                "border-subtle": "#E8E4D8",
+                "on-background": "#1b1c1a",
+                "secondary": "#0061a5",
+                "primary": "#1E3A5F",
+                "on-tertiary-fixed-variant": "#753400",
+                "surface-container-low": "#f5f3ef",
+                "surface-container-high": "#eae8e4",
+                "primary-fixed-dim": "#adc8f5",
+                "error": "#ba1a1a",
+                "on-secondary-container": "#004375",
+                "on-secondary": "#ffffff",
+                "on-primary-container": "#8aa4cf",
+                "inverse-primary": "#adc8f5",
+                "surface": "#fbf9f5",
+                "secondary-fixed-dim": "#a0caff",
+                "primary-container": "#1e3a5f",
+                "on-secondary-fixed-variant": "#00497e",
+                "tertiary-container": "#602900",
+                "brand-orange": "#D97A3C",
+                "brand-orange-hover": "#4A90D9",
+                "brand-blue": "#1E3A5F",
+                "brand-secondary-blue": "#4A90D9",
+                "brand-border": "#E8E4D8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "lg": "32px",
+                      "xl": "48px",
+                      "xs": "8px",
+                      "md": "24px",
+                      "base": "8px",
+                      "container-max": "1200px",
+                      "sm": "16px",
+                      "section": "80px"
+              },
+              "fontFamily": {
+                      "headline-h1-mobile": [
+                              "Space Grotesk"
+                      ],
+                      "headline-h1": [
+                              "Space Grotesk"
+                      ],
+                      "label-cta": [
+                              "Space Grotesk"
+                      ],
+                      "headline-h3": [
+                              "Space Grotesk"
+                      ],
+                      "headline-h2": [
+                              "Space Grotesk"
+                      ],
+                      "caption": [
+                              "Space Grotesk"
+                      ],
+                      "body-main": [
+                              "Space Grotesk"
+                      ]
+              },
+              "fontSize": {
+                      "headline-h1-mobile": [
+                              "36px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "headline-h1": [
+                              "48px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-cta": [
+                              "14px",
+                              {
+                                      "lineHeight": "1",
+                                      "letterSpacing": "0.5px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-h3": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-h2": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.3",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "caption": [
+                              "12px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-main": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              },
+              "boxShadow": {
+                  "ambient": "0 2px 8px rgba(30, 58, 95, 0.08)"
+              }
+            },
+          },
+        }
+      </script>
+<style>
+          body { background-color: #F5F3EF; color: #12202E; }
+          .material-symbols-outlined { font-family: 'Material Symbols Outlined', sans-serif; font-weight: 300; }
+      </style>
+</head>
+<body class="font-body-main antialiased bg-background selection:bg-brand-orange selection:text-white">
+<!-- TopNavBar -->
+<nav class="bg-background dark:bg-background border-b border-outline-variant dark:border-outline docked full-width top-0 sticky z-50">
+<div class="flex justify-between items-center w-full px-sm md:px-lg py-4 max-w-container-max mx-auto">
+<a class="text-headline-h3 font-headline-h3 font-bold text-primary dark:text-secondary-fixed-dim tracking-tight" href="#"><img alt="Sabri Studios Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWMu0MUxeraZuyhOL1GMwl9AuCcmNRIUeuWc2x-bSst61S-izbnwhUui7ZwZuTMCXS7y5fni-KOU7gn3tmkUUZ1o7Pq-_ARvVX0Ii5x3MCzCXoB8AYaU2KoILyR_0uVAIGjwMpKH491Hm6K7_eRoYU1ziEFzXK5l_PF2rTgB5cTGnhoTKQL4cgjgAYX6WFA4Tv6uJWmN-sjGZ46yU8Hi8HwM1S0ewD1GTbhNdCqoU48YmK2FeZYFhZm2XH7z7EvPURjSc"></a>
+<div class="hidden md:flex items-center gap-md">
+<a class="font-label-cta text-label-cta text-text-strong dark:text-on-surface-variant hover:text-brand-secondary-blue hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-sm py-2 rounded" href="#proceso">Proceso</a>
+<a class="font-label-cta text-label-cta text-text-strong dark:text-on-surface-variant hover:text-brand-secondary-blue hover:bg-surface-container-low dark:hover:bg-surface-container-highest transition-all duration-200 px-sm py-2 rounded" href="#sobre-mi">Sobre Mí</a>
+</div>
+<button class="md:hidden p-2 text-brand-blue">
+<span class="material-symbols-outlined" style="font-variation-settings: &quot;FILL&quot; 0;">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="max-w-container-max mx-auto px-sm md:px-lg py-section flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
+<div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
+<span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">El costo de la invisibilidad</span><h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue max-w-2xl">
+                Tu negocio no existe si no está en Google.
+            </h1>
+<p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg">
+                Mientras dudas sobre crear tu web, tus clientes potenciales ya están comprándole a tu competencia. Te ayudo a construir una presencia online estratégica para dejar de perder dinero y empezar a captar ventas reales.</p>
+<div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
+<a class="bg-brand-orange hover:bg-brand-orange-hover text-white font-label-cta text-label-cta px-md py-[12px] rounded transition-colors duration-200 font-medium shadow-ambient w-full sm:w-auto text-center inline-block" href="https://forms.gle/oWGL9HK99mWdtEL4A">COMPLETAR FORMULARIO</a>
+</div>
+</div>
+<div class="w-full md:w-1/2 relative min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
+<div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90" data-alt="A clean, modern workspace showcasing a minimalist web design process. A high-end laptop displays wireframes next to scattered, elegant sketches on a pristine white desk. The lighting is soft, natural, and inviting, creating a calm, professional atmosphere. The color palette features warm neutrals, crisp whites, and subtle blue accents, perfectly aligning with a sophisticated, conversational brand identity." style="background-image: url(&quot;https://lh3.googleusercontent.com/aida-public/AB6AXuB0k7o4-mrB9TbmuiHaszoYMqFqFbdQmNQe0pKFlyHNZ1GAKnzKfRuysReVtppD_DB19k-MfphHyBPrqeUA4HSwYOlPKIiI759soZGORoPptq4-wthovyf47RI5cMkmTFiD6zGu2Gc95rXRVuUeRRRGpXiJXhIfJKR96UuRM-M7ZQBfU9bjAmwuMGhSfoEstTVnn4fbBFTYYNRtt79o2H-3aeEK6HaJjl7ifEJo3b914-LAEnC8-Nvgiw&quot;);"></div>
+<div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
+</div>
+</section>
+<!-- Problem vs Solution Section -->
+<section class="bg-white py-section border-y border-brand-border" id="problema">
+<div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+<div class="w-full">
+<h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">¿Sabés cuánto te cuesta no aparecer en Google?<!-- notionvc: 71b335f2-bed7-489c-92f0-61efc4a9ce44 --></h2>
+<p class="font-body-main text-body-main text-text-strong opacity-80">Cero presencia digital significa cero confianza. Alguien busca lo que ofrecés ahora mismo, pero al no encontrarte, elige a quien sí está a un clic de distancia. No necesitás algo complejo, necesitás existir donde tus clientes te buscan.<!-- notionvc: 21b53320-f6b1-40ef-891c-82474fb45e3c --></p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div class="p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
+<div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-error" style="font-variation-settings: &quot;FILL&quot; 0;">close</span>
+</div>
+<h3 class="font-headline-h3 text-headline-h3 text-brand-blue">ANTES (INVISIBILIDAD)</h3>
+<ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>No aparecés en Google ni en Google Maps<!-- notionvc: bbcd17b7-9b49-4917-bc62-f2f42f93282c --></li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>Pierdes clientes todos los días frente a tu competencia<!-- notionvc: 0529870e-18e6-4161-8d29-e283ff01259c --><!-- notionvc: e7d134b9-2c86-4fbb-a968-89294d33dbe0 --></li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span> Tu crecimiento está limitado exclusivamente al boca a boca</li>
+</ul>
+</div>
+<div class="p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden">
+<div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
+<span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: &quot;FILL&quot; 0;">check</span>
+</div>
+<h3 class="font-headline-h3 text-headline-h3 text-brand-blue">DESPUÉS (INEVITABLE)</h3>
+<ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80 z-10">
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span> Estrategia digital enfocada puramente en conversión.</li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>Presencia profesional que genera confianza inmediata<!-- notionvc: b6500cdb-3f62-4bc7-89a3-2626561fc6db --></li>
+<li class="flex items-start gap-xs"><span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>Aparecés en el mapa y en las búsquedas correctas<!-- notionvc: 6d62a432-b473-44a3-8da4-c7b97ff1171f --></li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Section -->
+<section class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl" id="proceso">
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">Un proceso directo para resultados reales</h2>
+<p class="font-body-main text-body-main text-text-strong opacity-80">
+                Trabajamos sin rodeos para transformar tu invisibilidad en autoridad digital. Tres fases claras para lanzar tu máquina de ventas.
+            </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md relative">
+<!-- Connecting line for desktop -->
+<div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
+<div class="flex flex-col items-center text-center gap-sm relative z-10">
+<div class="w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
+<h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
+<p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+                    Analizamos tu negocio y descubrimos exactamente por qué estás perdiendo clientes hoy.
+                </p>
+</div>
+<div class="flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+<div class="w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
+<h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
+<p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+                    Creamos una estructura visual y de contenido enfocada puramente en generar confianza y conversión.
+                </p>
+</div>
+<div class="flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+<div class="w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+<h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados (Landing Lista)</h3>
+<p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+                    Tu sistema de captación activado y listo para transformar visitas cualificadas en clientes.
+                </p>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<section class="py-section bg-background" id="sobre-mi">
+<div class="max-w-container-max mx-auto px-sm md:px-lg">
+<div class="bg-white rounded-lg shadow-ambient p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
+<div class="w-full md:w-1/2"><div class="w-full aspect-square bg-surface-container-low rounded-lg flex flex-col items-center justify-center gap-sm border border-outline-variant">
+<span class="material-symbols-outlined text-on-surface-variant" style="font-size: 64px; font-variation-settings: &quot;FILL&quot; 0;">person</span>
+<span class="text-caption text-on-surface-variant opacity-50">Tu foto aquí</span>
+</div></div>
+<div class="w-full md:w-1/2 flex flex-col gap-md">
+<h2 class="font-headline-h2 text-headline-h2 text-brand-blue">Hola, soy Sabri. Tu socia estratégica.</h2>
+<p class="font-body-main text-body-main text-text-strong opacity-90">
+          No hago "páginas web bonitas". Construyo herramientas de venta. Mi trabajo es entender tu negocio y traducirlo a un entorno digital que realmente funcione para vos. Mi enfoque es honesto, directo y 100% orientado a que tu negocio deje de perder dinero por no estar en internet.
+        </p>
+<p class="font-medium text-brand-blue">
+          Si estás listo para dejar de regalarle clientes a tu competencia, da el primer paso.
+        </p><div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-8">
+<a class="bg-brand-orange hover:bg-brand-orange-hover text-white font-label-cta text-label-cta px-md py-[12px] rounded transition-colors duration-200 font-medium shadow-ambient w-full sm:w-auto text-center inline-block" href="https://forms.gle/oWGL9HK99mWdtEL4A">COMPLETAR FORMULARIO</a>
+</div>
+</div>
+</div>
+</div>
+</section><footer class="bg-white border-t border-brand-border full-width mt-xl">
+<div class="flex flex-col md:flex-row justify-between items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
+<img alt="Sabri Studios Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjD1td14RWoF2HcWhnJ3dbbNUyY9OFX8z0dsjZO3sfhfID_SxnAdwpkjCoZzScHENpaIyWZRRy_OON7txuub8EfXWliTk6oPqu2XLRbK3HWS7tg101vnwR0r8WvZ9zkmsTtZNj4byloOa4NtgLm8zpB9oG9KGdbersT05LTaHHbMtqlbDq67wrea0d23ii-IEGX2la8Lh_7r94bgSkLMjWKMMVxrpDe4zmE8FZhm72mHNdNhjUdQBU5MAN4RAZn5z5B2I">
+<div class="flex gap-md font-body-main text-body-main"><a class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-lg">photo_camera</span>
+<span class="text-sm">Instagram</span>
+</a>
+<a class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs" href="#">
+<span class="material-symbols-outlined text-lg">mail</span>
+<span class="text-sm">Email</span>
+</a></div>
+<div class="font-caption text-caption text-on-surface-variant">© 2026 Sabrina Sanso. Todos los derechos reservados.</div>
+</div>
+</footer>
+
+
+<a href="https://wa.me/5492645854487" target="_blank" class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105" style="background-color: rgb(37, 211, 102);"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.89 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.743-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path></svg><span class="font-medium">¡Hablemos!</span></a></body></html>
