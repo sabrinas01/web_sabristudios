@@ -159,6 +159,37 @@
       opacity: 1;
       transform: translateX(0);
     }
+
+    .process-step {
+      opacity: 0;
+      transform: translateY(32px) scale(0.96);
+      transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .process-step.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    .process-step:nth-of-type(3) {
+      transition-delay: 0.15s;
+    }
+    .process-step:nth-of-type(4) {
+      transition-delay: 0.3s;
+    }
+    .process-step-number {
+      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.65s ease-out;
+    }
+    .process-step.is-visible .process-step-number {
+      transform: scale(1.12);
+      box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .slide-in-left,
+      .process-step {
+        opacity: 1;
+        transform: none;
+        transition: none;
+      }
+    }
   </style>
 </head>
 
@@ -324,8 +355,8 @@
       <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
 
       <!-- Paso 1 -->
-      <div class="flex flex-col items-center text-center gap-sm relative z-10">
-        <div class="w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
+      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Analizamos tu negocio y descubrimos exactamente por qué estás perdiendo clientes hoy.
@@ -333,8 +364,8 @@
       </div>
 
       <!-- Paso 2 -->
-      <div class="flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
+      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Creamos una estructura visual y de contenido enfocada puramente en generar confianza y conversión.
@@ -342,8 +373,8 @@
       </div>
 
       <!-- Paso 3: destacado con fondo naranja (es el paso final) -->
-      <div class="flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Tu sistema de captación activado y listo para transformar visitas cualificadas en clientes.
@@ -435,7 +466,7 @@
     // están ocultas y corridas a la izquierda hasta que aparecen en pantalla.
 
     // 1. Buscamos todos los elementos que queremos animar
-    const slideElements = document.querySelectorAll('.slide-in-left');
+    const animatedElements = document.querySelectorAll('.slide-in-left, .process-step');
 
     // 2. Creamos un "observador" que avisa cuando un elemento entra en la ventana visible
     const slideInObserver = new IntersectionObserver((entries) => {
@@ -450,7 +481,7 @@
     }, { threshold: 0.2 }); // se dispara cuando al menos el 20% de la tarjeta es visible
 
     // 3. Le decimos al observador que vigile cada una de las tarjetas
-    slideElements.forEach((el) => slideInObserver.observe(el));
+    animatedElements.forEach((el) => slideInObserver.observe(el));
   </script>
 
 </body>
