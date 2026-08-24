@@ -143,6 +143,22 @@
       font-family: 'Material Symbols Outlined', sans-serif;
       font-weight: 300;
     }
+
+    /*
+      Animación "deslizar de izquierda a derecha".
+      Arrancamos el elemento invisible (opacity: 0) y corrido 60px hacia la izquierda.
+      Cuando le agregamos la clase "is-visible" (con JavaScript, al hacer scroll),
+      pasa a su posición y opacidad normales de forma suave gracias a "transition".
+    */
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-60px);
+      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+    }
+    .slide-in-left.is-visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
   </style>
 </head>
 
@@ -237,8 +253,8 @@
       <!-- Grilla de 2 columnas: en mobile se apilan, desde md se muestran lado a lado -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
 
-        <!-- Tarjeta "ANTES" -->
-        <div class="p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
+        <!-- Tarjeta "ANTES" (se desliza de izquierda a derecha al llegar al scroll) -->
+        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
           <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
           </div>
@@ -259,8 +275,8 @@
           </ul>
         </div>
 
-        <!-- Tarjeta "DESPUÉS" -->
-        <div class="p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden">
+        <!-- Tarjeta "DESPUÉS" (se desliza igual que "ANTES", pero un poco más tarde) -->
+        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
           <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
           </div>
@@ -413,6 +429,29 @@
     </svg>
     <span class="font-medium">¡Hablemos!</span>
   </a>
+
+  <script>
+    // Animación al hacer scroll: las tarjetas con la clase "slide-in-left"
+    // están ocultas y corridas a la izquierda hasta que aparecen en pantalla.
+
+    // 1. Buscamos todos los elementos que queremos animar
+    const slideElements = document.querySelectorAll('.slide-in-left');
+
+    // 2. Creamos un "observador" que avisa cuando un elemento entra en la ventana visible
+    const slideInObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          // El elemento ya es visible: le agregamos la clase que dispara la transición CSS
+          entry.target.classList.add('is-visible');
+          // Dejamos de observarlo: no necesitamos que se anime de nuevo
+          slideInObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 }); // se dispara cuando al menos el 20% de la tarjeta es visible
+
+    // 3. Le decimos al observador que vigile cada una de las tarjetas
+    slideElements.forEach((el) => slideInObserver.observe(el));
+  </script>
 
 </body>
 </html>
