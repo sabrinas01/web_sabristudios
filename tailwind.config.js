@@ -91,7 +91,8 @@ module.exports = {
         "headline-h3": ["Space Grotesk"],
         "headline-h2": ["Space Grotesk"],
         "caption": ["Space Grotesk"],
-        "body-main": ["Space Grotesk"]
+        "body-main": ["Space Grotesk"],
+        "whatsapp-cta": ["Space Mono", "monospace"]
       },
 
       // Tamaños de fuente con su interlineado, peso, etc. ya definidos
