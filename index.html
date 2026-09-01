@@ -109,11 +109,16 @@
       </div>
 
       <!-- Botón de menú hamburguesa, solo visible en mobile (md:hidden lo oculta en desktop) -->
-      <!-- Nota: este botón todavía no tiene funcionalidad (no abre ningún menú) -->
-      <button class="md:hidden p-2 text-brand-blue">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+        <span id="mobile-menu-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
       </button>
 
+    </div>
+
+    <!-- Menú mobile desplegable: oculto por defecto, se abre/cierra con el botón hamburguesa -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
+      <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
+      <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
     </div>
   </nav>
 
@@ -359,6 +364,31 @@
   </a>
 
   <script>
+    // Menú hamburguesa (mobile): muestra/oculta el panel de links y cambia el ícono.
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', 'false');
+      mobileMenuIcon.textContent = 'menu';
+    }
+
+    mobileMenuButton.addEventListener('click', () => {
+      const isOpen = !mobileMenu.classList.contains('hidden');
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        mobileMenu.classList.remove('hidden');
+        mobileMenuButton.setAttribute('aria-expanded', 'true');
+        mobileMenuIcon.textContent = 'close';
+      }
+    });
+
+    // Cerramos el menú al tocar un link (para que no quede abierto al navegar)
+    mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+
     // Animación al hacer scroll: las tarjetas con la clase "slide-in-left"
     // están ocultas y corridas a la izquierda hasta que aparecen en pantalla.
 
