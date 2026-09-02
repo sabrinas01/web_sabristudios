@@ -87,12 +87,73 @@
       transform: scale(1.12);
       box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
     }
+    /*
+      Tarjetas de "Proyectos desarrollados": entran con un efecto de aparición
+      más marcado (escala + rotación leve) y, al pasar el mouse, un brillo
+      diagonal recorre la tarjeta de punta a punta.
+    */
+    .project-card {
+      opacity: 0;
+      transform: translateY(40px) scale(0.85) rotate(-2deg);
+      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+        box-shadow 0.3s ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card.is-visible {
+      opacity: 1;
+      transform: translateY(0) scale(1) rotate(0deg);
+    }
+    .project-card.is-visible:hover {
+      transform: translateY(-6px) scale(1.02) rotate(0deg);
+      box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
+    }
+    .project-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+    .project-card:hover::after {
+      left: 125%;
+      transition: left 0.75s ease-out;
+    }
+    .visit-link {
+      position: relative;
+    }
+    .visit-link::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background-color: currentColor;
+      transition: width 0.3s ease-out;
+    }
+    .project-card:hover .visit-link {
+      color: #C66A2E;
+    }
+    .project-card:hover .visit-link::after {
+      width: 100%;
+    }
     @media (prefers-reduced-motion: reduce) {
       .slide-in-left,
-      .process-step {
+      .process-step,
+      .project-card,
+      .project-card.is-visible:hover {
         opacity: 1;
         transform: none;
         transition: none;
+      }
+      .project-card::after {
+        display: none;
       }
     }
   </style>
@@ -115,6 +176,7 @@
       <!-- Links de navegación: se ocultan en mobile (md:flex los muestra desde pantallas medianas) -->
       <div class="hidden md:flex items-center gap-md">
         <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proceso</a>
+        <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proyectos</a>
         <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Sobre Mí</a>
       </div>
 
@@ -128,6 +190,7 @@
     <!-- Menú mobile desplegable: oculto por defecto, se abre/cierra con el botón hamburguesa -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
       <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
+      <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
       <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
     </div>
   </nav>
@@ -295,6 +358,42 @@
   </section>
 
   <!-- ============================== -->
+  <!-- SECCIÓN "PROYECTOS DESARROLLADOS" -->
+  <!-- ============================== -->
+  <section id="proyectos" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+
+    <!-- Título y bajada, centrados -->
+    <div class="text-center max-w-2xl mx-auto">
+      <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+        Proyectos desarrollados
+      </h2>
+      <p class="font-body-main text-body-main text-text-strong opacity-80">
+        Negocios que ya dieron el paso hacia una presencia digital que trabaja para ellos.
+      </p>
+    </div>
+
+    <!-- Grilla de proyectos: cada tarjeta es un link al sitio del cliente -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+
+      <!-- Proyecto: AR Estética Vehicular -->
+      <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
+        class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
+        <div class="w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+          <img src="imagenes/logo-ar-estetica-vehicular.png" alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+        </div>
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
+        <p class="font-body-main text-body-main text-text-strong opacity-80">
+          Mantenimiento de alfombras, techos, butacas, tablero y puertas, y recuperado de ópticas.
+        </p>
+        <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
+          Visitar sitio web
+        </span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
   <section id="sobre-mi" class="py-section bg-white">
@@ -402,7 +501,7 @@
     // están ocultas y corridas a la izquierda hasta que aparecen en pantalla.
 
     // 1. Buscamos todos los elementos que queremos animar
-    const animatedElements = document.querySelectorAll('.slide-in-left, .process-step');
+    const animatedElements = document.querySelectorAll('.slide-in-left, .process-step, .project-card');
 
     // 2. Creamos un "observador" que avisa cuando un elemento entra en la ventana visible
     const slideInObserver = new IntersectionObserver((entries) => {
