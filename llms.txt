@@ -1,0 +1,22 @@
+# Sabri Studios
+
+> Sabri Studios diseña y desarrolla páginas web para pequeños negocios y emprendimientos en San Juan, Argentina, con foco en hacerlos aparecer en Google y Google Maps y conseguir clientes nuevos.
+
+Sabri Studios es un servicio unipersonal fundado y operado por Sabrina Sanso, orientado a negocios que hoy dependen del boca a boca y no tienen presencia digital.
+
+## Servicio
+
+- Diagnóstico del negocio: qué vende, a quién, y por qué no lo encuentran hoy en internet.
+- Diseño y estrategia: una página web pensada para generar confianza y conversión, no solo para verse bien.
+- Resultados: entrega de una web lista, encontrable en buscadores y orientada a captar clientes.
+- El servicio se coordina de forma remota; el negocio está en San Juan, Argentina, pero atiende clientes de cualquier ciudad.
+
+## Contacto
+
+- WhatsApp: https://wa.me/5492645854487
+- Email: estudiosabrina.26@gmail.com
+- Instagram: https://www.instagram.com/sabristudios/
+
+## Páginas
+
+- [Sitio principal](https://sabristudios.vercel.app/): propuesta de valor, proceso de trabajo, proyectos realizados, preguntas frecuentes y contacto.

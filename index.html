@@ -1,9 +1,76 @@
 <!DOCTYPE html>
-<html class="light" lang="es">
+<html class="light" lang="es-AR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabri Studios - Landing Page</title>
+  <title>Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina</title>
+  <meta name="description" content="Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos en San Juan, Argentina. Aparecé en Google, generá confianza y conseguí clientes. Demo gratis por WhatsApp.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://sabristudios.vercel.app/">
+
+  <!-- Geo (SEO local) -->
+  <meta name="geo.region" content="AR-J">
+  <meta name="geo.placename" content="San Juan, Argentina">
+
+  <!-- Open Graph / redes sociales -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Sabri Studios">
+  <meta property="og:locale" content="es_AR">
+  <meta property="og:url" content="https://sabristudios.vercel.app/">
+  <meta property="og:title" content="Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina">
+  <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
+  <meta property="og:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina">
+  <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
+  <meta name="twitter:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <meta name="theme-color" content="#1E3A5F">
+
+  <!-- Datos estructurados (Schema.org) para buscadores y motores de IA (GEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Sabri Studios",
+    "url": "https://sabristudios.vercel.app/",
+    "logo": "https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg",
+    "image": "https://sabristudios.vercel.app/imagenes/sabrina-fundadora-sabri-studios.jpg",
+    "description": "Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos, orientadas a generar presencia en Google y conseguir clientes.",
+    "email": "estudiosabrina.26@gmail.com",
+    "telephone": "+5492645854487",
+    "priceRange": "$$",
+    "founder": {
+      "@type": "Person",
+      "name": "Sabrina Sanso"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Juan",
+      "addressRegion": "San Juan",
+      "addressCountry": "AR"
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "San Juan, Argentina"
+    },
+    "sameAs": [
+      "https://www.instagram.com/sabristudios/"
+    ],
+    "makesOffer": {
+      "@type": "Offer",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Diseño y desarrollo de páginas web",
+        "description": "Diagnóstico, diseño y estrategia de presencia digital para que pequeños negocios aparezcan en Google y generen clientes."
+      }
+    }
+  }
+  </script>
 
   <!-- Vercel Web Analytics -->
   <script>
@@ -47,6 +114,10 @@
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined', sans-serif;
       font-weight: 300;
+    }
+    /* Oculta el triángulo nativo de <details> en Safari/WebKit (Tailwind list-none ya lo hace en Chrome/Firefox) */
+    details summary::-webkit-details-marker {
+      display: none;
     }
 
     /*
@@ -169,8 +240,8 @@
 
       <!-- Logo, hace de link al inicio de la página -->
       <a href="#" class="text-headline-h3 font-headline-h3 font-bold text-primary tracking-tight">
-        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWMu0MUxeraZuyhOL1GMwl9AuCcmNRIUeuWc2x-bSst61S-izbnwhUui7ZwZuTMCXS7y5fni-KOU7gn3tmkUUZ1o7Pq-_ARvVX0Ii5x3MCzCXoB8AYaU2KoILyR_0uVAIGjwMpKH491Hm6K7_eRoYU1ziEFzXK5l_PF2rTgB5cTGnhoTKQL4cgjgAYX6WFA4Tv6uJWmN-sjGZ46yU8Hi8HwM1S0ewD1GTbhNdCqoU48YmK2FeZYFhZm2XH7z7EvPURjSc"
-          alt="Sabri Studios Logo" class="h-8 w-auto object-contain">
+        <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160"
+          alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
       </a>
 
       <!-- Links de navegación: se ocultan en mobile (md:flex los muestra desde pantallas medianas) -->
@@ -178,6 +249,7 @@
         <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proceso</a>
         <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proyectos</a>
         <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Sobre Mí</a>
+        <a href="#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
       <!-- Botón de menú hamburguesa, solo visible en mobile (md:hidden lo oculta en desktop) -->
@@ -192,6 +264,7 @@
       <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
       <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
       <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
+      <a href="#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
     </div>
   </nav>
 
@@ -229,7 +302,8 @@
     <!-- Columna derecha: imagen de fondo decorativa -->
     <div class="w-full md:w-1/2 relative min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
       <div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90"
-        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB0k7o4-mrB9TbmuiHaszoYMqFqFbdQmNQe0pKFlyHNZ1GAKnzKfRuysReVtppD_DB19k-MfphHyBPrqeUA4HSwYOlPKIiI759soZGORoPptq4-wthovyf47RI5cMkmTFiD6zGu2Gc95rXRVuUeRRRGpXiJXhIfJKR96UuRM-M7ZQBfU9bjAmwuMGhSfoEstTVnn4fbBFTYYNRtt79o2H-3aeEK6HaJjl7ifEJo3b914-LAEnC8-Nvgiw');">
+        role="img" aria-label="Ilustración de un negocio con presencia digital en Google"
+        style="background-image: url('imagenes/hero-presencia-online-google.jpg');">
       </div>
       <!-- Capa de degradado encima de la imagen, para suavizarla -->
       <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
@@ -379,7 +453,8 @@
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <div class="w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
-          <img src="imagenes/logo-ar-estetica-vehicular.png" alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+          <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
+            alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
         </div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80">
@@ -403,7 +478,8 @@
         <!-- Foto de perfil -->
         <div class="w-full md:w-1/2">
           <div class="w-full aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
-            <img src="imagenes/imagen mia de frente.png" alt="Sabri, fundadora de Sabri Studios" class="w-full h-full object-cover">
+            <img src="imagenes/sabrina-fundadora-sabri-studios.jpg" width="800" height="800" loading="lazy"
+              alt="Sabrina Sanso, fundadora de Sabri Studios, diseño y desarrollo de páginas web en San Juan" class="w-full h-full object-cover">
           </div>
         </div>
 
@@ -432,22 +508,149 @@
     </div>
   </section>
 
+  <!-- ============================================ -->
+  <!-- SECCIÓN "PREGUNTAS FRECUENTES" (SEO/GEO: FAQ) -->
+  <!-- ============================================ -->
+  <section id="preguntas-frecuentes" class="py-section bg-white border-y border-brand-border">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+          Preguntas frecuentes
+        </h2>
+        <p class="font-body-main text-body-main text-text-strong opacity-80">
+          Lo que más me preguntan antes de empezar a trabajar juntos.
+        </p>
+      </div>
+
+      <div class="max-w-3xl mx-auto w-full flex flex-col gap-sm">
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Qué incluye el servicio de Sabri Studios?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Un proceso de tres etapas: diagnóstico de tu negocio, diseño y estrategia de tu página web, y
+            entrega de resultados: una web lista, encontrable en Google y pensada para conseguir clientes,
+            no solo para verse bien.
+          </p>
+        </details>
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Trabajás con negocios de cualquier rubro?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Sí. Trabajo con pequeños negocios y emprendimientos que hoy dependen del boca a boca y quieren
+            empezar a aparecer en Google y Google Maps, sin importar el rubro.
+          </p>
+        </details>
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Atendés solo en San Juan o también otras provincias?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Sabri Studios está en San Juan, Argentina, pero el trabajo se coordina de forma remota por
+            WhatsApp, así que puedo ayudarte sin importar en qué ciudad esté tu negocio.
+          </p>
+        </details>
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+            No tengo idea de qué necesita mi negocio, ¿igual puedo consultar?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Sí, es el punto de partida normal. No arranco diseñando: arranco preguntando sobre tu negocio
+            para entender qué necesitás antes de proponerte una solución.
+          </p>
+        </details>
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Cómo reservo la demo gratis?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Escribiéndome por WhatsApp desde cualquier botón "Reservá tu demo" de esta página. Te respondo
+            directamente para coordinar el diagnóstico inicial.
+          </p>
+        </details>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Datos estructurados de la sección FAQ, para que buscadores y motores de IA muestren las respuestas directamente -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Qué incluye el servicio de Sabri Studios?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Un proceso de tres etapas: diagnóstico de tu negocio, diseño y estrategia de tu página web, y entrega de resultados: una web lista, encontrable en Google y pensada para conseguir clientes, no solo para verse bien."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Trabajás con negocios de cualquier rubro?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Trabajo con pequeños negocios y emprendimientos que hoy dependen del boca a boca y quieren empezar a aparecer en Google y Google Maps, sin importar el rubro."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Atendés solo en San Juan o también otras provincias?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sabri Studios está en San Juan, Argentina, pero el trabajo se coordina de forma remota por WhatsApp, así que puede ayudarte sin importar en qué ciudad esté tu negocio."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "No tengo idea de qué necesita mi negocio, ¿igual puedo consultar?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, es el punto de partida normal. No arranca diseñando: arranca preguntando sobre tu negocio para entender qué necesitás antes de proponerte una solución."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo reservo la demo gratis?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Escribiendo por WhatsApp desde cualquier botón \"Reservá tu demo\" de la página. Sabrina responde directamente para coordinar el diagnóstico inicial."
+        }
+      }
+    ]
+  }
+  </script>
+
   <!-- ============================== -->
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
     <div class="flex flex-col md:flex-row justify-between items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
 
-      <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjD1td14RWoF2HcWhnJ3dbbNUyY9OFX8z0dsjZO3sfhfID_SxnAdwpkjCoZzScHENpaIyWZRRy_OON7txuub8EfXWliTk6oPqu2XLRbK3HWS7tg101vnwR0r8WvZ9zkmsTtZNj4byloOa4NtgLm8zpB9oG9KGdbersT05LTaHHbMtqlbDq67wrea0d23ii-IEGX2la8Lh_7r94bgSkLMjWKMMVxrpDe4zmE8FZhm72mHNdNhjUdQBU5MAN4RAZn5z5B2I"
-        alt="Sabri Studios Logo" class="h-8 w-auto object-contain">
+      <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
+        alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
 
       <!-- Links a redes sociales / contacto -->
       <div class="flex gap-md font-body-main text-body-main">
-        <a href="#" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+        <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
           <span class="material-symbols-outlined text-lg">photo_camera</span>
           <span class="text-sm">Instagram</span>
         </a>
-        <a href="#" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+        <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
           <span class="material-symbols-outlined text-lg">mail</span>
           <span class="text-sm">Email</span>
         </a>
@@ -517,6 +720,21 @@
 
     // 3. Le decimos al observador que vigile cada una de las tarjetas
     animatedElements.forEach((el) => slideInObserver.observe(el));
+
+    // Tracking de conversión (SEM): registramos cada clic en un link de WhatsApp,
+    // identificando desde qué sección de la página salió, para poder optimizar
+    // campañas de Google Ads en base a clics reales de contacto.
+    document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const section = link.closest('section[id]')?.id || (link.closest('nav') ? 'nav' : 'flotante');
+        if (typeof gtag === 'function') {
+          gtag('event', 'contacto_whatsapp', {
+            event_category: 'engagement',
+            event_label: section,
+          });
+        }
+      });
+    });
   </script>
 
 </body>
