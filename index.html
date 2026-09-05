@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina</title>
+  <title>Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina</title>
   <meta name="description" content="Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos en San Juan, Argentina. Aparecé en Google, generá confianza y conseguí clientes. Demo gratis por WhatsApp.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://sabristudios.vercel.app/">
@@ -17,18 +17,20 @@
   <meta property="og:site_name" content="Sabri Studios">
   <meta property="og:locale" content="es_AR">
   <meta property="og:url" content="https://sabristudios.vercel.app/">
-  <meta property="og:title" content="Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina">
+  <meta property="og:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta property="og:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para negocios en San Juan, Argentina">
+  <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta name="twitter:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
-  <!-- Favicon -->
+  <!-- Favicon / PWA -->
   <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1E3A5F">
 
   <!-- Datos estructurados (Schema.org) para buscadores y motores de IA (GEO) -->
@@ -61,14 +63,32 @@
     "sameAs": [
       "https://www.instagram.com/sabristudios/"
     ],
-    "makesOffer": {
-      "@type": "Offer",
-      "itemOffered": {
-        "@type": "Service",
-        "name": "Diseño y desarrollo de páginas web",
-        "description": "Diagnóstico, diseño y estrategia de presencia digital para que pequeños negocios aparezcan en Google y generen clientes."
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Diagnóstico de negocio",
+          "description": "Análisis de qué vende el negocio, a quién, y por qué hoy no lo encuentran en internet."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Diseño y estrategia de páginas web",
+          "description": "Diseño y desarrollo de una página web orientada a generar confianza y conversión, no solo a verse bien."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Presencia digital y captación de clientes",
+          "description": "Entrega de una página web lista, encontrable en Google y Google Maps, y orientada a captar clientes nuevos."
+        }
       }
-    }
+    ]
   }
   </script>
 
@@ -101,6 +121,10 @@
   <link rel="stylesheet" href="dist/output.css">
 
   <!-- Fuentes de Google Fonts: iconos (Material Symbols) y la tipografía Space Grotesk -->
+  <!-- preconnect adelanta la conexión (DNS+TLS) a los dos dominios de Google Fonts,
+       para que cuando llegue el <link> real la fuente empiece a bajar antes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
@@ -451,6 +475,7 @@
 
       <!-- Proyecto: AR Estética Vehicular -->
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
+        aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <div class="w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
