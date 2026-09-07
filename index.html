@@ -3,20 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Acá pongo el título de la pestaña, y es lo primero que se ve como link en Google -->
+  <!-- Acá pongo el título de la pestaña, es lo primero que aparece como link cuando alguien me busca en Google -->
   <title>Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina</title>
-  <!-- Esta es la descripción corta que sale debajo del título cuando alguien me busca en Google -->
+  <!-- Esta es la bajada cortita que sale debajo del título en los resultados de Google -->
   <meta name="description" content="Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos en San Juan, Argentina. Aparecé en Google, generá confianza y conseguí clientes. Demo gratis por WhatsApp.">
-  <!-- Con esto le doy permiso a Google para que me muestre en los resultados -->
+  <!-- Con este meta le doy luz verde a Google para que indexe la página y me muestre en los resultados -->
   <meta name="robots" content="index, follow">
-  <!-- Le marco a Google cuál es mi dirección "oficial", para que no se confunda si hay copias -->
+  <!-- Acá le marco a Google cuál es mi URL "oficial", así no se confunde si en algún momento aparece una copia de la página -->
   <link rel="canonical" href="https://sabristudios.vercel.app/">
 
-  <!-- Estos dos le avisan a los buscadores de qué ciudad soy, para que me muestren a gente cerca -->
+  <!-- Con estos dos meta les aviso a los buscadores de qué ciudad soy, para que me muestren a gente cerca -->
   <meta name="geo.region" content="AR-J">
   <meta name="geo.placename" content="San Juan, Argentina">
 
-  <!-- Todo este bloque es para que, cuando comparto el link en Whatsapp o Facebook, se vea prolijo con imagen, título y descripción -->
+  <!-- Todo este bloque de Open Graph lo agregué para que, cuando comparto el link por WhatsApp o Facebook, se vea prolijo con imagen, título y descripción -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sabri Studios">
   <meta property="og:locale" content="es_AR">
@@ -25,26 +25,26 @@
   <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta property="og:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
-  <!-- Lo mismo de arriba pero para cuando se comparte en Twitter/X -->
+  <!-- Repito lo mismo de arriba pero con las etiquetas que lee Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta name="twitter:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <!-- Favicon / PWA -->
-  <!-- Este es el ícono chiquito de la pestaña del navegador -->
+  <!-- Este es el iconito chiquito que aparece en la pestaña del navegador -->
   <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
-  <!-- Y este es el ícono que queda si alguien guarda mi página en la pantalla de inicio del celular -->
+  <!-- Y este otro es el ícono que queda si alguien guarda la página en la pantalla de inicio del celular -->
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
-  <!-- Este archivo (manifest.json) tiene los datos para que la página se pueda "instalar" como una app -->
+  <!-- Este manifest.json tiene los datos para que la página se pueda "instalar" como si fuera una app -->
   <link rel="manifest" href="manifest.json">
-  <!-- Este es el color que toma la barra de arriba del celular cuando alguien entra a mi web -->
+  <!-- Este es el color que toma la barra de arriba del celular cuando alguien entra a la web -->
   <meta name="theme-color" content="#1E3A5F">
 
   <!--
-    Este bloque no se ve en la página, es solo para que Google (y las IAs que buscan en internet)
-    entiendan bien de qué es mi negocio: quién soy, dónde estoy, qué ofrezco y cómo contactarme.
-    Lo pongo con la idea de que me ayude a aparecer mejor en las búsquedas.
+    Este bloque de datos estructurados (JSON-LD) no se ve en la página, es solo para que Google
+    (y las IAs que buscan en internet) entiendan bien de qué es mi negocio: quién soy, dónde estoy,
+    qué ofrezco y cómo contactarme. Lo agregué porque leí que ayuda a aparecer mejor en las búsquedas.
   -->
   <script type="application/ld+json">
   {
@@ -105,7 +105,7 @@
   </script>
 
   <!--
-    Con esto reviso cuántas visitas tiene la página (viene incluido porque la tengo alojada en Vercel).
+    Con este script reviso cuántas visitas tiene la página; viene gratis por tenerla alojada en Vercel.
   -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -113,8 +113,8 @@
   <script defer src="/_vercel/insights/script.js"></script>
 
   <!--
-    Esto conecta mi web con Google Analytics, para ver cuánta gente entra. Más abajo lo uso
-    también para anotar cada vez que alguien me escribe por Whatsapp.
+    Esto conecta la web con Google Analytics para ver cuánta gente entra. Más abajo lo reutilizo
+    también para anotar cada vez que alguien me escribe por WhatsApp.
   -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLPQM5HE7G"></script>
   <script>
@@ -126,9 +126,9 @@
   </script>
 
   <!--
-    Esto es Microsoft Clarity, una herramienta gratis que me deja ver cómo la gente navega mi
-    página (algo así como grabaciones de la pantalla) y en qué parte se quedan pegados o se van.
-    Me sirve para detectar qué está fallando.
+    Esto es Microsoft Clarity, una herramienta gratis que encontré para ver cómo la gente navega
+    la página (son como grabaciones de la pantalla) y en qué parte se traban o se van. La uso
+    para detectar qué está fallando.
   -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
@@ -138,40 +138,40 @@
     })(window, document, "clarity", "script", "ybpt6ju825");
   </script>
 
-  <!-- Tailwind CSS: framework de estilos, precompilado en build time (ver tailwind.config.js) -->
+  <!-- Uso Tailwind CSS para los estilos, ya viene precompilado en build time (lo configuré en tailwind.config.js) -->
   <link rel="stylesheet" href="dist/output.css">
 
-  <!-- Fuentes de Google Fonts: iconos (Material Symbols) y la tipografía Space Grotesk -->
-  <!-- preconnect adelanta la conexión (DNS+TLS) a los dos dominios de Google Fonts,
-       para que cuando llegue el <link> real la fuente empiece a bajar antes -->
+  <!-- Estas son las fuentes que traigo de Google Fonts: los íconos (Material Symbols) y la tipografía Space Grotesk -->
+  <!-- Con preconnect adelanto la conexión (DNS+TLS) a los dominios de Google Fonts,
+       para que cuando llegue el <link> real la fuente ya empiece a descargarse antes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
 
-  <!-- Estilos propios, fuera de Tailwind (cosas puntuales que no vienen como clase) -->
+  <!-- Acá abajo van mis estilos propios, fuera de Tailwind, para cosas puntuales que no me salían solo con clases -->
   <style>
-    /* El color de fondo y de letra de toda la página, por si algo falla y Tailwind no llega a cargar */
+    /* Pongo el color de fondo y de letra de toda la página por si algo falla y Tailwind no llega a cargar */
     body {
       background-color: #F5F3EF;
       color: #12202E;
     }
-    /* Esto es para que los íconos (los de Google) se vean bien en toda la página */
+    /* Esto es para que los íconos de Google se vean bien en toda la página */
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined', sans-serif;
       font-weight: 300;
     }
-    /* Oculta el triángulo nativo de <details> en Safari/WebKit (Tailwind list-none ya lo hace en Chrome/Firefox) */
+    /* Con esto oculto el triángulo nativo de <details> en Safari/WebKit, porque el list-none de Tailwind solo lo saca en Chrome/Firefox */
     details summary::-webkit-details-marker {
       display: none;
     }
 
     /*
-      Animación "deslizar de izquierda a derecha".
-      Arrancamos el elemento invisible (opacity: 0) y corrido 60px hacia la izquierda.
-      Cuando le agregamos la clase "is-visible" (con JavaScript, al hacer scroll),
-      pasa a su posición y opacidad normales de forma suave gracias a "transition".
+      Animación de "deslizar de izquierda a derecha".
+      Arranco el elemento invisible (opacity: 0) y corrido 60px hacia la izquierda.
+      Cuando le agrego la clase "is-visible" (con JavaScript, al hacer scroll),
+      pasa a su posición y opacidad normales de forma suave gracias al "transition".
     */
     .slide-in-left {
       opacity: 0;
@@ -206,9 +206,9 @@
       box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
     }
     /*
-      Tarjetas de "Proyectos desarrollados": entran con un efecto de aparición
-      más marcado (escala + rotación leve) y, al pasar el mouse, un brillo
-      diagonal recorre la tarjeta de punta a punta.
+      Tarjetas de "Proyectos desarrollados": las hice entrar con un efecto de aparición
+      más marcado (escala + rotación leve) y, al pasar el mouse, agrego un brillo
+      diagonal que recorre la tarjeta de punta a punta.
     */
     .project-card {
       opacity: 0;
@@ -267,7 +267,7 @@
     }
     /*
       Si alguien tiene activada la opción de "reducir movimiento" en su celular o compu
-      (por mareos o migrañas con las animaciones), acá le sacamos todas las transiciones y
+      (por mareos o migrañas con las animaciones), acá le saco todas las transiciones y
       dejo todo mostrado directamente, sin efectos.
     */
     @media (prefers-reduced-motion: reduce) {
@@ -294,13 +294,13 @@
   <nav class="bg-white border-b border-outline-variant docked full-width top-0 sticky z-50">
     <div class="flex justify-between items-center w-full px-sm md:px-lg py-4 max-w-container-max mx-auto">
 
-      <!-- Logo, hace de link al inicio de la página -->
+      <!-- Este es el logo, lo uso como link al inicio de la página -->
       <a href="#" class="text-headline-h3 font-headline-h3 font-bold text-primary tracking-tight">
         <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160"
           alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
       </a>
 
-      <!-- Links de navegación: se ocultan en mobile (md:flex los muestra desde pantallas medianas) -->
+      <!-- Estos son los links de navegación: los oculto en mobile y los muestro desde pantallas medianas con md:flex -->
       <div class="hidden md:flex items-center gap-md">
         <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proceso</a>
         <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proyectos</a>
@@ -319,7 +319,7 @@
 
     </div>
 
-    <!-- Menú mobile desplegable: oculto por defecto, se abre/cierra con el botón hamburguesa -->
+    <!-- Este es el menú mobile desplegable: lo dejo oculto por defecto y se abre/cierra con el botón hamburguesa -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
       <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
       <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
@@ -333,7 +333,7 @@
   <!-- ============================== -->
   <section class="max-w-container-max mx-auto px-sm md:px-lg py-section flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
 
-    <!-- Columna izquierda: texto principal y botón -->
+    <!-- Acá va la columna izquierda, con el texto principal y el botón -->
     <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
       <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
         El costo de la invisibilidad
@@ -363,13 +363,13 @@
       </div>
     </div>
 
-    <!-- Columna derecha: imagen de fondo decorativa -->
+    <!-- Y acá la columna derecha, con la imagen de fondo decorativa -->
     <div class="w-full md:w-1/2 relative min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
       <div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90"
         role="img" aria-label="Ilustración de un negocio con presencia digital en Google"
         style="background-image: url('imagenes/hero-presencia-online-google.jpg');">
       </div>
-      <!-- Capa de degradado encima de la imagen, para suavizarla -->
+      <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
       <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
     </div>
 
@@ -381,7 +381,7 @@
   <section id="problema" class="bg-white py-section border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
-      <!-- Título y bajada de la sección -->
+      <!-- Acá pongo el título y la bajada de la sección -->
       <div class="w-full">
         <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
           ¿Cuánto te está costando no aparecer en Google?
@@ -392,10 +392,10 @@
         </p>
       </div>
 
-      <!-- Grilla de 2 columnas: en mobile se apilan, desde md se muestran lado a lado -->
+      <!-- Hice una grilla de 2 columnas: en mobile se apilan y desde md se muestran lado a lado -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
 
-        <!-- Tarjeta "ANTES" (se desliza de izquierda a derecha al llegar al scroll) -->
+        <!-- Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll -->
         <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
           <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
@@ -417,7 +417,7 @@
           </ul>
         </div>
 
-        <!-- Tarjeta "DESPUÉS" (se desliza igual que "ANTES", pero un poco más tarde) -->
+        <!-- Y esta es la tarjeta "DESPUÉS": la deslizo igual que la de "ANTES" pero con un poco más de retraso -->
         <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
           <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
@@ -448,7 +448,7 @@
   <!-- ============================== -->
   <section id="proceso" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
-    <!-- Título y bajada, centrados -->
+    <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
       <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
         Un proceso directo, pensado para vender
@@ -459,10 +459,10 @@
       </p>
     </div>
 
-    <!-- Grilla de 3 pasos, con una línea que los conecta (solo visible en desktop) -->
+    <!-- Armé una grilla de 3 pasos, con una línea que los conecta y que solo se ve en desktop -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
-      <!-- Línea horizontal decorativa que "conecta" los 3 pasos en desktop -->
+      <!-- Esta línea horizontal es solo decorativa, para dar la sensación de que "conecta" los 3 pasos en desktop -->
       <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
 
       <!-- Paso 1 -->
@@ -483,7 +483,7 @@
         </p>
       </div>
 
-      <!-- Paso 3: destacado con fondo naranja (es el paso final) -->
+      <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
         <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
@@ -500,7 +500,7 @@
   <!-- ============================== -->
   <section id="proyectos" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
-    <!-- Título y bajada, centrados -->
+    <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
       <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
         Proyectos desarrollados
@@ -510,13 +510,13 @@
       </p>
     </div>
 
-    <!-- Grilla de proyectos: cada tarjeta es un link al sitio del cliente -->
+    <!-- Armé una grilla de proyectos donde cada tarjeta es un link directo al sitio del cliente -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
 
       <!--
         Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
         así se puede hacer clic en cualquier parte (la foto, el título, el texto) y no solo en
-        el "Visitar sitio web" de abajo.
+        el "Visitar sitio web" de abajo. Me pareció más cómodo de usar que un link chiquito nomás.
       -->
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
@@ -544,8 +544,8 @@
       </a>
 
       <!--
-        Este es el proyecto de JL Construcciones en Seco (Durlock & Steel). Toda la tarjeta es un
-        solo link, igual que la de AR Estética Vehicular.
+        Este es el proyecto de JL Construcciones en Seco (Durlock & Steel). Repetí el mismo patrón
+        de tarjeta-link que en la de AR Estética Vehicular, así queda todo consistente.
       -->
       <a href="https://www.jlconstrucciones.com/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de JL Construcciones en Seco, desarrollado por Sabri Studios"
@@ -576,7 +576,7 @@
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
       <div class="bg-white rounded-lg shadow-ambient p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
-        <!-- Foto de perfil -->
+        <!-- Acá pongo mi foto de perfil -->
         <div class="w-full md:w-1/2">
           <div class="w-full aspect-square bg-surface-container-low rounded-lg overflow-hidden border border-outline-variant">
             <img src="imagenes/sabrina-fundadora-sabri-studios.jpg" width="800" height="800" loading="lazy"
@@ -584,7 +584,7 @@
           </div>
         </div>
 
-        <!-- Texto de presentación -->
+        <!-- Y acá el texto de presentación -->
         <div class="w-full md:w-1/2 flex flex-col gap-md">
           <h2 class="font-headline-h2 text-headline-h2 text-brand-blue">¡Hola! Soy Sabri</h2>
           <p class="font-body-main text-body-main text-text-strong opacity-90">
@@ -753,7 +753,7 @@
       <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
         alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
 
-      <!-- Links a redes sociales / contacto -->
+      <!-- Acá van los links a mis redes sociales y contacto -->
       <div class="flex gap-md font-body-main text-body-main">
         <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
           <span class="material-symbols-outlined text-lg">photo_camera</span>
@@ -782,7 +782,7 @@
   <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
-    <!-- Ícono de WhatsApp dibujado a mano en SVG -->
+    <!-- Este es el ícono de WhatsApp, lo dibujé a mano en SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.89 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.743-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
     </svg>
@@ -790,7 +790,7 @@
   </a>
 
   <script>
-    // Menú hamburguesa (mobile): muestra/oculta el panel de links y cambia el ícono.
+    // Con esto manejo el menú hamburguesa del mobile: muestro/oculto el panel de links y cambio el ícono.
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
@@ -812,33 +812,33 @@
       }
     });
 
-    // Cerramos el menú al tocar un link (para que no quede abierto al navegar)
+    // Cierro el menú cuando tocan un link, para que no quede abierto al navegar
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
 
-    // Animación al hacer scroll: las tarjetas con la clase "slide-in-left"
-    // están ocultas y corridas a la izquierda hasta que aparecen en pantalla.
+    // Animación al hacer scroll: dejo las tarjetas con la clase "slide-in-left"
+    // ocultas y corridas a la izquierda hasta que aparecen en pantalla.
 
-    // 1. Buscamos todos los elementos que queremos animar
+    // 1. Busco todos los elementos que quiero animar
     const animatedElements = document.querySelectorAll('.slide-in-left, .process-step, .project-card');
 
-    // 2. Creamos un "observador" que avisa cuando un elemento entra en la ventana visible
+    // 2. Creo un "observador" que me avisa cuando un elemento entra en la ventana visible
     const slideInObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // El elemento ya es visible: le agregamos la clase que dispara la transición CSS
+          // El elemento ya es visible: le agrego la clase que dispara la transición CSS
           entry.target.classList.add('is-visible');
-          // Dejamos de observarlo: no necesitamos que se anime de nuevo
+          // Dejo de observarlo: no necesito que se anime de nuevo
           slideInObserver.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.2 }); // se dispara cuando al menos el 20% de la tarjeta es visible
+    }, { threshold: 0.2 }); // lo disparo cuando al menos el 20% de la tarjeta es visible
 
-    // 3. Le decimos al observador que vigile cada una de las tarjetas
+    // 3. Le digo al observador que vigile cada una de las tarjetas
     animatedElements.forEach((el) => slideInObserver.observe(el));
 
-    // Tracking de conversión (SEM): registramos cada clic en un link de WhatsApp,
+    // Tracking de conversión (SEM): registro cada clic en un link de WhatsApp,
     // identificando desde qué sección de la página salió, para poder optimizar
-    // campañas de Google Ads en base a clics reales de contacto.
+    // campañas de Google Ads con clics reales de contacto.
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
         const section = link.closest('section[id]')?.id || (link.closest('nav') ? 'nav' : 'flotante');
