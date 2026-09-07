@@ -3,16 +3,20 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Acá pongo el título de la pestaña, y es lo primero que se ve como link en Google -->
   <title>Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina</title>
+  <!-- Esta es la descripción corta que sale debajo del título cuando alguien me busca en Google -->
   <meta name="description" content="Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos en San Juan, Argentina. Aparecé en Google, generá confianza y conseguí clientes. Demo gratis por WhatsApp.">
+  <!-- Con esto le doy permiso a Google para que me muestre en los resultados -->
   <meta name="robots" content="index, follow">
+  <!-- Le marco a Google cuál es mi dirección "oficial", para que no se confunda si hay copias -->
   <link rel="canonical" href="https://sabristudios.vercel.app/">
 
-  <!-- Geo (SEO local) -->
+  <!-- Estos dos le avisan a los buscadores de qué ciudad soy, para que me muestren a gente cerca -->
   <meta name="geo.region" content="AR-J">
   <meta name="geo.placename" content="San Juan, Argentina">
 
-  <!-- Open Graph / redes sociales -->
+  <!-- Todo este bloque es para que, cuando comparto el link en Whatsapp o Facebook, se vea prolijo con imagen, título y descripción -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sabri Studios">
   <meta property="og:locale" content="es_AR">
@@ -21,19 +25,27 @@
   <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta property="og:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
-  <!-- Twitter Card -->
+  <!-- Lo mismo de arriba pero para cuando se comparte en Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
   <meta name="twitter:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <!-- Favicon / PWA -->
+  <!-- Este es el ícono chiquito de la pestaña del navegador -->
   <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <!-- Y este es el ícono que queda si alguien guarda mi página en la pantalla de inicio del celular -->
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
+  <!-- Este archivo (manifest.json) tiene los datos para que la página se pueda "instalar" como una app -->
   <link rel="manifest" href="manifest.json">
+  <!-- Este es el color que toma la barra de arriba del celular cuando alguien entra a mi web -->
   <meta name="theme-color" content="#1E3A5F">
 
-  <!-- Datos estructurados (Schema.org) para buscadores y motores de IA (GEO) -->
+  <!--
+    Este bloque no se ve en la página, es solo para que Google (y las IAs que buscan en internet)
+    entiendan bien de qué es mi negocio: quién soy, dónde estoy, qué ofrezco y cómo contactarme.
+    Lo pongo con la idea de que me ayude a aparecer mejor en las búsquedas.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -92,13 +104,18 @@
   }
   </script>
 
-  <!-- Vercel Web Analytics -->
+  <!--
+    Con esto reviso cuántas visitas tiene la página (viene incluido porque la tengo alojada en Vercel).
+  -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 
-  <!-- Google tag (gtag.js) -->
+  <!--
+    Esto conecta mi web con Google Analytics, para ver cuánta gente entra. Más abajo lo uso
+    también para anotar cada vez que alguien me escribe por Whatsapp.
+  -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLPQM5HE7G"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -108,7 +125,11 @@
     gtag('config', 'G-HLPQM5HE7G');
   </script>
 
-  <!-- Microsoft Clarity -->
+  <!--
+    Esto es Microsoft Clarity, una herramienta gratis que me deja ver cómo la gente navega mi
+    página (algo así como grabaciones de la pantalla) y en qué parte se quedan pegados o se van.
+    Me sirve para detectar qué está fallando.
+  -->
   <script type="text/javascript">
     (function(c,l,a,r,i,t,y){
         c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
@@ -131,10 +152,12 @@
 
   <!-- Estilos propios, fuera de Tailwind (cosas puntuales que no vienen como clase) -->
   <style>
+    /* El color de fondo y de letra de toda la página, por si algo falla y Tailwind no llega a cargar */
     body {
       background-color: #F5F3EF;
       color: #12202E;
     }
+    /* Esto es para que los íconos (los de Google) se vean bien en toda la página */
     .material-symbols-outlined {
       font-family: 'Material Symbols Outlined', sans-serif;
       font-weight: 300;
@@ -219,6 +242,10 @@
       left: 125%;
       transition: left 0.75s ease-out;
     }
+    /*
+      Esto es el "Visitar sitio web" de las tarjetas de proyectos: cuando paso el mouse por
+      encima de la tarjeta, le va apareciendo un subrayado de izquierda a derecha.
+    */
     .visit-link {
       position: relative;
     }
@@ -238,6 +265,11 @@
     .project-card:hover .visit-link::after {
       width: 100%;
     }
+    /*
+      Si alguien tiene activada la opción de "reducir movimiento" en su celular o compu
+      (por mareos o migrañas con las animaciones), acá le sacamos todas las transiciones y
+      dejo todo mostrado directamente, sin efectos.
+    */
     @media (prefers-reduced-motion: reduce) {
       .slide-in-left,
       .process-step,
@@ -276,7 +308,11 @@
         <a href="#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
-      <!-- Botón de menú hamburguesa, solo visible en mobile (md:hidden lo oculta en desktop) -->
+      <!--
+        Este es el botón de menú hamburguesa, solo aparece en celular. Le puse esos atributos
+        "aria" para que las personas que usan lectores de pantalla también sepan que es un botón
+        de menú y si está abierto o cerrado (aunque para mí sea solo un ícono).
+      -->
       <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
       </button>
@@ -313,7 +349,11 @@
         Te ayudo a construir la presencia online que hace que te encuentren a vos primero.
       </p>
 
-      <!-- Botón principal (CTA = "Call To Action", llamado a la acción) -->
+      <!--
+        Este es el botón principal para que me contacten. Uso "wa.me" con mi número, que es el
+        link oficial de Whatsapp para abrir un chat sin tener que tenerme agendada, y le dejo el
+        mensaje ya escrito para que la persona no tenga que pensar qué poner.
+      -->
       <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
         <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
           target="_blank" rel="noopener noreferrer"
@@ -473,11 +513,20 @@
     <!-- Grilla de proyectos: cada tarjeta es un link al sitio del cliente -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
 
-      <!-- Proyecto: AR Estética Vehicular -->
+      <!--
+        Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
+        así se puede hacer clic en cualquier parte (la foto, el título, el texto) y no solo en
+        el "Visitar sitio web" de abajo.
+      -->
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <div class="w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+          <!--
+            Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
+            carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
+            va llegando a esta parte al hacer scroll (así la página arranca más rápido).
+          -->
           <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
             alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
         </div>
@@ -548,6 +597,11 @@
         </p>
       </div>
 
+      <!--
+        Estas preguntas frecuentes se abren y cierran solas, sin que yo tenga que programar nada
+        con JavaScript: el navegador ya sabe hacerlo con las etiquetas "details" y "summary".
+        Y la flechita gira sola cuando la pregunta está abierta.
+      -->
       <div class="max-w-3xl mx-auto w-full flex flex-col gap-sm">
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
@@ -610,7 +664,10 @@
     </div>
   </section>
 
-  <!-- Datos estructurados de la sección FAQ, para que buscadores y motores de IA muestren las respuestas directamente -->
+  <!--
+    Repito acá las mismas preguntas frecuentes de arriba, pero en un formato que entienden mejor
+    Google y las IAs, para que puedan mostrar directamente la respuesta en la búsqueda.
+  -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -675,6 +732,7 @@
           <span class="material-symbols-outlined text-lg">photo_camera</span>
           <span class="text-sm">Instagram</span>
         </a>
+        <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
         <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
           <span class="material-symbols-outlined text-lg">mail</span>
           <span class="text-sm">Email</span>
@@ -689,6 +747,11 @@
   <!-- ============================================= -->
   <!-- BOTÓN FLOTANTE DE WHATSAPP (fijo en pantalla)  -->
   <!-- ============================================= -->
+  <!--
+    Este botón queda fijo en la pantalla, siempre visible aunque la persona haga scroll para
+    abajo. A diferencia de los otros botones de Whatsapp, este abre el chat sin mensaje
+    precargado, porque no está pensado para una sección puntual sino para toda la página.
+  -->
   <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
