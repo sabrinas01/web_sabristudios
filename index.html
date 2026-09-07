@@ -521,7 +521,11 @@
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <div class="w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+        <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
+        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
+          Estética Vehicular
+        </span>
+        <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <!--
             Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
             carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
