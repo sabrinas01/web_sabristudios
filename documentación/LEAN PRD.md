@@ -463,6 +463,24 @@ Antes de publicar cambios:
 
 ---
 
+### v1.7 — Septiembre 2026
+
+**Qué hice:** Rediseñé el Hero completo (`index.html`).
+
+**Detalle del cambio:**
+
+- El Hero ahora ocupa toda la altura de la pantalla (`min-h-screen`) y tiene un degradé de fondo suave (de `background` a blanco), en vez del alto automático que tenía antes.
+- El título ahora resalta la frase final ("no existe") en naranja de marca, para que se lea como el golpe de efecto del titular.
+- Agregué un segundo botón, "Ver cómo funciona", con estilo outline (borde azul, se rellena de azul al pasar el mouse), que lleva a la sección "Proceso" (`#proceso`). El pedido original apuntaba a un ancla `#como-funciona` que no existe en la página — la enlacé a `#proceso`, que es la sección que ya explica el proceso de trabajo.
+- Sumé una línea chica de confianza debajo de los botones: "✓ Demo gratuita • ✓ Sin compromiso • ✓ 30 minutos".
+- La foto de la derecha ahora se oculta en celular (`hidden md:block`) para no alargar tanto el Hero en pantallas chicas, algo que antes no pasaba (se mostraba apilada debajo del texto en mobile).
+- Los colores y fuentes los mapeé a los tokens de diseño que ya tiene el proyecto (`text-brand-blue`, `text-brand-orange`, `bg-background`, `font-headline-h1`, etc.) en vez de los hex sueltos que traía el diseño original, para mantener todo consistente con el resto del sitio.
+- Corrí `npm run build` de nuevo (clases nuevas como `min-h-screen`, `bg-gradient-to-br`, `rounded-xl`) y probé el resultado en Chrome antes de darlo por terminado.
+
+**Por qué lo hice:** Sabrina pidió reemplazar el Hero por un diseño con más impacto visual: pantalla completa, titular con acento de color, dos llamados a la acción (uno directo a WhatsApp y otro para quien todavía quiere entender el proceso antes) y señales de confianza rápidas.
+
+---
+
 ## 14. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -474,3 +492,4 @@ Antes de publicar cambios:
 | 1.4 | Septiembre 2026 | Sabri Studios | Ajustado el marco de la imagen del Hero a su proporción real (aspect-ratio en vez de altura fija) |
 | 1.5 | Septiembre 2026 | Sabri Studios | Tarjetas de Proyectos ahora giran: frente con logo/etiqueta/nombre, dorso con el detalle del emprendimiento |
 | 1.6 | Septiembre 2026 | Sabri Studios | Creado el `README.md` del proyecto (stack, estructura, setup local y flujo de Git) |
+| 1.7 | Septiembre 2026 | Sabri Studios | Rediseñado el Hero: pantalla completa, titular con acento naranja, segundo CTA y señales de confianza |

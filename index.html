@@ -359,48 +359,59 @@
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
-  <section class="max-w-container-max mx-auto px-sm md:px-lg py-section flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
+  <!-- Ocupa toda la altura de la pantalla (min-h-screen) y tiene un degradé suave de fondo -->
+  <section class="min-h-screen flex items-center gap-xl px-sm md:px-lg py-section bg-gradient-to-br from-background to-white">
+    <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
 
-    <!-- Acá va la columna izquierda, con el texto principal y el botón -->
-    <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
-      <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
-        El costo de la invisibilidad
-      </span>
+      <!-- Acá va la columna izquierda, con el texto principal y los botones -->
+      <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
+        <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
+          El costo de la invisibilidad
+        </span>
 
-      <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue max-w-2xl">
-        Si tu negocio no aparece en Google, no existe para quien te busca.
-      </h1>
+        <!-- El "no existe" va resaltado en naranja para que se lea como el golpe de efecto del titular -->
+        <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue max-w-2xl leading-tight">
+          Si tu negocio no aparece en Google<span class="text-brand-orange"> no existe</span>
+        </h1>
 
-      <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg">
-        Mientras lo pensás, 3 de cada 10 emprendedores pierden clientes porque no aparecen en Google.
-        ¿Vos querés ser uno de ellos?
-      </p>
+        <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg font-medium">
+          Mientras lo pensás, 3 de cada 10 emprendedores pierden clientes porque no aparecen en Google.
+          ¿Vos querés ser uno de ellos?
+        </p>
 
-      <!--
-        Este es el botón principal para que me contacten. Uso "wa.me" con mi número, que es el
-        link oficial de Whatsapp para abrir un chat sin tener que tenerme agendada, y le dejo el
-        mensaje ya escrito para que la persona no tenga que pensar qué poner.
-      -->
-      <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
-        <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
-          target="_blank" rel="noopener noreferrer"
-          class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
-          RESERVÁ TU DEMO ¡GRATIS!
-        </a>
+        <!--
+          Botón principal (WhatsApp) y botón secundario que lleva a "Proceso", para quien todavía
+          no está listo para escribir y quiere entender antes cómo funciona.
+        -->
+        <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
+          <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
+            target="_blank" rel="noopener noreferrer"
+            class="bg-brand-orange hover:bg-[#C66A2E] text-white font-whatsapp-cta font-bold px-md py-[16px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-lg w-full sm:w-auto text-center inline-block">
+            RESERVÁ TU DEMO
+          </a>
+          <a href="#proceso"
+            class="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-whatsapp-cta font-bold px-md py-[14px] rounded-lg transition-colors duration-200 w-full sm:w-auto text-center inline-block">
+            Ver cómo funciona
+          </a>
+        </div>
+
+        <p class="font-body-main text-sm text-text-strong opacity-70">
+          ✓ Demo gratuita &nbsp;•&nbsp; ✓ Sin compromiso &nbsp;•&nbsp; ✓ 30 minutos
+        </p>
       </div>
-    </div>
 
-    <!-- Y acá la columna derecha, con la foto que muestra el problema: la emprendedora que busca su negocio y no lo encuentra -->
-    <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white">
-      <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
-      <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
-      <img src="imagenes/sabristudios_subheadline.jpeg" width="2912" height="1440"
-        alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
-        class="w-full h-full object-cover">
-      <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
-      <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
-    </div>
+      <!-- Y acá la columna derecha, con la foto que muestra el problema: la emprendedora que busca su negocio y no lo encuentra. La oculto en celular para no alargar tanto el hero -->
+      <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-xl overflow-hidden border border-brand-border shadow-ambient bg-white hidden md:block">
+        <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
+        <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
+        <img src="imagenes/sabristudios_subheadline.jpeg" width="2912" height="1440"
+          alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
+          class="w-full h-full object-cover">
+        <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
+      </div>
 
+    </div>
   </section>
 
   <!-- ================================== -->
