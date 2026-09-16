@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.11
+**Versión:** 1.12
 
 **Fecha:** Septiembre 2026
 
@@ -824,6 +824,26 @@ Antes de publicar cambios:
 
 ---
 
+### v1.12 — 16 de septiembre de 2026
+
+**Qué hice:** Reemplacé el evento de GA `contacto_whatsapp` (v1.10) por un evento `whatsapp_click` con nombres de parámetro específicos, según el contexto que Sabrina trajo de otra conversación sobre GA + WhatsApp.
+
+**Detalle del cambio:**
+
+- El evento nuevo, disparado en `index.html` en los 4 botones de WhatsApp (Hero, Sobre Mí, FAQ, flotante), manda:
+    - `whatsapp_source`: `hero` | `sobre_mi` | `faq` | `floating`.
+    - `button_location`: el id real de la sección en el HTML (`hero`, `sobre-mi`, `preguntas-frecuentes`) o `floating` para el botón que no vive dentro de ninguna sección.
+    - `traffic_source`: lo mantuve del cambio anterior (v1.11), no estaba en el spec que trajo Sabrina pero no hay motivo para perderlo — sigue permitiendo cruzar de qué canal vino la visita que terminó escribiendo por WhatsApp.
+- El spec original que trajo Sabrina usaba `button_location: window.location.pathname`, pero como esta landing es de una sola página ese valor iba a salir igual en los 4 botones (no serviría para nada en los reportes de GA). Se lo consulté y prefirió que usara el id de sección real en su lugar.
+- También le pregunté si dejaba `contacto_whatsapp` conviviendo con el nuevo evento o lo reemplazaba del todo; eligió reemplazarlo en los 4 botones para no tener dos eventos duplicados en el mismo clic.
+- Agregué `id="hero"` a la sección de Hero (antes no tenía id) para que el mismo mecanismo que ya usábamos (`closest('section[id]')`) pudiera identificarla.
+- Probé en el preview local que los 4 botones disparan `whatsapp_click` con los valores esperados.
+- **Ojo con esto:** en GA hay que buscar el evento nuevo como `whatsapp_click`, no `contacto_whatsapp` (que ya no se dispara más).
+
+**Por qué lo hice:** Sabrina quería usar nombres de evento y parámetro específicos (`whatsapp_click`, `whatsapp_source`, `button_location`) que ya había definido en otra conversación sobre GA, en vez de los nombres genéricos (`contacto_whatsapp`, `event_label`) que veníamos usando.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -842,3 +862,4 @@ Antes de publicar cambios:
 | 1.9 | 16 de septiembre de 2026 | Sabri Studios | Fusionado `docs/PRD.md` con este LEAN PRD en un único documento |
 | 1.10 | 16 de septiembre de 2026 | Sabri Studios | Agregados parámetros UTM a los 4 botones de WhatsApp (Hero, Sobre Mí/Footer, flotante, FAQ) |
 | 1.11 | 16 de septiembre de 2026 | Sabri Studios | Agregado tracking de GA para scroll a "Proceso" y fuente de tráfico (UTM/referrer), cruzado con el evento de WhatsApp |
+| 1.12 | 16 de septiembre de 2026 | Sabri Studios | Reemplazado el evento `contacto_whatsapp` por `whatsapp_click` con parámetros `whatsapp_source` y `button_location` en los 4 botones de WhatsApp |
