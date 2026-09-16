@@ -386,9 +386,23 @@ Antes de publicar cambios:
 
 ---
 
+### v1.2 — Septiembre 2026
+
+**Qué hice:** Cambié el subheadline del Hero (`index.html`).
+
+**Detalle del cambio:**
+
+- Reemplacé el texto anterior ("Sé que dejarlo para después parece más fácil...") por uno con un dato de urgencia: "Mientras lo pensás, 3 de cada 10 emprendedores pierden clientes porque no aparecen en Google. ¿Vos querés ser uno de ellos?".
+- Es el mismo párrafo debajo del H1 del Hero, no toqué el resto de la sección.
+
+**Por qué lo hice:** Era una mejora que ya estaba anotada en la sección 5.1 de este PRD: reforzar el subheadline con un número/dato en vez de una frase genérica, para generar más urgencia sin sonar alarmista.
+
+---
+
 ## 14. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
 | --- | --- | --- | --- |
 | 1.0 | Septiembre 2026 | Sabri Studios | Creación inicial del documento LEAN PRD (objetivo, persona, propuesta de valor, estructura de landing, roadmap y checklist) |
 | 1.1 | Septiembre 2026 | Sabri Studios | Agregada la sección "La demo gratuita es así" en `index.html`, entre Proceso y Proyectos |
+| 1.2 | Septiembre 2026 | Sabri Studios | Actualizado el subheadline del Hero con dato de urgencia (3 de cada 10 emprendedores) |
