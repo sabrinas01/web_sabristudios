@@ -1,31 +1,76 @@
+# PRD - Landing Page de Sabri Studios
+
 ## Versión
 
-**Versión:** 1.0  
+**Versión:** 1.9
 
-**Fecha:** Septiembre 2026  
+**Fecha:** Septiembre 2026
 
 **Objetivo:** Mejorar conversión de visitantes → consultas WhatsApp para demo gratuita
 
-> Cada cambio que se haga sobre la landing o sobre este documento se registra en la sección [13. Historial de Versiones](#13-historial-de-versiones) y en la [Tabla de Versiones](#14-tabla-de-versiones) al final del documento.
+> Cada cambio que se haga sobre la landing o sobre este documento se registra en la sección [19. Historial de Versiones](#19-historial-de-versiones) y en la [Tabla de Versiones](#20-tabla-de-versiones) al final del documento.
+
+> **Nota:** este documento nació de fusionar dos PRDs que convivían en el proyecto — el PRD original (`docs/PRD.md`, más formal: alcance, requisitos e historias de usuario) y el LEAN PRD (`documentación/LEAN PRD.md`, más vivo: persona, propuesta de valor, roadmap e historial de cada cambio). A partir de la v1.9 este es el único PRD del proyecto.
 
 ---
 
-## 1. Objetivo General
+## 1. Resumen del producto
 
-Convertir emprendedores sin web ni presencia en Google en consultantes activos que reserven demo gratuita via WhatsApp. La landing debe demostrar que Sabri Studios entiende el problema específico del emprendedor pequeño (invisibilidad digital, dependencia de boca a boca) y que el proceso es diferente: diagnóstico primero, diseño después.
+Sabri Studios necesita una landing page que convierta la falta de presencia digital de pequeños negocios en una oportunidad concreta de contacto. La página debe explicar el problema, presentar un proceso de trabajo simple y llevar a la persona visitante a iniciar una conversación por WhatsApp para reservar su demo gratuita.
 
 ---
 
-## 2. User Persona: El Emprendedor Sin Web
+## 2. Objetivo General
+
+Convertir emprendedores sin web ni presencia en Google en consultantes activos que reserven demo gratuita vía WhatsApp. La landing debe demostrar que Sabri Studios entiende el problema específico del emprendedor pequeño (invisibilidad digital, dependencia de boca a boca) y que el proceso es diferente: diagnóstico primero, diseño después.
+
+### Indicadores de éxito
+
+- La persona visitante entiende en pocos segundos qué problema resuelve Sabri Studios.
+- La persona visitante identifica claramente las tres etapas del servicio.
+- El botón de WhatsApp es fácil de encontrar y utilizar desde cualquier sección.
+- La página funciona correctamente en dispositivos móviles y de escritorio.
+- Las animaciones acompañan la lectura sin impedir el acceso al contenido.
+
+---
+
+## 3. Alcance
+
+### Incluido
+
+- Sección principal (Hero) con propuesta de valor y CTA.
+- Sección "Antes / Después" para explicar el costo de no aparecer en Google.
+- Sección de proceso con tres pasos: Diagnóstico, Diseño y Estrategia, y Resultados.
+- Sección "La demo gratuita es así", con el paso a paso del primer contacto.
+- Sección "Proyectos desarrollados", con casos reales de clientes.
+- Sección "Sobre mí" con presentación de Sabri Studios.
+- Sección "Preguntas frecuentes" (FAQ), con schema `FAQPage` (JSON-LD).
+- Botón flotante de WhatsApp.
+- Navegación interna hacia Proceso, Proyectos, Sobre Mí y Preguntas.
+- Diseño responsive.
+- Animaciones de entrada al hacer scroll con respeto por `prefers-reduced-motion`.
+
+### Fuera de alcance
+
+- Panel de administración.
+- Registro o inicio de sesión.
+- Procesamiento de pagos.
+- Gestión de leads dentro de la página.
+- Blog o sistema de publicación de contenidos.
+- Integración automática con un CRM.
+
+---
+
+## 4. Público objetivo / User Persona: El Emprendedor Sin Web
 
 **Quién es:**
 
-- Pequeño negocio o emprendimiento en operación (mínimo 6 meses)
-- Vende por WhatsApp, Instagram, boca a boca
-- Nunca tuvo web o la abandonó hace años
-- No aparece en Google Maps ni en búsquedas locales
-- Tiene miedo a la tecnología o la ve como "gasto innecesario"
-- Está en San Juan, pero también puede ser de otras provincias (acceso remoto)
+- Pequeño negocio o emprendimiento en operación (mínimo 6 meses).
+- Vende por WhatsApp, Instagram, boca a boca.
+- Nunca tuvo web o la abandonó hace años.
+- No aparece en Google Maps ni en búsquedas locales.
+- Tiene miedo a la tecnología o la ve como "gasto innecesario".
+- Está en San Juan, pero también puede ser de otras provincias (acceso remoto).
 
 **Frustración principal:**
 
@@ -37,23 +82,23 @@ Existir donde sus clientes ya lo buscan (Google, Maps) sin perder la cercanía q
 
 **Cómo llega a la landing:**
 
-- Instagram bio (link en bio de @sabristudios)
-- Búsqueda Google: "diseño web San Juan", "landing page emprendedores"
-- Referencia de conocidos
-- Ads futuros (no activos hoy)
+- Instagram bio (link en bio de @sabristudios).
+- Búsqueda Google: "diseño web San Juan", "landing page emprendedores".
+- Referencia de conocidos.
+- Ads futuros (no activos hoy).
 
 ---
 
-## 3. Propuesta de Valor
+## 5. Propuesta de Valor
 
 **Mensaje central:** "No hago páginas web bonitas. Hago herramientas de venta."
 
 **Diferencial:**
 
-- Proceso estructurado: diagnóstico → diseño → resultados (no plantillas)
-- Enfoque en conversión: la web debe traer clientes, no solo visitas
-- Trato cercano: WhatsApp, sin intermediarios, sin jerga
-- Accesible: precio fijo, demo gratis, proceso transparente
+- Proceso estructurado: diagnóstico → diseño → resultados (no plantillas).
+- Enfoque en conversión: la web debe traer clientes, no solo visitas.
+- Trato cercano: WhatsApp, sin intermediarios, sin jerga.
+- Accesible: precio fijo, demo gratis, proceso transparente.
 
 **Promesa:**
 
@@ -61,14 +106,14 @@ Después de trabajar con Sabri Studios, tu negocio aparece en Google y Google Ma
 
 ---
 
-## 4. Flujo de Conversión (Macro)
+## 6. Flujo de Conversión (Macro)
 
 ```
 Tráfico (IG, Google, referencia)
         ↓
 Landing: Leo el problema, veo que entienden mi situación
         ↓
-Secciones persuasivas: Antes/Después, Proceso, Casos
+Secciones persuasivas: Antes/Después, Proceso, Demo gratuita, Casos, FAQ
         ↓
 CTA claro: "Reservá tu demo ¡GRATIS!"
         ↓
@@ -81,99 +126,95 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 ---
 
-## 5. Estructura de la Landing (Estado Actual vs. Mejoras)
+## 7. Estructura de la Landing (Estado Actual vs. Mejoras)
 
-### 5.1 Hero Section ✅ (Mantener, refinar)
+### 7.1 Hero Section ✅ (Rediseñado en v1.7)
 
-**Estado actual:** Fuerte. Headline + subheadline + CTA claro.
+**Estado actual:** Pantalla completa, headline con acento naranja, subheadline con dato de urgencia, dos CTAs (WhatsApp directo + "Ver cómo funciona"), imagen del problema y señales de confianza.
 
-**Mejoras identificadas:**
+**Mejoras pendientes:**
 
-- Headline ya es excelente: "Si tu negocio no aparece en Google, no existe para quien te busca"
-- Subheadline: Agregar urgencia sutil sin sonar alarmista
-    - Actual: "Sé que dejarlo para después parece más fácil..."
-    - Sugerencia: Reforzar con número/dato (ej: "Mientras lo pensás, 3 de cada 10 emprendedores perdió un cliente porque no lo encontraron en Google")
-- CTA: "RESERVÁ TU DEMO ¡GRATIS!" → Mantener, es claro y directo
-- Visual: Falta imagen/ilustración que muestre el problema (emprendedor frustrado buscando en Google, no encuentra, pasa a otro)
+- Considerar A/B test de copy del headline/subheadline (ver Roadmap, Fase 3).
 
-### 5.2 Sección "Antes/Después" ✅ (Mantener, expandir)
+### 7.2 Sección "Antes/Después" ✅ (Mantener, expandir)
 
 **Estado actual:** Bien estructurada con iconos. Muestra el problema vs. la solución.
 
 **Mejoras identificadas:**
 
-- Agregar métrica concreta: "Clientes perdidos por mes" o "Tiempo de crecimiento"
-    - Antes: "No aparecés en Google ni en Maps" + "[X% de búsquedas locales las pierdés]"
-    - Después: "Aparecés en las búsquedas" + "[X% de clientes nuevos por mes]"
-- Enfatizar confianza: "Generás confianza" es bueno, pero ser más específico
-    - Actual: "Generás confianza antes de que te escriban"
-    - Alternativa: "Cuando te googleen, van a encontrar UNA PÁGINA PROFESIONAL (no WhatsApp vacío)"
+- Agregar métrica concreta: "Clientes perdidos por mes" o "Tiempo de crecimiento".
+    - Antes: "No aparecés en Google ni en Maps" + "[X% de búsquedas locales las pierdés]".
+    - Después: "Aparecés en las búsquedas" + "[X% de clientes nuevos por mes]".
+- Enfatizar confianza: "Generás confianza" es bueno, pero ser más específico.
+    - Actual: "Generás confianza antes de que te escriban".
+    - Alternativa: "Cuando te googleen, van a encontrar UNA PÁGINA PROFESIONAL (no WhatsApp vacío)".
 
-### 5.3 Sección "Proceso" ✅ (Mantener, detallar más)
+### 7.3 Sección "Proceso" ✅ (Mantener, detallar más)
 
 **Estado actual:** 3 pasos (Diagnóstico → Diseño → Resultados). Correcto.
 
 **Mejoras identificadas:**
 
-- Cada paso necesita más detalle sin ser abrumador
-    - **Diagnóstico:** "¿Qué hacés, a quién le vendés, por qué no te encuentran?" → Tiempo estimado: 30 min
-    - **Diseño y Estrategia:** "Traducimos eso en una web pensada para vender" → Tiempo: 2-3 semanas
-    - **Resultados:** "Web lista, encontrable, trabajando" → Tiempo: 1 semana post-entrega QA
-- Agregar: "Sin sorpresas. Todo hablado, todo acordado"
-- Agregar: Precio aquí o en section aparte (hoy no aparece en la landing)
+- Cada paso necesita más detalle sin ser abrumador.
+    - **Diagnóstico:** "¿Qué hacés, a quién le vendés, por qué no te encuentran?" → Tiempo estimado: 30 min.
+    - **Diseño y Estrategia:** "Traducimos eso en una web pensada para vender" → Tiempo: 2-3 semanas.
+    - **Resultados:** "Web lista, encontrable, trabajando" → Tiempo: 1 semana post-entrega QA.
+- Agregar: "Sin sorpresas. Todo hablado, todo acordado".
+- Agregar: Precio aquí o en sección aparte (hoy no aparece en la landing).
 
-### 5.4 Sección "Proyectos" ⚠️ (Mejorar)
+### 7.4 Sección "La demo gratuita es así" ✅ (Agregada en v1.1)
 
-**Estado actual:** 2 casos (AR Estética, JL Construcciones).
+**Estado actual:** Sección con los 5 pasos del primer contacto por WhatsApp (te escribo, coordinamos 30 min, te pregunto sobre tu negocio, te digo qué necesitás, si avanzamos hablamos del proceso), más una cita destacada aclarando que no es una venta disfrazada.
+
+**Mejoras pendientes:** ninguna identificada por ahora.
+
+### 7.5 Sección "Proyectos" ⚠️ (Mejorar)
+
+**Estado actual:** 2 casos (AR Estética Vehicular, JL Construcciones), con tarjetas que giran (frente: logo/etiqueta/nombre; dorso: detalle + link al sitio, agregado en v1.5).
 
 **Problemas identificados:**
 
-- Ambos tienen link a sitio web, pero faltan resultados cuantitativos
-- No hay testimonial de cliente (solo el caso visual)
-- Falta contexto: "¿Qué vendía antes? ¿Cómo cambió después?"
+- Ambos tienen link a sitio web, pero faltan resultados cuantitativos.
+- No hay testimonial de cliente (solo el caso visual).
+- Falta contexto: "¿Qué vendía antes? ¿Cómo cambió después?".
 
 **Mejoras obligatorias:**
 
-1. Agregar testimonial por cliente (voz del cliente real)
-    - Ejemplo: "Antes no aparecía en Google. Ahora recibo 3-4 consultas por semana desde la web" — *Carlos, JL Construcciones*
-2. Agregar métrica: "Resultados después de 2 meses" (consultas, llamadas, visitantes)
-3. Agregar 1-2 casos más (mínimo 3 para credibilidad)
-4. Considerar video corto: Cliente hablando sobre el resultado (30 segundos max)
+1. Agregar testimonial por cliente (voz del cliente real).
+    - Ejemplo: "Antes no aparecía en Google. Ahora recibo 3-4 consultas por semana desde la web" — *Carlos, JL Construcciones*.
+2. Agregar métrica: "Resultados después de 2 meses" (consultas, llamadas, visitantes).
+3. Agregar 1-2 casos más (mínimo 3 para credibilidad).
+4. Considerar video corto: Cliente hablando sobre el resultado (30 segundos max).
 
-### 5.5 Sección "Sobre Mí" ✅ (Mantener, reforzar creencia)
+### 7.6 Sección "Sobre Mí" ✅ (Mantener, reforzar creencia)
 
 **Estado actual:** Bueno. Foto + descripción + CTA.
 
 **Mejoras identificadas:**
 
-- Agregar credential/experiencia
-    - "No hago páginas web bonitas. Construyo herramientas de venta. [X años de experiencia, Y negocios ayudados]"
-- Agregar por qué esto importa
-    - "Trazo formación en [Análisis Funcional, Elicitación de Requisitos] — eso es lo que la mayoría de diseñadores no hace: preguntar antes de diseñar"
-- Considerar agregar: "¿Por qué Sabri, y no otro?" (diferencial personal, no solo del servicio)
+- Agregar credential/experiencia.
+    - "No hago páginas web bonitas. Construyo herramientas de venta. [X años de experiencia, Y negocios ayudados]".
+- Agregar por qué esto importa.
+    - "Trazo formación en [Análisis Funcional, Elicitación de Requisitos] — eso es lo que la mayoría de diseñadores no hace: preguntar antes de diseñar".
+- Considerar agregar: "¿Por qué Sabri, y no otro?" (diferencial personal, no solo del servicio).
 
-### 5.6 Sección "FAQs" ✅ (Mantener, expandir)
+### 7.7 Sección "FAQs" ✅ (Expandida en v1.8)
 
-**Estado actual:** 5 preguntas básicas. Bien.
+**Estado actual:** 6 preguntas que cubren las objeciones más comunes: cuánto tarda el proyecto, qué incluye exactamente, cómo es el proceso de trabajo, qué pasa si no gusta el resultado, si se puede escalar la web después, y si hace falta saber de tecnología. Cierra con una caja de contacto directo por WhatsApp para quien no encuentra su pregunta. Tiene su schema `FAQPage` (JSON-LD) actualizado para SEO/GEO.
 
-**Mejoras identificadas:**
+**Mejoras pendientes:**
 
-- Agregar objeciones comunes que NO están:
-    - "¿Cuánto cuesta?" (hoy no hay pricing visible)
-    - "¿Cuánto tarda?" (hay tiempos estimados en el proceso, pero no aquí)
-    - "¿Qué pasa si no me gusta?" (política de cambios, satisfacción)
-    - "¿Necesito mantenimiento después?" (sí, pero ¿costo?)
-    - "¿Se puede escalar la web después?" (Sabri puede hacerlo o cliente en otro lado)
+- Agregar objeción de precio ("¿Cuánto cuesta?") cuando se defina si el pricing va visible en la landing (ver punto 7.8).
 
-### 5.7 Sección NUEVA: "Pricing" ❌ (Falta)
+### 7.8 Sección NUEVA: "Pricing" ❌ (Falta)
 
 **Estado actual:** No existe.
 
 **Por qué falta importa:**
 
-- Emprendedor pequeño quiere saber "¿me alcanza?" antes de consultar
-- Transparencia aumenta confianza
-- Evita consultas de gente que no puede pagar
+- Emprendedor pequeño quiere saber "¿me alcanza?" antes de consultar.
+- Transparencia aumenta confianza.
+- Evita consultas de gente que no puede pagar.
 
 **Qué agregar:**
 
@@ -186,104 +227,302 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 "Precio fijo. Sin sorpresas. Hablamos antes."
 ```
 
-**Consideración:** ¿Mostrar precio aquí o solo en WhatsApp después de demo? 
+**Consideración:** ¿Mostrar precio aquí o solo en WhatsApp después de demo?
 
-- Recomendación: Mostrar rango (ej: "Desde $80k") en landing, detallar en demo. Así no filtras gente que podría pagar pero le asusta lo desconocido.
-
-### 5.8 Sección NUEVA: "Cómo Funciona el Diagnóstico" ❌ (Falta)
-
-**Estado actual:** Se menciona en FAQ y en proceso, pero no está detallado.
-
-**Por qué falta importa:**
-
-- El diferencial de Sabri es "diagnóstico primero", pero el emprendedor no sabe qué esperar
-- Generar confianza: "No es venta, es conversación"
-
-**Qué agregar:**
-
-```
-"La demo gratuita es así:"
-
-1. Te escribo por WhatsApp
-2. Coordinamos 30 minutos (video call o chat, vos elegís)
-3. Te pregunto sobre tu negocio, no sobre diseño
-   - ¿Qué vendés?
-   - ¿A quién le vendés?
-   - ¿Por qué hoy no te encuentran?
-4. Te digo qué necesitás (y si no necesitás web, te lo digo igual)
-5. Si avanzamos, hablamos de cómo es el proceso
-```
+- Recomendación: Mostrar rango (ej: "Desde $80k") en landing, detallar en demo. Así no se filtra gente que podría pagar pero le asusta lo desconocido.
 
 ---
 
-## 6. Elementos Visuales
+## 8. Elementos Visuales
 
-### 6.1 Imágenes/Ilustraciones Faltantes
+### 8.1 Imágenes/Ilustraciones Faltantes
 
 | Sección | Falta | Sugerencia |
 | --- | --- | --- |
-| Hero | Imagen/ilustración | Emprendedor buscando en Google, frustrado. O: teléfono con Google Maps mostrando negocio |
-| Antes/Después | Iconografía | Mantener, son claras |
-| Proceso | Ilustraciones de cada paso | Timeline visual: Diagnóstico (chat) → Diseño (Figma/wireframe) → Go Live |
-| Proyectos | Screenshots de webs | Agrandar, mostrar homepage completa, no solo logo |
+| Hero | ~~Imagen/ilustración~~ | Resuelto en v1.3/v1.4: emprendedora buscando su negocio en Google desde el celular. |
+| Antes/Después | Iconografía | Mantener, son claras. |
+| Proceso | Ilustraciones de cada paso | Timeline visual: Diagnóstico (chat) → Diseño (Figma/wireframe) → Go Live. |
+| Proyectos | Screenshots de webs | Agrandar, mostrar homepage completa, no solo logo. |
 
-### 6.2 Colores y Tipografía
+### 8.2 Colores y Tipografía
 
-**Mantener:** Paleta de marca Sabri Studios
+**Mantener:** Paleta de marca Sabri Studios.
 
-- Azul primario: `#1E3A5F`
-- Naranja: `#D97A3C`
-- Neutro: `#F5F3EF`
-- Tipografía: Space Mono (ya usado)
+- Azul primario (`brand-blue`): `#1E3A5F`
+- Naranja (`brand-orange`): `#D97A3C`
+- Neutro (`background`): `#F5F3EF`
+- Tipografía de títulos y cuerpo: Space Grotesk. CTA de WhatsApp: Space Mono.
 
-**Asegurar:** CTAs en naranja (#D97A3C), títulos en azul (#1E3A5F)
+**Asegurar:** CTAs en naranja (`brand-orange`), títulos en azul (`brand-blue`).
 
 ---
 
-## 7. CTAs (Call-to-Actions)
+## 9. Requisitos funcionales
+
+| ID | Requisito | Prioridad |
+| --- | --- | --- |
+| RF-01 | La landing debe mostrar una propuesta de valor clara en la primera pantalla. | Alta |
+| RF-02 | La landing debe incluir un CTA visible hacia WhatsApp. | Alta |
+| RF-03 | La landing debe explicar el problema mediante una comparación "Antes / Después". | Alta |
+| RF-04 | La landing debe mostrar el proceso en tres pasos numerados. | Alta |
+| RF-05 | La landing debe incluir una presentación de la persona responsable del servicio. | Media |
+| RF-06 | La landing debe ofrecer un acceso directo a WhatsApp. | Alta |
+| RF-07 | Los enlaces de navegación deben llevar a las secciones correspondientes. | Media |
+| RF-08 | Las animaciones deben activarse al entrar el contenido en el viewport. | Media |
+| RF-09 | La página debe ofrecer una experiencia usable en móvil y escritorio. | Alta |
+| RF-10 | La landing debe explicar el paso a paso de la demo gratuita por WhatsApp. | Media |
+| RF-11 | La landing debe mostrar proyectos reales desarrollados, con link al sitio del cliente. | Media |
+| RF-12 | La landing debe responder las objeciones más comunes en una sección de preguntas frecuentes, con datos estructurados `FAQPage`. | Alta |
+
+---
+
+## 10. Requisitos no funcionales
+
+- El contenido debe estar redactado en español y usar un tono directo y profesional.
+- Los botones y enlaces principales deben tener estados visuales de interacción.
+- El contenido debe conservar legibilidad y contraste suficientes.
+- La página no debe depender de la animación para comunicar información esencial.
+- Las personas que prefieran reducir el movimiento deben recibir una experiencia estática.
+- Las imágenes deben tener textos alternativos descriptivos cuando corresponda.
+- La página debe poder abrirse como un documento HTML estático.
+- Tailwind CSS se compila en build time (`npm run build`); cualquier clase nueva con valor arbitrario (ej. `h-[300px]`, `aspect-[...]`) requiere correr el build de nuevo o el estilo no se aplica, sin tirar ningún error.
+
+---
+
+## 11. CTAs (Call-to-Actions)
 
 **CTA Primario (conversor):**
 
-- Texto: "RESERVÁ TU DEMO ¡GRATIS!"
-- Color: Naranja (#D97A3C)
-- Ubicación: Hero, Después de "Proyectos", Footer
-- Acción: Link WhatsApp con prefilled text: "Hola, quiero reservar mi demo gratuita"
+- Texto: "RESERVÁ TU DEMO ¡GRATIS!" / "RESERVÁ TU DEMO".
+- Color: Naranja (`#D97A3C`).
+- Ubicación: Hero, Sobre Mí, Footer (botón flotante).
+- Acción: Link WhatsApp con prefilled text, ej: "Hola, quiero reservar mi demo gratuita".
 
 **CTA Secundario (engagement):**
 
-- "¡Hablemos!" (footer)
-- Mismo link WhatsApp
+- "Ver cómo funciona" (Hero, ancla a `#proceso`).
+- "¡Hablemos!" (botón flotante).
+- "→ Contactarme por WhatsApp" (cierre de la sección FAQ).
 
 **Posibles CTAs terciarios:**
 
-- "Ver más casos" → Portfolio o casos de estudio (no activo hoy)
-- "Leer el blog" → No existe blog, no agregar todavía
+- "Ver más casos" → Portfolio o casos de estudio (no activo hoy).
+- "Leer el blog" → No existe blog, no agregar todavía.
 
 ---
 
-## 8. Flujo de Datos / Tracking
+## 12. Historias de usuario
+
+### Épica A - Comprender la propuesta
+
+#### HU-01 - Entender el problema
+
+**Como** dueña o dueño de un pequeño negocio,
+**quiero** entender cuánto me cuesta no aparecer en Google,
+**para** reconocer la necesidad de mejorar mi presencia digital.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Comunicar el costo de la invisibilidad digital
+
+Escenario: La persona visita la sección del problema
+  Dado que la persona está recorriendo la landing page
+  Cuando llega a la sección "Antes / Después"
+  Entonces ve un título que explica el costo de no aparecer en Google
+  Y puede comparar las consecuencias de no tener presencia digital con los beneficios de tenerla
+```
+
+#### HU-02 - Comprender la propuesta de valor
+
+**Como** persona que busca conseguir más clientes,
+**quiero** entender qué hace Sabri Studios,
+**para** decidir si el servicio puede ayudar a mi negocio.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Presentar la propuesta de valor
+
+Escenario: La persona llega a la primera pantalla
+  Dado que la persona abre la landing page
+  Cuando observa la sección principal
+  Entonces ve una propuesta de valor relacionada con aparecer en Google
+  Y ve una explicación orientada a generar ventas reales
+  Y encuentra un CTA para escribir por WhatsApp
+```
+
+### Épica B - Conocer el proceso
+
+#### HU-03 - Ver las etapas del servicio
+
+**Como** potencial cliente,
+**quiero** conocer los pasos del trabajo,
+**para** saber qué puedo esperar antes de contactar.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Mostrar el proceso de trabajo
+
+Escenario: La persona consulta el proceso
+  Dado que la persona navega a la sección "Proceso"
+  Cuando observa el contenido
+  Entonces ve exactamente tres pasos numerados
+  Y el paso 1 se llama "Diagnóstico"
+  Y el paso 2 se llama "Diseño y Estrategia"
+  Y el paso 3 se llama "Resultados"
+```
+
+#### HU-04 - Recibir una experiencia visual clara
+
+**Como** persona visitante,
+**quiero** que los pasos aparezcan de forma progresiva y ordenada,
+**para** identificar fácilmente la secuencia del servicio.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Animar la sección de proceso
+
+Escenario: Los pasos entran en el viewport
+  Dado que la persona llega a la sección "Proceso"
+  Cuando los pasos entran en el área visible de la pantalla
+  Entonces los pasos aparecen con una animación escalonada
+  Y los números reciben un énfasis visual breve
+  Y la animación no cambia el texto ni el orden de los pasos
+
+Escenario: La persona tiene activada la reducción de movimiento
+  Dado que el dispositivo indica "prefers-reduced-motion: reduce"
+  Cuando la persona llega a la sección "Proceso"
+  Entonces el contenido se muestra sin desplazamientos ni transiciones
+  Y los tres pasos siguen siendo visibles y utilizables
+```
+
+#### HU-09 - Entender cómo es la demo gratuita
+
+**Como** potencial cliente que no sabe qué esperar del primer contacto,
+**quiero** ver el paso a paso de la demo gratuita,
+**para** animarme a escribir sabiendo que no es una venta forzada.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Mostrar el paso a paso de la demo gratuita
+
+Escenario: La persona consulta la sección "La demo gratuita es así"
+  Dado que la persona navega a la sección "demo-gratuita"
+  Cuando observa el contenido
+  Entonces ve los 5 pasos numerados del primer contacto por WhatsApp
+  Y ve una aclaración de que la conversación no es una venta disfrazada
+```
+
+### Épica C - Contactar
+
+#### HU-06 - Contactar por WhatsApp
+
+**Como** potencial cliente que prefiere conversar,
+**quiero** tener un botón visible de WhatsApp,
+**para** iniciar una consulta sin completar un formulario.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Contactar por WhatsApp
+
+Escenario: La persona selecciona el botón flotante
+  Dado que la persona está navegando por la landing page
+  Cuando selecciona el botón "¡Hablemos!"
+  Entonces se abre WhatsApp en una nueva pestaña
+  Y el enlace apunta al número de contacto configurado
+```
+
+#### HU-10 - Resolver dudas antes de escribir
+
+**Como** potencial cliente con objeciones (tiempo, garantía, conocimientos técnicos),
+**quiero** encontrar respuestas a las preguntas más comunes,
+**para** decidir si escribir por WhatsApp sin quedarme con dudas.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Responder objeciones comunes en la sección FAQ
+
+Escenario: La persona consulta las preguntas frecuentes
+  Dado que la persona navega a la sección "preguntas-frecuentes"
+  Cuando abre una pregunta
+  Entonces ve la respuesta correspondiente desplegada
+  Y puede acceder a un link directo de WhatsApp si su pregunta no está en la lista
+```
+
+### Épica D - Navegar y visualizar
+
+#### HU-07 - Navegar entre secciones
+
+**Como** persona visitante,
+**quiero** acceder a las secciones principales desde la navegación,
+**para** encontrar rápidamente la información que necesito.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Navegación interna
+
+Escenario: La persona selecciona "Proceso"
+  Dado que la navegación está visible
+  Cuando la persona selecciona el enlace "Proceso"
+  Entonces la página se desplaza hasta la sección identificada como "proceso"
+
+Escenario: La persona selecciona "Sobre Mí"
+  Dado que la navegación está visible
+  Cuando la persona selecciona el enlace "Sobre Mí"
+  Entonces la página se desplaza hasta la sección identificada como "sobre-mi"
+```
+
+#### HU-08 - Usar la landing desde un móvil
+
+**Como** persona que visita la página desde un celular,
+**quiero** leer y utilizar todos los controles sin hacer zoom,
+**para** contactar desde cualquier dispositivo.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Experiencia responsive
+
+Escenario: La persona abre la landing desde un celular
+  Dado que el ancho de la pantalla es menor al de escritorio
+  Cuando la página termina de cargar
+  Entonces el contenido se adapta a una sola columna cuando corresponde
+  Y los textos no se cortan ni se superponen
+  Y el CTA de WhatsApp y el botón flotante siguen siendo utilizables
+```
+
+---
+
+## 13. Flujo de Datos / Tracking
 
 **Qué medir (fuentes):**
 
 1. **Google Analytics / Clarity:**
-    - Visitantes únicos por mes
-    - Tiempo en página
-    - Bounce rate por sección
-    - Scroll depth (hasta dónde leen)
+    - Visitantes únicos por mes.
+    - Tiempo en página.
+    - Bounce rate por sección.
+    - Scroll depth (hasta dónde leen).
 2. **WhatsApp:**
-    - Consultas por mes
-    - Tasa de respuesta (en qué tiempo Sabri contesta)
-    - Tasa de demo confirmada (consulta → demo agendada)
-    - Tasa de cierre (demo → proyecto)
+    - Consultas por mes.
+    - Tasa de respuesta (en qué tiempo Sabri contesta).
+    - Tasa de demo confirmada (consulta → demo agendada).
+    - Tasa de cierre (demo → proyecto).
 3. **Fuente del tráfico:**
-    - Directo
-    - Instagram (rastrear link en bio)
-    - Google Organic
-    - Referencias (preguntar en WhatsApp)
+    - Directo.
+    - Instagram (rastrear link en bio).
+    - Google Organic.
+    - Referencias (preguntar en WhatsApp).
 
 ---
 
-## 9. Success Metrics
+## 14. Success Metrics
 
 | Métrica | Target | Frecuencia | Responsable |
 | --- | --- | --- | --- |
@@ -295,33 +534,43 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 
 ---
 
-## 10. Roadmap de Mejoras
+## 15. Dependencias y riesgos
 
-### Fase 1 (Inmediata: Octubre 2026)
-
-- [ ]  Agregar pricing visible
-- [ ]  Expandir sección "Proyectos" con testimoniales
-- [ ]  Agregar sección "Cómo funciona el diagnóstico"
-- [ ]  Mejorar subheadline hero con dato de urgencia
-- [ ]  Agregar imagen/ilustración hero
-
-### Fase 2 (Corto plazo: Noviembre 2026)
-
-- [ ]  Agregar 2-3 casos más (mínimo 3 totales)
-- [ ]  Crear video testimonial cliente (30s)
-- [ ]  Expandir FAQs con objeciones: precio, tiempo, garantía
-- [ ]  Setup de Google Analytics + tracking de WhatsApp
-
-### Fase 3 (Mediano plazo: Diciembre 2026+)
-
-- [ ]  Agregar blog (si hay tiempo)
-- [ ]  A/B test de copy en hero
-- [ ]  Considerar ads (Google Ads, Instagram)
-- [ ]  Crear landing secundaria: "Plan de 30 días post-entrega"
+- WhatsApp depende de que el número configurado sea correcto y esté activo.
+- Las imágenes y recursos alojados externamente pueden afectar la carga si no están disponibles.
+- Las animaciones deben mantenerse como mejora progresiva y nunca ocultar información esencial.
+- El sitio depende de que `npm run build` se corra después de cambiar clases de Tailwind con valores arbitrarios, o el layout se rompe sin ningún error visible.
 
 ---
 
-## 11. Notas Importantes
+## 16. Roadmap de Mejoras
+
+### Fase 1 (Inmediata: Octubre 2026)
+
+- [ ]  Agregar pricing visible.
+- [ ]  Expandir sección "Proyectos" con testimoniales.
+- [x]  Agregar sección "Cómo funciona el diagnóstico" → hecho en v1.1 como "La demo gratuita es así".
+- [x]  Mejorar subheadline hero con dato de urgencia → hecho en v1.2.
+- [x]  Agregar imagen/ilustración hero → hecho en v1.3 y v1.4.
+- [x]  Expandir FAQs con objeciones: tiempo, garantía, escalabilidad, conocimientos técnicos → hecho en v1.8. Falta la objeción de precio (ver punto 7.8).
+
+### Fase 2 (Corto plazo: Noviembre 2026)
+
+- [ ]  Agregar 2-3 casos más (mínimo 3 totales).
+- [ ]  Crear video testimonial cliente (30s).
+- [ ]  Expandir FAQ con objeción de precio, una vez definido el pricing visible.
+- [ ]  Setup de Google Analytics + tracking de WhatsApp.
+
+### Fase 3 (Mediano plazo: Diciembre 2026+)
+
+- [ ]  Agregar blog (si hay tiempo).
+- [ ]  A/B test de copy en hero.
+- [ ]  Considerar ads (Google Ads, Instagram).
+- [ ]  Crear landing secundaria: "Plan de 30 días post-entrega".
+
+---
+
+## 17. Notas Importantes
 
 1. **No sobrecomplicar el proceso:** Hoy está bien. Mantener los 3 pasos claros.
 2. **Pricing es sensible:** Mostrar rango, no miedo. Muchos emprendedores pequeños ven "$80k" y piensan "no llego", pero hablando descubren que sí.
@@ -331,23 +580,51 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 
 ---
 
-## 12. Checklist Pre-Launch (Mejoras)
+## 18. Checklist Pre-Launch (Mejoras)
 
 Antes de publicar cambios:
 
-- [ ]  Copy revisado (sin faltas, tono coherente)
-- [ ]  Todos los links funcionan (WhatsApp, casos, social)
-- [ ]  Imágenes optimizadas (peso <100kb cada una)
-- [ ]  Mobile responsive (testear en teléfono real)
-- [ ]  CTA visible en cada sección (no scroll infinito sin poder clickear)
-- [ ]  FAQs responden objeciones reales (no asumir)
-- [ ]  Pricing claro (si se agrega)
-- [ ]  Google Analytics + tracking activos
-- [ ]  Testimoniales con permiso de cliente (no inventar)
+- [ ]  Copy revisado (sin faltas, tono coherente).
+- [ ]  Todos los links funcionan (WhatsApp, casos, social).
+- [ ]  Imágenes optimizadas (peso <100kb cada una).
+- [ ]  Mobile responsive (testear en teléfono real).
+- [ ]  CTA visible en cada sección (no scroll infinito sin poder clickear).
+- [ ]  FAQs responden objeciones reales (no asumir).
+- [ ]  Pricing claro (si se agrega).
+- [ ]  Google Analytics + tracking activos.
+- [ ]  Testimoniales con permiso de cliente (no inventar).
 
 ---
 
-## 13. Historial de Versiones
+## 19. Historial de Versiones
+
+### v0.1 — 24 de agosto de 2026 (PRD original)
+
+**Qué hice:** Creé el PRD original del producto (`docs/PRD.md`, hoy fusionado en este documento).
+
+**Detalle del cambio:**
+
+- Definí el resumen del producto, objetivo, indicadores de éxito y alcance (incluido / fuera de alcance).
+- Documenté el público objetivo y los requisitos funcionales y no funcionales.
+- Escribí las historias de usuario con criterios de aceptación en formato Gherkin (BDD), organizadas en épicas.
+- Documenté las dependencias y riesgos del proyecto.
+
+**Por qué lo hice:** Necesitábamos un documento formal de requisitos que sirviera de base para las decisiones de alcance de la landing.
+
+---
+
+### v0.2 — 24 de agosto de 2026 (PRD original)
+
+**Qué hice:** Incorporé al PRD original las animaciones de entrada de la sección "Proceso".
+
+**Detalle del cambio:**
+
+- Sumé la historia de usuario HU-04 (recibir una experiencia visual clara) con sus criterios de aceptación.
+- Agregué el criterio de accesibilidad para `prefers-reduced-motion`.
+
+**Por qué lo hice:** La landing ya tenía implementada la animación escalonada de los 3 pasos del proceso, y hacía falta documentarla en el PRD.
+
+---
 
 ### v1.0 — Septiembre 2026
 
@@ -377,12 +654,12 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - Sumé una sección nueva entre "Proceso" y "Proyectos desarrollados", con id `demo-gratuita`.
-- Armé los 5 pasos que ya estaban descriptos en este PRD (sección 5.8 "Cómo funciona el diagnóstico"): WhatsApp → coordinar 30 min → preguntas sobre el negocio → diagnóstico → siguiente paso del proceso.
+- Armé los 5 pasos que ya estaban descriptos en este PRD (sección 7.8 original, "Cómo funciona el diagnóstico"): WhatsApp → coordinar 30 min → preguntas sobre el negocio → diagnóstico → siguiente paso del proceso.
 - Cada paso tiene su número en un círculo naranja, igual al estilo que ya usaba la sección "Proceso".
 - Agregué una cita destacada al final, con el borde naranja de marca, aclarando que la demo no es una venta disfrazada.
 - El contenido me lo pasó Sabrina en JSX/React con clases y colores hardcodeados; lo convertí a HTML plano y reemplacé las clases sueltas (`className`, hex directos) por las clases de diseño que ya usa el resto del sitio (`font-headline-h2`, `text-brand-blue`, `bg-brand-orange`, `py-section`, etc.) para que quede visualmente consistente con el resto de la landing.
 
-**Por qué lo hice:** Esta sección estaba marcada como faltante en el punto 5.8 de este mismo PRD — generar confianza mostrando que la demo es una conversación, no una venta.
+**Por qué lo hice:** Esta sección estaba marcada como faltante — generar confianza mostrando que la demo es una conversación, no una venta.
 
 ---
 
@@ -395,7 +672,7 @@ Antes de publicar cambios:
 - Reemplacé el texto anterior ("Sé que dejarlo para después parece más fácil...") por uno con un dato de urgencia: "Mientras lo pensás, 3 de cada 10 emprendedores pierden clientes porque no aparecen en Google. ¿Vos querés ser uno de ellos?".
 - Es el mismo párrafo debajo del H1 del Hero, no toqué el resto de la sección.
 
-**Por qué lo hice:** Era una mejora que ya estaba anotada en la sección 5.1 de este PRD: reforzar el subheadline con un número/dato en vez de una frase genérica, para generar más urgencia sin sonar alarmista.
+**Por qué lo hice:** Era una mejora ya anotada en este PRD: reforzar el subheadline con un número/dato en vez de una frase genérica, para generar más urgencia sin sonar alarmista.
 
 ---
 
@@ -410,7 +687,7 @@ Antes de publicar cambios:
 - Cambié la implementación de un `<div>` con `background-image` a una etiqueta `<img>` normal, con `width`/`height` y `alt` descriptivo, siguiendo el mismo patrón que ya se usa en la foto de "Sobre Mí".
 - No le puse `loading="lazy"` porque es una imagen que se ve apenas se carga la página (el Hero), así que conviene que cargue de una.
 
-**Por qué lo hice:** Era una mejora pendiente marcada en la sección 5.1 y en la tabla de "Imágenes/Ilustraciones Faltantes" (sección 6.1) de este PRD: el Hero necesitaba una imagen que muestre el problema (emprendedor frustrado que no aparece en Google), no solo un fondo decorativo.
+**Por qué lo hice:** Era una mejora pendiente marcada en la tabla de "Imágenes/Ilustraciones Faltantes": el Hero necesitaba una imagen que muestre el problema (emprendedor frustrado que no aparece en Google), no solo un fondo decorativo.
 
 ---
 
@@ -453,11 +730,11 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - Expliqué de qué se trata el proyecto (landing de Sabri Studios) y en qué stack está hecho: HTML puro, Tailwind CSS compilado con build propio, hosting en Vercel, más Vercel Analytics, Google Analytics y Clarity para métricas.
-- Documenté la estructura de carpetas y archivos (`index.html`, `src/input.css`, `dist/output.css`, `tailwind.config.js`, `imagenes/`, `docs/PRD.md`, `documentación/LEAN PRD.md`, etc.).
+- Documenté la estructura de carpetas y archivos (`index.html`, `src/input.css`, `dist/output.css`, `tailwind.config.js`, `imagenes/`, `documentación/LEAN PRD.md`, etc.).
 - Dejé los pasos para correr el proyecto en local: `npm install`, `npm run build`, y levantar un servidor local para abrir `index.html`.
 - Sumé una advertencia sobre el build de Tailwind (misma que ya había guardado como lección en la v1.5): si se agrega una clase con valor arbitrario hay que correr `npm run build` de nuevo, si no el cambio no se ve y no tira ningún error.
 - Documenté el flujo de Git que ya usamos: `master` es producción, `develop` es la rama de trabajo.
-- Enlacé la documentación existente: `docs/PRD.md` (el PRD original) y este mismo `LEAN PRD.md` (el documento vivo con el historial de versiones).
+- Enlacé la documentación existente.
 
 **Por qué lo hice:** El proyecto no tenía ningún README — hacía falta un punto de entrada para entender de qué se trata el proyecto, cómo correrlo y dónde está la documentación, sin tener que leer todo el código primero.
 
@@ -481,10 +758,43 @@ Antes de publicar cambios:
 
 ---
 
-## 14. Tabla de Versiones
+### v1.8 — 16 de septiembre de 2026
+
+**Qué hice:** Actualicé el contenido de la sección "Preguntas frecuentes" (`index.html`).
+
+**Detalle del cambio:**
+
+- Reemplacé las 5 preguntas anteriores por 6 nuevas: cuánto tarda el proyecto, qué incluye exactamente (con checklist), cómo es el proceso de trabajo, qué pasa si no gusta el resultado, si se puede escalar la web después, y si hace falta saber de tecnología.
+- El contenido me lo pasó Sabrina en JSX/React con clases y colores hardcodeados (`bg-[#F5F3EF]`, `text-[#1E3A5F]`, etc.) que coincidían exactamente con los tokens de diseño ya existentes en el proyecto (`background`, `brand-blue`, `brand-orange`, `text-strong`), así que lo convertí a HTML plano usando esos tokens en vez de hex sueltos, y mantuve el patrón de acordeón (`details`/`summary` + ícono `expand_more`) que ya usaba el resto de la sección.
+- Agregué la caja final "¿No encontraste tu pregunta?" con link directo a WhatsApp con mensaje precargado, en vez del placeholder `YOUR_NUMBER` del diseño original.
+- Actualicé el schema `FAQPage` (JSON-LD) para que coincida con las preguntas y respuestas nuevas.
+- Corrí `npm run build` para recompilar Tailwind (aunque las clases ya existían en el CSS, por los tokens reutilizados).
+
+**Por qué lo hice:** Sabrina quería ampliar las preguntas frecuentes para cubrir más objeciones comunes antes de escribir por WhatsApp (tiempo, contenido del servicio, garantía, escalabilidad, conocimientos técnicos) — mejora que ya estaba anotada en este mismo PRD (punto 7.7).
+
+---
+
+### v1.9 — 16 de septiembre de 2026
+
+**Qué hice:** Fusioné el PRD original (`docs/PRD.md`) con este LEAN PRD en un solo documento, y borré `docs/PRD.md`.
+
+**Detalle del cambio:**
+
+- Incorporé a este documento las secciones que solo existían en el PRD original: resumen del producto, alcance (incluido/fuera de alcance), requisitos funcionales y no funcionales, historias de usuario con criterios de aceptación en Gherkin, y dependencias y riesgos.
+- Fusioné las secciones que estaban duplicadas o eran similares en ambos documentos (objetivo, público objetivo/persona).
+- Uní los dos historiales de versiones en uno solo, en orden cronológico: las versiones `0.1.0` y `0.2.0` del PRD original pasaron a ser `v0.1` y `v0.2` de este documento, y quedaron antes de la `v1.0` (creación del LEAN PRD).
+- Actualicé el `README.md` para que ya no referencie `docs/PRD.md` como documento aparte, y quede un solo link a este archivo.
+
+**Por qué lo hice:** Sabrina pidió fusionar ambos documentos — tener un PRD original y un LEAN PRD por separado generaba trabajo duplicado (como pasó en la v1.8, donde el cambio de FAQ se registró en el PRD original en vez de en este documento) y confusión sobre cuál era la fuente de verdad.
+
+---
+
+## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
 | --- | --- | --- | --- |
+| 0.1 | 24 de agosto de 2026 | Sabri Studios | Creación inicial del PRD original (alcance, requisitos, historias de usuario) |
+| 0.2 | 24 de agosto de 2026 | Sabri Studios | Incorporación de animaciones de entrada accesibles al PRD original |
 | 1.0 | Septiembre 2026 | Sabri Studios | Creación inicial del documento LEAN PRD (objetivo, persona, propuesta de valor, estructura de landing, roadmap y checklist) |
 | 1.1 | Septiembre 2026 | Sabri Studios | Agregada la sección "La demo gratuita es así" en `index.html`, entre Proceso y Proyectos |
 | 1.2 | Septiembre 2026 | Sabri Studios | Actualizado el subheadline del Hero con dato de urgencia (3 de cada 10 emprendedores) |
@@ -493,3 +803,5 @@ Antes de publicar cambios:
 | 1.5 | Septiembre 2026 | Sabri Studios | Tarjetas de Proyectos ahora giran: frente con logo/etiqueta/nombre, dorso con el detalle del emprendimiento |
 | 1.6 | Septiembre 2026 | Sabri Studios | Creado el `README.md` del proyecto (stack, estructura, setup local y flujo de Git) |
 | 1.7 | Septiembre 2026 | Sabri Studios | Rediseñado el Hero: pantalla completa, titular con acento naranja, segundo CTA y señales de confianza |
+| 1.8 | 16 de septiembre de 2026 | Sabri Studios | Actualizadas las preguntas frecuentes (6 preguntas nuevas + caja de contacto por WhatsApp) y su schema `FAQPage` |
+| 1.9 | 16 de septiembre de 2026 | Sabri Studios | Fusionado `docs/PRD.md` con este LEAN PRD en un único documento |

@@ -22,8 +22,7 @@ imagenes/               → fotos, logos e íconos del sitio
 manifest.json           → configuración PWA (ícono, colores, nombre para "instalar" el sitio)
 robots.txt / sitemap.xml / llms.txt → archivos para buscadores y crawlers
 vercel.json             → configuración de deploy y headers de seguridad en Vercel
-docs/PRD.md             → PRD original del producto (alcance, objetivos, indicadores de éxito)
-documentación/LEAN PRD.md → PRD vivo, con historial de versiones de cada cambio hecho en la landing
+documentación/LEAN PRD.md → PRD del producto: alcance, requisitos, historias de usuario y el historial de versiones de cada cambio hecho en la landing
 ```
 
 ## Cómo correrlo en local
@@ -57,5 +56,4 @@ Si agregás o cambiás una clase de Tailwind con **valor arbitrario** (por ejemp
 
 ## Documentación
 
-- [`docs/PRD.md`](docs/PRD.md): PRD original del producto (resumen, objetivo, alcance).
-- [`documentación/LEAN PRD.md`](documentación/LEAN%20PRD.md): documento vivo con el objetivo de negocio, el user persona, la propuesta de valor y — muy importante — un **historial de versiones** donde queda registrado cada cambio hecho en la landing, con el detalle de qué se hizo y por qué.
+- [`documentación/LEAN PRD.md`](documentación/LEAN%20PRD.md): el único PRD del proyecto (nació de fusionar el PRD original con el LEAN PRD). Incluye el objetivo de negocio, el user persona, la propuesta de valor, el alcance, los requisitos funcionales y no funcionales, las historias de usuario, y — muy importante — un **historial de versiones** donde queda registrado cada cambio hecho en la landing, con el detalle de qué se hizo y por qué.
