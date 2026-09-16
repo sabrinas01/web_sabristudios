@@ -254,3 +254,4 @@ Escenario: La persona abre la landing desde un celular
 | --- | --- | --- | --- |
 | 0.1.0 | 2026-08-24 | Sabri Studios | Creación inicial del PRD, alcance, requisitos e historias de usuario. |
 | 0.2.0 | 2026-08-24 | Sabri Studios | Incorporación de animaciones de entrada para los pasos 1, 2 y 3 y criterios de accesibilidad para reducción de movimiento. |
+| 0.3.0 | 2026-09-16 | Sabri Studios | Reordené la sección "Proyectos desarrollados" por encima de la sección "Proceso", y actualicé el orden de los enlaces del menú de navegación (Proyectos antes de Proceso) para que coincida. |
