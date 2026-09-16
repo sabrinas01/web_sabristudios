@@ -428,6 +428,41 @@ Antes de publicar cambios:
 
 ---
 
+### v1.5 — Septiembre 2026
+
+**Qué hice:** Convertí las tarjetas de "Proyectos desarrollados" en tarjetas que giran (`index.html`).
+
+**Detalle del cambio:**
+
+- Ahora cada tarjeta tiene dos caras. Adelante solo se ve el logo, la etiqueta (ej. "Estética Vehicular") y el nombre del negocio.
+- Al pasar el mouse por encima, la tarjeta gira 180° y atrás aparece el detalle: la descripción del emprendimiento y el link "Visitar sitio web".
+- Armé el giro con CSS puro (`transform: rotateY()` + `backface-visibility: hidden`), sin JavaScript. Le agregué `perspective` a la tarjeta y separé el contenido en dos `div` (`project-card-face-front` y `project-card-face-back`) dentro de un contenedor que es el que rota.
+- Respeté los efectos que ya tenía la tarjeta (el brillo diagonal al pasar el mouse, el levantamiento con sombra, el subrayado de "Visitar sitio web") y agregué que, si la persona tiene activado "reducir movimiento" en su dispositivo, el giro pase sin animación (para no marearla) pero el contenido de atrás se siga viendo igual.
+- Cada tarjeta sigue siendo un solo link a todo lo ancho, como ya estaba.
+- **Ojo con esto:** el proyecto compila Tailwind con un build (`npm run build`, que lee `src/input.css` y genera `dist/output.css`). Como usé clases nuevas con valores puntuales (por ejemplo `h-[300px]`), tuve que correr el build de nuevo para que esas clases existan en el CSS final — si no, la tarjeta se ve rota (sin alto, achicada a una línea). Antes de este cambio ya me había pasado lo mismo sin darme cuenta con el ajuste de la imagen del Hero (`aspect-[2912/1440]`), pero no se notó porque la imagen ya tenía su propio ancho/alto como respaldo.
+- Probé el resultado abriendo la página en Chrome con un servidor local (`python -m http.server`) antes de dar el cambio por terminado.
+
+**Por qué lo hice:** Sabrina pidió que el frente de la tarjeta muestre solo lo esencial (logo, etiqueta, nombre) y que el detalle del emprendimiento aparezca al girarla, para que la grilla de "Proyectos" se vea más limpia de entrada.
+
+---
+
+### v1.6 — Septiembre 2026
+
+**Qué hice:** Armé el `README.md` del proyecto (no existía).
+
+**Detalle del cambio:**
+
+- Expliqué de qué se trata el proyecto (landing de Sabri Studios) y en qué stack está hecho: HTML puro, Tailwind CSS compilado con build propio, hosting en Vercel, más Vercel Analytics, Google Analytics y Clarity para métricas.
+- Documenté la estructura de carpetas y archivos (`index.html`, `src/input.css`, `dist/output.css`, `tailwind.config.js`, `imagenes/`, `docs/PRD.md`, `documentación/LEAN PRD.md`, etc.).
+- Dejé los pasos para correr el proyecto en local: `npm install`, `npm run build`, y levantar un servidor local para abrir `index.html`.
+- Sumé una advertencia sobre el build de Tailwind (misma que ya había guardado como lección en la v1.5): si se agrega una clase con valor arbitrario hay que correr `npm run build` de nuevo, si no el cambio no se ve y no tira ningún error.
+- Documenté el flujo de Git que ya usamos: `master` es producción, `develop` es la rama de trabajo.
+- Enlacé la documentación existente: `docs/PRD.md` (el PRD original) y este mismo `LEAN PRD.md` (el documento vivo con el historial de versiones).
+
+**Por qué lo hice:** El proyecto no tenía ningún README — hacía falta un punto de entrada para entender de qué se trata el proyecto, cómo correrlo y dónde está la documentación, sin tener que leer todo el código primero.
+
+---
+
 ## 14. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -437,3 +472,5 @@ Antes de publicar cambios:
 | 1.2 | Septiembre 2026 | Sabri Studios | Actualizado el subheadline del Hero con dato de urgencia (3 de cada 10 emprendedores) |
 | 1.3 | Septiembre 2026 | Sabri Studios | Agregada la imagen faltante del Hero (emprendedora buscando su negocio en Google) |
 | 1.4 | Septiembre 2026 | Sabri Studios | Ajustado el marco de la imagen del Hero a su proporción real (aspect-ratio en vez de altura fija) |
+| 1.5 | Septiembre 2026 | Sabri Studios | Tarjetas de Proyectos ahora giran: frente con logo/etiqueta/nombre, dorso con el detalle del emprendimiento |
+| 1.6 | Septiembre 2026 | Sabri Studios | Creado el `README.md` del proyecto (stack, estructura, setup local y flujo de Git) |

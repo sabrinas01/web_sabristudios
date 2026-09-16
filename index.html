@@ -218,6 +218,7 @@
         box-shadow 0.3s ease-out;
       position: relative;
       overflow: hidden;
+      perspective: 1200px;
     }
     .project-card.is-visible {
       opacity: 1;
@@ -226,6 +227,32 @@
     .project-card.is-visible:hover {
       transform: translateY(-6px) scale(1.02) rotate(0deg);
       box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
+    }
+    /*
+      Acá armo el "giro" de la tarjeta: adelante va el logo, la etiqueta y el nombre;
+      atrás va el detalle del emprendimiento. Al pasar el mouse, "project-card-inner"
+      rota 180° sobre su propio eje y muestra la otra cara.
+    */
+    .project-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+      transform-style: preserve-3d;
+    }
+    .project-card:hover .project-card-inner {
+      transform: rotateY(180deg);
+    }
+    .project-card-face {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+      border-radius: inherit;
+    }
+    .project-card-face-back {
+      transform: rotateY(180deg);
     }
     .project-card::after {
       content: '';
@@ -274,7 +301,8 @@
       .slide-in-left,
       .process-step,
       .project-card,
-      .project-card.is-visible:hover {
+      .project-card.is-visible:hover,
+      .project-card-inner {
         opacity: 1;
         transform: none;
         transition: none;
@@ -603,56 +631,81 @@
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
 
       <!--
-        Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
-        así se puede hacer clic en cualquier parte (la foto, el título, el texto) y no solo en
-        el "Visitar sitio web" de abajo. Me pareció más cómodo de usar que un link chiquito nomás.
+        Este es el proyecto de AR Estética Vehicular. Toda la tarjeta sigue siendo un solo link
+        (se puede hacer clic en cualquier parte), pero ahora tiene dos caras: adelante muestro
+        solo el logo, la etiqueta y el nombre; al pasar el mouse gira y atrás aparece el detalle
+        del emprendimiento con el link para visitar el sitio.
       -->
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
-        class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
-          Estética Vehicular
-        </span>
-        <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
-          <!--
-            Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
-            carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
-            va llegando a esta parte al hacer scroll (así la página arranca más rápido).
-          -->
-          <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
-            alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+        class="project-card block rounded-lg border border-brand-border shadow-ambient h-[300px]">
+        <div class="project-card-inner">
+
+          <!-- Cara de adelante: logo, etiqueta y nombre nomás -->
+          <div class="project-card-face project-card-face-front bg-white p-md flex flex-col items-center justify-center text-center gap-sm">
+            <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
+            <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
+              Estética Vehicular
+            </span>
+            <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+              <!--
+                Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
+                carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
+                va llegando a esta parte al hacer scroll (así la página arranca más rápido).
+              -->
+              <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
+                alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
+          </div>
+
+          <!-- Cara de atrás: el detalle del emprendimiento -->
+          <div class="project-card-face project-card-face-back bg-white p-md flex flex-col items-center justify-center text-center gap-sm">
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              Mantenimiento de alfombras, techos, butacas, tablero y puertas, y recuperado de ópticas.
+            </p>
+            <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
+              Visitar sitio web
+            </span>
+          </div>
+
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Mantenimiento de alfombras, techos, butacas, tablero y puertas, y recuperado de ópticas.
-        </p>
-        <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
-          Visitar sitio web
-        </span>
       </a>
 
       <!--
         Este es el proyecto de JL Construcciones en Seco (Durlock & Steel). Repetí el mismo patrón
-        de tarjeta-link que en la de AR Estética Vehicular, así queda todo consistente.
+        de tarjeta con giro que en la de AR Estética Vehicular, así queda todo consistente.
       -->
       <a href="https://www.jlconstrucciones.com/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de JL Construcciones en Seco, desarrollado por Sabri Studios"
-        class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
-          Construcción en seco
-        </span>
-        <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
-          <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
-            alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
+        class="project-card block rounded-lg border border-brand-border shadow-ambient h-[300px]">
+        <div class="project-card-inner">
+
+          <!-- Cara de adelante: logo, etiqueta y nombre nomás -->
+          <div class="project-card-face project-card-face-front bg-white p-md flex flex-col items-center justify-center text-center gap-sm">
+            <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
+              Construcción en seco
+            </span>
+            <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+              <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
+                alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
+            </div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">JL Construcciones en Seco</h3>
+          </div>
+
+          <!-- Cara de atrás: el detalle del emprendimiento -->
+          <div class="project-card-face project-card-face-back bg-white p-md flex flex-col items-center justify-center text-center gap-sm">
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">JL Construcciones en Seco</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              Instalación de durlock, cielorrasos, tabiques y estructuras en steel framing.
+            </p>
+            <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
+              Visitar sitio web
+            </span>
+          </div>
+
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">JL Construcciones en Seco</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Instalación de durlock, cielorrasos, tabiques y estructuras en steel framing.
-        </p>
-        <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
-          Visitar sitio web
-        </span>
       </a>
 
     </div>
