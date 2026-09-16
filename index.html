@@ -362,12 +362,13 @@
       </div>
     </div>
 
-    <!-- Y acá la columna derecha, con la imagen de fondo decorativa -->
-    <div class="w-full md:w-1/2 relative min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
-      <div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90"
-        role="img" aria-label="Ilustración de un negocio con presencia digital en Google"
-        style="background-image: url('imagenes/hero-presencia-online-google.jpg');">
-      </div>
+    <!-- Y acá la columna derecha, con la foto que muestra el problema: la emprendedora que busca su negocio y no lo encuentra -->
+    <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white">
+      <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
+      <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
+      <img src="imagenes/sabristudios_subheadline.jpeg" width="2912" height="1440"
+        alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
+        class="w-full h-full object-cover">
       <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
       <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
     </div>

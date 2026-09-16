@@ -399,6 +399,35 @@ Antes de publicar cambios:
 
 ---
 
+### v1.3 — Septiembre 2026
+
+**Qué hice:** Agregué la imagen que faltaba en el Hero (`index.html`).
+
+**Detalle del cambio:**
+
+- El Hero ya tenía título, subheadline y botón de WhatsApp armados; lo único que faltaba era la imagen del lado derecho, que hasta ahora era solo un fondo genérico (`hero-presencia-online-google.jpg`, una foto de laptop con wireframes).
+- La reemplacé por `imagenes/sabristudios_subheadline.jpeg`, que ya estaba en la carpeta de imágenes sin usar: muestra justo a una emprendedora buscando su negocio desde el celular y le aparece "business not found" en Google Maps. Es la imagen que describe el problema, tal cual pedía el PRD.
+- Cambié la implementación de un `<div>` con `background-image` a una etiqueta `<img>` normal, con `width`/`height` y `alt` descriptivo, siguiendo el mismo patrón que ya se usa en la foto de "Sobre Mí".
+- No le puse `loading="lazy"` porque es una imagen que se ve apenas se carga la página (el Hero), así que conviene que cargue de una.
+
+**Por qué lo hice:** Era una mejora pendiente marcada en la sección 5.1 y en la tabla de "Imágenes/Ilustraciones Faltantes" (sección 6.1) de este PRD: el Hero necesitaba una imagen que muestre el problema (emprendedor frustrado que no aparece en Google), no solo un fondo decorativo.
+
+---
+
+### v1.4 — Septiembre 2026
+
+**Qué hice:** Ajusté el marco de la imagen del Hero para que respete la proporción real de la foto (`index.html`).
+
+**Detalle del cambio:**
+
+- El contenedor de la imagen tenía `min-h-[400px]`, una altura mínima fija que no coincidía con la proporción real de la foto (2912x1440 px) y hacía que `object-cover` la recortara de más.
+- Reemplacé esa altura fija por `aspect-[2912/1440]`, que es el mismo ancho x alto real del archivo. Así el marco se achica o agranda respetando la forma original de la imagen, sin recortarla de manera rara.
+- Saqué también el `flex items-center justify-center` del contenedor, porque ya no hace falta centrar nada: la imagen ahora ocupa todo el marco de punta a punta.
+
+**Por qué lo hice:** Sabrina pidió que el marco se ajuste al tamaño real de la imagen en vez de forzarla a una altura fija que no le correspondía.
+
+---
+
 ## 14. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -406,3 +435,5 @@ Antes de publicar cambios:
 | 1.0 | Septiembre 2026 | Sabri Studios | Creación inicial del documento LEAN PRD (objetivo, persona, propuesta de valor, estructura de landing, roadmap y checklist) |
 | 1.1 | Septiembre 2026 | Sabri Studios | Agregada la sección "La demo gratuita es así" en `index.html`, entre Proceso y Proyectos |
 | 1.2 | Septiembre 2026 | Sabri Studios | Actualizado el subheadline del Hero con dato de urgencia (3 de cada 10 emprendedores) |
+| 1.3 | Septiembre 2026 | Sabri Studios | Agregada la imagen faltante del Hero (emprendedora buscando su negocio en Google) |
+| 1.4 | Septiembre 2026 | Sabri Studios | Ajustado el marco de la imagen del Hero a su proporción real (aspect-ratio en vez de altura fija) |
