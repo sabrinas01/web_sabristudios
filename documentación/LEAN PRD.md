@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.9
+**Versión:** 1.11
 
 **Fecha:** Septiembre 2026
 
@@ -789,6 +789,41 @@ Antes de publicar cambios:
 
 ---
 
+### v1.10 — 16 de septiembre de 2026
+
+**Qué hice:** Agregué parámetros UTM a los 4 botones de WhatsApp de la landing (`index.html`).
+
+**Detalle del cambio:**
+
+- Sumé `utm_source=whatsapp`, `utm_campaign=demo` y un `utm_medium` distinto a cada botón, según dónde está ubicado:
+    - Hero ("RESERVÁ TU DEMO") → `utm_medium=cta_hero`.
+    - Sobre Mí ("¡Reservá tu demo!", el CTA justo antes del footer) → `utm_medium=cta_footer`.
+    - Botón flotante ("¡Hablemos!") → `utm_medium=cta_floating`.
+    - FAQ ("→ Contactarme por WhatsApp") → `utm_medium=cta_faq`.
+- **Ojo con esto:** no hay ningún link de WhatsApp adentro de la etiqueta `<footer>` en sí — el botón que etiqueté como `cta_footer` es el de la sección "Sobre Mí", que es el último CTA de la página antes del footer. Lo mapeé así porque es el único botón que podía corresponder a "Footer" de los cuatro que pidió Sabrina; si en algún momento se agrega un botón de WhatsApp dentro del `<footer>` propiamente dicho, ese `utm_medium` debería reasignarse a ese botón nuevo.
+- Mantuve el mensaje precargado (`text=...`) que ya tenía cada botón (el de reserva de demo en Hero y Sobre Mí, el de consulta puntual en FAQ, y ningún mensaje en el flotante), y le agregué los parámetros UTM al final de cada URL.
+- El script de tracking de clics de WhatsApp (que dispara el evento `contacto_whatsapp` de Google Analytics) sigue funcionando igual, porque matchea los links por el prefijo `https://wa.me/` y no le importa la query string.
+
+**Por qué lo hice:** Sabrina quería poder distinguir en Google Analytics/Ads desde qué botón de la landing sale cada consulta de WhatsApp, para saber qué CTA convierte más.
+
+---
+
+### v1.11 — 16 de septiembre de 2026
+
+**Qué hice:** Sumé a `index.html` las dos mediciones de Google Analytics que faltaban de la sección 13 (Flujo de Datos/Tracking) y 14 (Success Metrics): scroll depth hasta "Proceso" y fuente de tráfico.
+
+**Detalle del cambio:**
+
+- **Scroll a "Proceso":** agregué un `IntersectionObserver` sobre `<section id="proceso">` que dispara un evento `scroll_proceso` de GA la primera vez que la sección empieza a entrar en pantalla (`threshold: 0`, no 0.5, porque la sección es más alta que el viewport y nunca se vería "la mitad" en pantallas normales). Esto mide la métrica "Tasa de scroll a 'Proceso'" (target >70%) de la sección 14.
+- **Fuente de tráfico:** agregué `detectarFuenteTrafico()`, que primero mira si la URL trae `utm_source` (para links de Instagram bio, por ejemplo) y si no lo encuentra, infiere la fuente del `document.referrer` (`google_organic`, `instagram`, `referral_<dominio>` o `direct` si no hay referrer). El resultado se guarda en `sessionStorage` bajo `traffic_source` para que no se pierda si la persona navega por anclas dentro de la misma página.
+- Agregué `traffic_source` como parámetro extra al evento `contacto_whatsapp` que ya existía, para poder cruzar en GA qué fuente de tráfico termina generando consultas de WhatsApp (no solo qué botón se usó).
+- Probé todo en el preview local: confirmé que `traffic_source` se detecta bien con `?utm_source=instagram`, que persiste en `sessionStorage` entre navegaciones, que el evento `scroll_proceso` se dispara al llegar a la sección, y que `contacto_whatsapp` sale con el nuevo parámetro al hacer clic en el botón flotante.
+- **Ojo con esto:** todavía no implementé el resto de la sección 13 (bounce rate por sección, tiempo en página) porque esas dos ya las cubre Google Analytics/Clarity automáticamente sin código adicional — no hacía falta tocar nada.
+
+**Por qué lo hice:** Sabrina pidió avanzar con "lo de GA" que había quedado pendiente de una charla anterior; entre las métricas que el PRD todavía no tenía instrumentadas, priorizamos scroll depth y fuente de tráfico porque son las que permiten saber si la gente lee la propuesta de valor completa y desde dónde viene el tráfico que más convierte.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -805,3 +840,5 @@ Antes de publicar cambios:
 | 1.7 | Septiembre 2026 | Sabri Studios | Rediseñado el Hero: pantalla completa, titular con acento naranja, segundo CTA y señales de confianza |
 | 1.8 | 16 de septiembre de 2026 | Sabri Studios | Actualizadas las preguntas frecuentes (6 preguntas nuevas + caja de contacto por WhatsApp) y su schema `FAQPage` |
 | 1.9 | 16 de septiembre de 2026 | Sabri Studios | Fusionado `docs/PRD.md` con este LEAN PRD en un único documento |
+| 1.10 | 16 de septiembre de 2026 | Sabri Studios | Agregados parámetros UTM a los 4 botones de WhatsApp (Hero, Sobre Mí/Footer, flotante, FAQ) |
+| 1.11 | 16 de septiembre de 2026 | Sabri Studios | Agregado tracking de GA para scroll a "Proceso" y fuente de tráfico (UTM/referrer), cruzado con el evento de WhatsApp |

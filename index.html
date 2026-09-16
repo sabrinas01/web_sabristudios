@@ -360,7 +360,7 @@
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
   <!-- Ocupa toda la altura de la pantalla (min-h-screen) y tiene un degradé suave de fondo -->
-  <section class="min-h-screen flex items-center gap-xl px-sm md:px-lg py-section bg-gradient-to-br from-background to-white">
+  <section id="hero" class="min-h-screen flex items-center gap-xl px-sm md:px-lg py-section bg-gradient-to-br from-background to-white">
     <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
@@ -384,7 +384,7 @@
           no está listo para escribir y quiere entender antes cómo funciona.
         -->
         <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
-          <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
+          <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
             class="bg-brand-orange hover:bg-[#C66A2E] text-white font-whatsapp-cta font-bold px-md py-[16px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-lg w-full sm:w-auto text-center inline-block">
             RESERVÁ TU DEMO
@@ -750,7 +750,7 @@
           </p>
 
           <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-8">
-            <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
+            <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_footer&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
               class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
               ¡Reservá tu demo!
@@ -882,7 +882,7 @@
           <span class="font-bold">¿No encontraste tu pregunta?</span> Escribime por WhatsApp y hablamos
           directamente.
         </p>
-        <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes"
+        <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
           target="_blank" rel="noopener noreferrer"
           class="inline-block mt-sm font-label-cta text-label-cta text-brand-orange hover:underline">
           → Contactarme por WhatsApp
@@ -987,7 +987,7 @@
     abajo. A diferencia de los otros botones de Whatsapp, este abre el chat sin mensaje
     precargado, porque no está pensado para una sección puntual sino para toda la página.
   -->
-  <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
+  <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este es el ícono de WhatsApp, lo dibujé a mano en SVG -->
@@ -1044,20 +1044,78 @@
     // 3. Le digo al observador que vigile cada una de las tarjetas
     animatedElements.forEach((el) => slideInObserver.observe(el));
 
+    // Fuente de tráfico: identifico de dónde vino la visita (UTM si el link lo trae,
+    // si no trato de inferirlo del referrer) para poder cruzarlo con las conversiones
+    // (WhatsApp, scroll a "Proceso") y saber qué canal trae gente que realmente convierte.
+    function detectarFuenteTrafico() {
+      const utmSource = new URLSearchParams(window.location.search).get('utm_source');
+      if (utmSource) return utmSource;
+
+      const referrer = document.referrer;
+      if (!referrer) return 'direct';
+      try {
+        const hostname = new URL(referrer).hostname.replace(/^www\./, '');
+        if (/(^|\.)google\./.test(hostname)) return 'google_organic';
+        if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
+        return `referral_${hostname}`;
+      } catch {
+        return 'direct';
+      }
+    }
+
+    // Lo guardo en sessionStorage para que se mantenga fijo durante toda la visita
+    // (si no, cada navegación con ancla tipo #proceso podría "perder" el referrer original).
+    let fuenteTrafico = sessionStorage.getItem('traffic_source');
+    if (!fuenteTrafico) {
+      fuenteTrafico = detectarFuenteTrafico();
+      sessionStorage.setItem('traffic_source', fuenteTrafico);
+    }
+
     // Tracking de conversión (SEM): registro cada clic en un link de WhatsApp,
-    // identificando desde qué sección de la página salió, para poder optimizar
-    // campañas de Google Ads con clics reales de contacto.
+    // identificando desde qué botón/sección de la página salió y de qué fuente vino
+    // la visita, para poder optimizar campañas de Google Ads con clics reales de contacto.
+    // El id de sección real (ej. "sobre-mi") se traduce a un nombre corto para el reporte
+    // de GA (ej. "sobre_mi"); el botón flotante no vive dentro de ninguna sección.
+    const whatsappSourceMap = {
+      hero: 'hero',
+      'sobre-mi': 'sobre_mi',
+      'preguntas-frecuentes': 'faq',
+    };
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
-        const section = link.closest('section[id]')?.id || (link.closest('nav') ? 'nav' : 'flotante');
+        const sectionId = link.closest('section[id]')?.id;
+        const buttonLocation = sectionId || 'floating';
+        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
         if (typeof gtag === 'function') {
-          gtag('event', 'contacto_whatsapp', {
-            event_category: 'engagement',
-            event_label: section,
+          gtag('event', 'whatsapp_click', {
+            whatsapp_source: whatsappSource,
+            button_location: buttonLocation,
+            traffic_source: fuenteTrafico,
           });
         }
       });
     });
+
+    // Scroll depth: mido cuánta gente llega a la sección "Proceso", que es la métrica
+    // de profundidad de scroll que pide el PRD (target >70%, sección 14).
+    const procesoSection = document.getElementById('proceso');
+    if (procesoSection) {
+      const procesoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'scroll_proceso', {
+                event_category: 'engagement',
+                traffic_source: fuenteTrafico,
+              });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0 }); // "Proceso" es una sección larga (varios pasos), así que disparo
+      // apenas empieza a entrar en pantalla, no cuando ya se ve la mitad
+      procesoObserver.observe(procesoSection);
+    }
   </script>
 
 </body>
