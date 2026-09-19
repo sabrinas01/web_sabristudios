@@ -243,29 +243,6 @@
       transition: left 0.75s ease-out;
     }
     /*
-      Esto es el "Visitar sitio web" de las tarjetas de proyectos: cuando paso el mouse por
-      encima de la tarjeta, le va apareciendo un subrayado de izquierda a derecha.
-    */
-    .visit-link {
-      position: relative;
-    }
-    .visit-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background-color: currentColor;
-      transition: width 0.3s ease-out;
-    }
-    .project-card:hover .visit-link {
-      color: #C66A2E;
-    }
-    .project-card:hover .visit-link::after {
-      width: 100%;
-    }
-    /*
       Si alguien tiene activada la opción de "reducir movimiento" en su celular o compu
       (por mareos o migrañas con las animaciones), acá le saco todas las transiciones y
       dejo todo mostrado directamente, sin efectos.
@@ -313,7 +290,7 @@
         "aria" para que las personas que usan lectores de pantalla también sepan que es un botón
         de menú y si está abierto o cerrado (aunque para mí sea solo un ícono).
       -->
-      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
       </button>
 
@@ -331,10 +308,10 @@
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
-  <section class="max-w-container-max mx-auto px-sm md:px-lg py-section flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
+  <section class="max-w-container-max mx-auto px-sm md:px-lg py-lg md:py-section flex flex-col md:flex-row items-center gap-lg md:gap-[80px]">
 
     <!-- Acá va la columna izquierda, con el texto principal y el botón -->
-    <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
+    <div class="w-full md:w-1/2 flex flex-col gap-md md:gap-lg items-start">
       <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
         El costo de la invisibilidad
       </span>
@@ -344,7 +321,7 @@
       </h1>
 
       <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg">
-        Mientras lo pensás, alguien que busca justo lo que vos ofrecés ya le está escribiendo a tu competencia. 
+        Mientras lo pensás, alguien que busca justo lo que vos ofrecés ya le está escribiendo a tu competencia.
         Te ayudo a construir la presencia online que hace que te encuentren a vos primero.
       </p>
 
@@ -360,10 +337,20 @@
           RESERVÁ TU DEMO ¡GRATIS!
         </a>
       </div>
+
+      <!--
+        Microcopy guía: le doy a la persona una segunda acción clara y de bajo compromiso
+        (mirar proyectos ya hechos) para que sepa qué sigue si no está lista para escribirme todavía.
+      -->
+      <a href="#proyectos"
+        class="font-label-cta text-label-cta text-brand-blue hover:text-brand-orange transition-colors duration-200 inline-flex items-center gap-1">
+        Mirá proyectos que ya hice
+        <span class="material-symbols-outlined text-base">arrow_downward</span>
+      </a>
     </div>
 
     <!-- Y acá la columna derecha, con la imagen de fondo decorativa -->
-    <div class="w-full md:w-1/2 relative min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
+    <div class="w-full md:w-1/2 relative min-h-[220px] md:min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
       <div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90"
         role="img" aria-label="Ilustración de un negocio con presencia digital en Google"
         style="background-image: url('imagenes/hero-presencia-online-google.jpg');">
@@ -377,7 +364,7 @@
   <!-- ================================== -->
   <!-- SECCIÓN "ANTES / DESPUÉS" (problema) -->
   <!-- ================================== -->
-  <section id="problema" class="bg-white py-section border-y border-brand-border">
+  <section id="problema" class="bg-white py-lg md:py-section border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
       <!-- Acá pongo el título y la bajada de la sección -->
@@ -445,7 +432,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN "PROYECTOS DESARROLLADOS" -->
   <!-- ============================== -->
-  <section id="proyectos" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="proyectos" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg md:gap-xl">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -458,7 +445,7 @@
     </div>
 
     <!-- Armé una grilla de proyectos donde cada tarjeta es un link directo al sitio del cliente -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-lg">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md md:gap-lg">
 
       <!--
         Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
@@ -467,12 +454,12 @@
       -->
       <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
-        class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
         <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
           Estética Vehicular
         </span>
-        <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+        <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <!--
             Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
             carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
@@ -483,10 +470,11 @@
         </div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Mantenimiento de alfombras, techos, butacas, tablero y puertas, y recuperado de ópticas.
+          Mantenimiento y recuperado de interiores de autos.
         </p>
-        <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
-          Visitar sitio web
+        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-2 px-sm py-2 rounded-lg">
+          Ver proyecto
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
         </span>
       </a>
 
@@ -496,20 +484,21 @@
       -->
       <a href="https://www.jlconstrucciones.com/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de JL Construcciones en Seco, desarrollado por Sabri Studios"
-        class="project-card bg-white p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
           Construcción en seco
         </span>
-        <div class="mt-6 w-28 h-28 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
+        <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
             alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
         </div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">JL Construcciones en Seco</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Instalación de durlock, cielorrasos, tabiques y estructuras en steel framing.
+          Durlock, cielorrasos y estructuras en steel framing.
         </p>
-        <span class="visit-link font-label-cta text-label-cta text-brand-orange inline-block mt-2">
-          Visitar sitio web
+        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-2 px-sm py-2 rounded-lg">
+          Ver proyecto
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
         </span>
       </a>
 
@@ -519,7 +508,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN PROCESO (3 pasos)      -->
   <!-- ============================== -->
-  <section id="proceso" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="proceso" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg md:gap-xl">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -571,7 +560,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
-  <section id="sobre-mi" class="py-section bg-white">
+  <section id="sobre-mi" class="py-lg md:py-section bg-white">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
       <div class="bg-white rounded-lg shadow-ambient p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
@@ -611,7 +600,7 @@
   <!-- ============================================ -->
   <!-- SECCIÓN "PREGUNTAS FRECUENTES" (SEO/GEO: FAQ) -->
   <!-- ============================================ -->
-  <section id="preguntas-frecuentes" class="py-section bg-white border-y border-brand-border">
+  <section id="preguntas-frecuentes" class="py-lg md:py-section bg-white border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
       <div class="text-center max-w-2xl mx-auto">
@@ -631,7 +620,7 @@
       <div class="max-w-3xl mx-auto w-full flex flex-col gap-sm">
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Qué incluye el servicio de Sabri Studios?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -641,7 +630,7 @@
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Trabajás con negocios de cualquier rubro?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -651,7 +640,7 @@
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Atendés solo en San Juan o también otras provincias/paises?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -661,7 +650,7 @@
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             No tengo idea de qué necesita mi negocio, ¿igual puedo consultar?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -670,7 +659,7 @@
           </p>
         </details>
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Como es el proceso de diagnostico?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -679,7 +668,7 @@
           </p>
         </details>
         <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue cursor-pointer list-none flex justify-between items-center gap-sm">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Cómo reservo la demo gratis?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
