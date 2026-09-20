@@ -434,8 +434,12 @@
       <!-- Hice una grilla de 2 columnas: en mobile se apilan y desde md se muestran lado a lado -->
       <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
 
-        <!-- Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
+        <!--
+          Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll.
+          Sin sombra a propósito: uso ese mismo estilo (sombra + borde) en las tarjetas de Proyectos,
+          que sí son clickeables, y no quiero que esta se confunda con algo interactivo.
+        -->
+        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background flex flex-col gap-sm">
           <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
           </div>
@@ -457,7 +461,7 @@
         </div>
 
         <!-- Y esta es la tarjeta "DESPUÉS": la deslizo igual que la de "ANTES" pero con un poco más de retraso -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
+        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
           <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
             <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
           </div>
@@ -506,7 +510,7 @@
 
       <!-- Paso 1 -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Hablamos de tu negocio en profundidad — qué vendés, a quién, y por qué hoy no te encuentran.
@@ -515,7 +519,7 @@
 
       <!-- Paso 2 -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Traduzco ese diagnóstico en una web pensada para generar confianza y conversión, no solo para verse bien.
@@ -524,7 +528,7 @@
 
       <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Tu web lista, encontrable, y trabajando para captar clientes.
@@ -705,7 +709,7 @@
   <!-- ============================== -->
   <section id="sobre-mi" class="py-section bg-white">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
-      <div class="bg-white rounded-lg shadow-ambient p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
+      <div class="bg-white rounded-lg border border-brand-border p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
         <!-- Acá pongo mi foto de perfil -->
         <div class="w-full md:w-1/2">
