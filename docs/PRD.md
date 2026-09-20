@@ -39,6 +39,10 @@ Generar contactos calificados de personas que necesitan crear o mejorar la prese
 - Blog o sistema de publicación de contenidos.
 - Integración automática con un CRM.
 
+### Nuevo en v0.5.0
+
+- Página de detalle propia por cada proyecto ("caso de estudio"), con los 3 pasos del proceso aplicados a ese proyecto puntual y un botón final para visitar el sitio real del cliente.
+
 ## 4. Público objetivo
 
 Personas dueñas de pequeños negocios o emprendimientos que:
@@ -61,6 +65,7 @@ Personas dueñas de pequeños negocios o emprendimientos que:
 | RF-07 | Los enlaces de navegación deben llevar a las secciones correspondientes. | Media |
 | RF-08 | Las animaciones deben activarse al entrar el contenido en el viewport. | Media |
 | RF-09 | La página debe ofrecer una experiencia usable en móvil y escritorio. | Alta |
+| RF-10 | Cada tarjeta de la sección "Proyectos desarrollados" debe llevar a una página propia con los 3 pasos del proceso aplicados a ese proyecto, y esa página debe terminar con un botón para visitar el sitio real del cliente. | Alta |
 
 ## 6. Requisitos no funcionales
 
@@ -241,6 +246,32 @@ Escenario: La persona abre la landing desde un celular
   Y el CTA del formulario y el botón de WhatsApp siguen siendo utilizables
 ```
 
+### Épica E - Ver el caso de estudio de un proyecto
+
+#### HU-09 - Conocer el proceso de un proyecto puntual
+
+**Como** persona interesada en contratar el servicio,  
+**quiero** ver cómo fue el proceso de un proyecto ya hecho,  
+**para** confiar en que el mismo proceso puede aplicarse a mi negocio.
+
+**Criterios de aceptación (BDD)**
+
+```gherkin
+Característica: Ver el caso de estudio de un proyecto
+
+Escenario: La persona presiona "Ver proyecto"
+  Dado que la persona está en la sección "Proyectos desarrollados"
+  Cuando presiona el botón "Ver proyecto" de una tarjeta
+  Entonces se abre una página propia de ese proyecto
+  Y esa página muestra los 3 pasos del proceso (Diagnóstico, Diseño y Estrategia, Resultados) aplicados a ese proyecto puntual
+
+Escenario: La persona quiere visitar el sitio real
+  Dado que la persona está en la página de detalle de un proyecto
+  Cuando llega al final del contenido
+  Entonces encuentra un botón "Ver sitio web"
+  Y ese botón abre el sitio real del cliente en una pestaña nueva
+```
+
 ## 8. Dependencias y riesgos
 
 - El formulario depende de la disponibilidad del enlace externo de Google Forms.
@@ -256,3 +287,4 @@ Escenario: La persona abre la landing desde un celular
 | 0.2.0 | 2026-08-24 | Sabri Studios | Incorporación de animaciones de entrada para los pasos 1, 2 y 3 y criterios de accesibilidad para reducción de movimiento. |
 | 0.3.0 | 2026-09-16 | Sabri Studios | Reordené la sección "Proyectos desarrollados" por encima de la sección "Proceso", y actualicé el orden de los enlaces del menú de navegación (Proyectos antes de Proceso) para que coincida. |
 | 0.4.0 | 2026-09-19 | Sabri Studios | Optimización basada en datos de Clarity y mapas de calor: reduje el alto del hero y el padding de todas las secciones en mobile para que se vea más contenido sin scroll inicial; agregué microcopy "Mirá proyectos que ya hice" debajo del CTA principal; agrandé las tarjetas de proyecto, acorté sus descripciones y reemplacé el link de texto por un botón explícito "Ver proyecto"; sumé estados hover al botón de menú mobile y a las preguntas frecuentes para reforzar qué elementos son clickeables. |
+| 0.5.0 | 2026-09-19 | Sabri Studios | Creé una página de detalle propia por proyecto (`proyecto-ar-estetica-vehicular.html` y `proyecto-jl-construcciones-en-seco.html`) usando los colores y tipografías del sistema de diseño (`tailwind.config.js`). El botón "Ver proyecto" de cada tarjeta ahora lleva a esa página, que muestra los 3 pasos del proceso aplicados a ese proyecto puntual y termina con un botón "Ver sitio web" que abre el sitio real del cliente en una pestaña nueva. |

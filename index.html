@@ -444,20 +444,21 @@
       </p>
     </div>
 
-    <!-- Armé una grilla de proyectos donde cada tarjeta es un link directo al sitio del cliente -->
+    <!-- Armé una grilla de proyectos donde cada tarjeta lleva a una página propia con el proceso de ese proyecto -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md md:gap-lg">
 
       <!--
         Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
         así se puede hacer clic en cualquier parte (la foto, el título, el texto) y no solo en
-        el "Visitar sitio web" de abajo. Me pareció más cómodo de usar que un link chiquito nomás.
+        el botón "Ver proyecto" de abajo. Lleva a una página propia con los 3 pasos del proceso
+        y, al final, un botón para visitar el sitio real del cliente.
       -->
-      <a href="https://armantenimiento.netlify.app/" target="_blank" rel="noopener noreferrer"
-        aria-label="Visitar el sitio web de AR Estética Vehicular, desarrollado por Sabri Studios"
+      <a href="proyecto-ar-estetica-vehicular.html"
+        aria-label="Ver el proceso del proyecto de AR Mantenimiento y Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
         <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
-          Estética Vehicular
+          Mantenimiento y Estética Vehicular
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <!--
@@ -482,8 +483,8 @@
         Este es el proyecto de JL Construcciones en Seco (Durlock & Steel). Repetí el mismo patrón
         de tarjeta-link que en la de AR Estética Vehicular, así queda todo consistente.
       -->
-      <a href="https://www.jlconstrucciones.com/" target="_blank" rel="noopener noreferrer"
-        aria-label="Visitar el sitio web de JL Construcciones en Seco, desarrollado por Sabri Studios"
+      <a href="proyecto-jl-construcciones-en-seco.html"
+        aria-label="Ver el proceso del proyecto de JL Construcciones en Seco, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
           Construcción en seco
