@@ -73,29 +73,149 @@
       opacity: 0;
       transform: translateY(32px) scale(0.96);
       transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+      transition-delay: var(--step-delay, 0s);
     }
     .process-step.is-visible {
       opacity: 1;
       transform: translateY(0) scale(1);
     }
-    .process-step:nth-of-type(2) {
-      transition-delay: 0.15s;
-    }
-    .process-step:nth-of-type(3) {
-      transition-delay: 0.3s;
-    }
+    /*
+      Los 3 pasos están uno al lado del otro (grid horizontal en desktop), y cada uno
+      aparece 2 segundos después que el anterior, de izquierda a derecha.
+    */
+    .process-step-1 { --step-delay: 0s; }
+    .process-step-2 { --step-delay: 2s; }
+    .process-step-3 { --step-delay: 4s; }
+    /*
+      El número de cada paso, además de agrandarse, ahora hace un pequeño "rebote" con
+      giro (overshoot) al aparecer, para que se sienta con más punch que un simple fade.
+      Usa el mismo retraso que su tarjeta (--step-delay) para que no "salte" antes de tiempo.
+    */
     .process-step-number {
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.65s ease-out;
+      transition: box-shadow 0.65s ease-out;
+      transition-delay: var(--step-delay, 0s);
     }
     .process-step.is-visible .process-step-number {
-      transform: scale(1.12);
+      animation: numberPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--step-delay, 0s) both;
       box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
     }
+    @keyframes numberPop {
+      0% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.3) rotate(10deg); }
+      100% { transform: scale(1.12) rotate(0deg); }
+    }
+    /*
+      La línea que conecta los 3 pasos se "dibuja" de izquierda a derecha, con una duración
+      pensada para terminar justo cuando aparece el paso 3 (2 pasos x 2s + su propia animación).
+    */
+    .process-line {
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 4.6s linear 0.1s;
+    }
+    .process-grid.is-visible .process-line {
+      transform: scaleX(1);
+    }
+
+    /*
+      Animación de entrada del encabezado: el logo "rebota" al aparecer (escala + giro con
+      overshoot) y el texto de al lado va entrando de a poco, escalonado, para darle más
+      impacto a lo primero que ve la persona al abrir la página del proyecto.
+    */
+    @keyframes heroLogoIn {
+      0% { opacity: 0; transform: scale(0.4) rotate(-20deg); }
+      60% { opacity: 1; transform: scale(1.08) rotate(4deg); }
+      100% { opacity: 1; transform: scale(1) rotate(0deg); }
+    }
+    @keyframes heroFadeUp {
+      0% { opacity: 0; transform: translateY(24px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .hero-logo-in {
+      animation: heroLogoIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .hero-fade-up {
+      opacity: 0;
+      animation: heroFadeUp 0.7s ease-out both;
+    }
+    .hero-fade-up-1 { animation-delay: 0.25s; }
+    .hero-fade-up-2 { animation-delay: 0.4s; }
+    .hero-fade-up-3 { animation-delay: 0.55s; }
+
+    /*
+      El CTA final ("¿Querés ver el resultado?") entra con un pop sutil al llegar al scroll,
+      y sus dos botones tienen un brillo diagonal que los recorre al pasar el mouse.
+    */
+    @keyframes ctaPopIn {
+      0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .cta-final {
+      opacity: 0;
+    }
+    .cta-final.is-visible {
+      animation: ctaPopIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+    }
+    .cta-shine {
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-shine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
+      transform: skewX(-20deg);
+      pointer-events: none;
+    }
+    .cta-shine:hover::after {
+      left: 125%;
+      transition: left 0.75s ease-out;
+    }
+
+    /*
+      Un anillo que "late" detrás del botón flotante de WhatsApp, para llamar un poco más
+      la atención sin ser invasivo (se repite cada 2 segundos, en loop).
+    */
+    @keyframes pulseRing {
+      0% { transform: scale(1); opacity: 0.55; }
+      100% { transform: scale(1.8); opacity: 0; }
+    }
+    .whatsapp-pulse {
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background-color: rgb(37, 211, 102);
+      animation: pulseRing 2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+      z-index: -1;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .process-step {
         opacity: 1;
         transform: none;
         transition: none;
+      }
+      .process-step.is-visible .process-step-number {
+        animation: none;
+      }
+      .process-line {
+        transition: none;
+        transform: scaleX(1);
+      }
+      .hero-logo-in,
+      .hero-fade-up,
+      .cta-final {
+        animation: none;
+        opacity: 1;
+        transform: none;
+      }
+      .whatsapp-pulse {
+        animation: none;
+        display: none;
       }
     }
   </style>
@@ -150,19 +270,19 @@
   <!-- ============================== -->
   <section class="max-w-container-max mx-auto px-sm md:px-lg py-lg md:py-section flex flex-col md:flex-row items-center gap-lg md:gap-xl text-center md:text-left">
 
-    <div class="w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border border-brand-border bg-white flex items-center justify-center">
+    <div class="hero-logo-in w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border border-brand-border bg-white flex items-center justify-center">
       <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="160" height="160" loading="lazy"
         alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
     </div>
 
     <div class="flex flex-col gap-sm items-center md:items-start">
-      <span class="font-label-cta text-label-cta text-white bg-[#A10C10] uppercase px-sm py-1 rounded">
+      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-white bg-[#A10C10] uppercase px-sm py-1 rounded">
         Construcción en seco
       </span>
-      <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue">
+      <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue">
         JL Construcciones en Seco
       </h1>
-      <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-xl">
+      <p class="hero-fade-up hero-fade-up-3 font-body-main text-body-main text-text-strong opacity-80 max-w-xl">
         Durlock, cielorrasos y estructuras en steel framing en San Juan. Así fue el proceso que
         hicimos para llevarlos de trabajar solo por recomendación a tener presencia digital propia.
       </p>
@@ -185,12 +305,12 @@
         </p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-md relative">
+      <div class="process-grid grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
-        <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
+        <div class="process-line hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
 
         <!-- Paso 1 -->
-        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
+        <div class="process-step process-step-1 flex flex-col items-center text-center gap-sm relative z-10">
           <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -200,7 +320,7 @@
         </div>
 
         <!-- Paso 2 -->
-        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+        <div class="process-step process-step-2 flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
           <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -209,7 +329,7 @@
         </div>
 
         <!-- Paso 3 -->
-        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+        <div class="process-step process-step-3 flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
           <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -226,7 +346,7 @@
   <!-- ============================== -->
   <!-- CTA FINAL: VER SITIO WEB       -->
   <!-- ============================== -->
-  <section class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
+  <section class="cta-final py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
     <h2 class="font-headline-h2 text-headline-h2 text-brand-blue">
       ¿Querés ver el resultado final?
     </h2>
@@ -236,13 +356,13 @@
     <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
       <a href="https://www.jlconstrucciones.com/" target="_blank" rel="noopener noreferrer"
         aria-label="Visitar el sitio web de JL Construcciones en Seco"
-        class="font-label-cta text-label-cta text-white bg-brand-orange hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient">
+        class="cta-shine font-label-cta text-label-cta text-white bg-brand-orange hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient">
         Ver sitio web
         <span class="material-symbols-outlined text-base">open_in_new</span>
       </a>
       <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
         target="_blank" rel="noopener noreferrer"
-        class="font-label-cta text-label-cta text-brand-blue bg-white border border-brand-border hover:bg-surface-container-low transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
+        class="cta-shine font-label-cta text-label-cta text-brand-blue bg-white border border-brand-border hover:bg-surface-container-low transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
         Quiero algo así para mi negocio
       </a>
     </div>
@@ -279,6 +399,8 @@
   <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
+    <!-- Este anillo "late" detrás del botón en loop, para llamar un poco la atención sin ser invasivo -->
+    <span class="whatsapp-pulse" aria-hidden="true"></span>
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
       <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.89 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.743-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"></path>
     </svg>
@@ -309,7 +431,7 @@
 
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
 
-    const animatedElements = document.querySelectorAll('.process-step');
+    const animatedElements = document.querySelectorAll('.process-step, .process-grid, .cta-final');
 
     const slideInObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
