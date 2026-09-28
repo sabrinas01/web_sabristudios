@@ -844,6 +844,20 @@ Antes de publicar cambios:
 
 ---
 
+### v1.13 — 27 de septiembre de 2026
+
+**Qué hice:** Corregí la etiqueta roja de la esquina de las tarjetas de "Proyectos desarrollados" (`index.html`) para que no parezca un elemento clickeable aparte y no se desborde en celulares angostos.
+
+**Detalle del cambio:**
+
+- Le saqué la clase `shadow-ambient` a las dos etiquetas ("Mantenimiento y Estética Vehicular" y "Construcción en seco"): esa sombra ya la lleva la tarjeta completa (que sí es el `<a>` clickeable), y tenerla también en la etiqueta interna hacía que pareciera un botón separado dentro de la tarjeta.
+- En mobile, reemplacé `whitespace-nowrap` por un ancho máximo (`max-w-[55%]`) que permite que el texto haga salto de línea si no entra, así no se corta ni se sale del borde de la tarjeta en pantallas de celular angostas. Desde `md` en adelante mantuve el comportamiento original (una sola línea, sin límite de ancho), porque ahí ya hay espacio de sobra.
+- Recompilé `dist/output.css` con `npm run build` para que la clase arbitraria nueva (`max-w-[55%]`) quede incluida.
+
+**Por qué lo hice:** Sabrina pidió sacar los "espacios que parecen clickeables pero no lo son" (mismo criterio que ya habíamos aplicado antes, ver historial de proyecto en memoria) y que el resultado se adapte bien a cualquier pantalla de celular.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -863,3 +877,4 @@ Antes de publicar cambios:
 | 1.10 | 16 de septiembre de 2026 | Sabri Studios | Agregados parámetros UTM a los 4 botones de WhatsApp (Hero, Sobre Mí/Footer, flotante, FAQ) |
 | 1.11 | 16 de septiembre de 2026 | Sabri Studios | Agregado tracking de GA para scroll a "Proceso" y fuente de tráfico (UTM/referrer), cruzado con el evento de WhatsApp |
 | 1.12 | 16 de septiembre de 2026 | Sabri Studios | Reemplazado el evento `contacto_whatsapp` por `whatsapp_click` con parámetros `whatsapp_source` y `button_location` en los 4 botones de WhatsApp |
+| 1.13 | 27 de septiembre de 2026 | Sabri Studios | Sacada la sombra `shadow-ambient` de las etiquetas de las tarjetas de Proyectos y hechas responsive para que no se desborden en celulares angostos |
