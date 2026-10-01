@@ -218,7 +218,6 @@
         box-shadow 0.3s ease-out;
       position: relative;
       overflow: hidden;
-      perspective: 1200px;
     }
     .project-card.is-visible {
       opacity: 1;
@@ -227,32 +226,6 @@
     .project-card.is-visible:hover {
       transform: translateY(-6px) scale(1.02) rotate(0deg);
       box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
-    }
-    /*
-      Acá armo el "giro" de la tarjeta: adelante va el logo, la etiqueta y el nombre;
-      atrás va el detalle del emprendimiento. Al pasar el mouse, "project-card-inner"
-      rota 180° sobre su propio eje y muestra la otra cara.
-    */
-    .project-card-inner {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
-      transform-style: preserve-3d;
-    }
-    .project-card:hover .project-card-inner {
-      transform: rotateY(180deg);
-    }
-    .project-card-face {
-      position: absolute;
-      inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      overflow: hidden;
-      border-radius: inherit;
-    }
-    .project-card-face-back {
-      transform: rotateY(180deg);
     }
     .project-card::after {
       content: '';
@@ -270,29 +243,6 @@
       transition: left 0.75s ease-out;
     }
     /*
-      Esto es el "Visitar sitio web" de las tarjetas de proyectos: cuando paso el mouse por
-      encima de la tarjeta, le va apareciendo un subrayado de izquierda a derecha.
-    */
-    .visit-link {
-      position: relative;
-    }
-    .visit-link::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -3px;
-      width: 0;
-      height: 2px;
-      background-color: currentColor;
-      transition: width 0.3s ease-out;
-    }
-    .project-card:hover .visit-link {
-      color: #C66A2E;
-    }
-    .project-card:hover .visit-link::after {
-      width: 100%;
-    }
-    /*
       Si alguien tiene activada la opción de "reducir movimiento" en su celular o compu
       (por mareos o migrañas con las animaciones), acá le saco todas las transiciones y
       dejo todo mostrado directamente, sin efectos.
@@ -301,8 +251,7 @@
       .slide-in-left,
       .process-step,
       .project-card,
-      .project-card.is-visible:hover,
-      .project-card-inner {
+      .project-card.is-visible:hover {
         opacity: 1;
         transform: none;
         transition: none;
