@@ -143,11 +143,11 @@ Cierre o no-cierre (fuera del scope del PRD)
 **Mejoras identificadas:**
 
 - Agregar métrica concreta: "Clientes perdidos por mes" o "Tiempo de crecimiento".
-    - Antes: "No aparecés en Google ni en Maps" + "[X% de búsquedas locales las pierdés]".
-    - Después: "Aparecés en las búsquedas" + "[X% de clientes nuevos por mes]".
+  - Antes: "No aparecés en Google ni en Maps" + "[X% de búsquedas locales las pierdés]".
+  - Después: "Aparecés en las búsquedas" + "[X% de clientes nuevos por mes]".
 - Enfatizar confianza: "Generás confianza" es bueno, pero ser más específico.
-    - Actual: "Generás confianza antes de que te escriban".
-    - Alternativa: "Cuando te googleen, van a encontrar UNA PÁGINA PROFESIONAL (no WhatsApp vacío)".
+  - Actual: "Generás confianza antes de que te escriban".
+  - Alternativa: "Cuando te googleen, van a encontrar UNA PÁGINA PROFESIONAL (no WhatsApp vacío)".
 
 ### 7.3 Sección "Proceso" ✅ (Mantener, detallar más)
 
@@ -156,9 +156,9 @@ Cierre o no-cierre (fuera del scope del PRD)
 **Mejoras identificadas:**
 
 - Cada paso necesita más detalle sin ser abrumador.
-    - **Diagnóstico:** "¿Qué hacés, a quién le vendés, por qué no te encuentran?" → Tiempo estimado: 30 min.
-    - **Diseño y Estrategia:** "Traducimos eso en una web pensada para vender" → Tiempo: 2-3 semanas.
-    - **Resultados:** "Web lista, encontrable, trabajando" → Tiempo: 1 semana post-entrega QA.
+  - **Diagnóstico:** "¿Qué hacés, a quién le vendés, por qué no te encuentran?" → Tiempo estimado: 30 min.
+  - **Diseño y Estrategia:** "Traducimos eso en una web pensada para vender" → Tiempo: 2-3 semanas.
+  - **Resultados:** "Web lista, encontrable, trabajando" → Tiempo: 1 semana post-entrega QA.
 - Agregar: "Sin sorpresas. Todo hablado, todo acordado".
 - Agregar: Precio aquí o en sección aparte (hoy no aparece en la landing).
 
@@ -181,7 +181,7 @@ Cierre o no-cierre (fuera del scope del PRD)
 **Mejoras obligatorias:**
 
 1. Agregar testimonial por cliente (voz del cliente real).
-    - Ejemplo: "Antes no aparecía en Google. Ahora recibo 3-4 consultas por semana desde la web" — *Carlos, JL Construcciones*.
+   - Ejemplo: "Antes no aparecía en Google. Ahora recibo 3-4 consultas por semana desde la web" — *Carlos, JL Construcciones*.
 2. Agregar métrica: "Resultados después de 2 meses" (consultas, llamadas, visitantes).
 3. Agregar 1-2 casos más (mínimo 3 para credibilidad).
 4. Considerar video corto: Cliente hablando sobre el resultado (30 segundos max).
@@ -193,9 +193,9 @@ Cierre o no-cierre (fuera del scope del PRD)
 **Mejoras identificadas:**
 
 - Agregar credential/experiencia.
-    - "No hago páginas web bonitas. Construyo herramientas de venta. [X años de experiencia, Y negocios ayudados]".
+  - "No hago páginas web bonitas. Construyo herramientas de venta. [X años de experiencia, Y negocios ayudados]".
 - Agregar por qué esto importa.
-    - "Trazo formación en [Análisis Funcional, Elicitación de Requisitos] — eso es lo que la mayoría de diseñadores no hace: preguntar antes de diseñar".
+  - "Trazo formación en [Análisis Funcional, Elicitación de Requisitos] — eso es lo que la mayoría de diseñadores no hace: preguntar antes de diseñar".
 - Considerar agregar: "¿Por qué Sabri, y no otro?" (diferencial personal, no solo del servicio).
 
 ### 7.7 Sección "FAQs" ✅ (Expandida en v1.8)
@@ -218,7 +218,7 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 **Qué agregar:**
 
-```
+```text
 LANDING BASE: $80.000 ARS (promo inauguración, primeros 4 proyectos)
 → Incluye: diagnóstico, diseño, dominio 12 meses, hosting 12 meses
 
@@ -321,7 +321,7 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 **quiero** entender cuánto me cuesta no aparecer en Google,
 **para** reconocer la necesidad de mejorar mi presencia digital.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD)
 
 ```gherkin
 Característica: Comunicar el costo de la invisibilidad digital
@@ -339,7 +339,7 @@ Escenario: La persona visita la sección del problema
 **quiero** entender qué hace Sabri Studios,
 **para** decidir si el servicio puede ayudar a mi negocio.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD)
 
 ```gherkin
 Característica: Presentar la propuesta de valor
@@ -360,7 +360,7 @@ Escenario: La persona llega a la primera pantalla
 **quiero** conocer los pasos del trabajo,
 **para** saber qué puedo esperar antes de contactar.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD)
 
 ```gherkin
 Característica: Mostrar el proceso de trabajo
@@ -380,7 +380,7 @@ Escenario: La persona consulta el proceso
 **quiero** que los pasos aparezcan de forma progresiva y ordenada,
 **para** identificar fácilmente la secuencia del servicio.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD)
 
 ```gherkin
 Característica: Animar la sección de proceso
@@ -405,7 +405,7 @@ Escenario: La persona tiene activada la reducción de movimiento
 **quiero** ver el paso a paso de la demo gratuita,
 **para** animarme a escribir sabiendo que no es una venta forzada.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD)
 
 ```gherkin
 Característica: Mostrar el paso a paso de la demo gratuita
@@ -796,10 +796,10 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - Sumé `utm_source=whatsapp`, `utm_campaign=demo` y un `utm_medium` distinto a cada botón, según dónde está ubicado:
-    - Hero ("RESERVÁ TU DEMO") → `utm_medium=cta_hero`.
-    - Sobre Mí ("¡Reservá tu demo!", el CTA justo antes del footer) → `utm_medium=cta_footer`.
-    - Botón flotante ("¡Hablemos!") → `utm_medium=cta_floating`.
-    - FAQ ("→ Contactarme por WhatsApp") → `utm_medium=cta_faq`.
+  - Hero ("RESERVÁ TU DEMO") → `utm_medium=cta_hero`.
+  - Sobre Mí ("¡Reservá tu demo!", el CTA justo antes del footer) → `utm_medium=cta_footer`.
+  - Botón flotante ("¡Hablemos!") → `utm_medium=cta_floating`.
+  - FAQ ("→ Contactarme por WhatsApp") → `utm_medium=cta_faq`.
 - **Ojo con esto:** no hay ningún link de WhatsApp adentro de la etiqueta `<footer>` en sí — el botón que etiqueté como `cta_footer` es el de la sección "Sobre Mí", que es el último CTA de la página antes del footer. Lo mapeé así porque es el único botón que podía corresponder a "Footer" de los cuatro que pidió Sabrina; si en algún momento se agrega un botón de WhatsApp dentro del `<footer>` propiamente dicho, ese `utm_medium` debería reasignarse a ese botón nuevo.
 - Mantuve el mensaje precargado (`text=...`) que ya tenía cada botón (el de reserva de demo en Hero y Sobre Mí, el de consulta puntual en FAQ, y ningún mensaje en el flotante), y le agregué los parámetros UTM al final de cada URL.
 - El script de tracking de clics de WhatsApp (que dispara el evento `contacto_whatsapp` de Google Analytics) sigue funcionando igual, porque matchea los links por el prefijo `https://wa.me/` y no le importa la query string.
@@ -831,9 +831,9 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - El evento nuevo, disparado en `index.html` en los 4 botones de WhatsApp (Hero, Sobre Mí, FAQ, flotante), manda:
-    - `whatsapp_source`: `hero` | `sobre_mi` | `faq` | `floating`.
-    - `button_location`: el id real de la sección en el HTML (`hero`, `sobre-mi`, `preguntas-frecuentes`) o `floating` para el botón que no vive dentro de ninguna sección.
-    - `traffic_source`: lo mantuve del cambio anterior (v1.11), no estaba en el spec que trajo Sabrina pero no hay motivo para perderlo — sigue permitiendo cruzar de qué canal vino la visita que terminó escribiendo por WhatsApp.
+  - `whatsapp_source`: `hero` | `sobre_mi` | `faq` | `floating`.
+  - `button_location`: el id real de la sección en el HTML (`hero`, `sobre-mi`, `preguntas-frecuentes`) o `floating` para el botón que no vive dentro de ninguna sección.
+  - `traffic_source`: lo mantuve del cambio anterior (v1.11), no estaba en el spec que trajo Sabrina pero no hay motivo para perderlo — sigue permitiendo cruzar de qué canal vino la visita que terminó escribiendo por WhatsApp.
 - El spec original que trajo Sabrina usaba `button_location: window.location.pathname`, pero como esta landing es de una sola página ese valor iba a salir igual en los 4 botones (no serviría para nada en los reportes de GA). Se lo consulté y prefirió que usara el id de sección real en su lugar.
 - También le pregunté si dejaba `contacto_whatsapp` conviviendo con el nuevo evento o lo reemplazaba del todo; eligió reemplazarlo en los 4 botones para no tener dos eventos duplicados en el mismo clic.
 - Agregué `id="hero"` a la sección de Hero (antes no tenía id) para que el mismo mecanismo que ya usábamos (`closest('section[id]')`) pudiera identificarla.
