@@ -404,9 +404,19 @@
       <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-xl overflow-hidden border border-brand-border shadow-ambient bg-white hidden md:block">
         <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
         <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
-        <img src="imagenes/sabristudios_subheadline.jpeg" width="2912" height="1440"
-          alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
-          class="w-full h-full object-cover">
+        <!--
+          Uso <picture> con <source media="(min-width: 768px)"> en vez de dejar la imagen suelta:
+          "hidden md:block" solo oculta el contenedor con CSS, pero el navegador igual pide el <img>
+          apenas lo parsea, así que en celular se bajaban los 1.9MB de la foto sin mostrarla nunca.
+          Con <source media>, el navegador decide ANTES de pedir nada: en mobile ni se descarga.
+        -->
+        <picture>
+          <source media="(min-width: 768px)" srcset="imagenes/sabristudios_subheadline.jpeg">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7"
+            width="2912" height="1440"
+            alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
+            class="w-full h-full object-cover">
+        </picture>
         <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
         <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
       </div>

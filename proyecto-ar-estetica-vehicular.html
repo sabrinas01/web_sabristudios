@@ -347,7 +347,7 @@
   <!-- ============================== -->
   <!-- CTA FINAL: VER SITIO WEB       -->
   <!-- ============================== -->
-  <section class="cta-final py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
+  <section id="cta-final" class="cta-final py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
     <h2 class="font-headline-h2 text-headline-h2 text-brand-blue">
       ¿Quiere ver el resultado final?
     </h2>
@@ -361,7 +361,7 @@
         Ver sitio web
         <span class="material-symbols-outlined text-base">open_in_new</span>
       </a>
-      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
+      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_final&utm_campaign=demo"
         target="_blank" rel="noopener noreferrer"
         class="cta-shine font-label-cta text-label-cta text-brand-blue bg-white border border-brand-border hover:bg-surface-container-low transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
         Quiero algo así para mi negocio
@@ -397,7 +397,7 @@
   <!-- ============================================= -->
   <!-- BOTÓN FLOTANTE DE WHATSAPP (fijo en pantalla)  -->
   <!-- ============================================= -->
-  <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
+  <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este anillo "late" detrás del botón en loop, para llamar un poco la atención sin ser invasivo -->
@@ -445,13 +445,44 @@
 
     animatedElements.forEach((el) => slideInObserver.observe(el));
 
+    // Fuente de tráfico y evento whatsapp_click: mismo esquema que index.html, para que
+    // los clics de WhatsApp en esta página de proyecto se reporten en GA con el mismo
+    // formato que los de la landing (antes esta página seguía usando "contacto_whatsapp").
+    function detectarFuenteTrafico() {
+      const utmSource = new URLSearchParams(window.location.search).get('utm_source');
+      if (utmSource) return utmSource;
+
+      const referrer = document.referrer;
+      if (!referrer) return 'direct';
+      try {
+        const hostname = new URL(referrer).hostname.replace(/^www\./, '');
+        if (/(^|\.)google\./.test(hostname)) return 'google_organic';
+        if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
+        return `referral_${hostname}`;
+      } catch {
+        return 'direct';
+      }
+    }
+
+    let fuenteTrafico = sessionStorage.getItem('traffic_source');
+    if (!fuenteTrafico) {
+      fuenteTrafico = detectarFuenteTrafico();
+      sessionStorage.setItem('traffic_source', fuenteTrafico);
+    }
+
+    const whatsappSourceMap = {
+      'cta-final': 'cta_final',
+    };
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
-        const section = link.closest('section[id]')?.id || (link.closest('nav') ? 'nav' : 'flotante');
+        const sectionId = link.closest('section[id]')?.id;
+        const buttonLocation = sectionId || 'floating';
+        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
         if (typeof gtag === 'function') {
-          gtag('event', 'contacto_whatsapp', {
-            event_category: 'engagement',
-            event_label: section,
+          gtag('event', 'whatsapp_click', {
+            whatsapp_source: whatsappSource,
+            button_location: buttonLocation,
+            traffic_source: fuenteTrafico,
           });
         }
       });
