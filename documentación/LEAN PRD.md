@@ -2,9 +2,9 @@
 
 ## Versión
 
-**Versión:** 1.12
+**Versión:** 1.14
 
-**Fecha:** Septiembre 2026
+**Fecha:** Octubre 2026
 
 **Objetivo:** Mejorar conversión de visitantes → consultas WhatsApp para demo gratuita
 
@@ -858,6 +858,22 @@ Antes de publicar cambios:
 
 ---
 
+### v1.14 — 4 de octubre de 2026
+
+**Qué hice:** Le agregué animación a la imagen del Hero (`index.html`).
+
+**Detalle del cambio:**
+
+- Entrada al cargar la página: el marco de la imagen aparece desde la derecha con un leve zoom out (`@keyframes heroImageIn`, 0.9s, con 0.2s de demora para que primero se lea el titular).
+- Después, la foto hace un efecto "Ken Burns" dentro del marco: un acercamiento lento de ida y vuelta (18s, `@keyframes heroKenBurns`). Como el contenedor tiene `overflow-hidden`, el zoom no se sale del marco.
+- No le agregué efecto al pasar el mouse a propósito: la imagen no es clickeable y un hover invitaría a hacer clics muertos.
+- Respeta `prefers-reduced-motion`: si el dispositivo pide reducir movimiento, la imagen se muestra quieta, sin animaciones.
+- Es CSS propio dentro del `<style>` de `index.html`, así que no hizo falta recompilar Tailwind.
+
+**Por qué lo hice:** Sabrina pidió darle algún efecto o animación a la imagen del Hero para que la portada tenga más vida.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -878,3 +894,4 @@ Antes de publicar cambios:
 | 1.11 | 16 de septiembre de 2026 | Sabri Studios | Agregado tracking de GA para scroll a "Proceso" y fuente de tráfico (UTM/referrer), cruzado con el evento de WhatsApp |
 | 1.12 | 16 de septiembre de 2026 | Sabri Studios | Reemplazado el evento `contacto_whatsapp` por `whatsapp_click` con parámetros `whatsapp_source` y `button_location` en los 4 botones de WhatsApp |
 | 1.13 | 27 de septiembre de 2026 | Sabri Studios | Sacada la sombra `shadow-ambient` de las etiquetas de las tarjetas de Proyectos y hechas responsive para que no se desborden en celulares angostos |
+| 1.14 | 4 de octubre de 2026 | Sabri Studios | Agregada animación a la imagen del Hero: entrada desde la derecha al cargar y efecto Ken Burns suave, con soporte para `prefers-reduced-motion` |
