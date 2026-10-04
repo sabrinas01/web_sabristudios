@@ -761,13 +761,6 @@
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
           <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Y si no me gusta el resultado?
-            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-          </summary>
-        </details>
-
-        <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
             ¿Después puedo escalar la web?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
@@ -828,7 +821,7 @@
         "name": "¿Cuánto tarda el proyecto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La demo solemos tenerla lista en 2 días. El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue. Si necesitás cambios post-entrega, tenés 15 días de soporte gratuitos post-entrega con cambios ilimitados. Luego, si querés más cambios, hablamos y vemos cómo seguir."
+          "text": "La demo solemos tenerla lista en 2 días. El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue. Si necesitás cambios post-entrega, el servicio de soporte se cotiza aparte."
         }
       },
       {
@@ -836,7 +829,7 @@
         "name": "¿Qué incluye exactamente?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Diagnóstico (30 min conversación con vos), diseño personalizado para tu negocio, dominio 12 meses gratis, alojamiento 12 meses gratis, optimización para Google, soporte 15 días post-entrega (cambios ilimitados), luego de esos 15 días el servicio de soporte es opcional y se cotiza aparte."
+          "text": "Diagnóstico (30 min conversación con vos), diseño personalizado para tu negocio, dominio 12 meses gratis, alojamiento 12 meses gratis, optimización para Google."
         }
       },
       {
@@ -845,14 +838,6 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te digo qué necesitás, avanzamos o no. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das feedback, cambios y listo. Transparencia total."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "¿Y si no me gusta el resultado?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Tenés 15 días de soporte ilimitado. Cambios, ajustes, lo que sea está incluido. Si después de eso querés más cambios, hablamos y vemos cómo seguir."
         }
       },
       {
@@ -887,25 +872,39 @@
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
 
-      <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
-        alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
+      <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
+        <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
+          alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
 
-      <!-- Acá van los links a mis redes sociales y contacto -->
-      <div class="flex gap-md font-body-main text-body-main">
-        <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-          <span class="material-symbols-outlined text-lg">photo_camera</span>
-          <span class="text-sm">Instagram</span>
-        </a>
-        <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
-        <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-          <span class="material-symbols-outlined text-lg">mail</span>
-          <span class="text-sm">Email</span>
-        </a>
+        <!-- Acá van los links a mis redes sociales y contacto -->
+        <div class="flex gap-md font-body-main text-body-main">
+          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">photo_camera</span>
+            <span class="text-sm">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">work</span>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+          <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
+          <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">mail</span>
+            <span class="text-sm">Email</span>
+          </a>
+        </div>
       </div>
 
-      <div class="font-caption text-caption text-brand-blue">© 2026 Sabrina Sanso. Todos los derechos reservados.</div>
+      <!--
+        Esta línea va centrada y en su propia fila (no a la derecha) a propósito: el botón
+        flotante de WhatsApp vive fijo en esa esquina y tapaba el link cuando compartía fila
+        con el logo y las redes.
+      -->
+      <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-brand-blue text-center border-t border-brand-border w-full justify-center pt-md">
+        <span>© 2026 Sabrina Sanso. Todos los derechos reservados.</span>
+        <a href="politica-de-privacidad.html" class="hover:text-brand-secondary-blue transition-colors underline">Política de Privacidad</a>
+      </div>
 
     </div>
   </footer>
