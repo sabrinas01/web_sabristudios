@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.14
+**Versión:** 1.15
 
 **Fecha:** Octubre 2026
 
@@ -874,6 +874,20 @@ Antes de publicar cambios:
 
 ---
 
+### v1.15 — 4 de octubre de 2026
+
+**Qué hice:** Le sumé a la imagen del Hero (`index.html`) un efecto que no invita al clic, y le saqué lo que sí lo hacía.
+
+**Detalle del cambio:**
+
+- Flotación suave (`@keyframes heroFloat`): el marco sube y baja 10px en un ciclo lento de 7s. Arranca cuando termina la animación de entrada. Es un movimiento automático que no reacciona al mouse, así que no se lee como botón.
+- Le saqué la clase `shadow-ambient` al marco de la imagen: esa sombra la reservamos para elementos clickeables, y en una imagen estática la hacía parecer un botón.
+- Respeta `prefers-reduced-motion` (ya cubierto por la regla de la v1.14).
+
+**Por qué lo hice:** Sabrina pidió un efecto que no invite al clic, siguiendo el mismo criterio de evitar clics muertos.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -895,3 +909,4 @@ Antes de publicar cambios:
 | 1.12 | 16 de septiembre de 2026 | Sabri Studios | Reemplazado el evento `contacto_whatsapp` por `whatsapp_click` con parámetros `whatsapp_source` y `button_location` en los 4 botones de WhatsApp |
 | 1.13 | 27 de septiembre de 2026 | Sabri Studios | Sacada la sombra `shadow-ambient` de las etiquetas de las tarjetas de Proyectos y hechas responsive para que no se desborden en celulares angostos |
 | 1.14 | 4 de octubre de 2026 | Sabri Studios | Agregada animación a la imagen del Hero: entrada desde la derecha al cargar y efecto Ken Burns suave, con soporte para `prefers-reduced-motion` |
+| 1.15 | 4 de octubre de 2026 | Sabri Studios | Agregada flotación suave a la imagen del Hero y sacada su `shadow-ambient` para que no parezca clickeable |
