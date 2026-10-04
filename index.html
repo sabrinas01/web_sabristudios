@@ -141,14 +141,13 @@
   <!-- Uso Tailwind CSS para los estilos, ya viene precompilado en build time (lo configuré en tailwind.config.js) -->
   <link rel="stylesheet" href="dist/output.css">
 
-  <!-- Estas son las fuentes que traigo de Google Fonts: los íconos (Material Symbols) y la tipografía Space Grotesk -->
+  <!-- Estas son las fuentes que traigo de Google Fonts: los íconos (Material Symbols) y la tipografía Space Mono -->
   <!-- Con preconnect adelanto la conexión (DNS+TLS) a los dominios de Google Fonts,
        para que cuando llegue el <link> real la fuente ya empiece a descargarse antes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap">
 
   <!-- Acá abajo van mis estilos propios, fuera de Tailwind, para cosas puntuales que no me salían solo con clases -->
   <style>
@@ -290,7 +289,7 @@
         "aria" para que las personas que usan lectores de pantalla también sepan que es un botón
         de menú y si está abierto o cerrado (aunque para mí sea solo un ícono).
       -->
-      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
       </button>
 
@@ -308,124 +307,68 @@
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
-  <section class="max-w-container-max mx-auto px-sm md:px-lg py-lg md:py-section flex flex-col md:flex-row items-center gap-lg md:gap-[80px]">
+  <!-- Ocupa toda la altura de la pantalla desde desktop (md:min-h-screen) y tiene un degradé suave de fondo. En mobile dejo que el alto lo defina el contenido: con min-h-screen fijo quedaba un espacio en blanco enorme arriba y abajo del texto (se presta a clics muertos) -->
+  <section id="hero" class="md:min-h-screen flex items-center gap-xl px-sm md:px-lg py-lg md:py-section bg-gradient-to-br from-background to-white">
+    <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
 
-    <!-- Acá va la columna izquierda, con el texto principal y el botón -->
-    <div class="w-full md:w-1/2 flex flex-col gap-md md:gap-lg items-start">
-      <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
-        El costo de la invisibilidad
-      </span>
+      <!-- Acá va la columna izquierda, con el texto principal y los botones -->
+      <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
+        <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
+          El costo de la invisibilidad
+        </span>
 
-      <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue max-w-2xl">
-        Si tu negocio no aparece en Google, no existe para quien te busca.
-      </h1>
+        <!-- El "no existe" va resaltado en naranja para que se lea como el golpe de efecto del titular -->
+        <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue max-w-2xl leading-tight">
+          Si tu negocio no aparece en Google<span class="text-brand-orange"> no existe</span>
+        </h1>
 
-      <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg">
-        Mientras lo pensás, alguien que busca justo lo que vos ofrecés ya le está escribiendo a tu competencia.
-        Te ayudo a construir la <span class="text-brand-orange font-semibold">presencia online</span> que hace que te encuentren a vos primero.
-      </p>
+        <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg text-lg font-medium">
+          Mientras lo pensás, probablemente ya hay clientes encontrando a tu competencia.
+          ¿Vos querés perderlos?
+        </p>
 
-      <!--
-        Este es el botón principal para que me contacten. Uso "wa.me" con mi número, que es el
-        link oficial de Whatsapp para abrir un chat sin tener que tenerme agendada, y le dejo el
-        mensaje ya escrito para que la persona no tenga que pensar qué poner.
-      -->
-      <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
-        <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
-          target="_blank" rel="noopener noreferrer"
-          class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
-          RESERVÁ TU DEMO ¡GRATIS!
-        </a>
-      </div>
+        <!--
+          Botón principal (WhatsApp) y botón secundario que lleva a "Proceso", para quien todavía
+          no está listo para escribir y quiere entender antes cómo funciona.
+        -->
+        <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
+          <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
+            target="_blank" rel="noopener noreferrer"
+            class="bg-brand-orange hover:bg-[#C66A2E] text-white font-whatsapp-cta font-bold px-md py-[16px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-lg w-full sm:w-auto text-center inline-block">
+            RESERVÁ TU DEMO
+          </a>
+          <a href="#proceso"
+            class="border-2 border-brand-blue text-brand-blue hover:bg-brand-blue hover:text-white font-whatsapp-cta font-bold px-md py-[14px] rounded-lg transition-colors duration-200 w-full sm:w-auto text-center inline-block">
+            Ver cómo funciona
+          </a>
+        </div>
 
-      <!--
-        Microcopy guía: le doy a la persona una segunda acción clara y de bajo compromiso
-        (mirar proyectos ya hechos) para que sepa qué sigue si no está lista para escribirme todavía.
-      -->
-      <a href="#proyectos"
-        class="font-label-cta text-label-cta text-brand-blue hover:text-brand-orange transition-colors duration-200 inline-flex items-center gap-1">
-        Mirá proyectos que ya hice
-        <span class="material-symbols-outlined text-base">arrow_downward</span>
-      </a>
-    </div>
-
-    <!-- Y acá la columna derecha, con la imagen de fondo decorativa -->
-    <div class="w-full md:w-1/2 relative min-h-[220px] md:min-h-[400px] rounded-lg overflow-hidden border border-brand-border shadow-ambient bg-white flex items-center justify-center">
-      <div class="bg-cover bg-center w-full h-full absolute inset-0 opacity-90"
-        role="img" aria-label="Ilustración de un negocio con presencia digital en Google"
-        style="background-image: url('imagenes/hero-presencia-online-google.jpg');">
-      </div>
-      <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
-      <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
-    </div>
-
-  </section>
-
-  <!-- ================================== -->
-  <!-- SECCIÓN "ANTES / DESPUÉS" (problema) -->
-  <!-- ================================== -->
-  <section id="problema" class="bg-white py-lg md:py-section border-y border-brand-border">
-    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
-
-      <!-- Acá pongo el título y la bajada de la sección -->
-      <div class="w-full">
-        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
-          ¿Cuánto te está costando no aparecer en Google?
-        </h2>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          No se trata de tener algo complejo. Se trata de existir donde tus clientes ya te están
-          buscando. Hoy, sin web ni Maps, tu crecimiento depende solo del boca a boca — y eso tiene techo.
+        <p class="font-body-main text-sm text-text-strong opacity-70">
+          ✓ Demo gratuita &nbsp;•&nbsp; ✓ Sin compromiso &nbsp;•&nbsp; ✓ 30 minutos
         </p>
       </div>
 
-      <!-- Hice una grilla de 2 columnas: en mobile se apilan y desde md se muestran lado a lado -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-
-        <!-- Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background shadow-ambient flex flex-col gap-sm">
-          <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
-            <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
-          </div>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">ANTES</h3>
-          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80">
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              No aparecés en Google ni en Google Maps
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              Tu crecimiento depende solo del boca a boca
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              Cada día que pasa, alguien elige a tu competencia sin saber que vos también tenías la solución
-            </li>
-          </ul>
-        </div>
-
-        <!-- Y esta es la tarjeta "DESPUÉS": la deslizo igual que la de "ANTES" pero con un poco más de retraso -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 shadow-ambient flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
-          <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
-            <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
-          </div>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">DESPUÉS</h3>
-          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80 z-10">
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Aparecés en las búsquedas y en el mapa
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Generás confianza antes de que te escriban
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Tu web trabaja para vos, incluso cuando no estás activa
-            </li>
-          </ul>
-        </div>
-
+      <!-- Y acá la columna derecha, con la foto que muestra el problema: la emprendedora que busca su negocio y no lo encuentra. La oculto en celular para no alargar tanto el hero -->
+      <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-xl overflow-hidden border border-brand-border shadow-ambient bg-white hidden md:block">
+        <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
+        <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
+        <!--
+          Uso <picture> con <source media="(min-width: 768px)"> en vez de dejar la imagen suelta:
+          "hidden md:block" solo oculta el contenedor con CSS, pero el navegador igual pide el <img>
+          apenas lo parsea, así que en celular se bajaban los 1.9MB de la foto sin mostrarla nunca.
+          Con <source media>, el navegador decide ANTES de pedir nada: en mobile ni se descarga.
+        -->
+        <picture>
+          <source media="(min-width: 768px)" srcset="imagenes/sabristudios_subheadline.jpeg">
+          <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7"
+            width="2912" height="1440"
+            alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
+            class="w-full h-full object-cover">
+        </picture>
+        <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
+        <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
       </div>
+
     </div>
   </section>
 
@@ -457,7 +400,7 @@
         aria-label="Ver el proceso del proyecto de AR Mantenimiento y Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
         <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
+        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
           Mantenimiento y Estética Vehicular
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
@@ -469,11 +412,8 @@
           <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
             alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">AR Estética Vehicular</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Mantenimiento y recuperado de interiores de autos.
-        </p>
-        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-2 px-sm py-2 rounded-lg">
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">AR Estética Vehicular</h3>
+        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
           Ver proyecto
           <span class="material-symbols-outlined text-base">arrow_forward</span>
         </span>
@@ -486,18 +426,15 @@
       <a href="proyecto-jl-construcciones-en-seco.html"
         aria-label="Ver el proceso del proyecto de JL Construcciones en Seco, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-none whitespace-nowrap font-bold uppercase px-1.5 py-1 rounded shadow-ambient">
+        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
           Construcción en seco
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
           <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
             alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">JL Construcciones en Seco</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Durlock, cielorrasos y estructuras en steel framing.
-        </p>
-        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-2 px-sm py-2 rounded-lg">
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">JL Construcciones en Seco</h3>
+        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
           Ver proyecto
           <span class="material-symbols-outlined text-base">arrow_forward</span>
         </span>
@@ -509,7 +446,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN PROCESO (3 pasos)      -->
   <!-- ============================== -->
-  <section id="proceso" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg md:gap-xl">
+  <section id="proceso" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -517,7 +454,7 @@
         Un proceso directo, pensado para vender
       </h2>
       <p class="font-body-main text-body-main text-text-strong opacity-80">
-        No arranco diseñando. Arranco preguntando. Así la web no queda linda y vacía — queda con un
+        No arranco diseñando. Arranco preguntando. Así la web no queda linda y vacía, queda con un
         objetivo claro.
       </p>
     </div>
@@ -530,16 +467,16 @@
 
       <!-- Paso 1 -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
-          Hablamos de tu negocio en profundidad — qué vendés, a quién, y por qué hoy no te encuentran.
+          Hablamos de tu negocio en profundidad: qué vendés, a quién, y por qué hoy no te encuentran.
         </p>
       </div>
 
       <!-- Paso 2 -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border shadow-ambient flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Traduzco ese diagnóstico en una web pensada para generar confianza y conversión, no solo para verse bien.
@@ -548,7 +485,7 @@
 
       <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
       <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange shadow-ambient flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
           Tu web lista, encontrable, y trabajando para captar clientes.
@@ -559,11 +496,160 @@
   </section>
 
   <!-- ============================== -->
+  <!-- SECCIÓN "LA DEMO GRATUITA ES ASÍ" -->
+  <!-- ============================== -->
+  <!-- Esta sección le muestra a la persona qué esperar del primer contacto por WhatsApp, paso a paso -->
+  <section id="demo-gratuita" class="bg-white py-lg md:py-section border-y border-brand-border">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+
+      <!-- Título centrado, igual que en el resto de las secciones -->
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+          La demo gratuita es así
+        </h2>
+      </div>
+
+      <!-- Lista de pasos con su número en un círculo naranja -->
+      <div class="max-w-3xl mx-auto w-full flex flex-col gap-md">
+
+        <div class="flex gap-md items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+            1
+          </div>
+          <div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue mb-1">Coordinamos el diagnóstico</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              Ya sea sincrónico o asincrónico, elegimos la forma que más te convenga para que me cuentes sobre tu negocio y tus objetivos.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-md items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+            2
+          </div>
+          <div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue mb-1">Conversamos sobre tu negocio</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              No sobre diseño. Quiero saber: ¿Qué vendés? ¿A quién? ¿Por qué hoy no te encuentran?
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-md items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+            3
+          </div>
+          <div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue mb-1">Armo una propuesta</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              Te muestro cómo podría quedar tu sitio web con la información disponible públicamente. Y si no necesitás web, también te lo digo. Sin vueltas.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-md items-start">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+            4
+          </div>
+          <div>
+            <h3 class="font-headline-h3 text-headline-h3 text-brand-blue mb-1">Si avanzamos, hablamos del proceso</h3>
+            <p class="font-body-main text-body-main text-text-strong opacity-80">
+              Cómo es el trabajo, plazos, inversión.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Cita destacada, con el borde naranja de marca a la izquierda -->
+      <div class="max-w-3xl mx-auto w-full p-md bg-background border-l-4 border-brand-orange rounded-lg">
+        <p class="font-body-main text-body-main text-text-strong font-semibold">
+          "No es una venta disfrazada de consulta. Es una conversación real para saber si podemos trabajar juntos o no."
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================== -->
+  <!-- SECCIÓN "ANTES / DESPUÉS" (problema) -->
+  <!-- ================================== -->
+  <section id="problema" class="bg-white py-lg md:py-section border-y border-brand-border">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+
+      <!-- Acá pongo el título y la bajada de la sección -->
+      <div class="w-full">
+        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+          ¿Cuánto te está costando no aparecer en Google?
+        </h2>
+        <p class="font-body-main text-body-main text-text-strong opacity-80">
+          No se trata de tener algo complejo. Se trata de existir donde tus clientes ya te están
+          buscando. Hoy, sin web ni Maps, tu crecimiento depende solo del boca a boca y eso tiene techo.
+        </p>
+      </div>
+
+      <!-- Hice una grilla de 2 columnas: en mobile se apilan y desde md se muestran lado a lado -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+
+        <!--
+          Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll.
+          Sin sombra a propósito: uso ese mismo estilo (sombra + borde) en las tarjetas de Proyectos,
+          que sí son clickeables, y no quiero que esta se confunda con algo interactivo.
+        -->
+        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background flex flex-col gap-sm">
+          <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
+            <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
+          </div>
+          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">ANTES</h3>
+          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80">
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
+              No aparecés en Google
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
+              Tu crecimiento depende solo del boca a boca
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
+              Cada día que pasa, alguien elige a tu competencia sin saber que vos también tenías la solución
+            </li>
+          </ul>
+        </div>
+
+        <!-- Y esta es la tarjeta "DESPUÉS": la deslizo igual que la de "ANTES" pero con un poco más de retraso -->
+        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
+          <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
+            <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
+          </div>
+          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">DESPUÉS</h3>
+          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80 z-10">
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Aparecés en las búsquedas y en el mapa
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Generás confianza antes de que te escriban
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Tu web trabaja para vos, incluso cuando no estás activo/a
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
   <section id="sobre-mi" class="py-lg md:py-section bg-white">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
-      <div class="bg-white rounded-lg shadow-ambient p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
+      <div class="bg-white rounded-lg border border-brand-border p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
         <!-- Acá pongo mi foto de perfil -->
         <div class="w-full md:w-1/2">
@@ -577,19 +663,19 @@
         <div class="w-full md:w-1/2 flex flex-col gap-md">
           <h2 class="font-headline-h2 text-headline-h2 text-brand-blue">¡Hola! Soy Sabri</h2>
           <p class="font-body-main text-body-main text-text-strong opacity-90">
-            No hago "páginas web bonitas". Construyo herramientas de venta. Mi trabajo es entender tu
-            negocio y traducirlo a un entorno digital que realmente funcione para vos. Mi enfoque es
-            honesto, directo y 100% orientado a que tu negocio aparezca en internet.
+            Soy estudiante de Informatica además de una apasionada de la tecnología y de crear soluciones que hagan la vida cotidiana mucho más sencilla.
+            No hago solo páginas webs. Construyo herramientas de venta. Mi trabajo es entender tu negocio y traducirlo a un entorno digital que realmente funcione para vos. 
+            Mi enfoque es honesto, directo y 100% orientado a que tu negocio aparezca en internet.
           </p>
           <p class="font-medium text-brand-blue">
-            Si estás lista/o para dejar de depender solo del boca a boca, hablemos.
+            Si estás lista/o para mejorar tu presencia online, hablemos.
           </p>
 
           <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-8">
-            <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita"
+            <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_sobre_mi&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
               class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
-              ¡Reservá tu demo!
+              ¡RESERVÁ TU DEMO!
             </a>
           </div>
         </div>
@@ -609,7 +695,7 @@
           Preguntas frecuentes
         </h2>
         <p class="font-body-main text-body-main text-text-strong opacity-80">
-          Lo que más me preguntan antes de empezar a trabajar juntos.
+          Dudas que pueden surgir antes de reservar tu demo gratuita. Si no encontrás tu pregunta, escribime por WhatsApp y te la respondo personalmente.
         </p>
       </div>
 
@@ -622,62 +708,100 @@
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
           <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Qué incluye el servicio de Sabri Studios?
+            ¿Cuánto tarda el proyecto?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
           <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Un proceso de tres etapas: Primero diagnóstico de tu negocio, luego entendemos que tipo de página necesita tu negocio, definido eso pasamos a la etapa de contrucción de la página, logrando una web lista, encontrable y pensada para conseguir clientes, no solo para verse bien.
+            La demo solemos tenerla lista en 2 días.
+            El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue.
+            Si necesitás cambios post-entrega, el servicio de soporte se cotiza aparte.
           </p>
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
           <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Trabajás con negocios de cualquier rubro?
+            ¿Qué incluye exactamente?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Diagnóstico (30 min conversación con vos)
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Diseño personalizado para tu negocio
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Dominio 12 meses GRATIS
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Alojamiento 12 meses GRATIS
+            </li>
+            <li class="flex items-start gap-xs">
+              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
+              Optimización para Google
+            </li>
+          </ul>
+        </details>
+
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Cómo es el proceso de trabajo?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
           <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Sí. Trabajo con pequeños negocios y emprendimientos que hoy dependen del boca a boca y quieren empezar a aparecer en Google y no cuenten con página web, sin importar el rubro.
+            Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te digo qué necesitás,
+            avanzamos o no. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das feedback, cambios y listo.
           </p>
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
           <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Atendés solo en San Juan o también otras provincias/paises?
+            ¿Después puedo escalar la web?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
           <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Sabri Studios está en San Juan, Argentina, pero el trabajo se coordina por WhatsApp, así que puedo ayudarte sin importar en qué ciudad/pais esté tu negocio.
+            Sí. La web está hecha para escalar. Si después necesitás más funcionalidades, podemos hablar. O si preferís otro desarrollador, tenés acceso total al código y dominio.
           </p>
         </details>
 
         <details class="group bg-background rounded-lg border border-brand-border p-md">
           <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            No tengo idea de qué necesita mi negocio, ¿igual puedo consultar?
+            ¿Necesito saber de tecnología?
             <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
           </summary>
           <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Sí, es el punto de partida normal. No arranco diseñando: arranco preguntando sobre tu negocio para entender qué necesitás antes de proponerte una solución.
-          </p>
-        </details>
-        <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Como es el proceso de diagnostico?
-            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-          </summary>
-          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Sincronico por llamada o reunión por videollamada, asincronico por WhatsApp o correo electrónico. Se trata de un intercambio de información para entender tu negocio y tus necesidades.
-          </p>
-        </details>
-        <details class="group bg-background rounded-lg border border-brand-border p-md">
-          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
-            ¿Cómo reservo la demo gratis?
-            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-          </summary>
-          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
-            Escribiéndome por WhatsApp desde cualquier botón de esta página. Te respondo directamente para coordinar el diagnóstico inicial.
+            No. Te hago una web pensada para que la entiendas vos. Si necesitás cambiar algo después, me escribís y lo hacemos juntos.
           </p>
         </details>
 
+        <details class="group bg-background rounded-lg border border-brand-border p-md">
+          <summary class="font-headline-h3 text-headline-h3 text-brand-blue hover:text-brand-orange transition-colors duration-200 cursor-pointer list-none flex justify-between items-center gap-sm">
+            ¿Cómo es el proceso de diagnóstico?
+            <span class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+          </summary>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 mt-sm">
+            Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. 
+            Presencial: con cita, en tu negocio, si estás en Pocito o en el gran San Juan. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades.
+          </p>
+        </details>
+
+      </div>
+
+      <!-- Caja final por si no encontraste tu pregunta en la lista, con link directo a WhatsApp -->
+      <div class="max-w-3xl mx-auto w-full p-md bg-background border-l-4 border-brand-orange rounded-lg">
+        <p class="font-body-main text-body-main text-text-strong">
+          <span class="font-bold">¿No encontraste tu pregunta?</span> Escribime por WhatsApp y hablamos
+          directamente.
+        </p>
+        <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
+          target="_blank" rel="noopener noreferrer"
+          class="inline-block mt-sm font-label-cta text-label-cta text-brand-orange hover:underline">
+          Contactarme por WhatsApp
+        </a>
       </div>
     </div>
   </section>
@@ -693,42 +817,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "¿Qué incluye el servicio de Sabri Studios?",
+        "name": "¿Cuánto tarda el proyecto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Un proceso de tres etapas: Primero diagnóstico de tu negocio, luego entendemos que tipo de página necesita tu negocio, definido eso pasamos a la etapa de contrucción de la página, logrando una web lista, encontrable y pensada para conseguir clientes, no solo para verse bien."
+          "text": "La demo solemos tenerla lista en 2 días. El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue. Si necesitás cambios post-entrega, el servicio de soporte se cotiza aparte."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Trabajás con negocios de cualquier rubro?",
+        "name": "¿Qué incluye exactamente?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí. Trabajo con pequeños negocios y emprendimientos que hoy dependen del boca a boca y quieren empezar a aparecer en Google y no cuentan con página web, sin importar el rubro."
+          "text": "Diagnóstico (30 min conversación con vos), diseño personalizado para tu negocio, dominio 12 meses gratis, alojamiento 12 meses gratis, optimización para Google."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Atendés solo en San Juan o también otras provincias/paises?",
+        "name": "¿Cómo es el proceso de trabajo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sabri Studios está en San Juan, Argentina, pero el trabajo se coordina de forma remota por WhatsApp, así que puede ayudarte sin importar en qué ciudad esté tu negocio."
+          "text": "Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te digo qué necesitás, avanzamos o no. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das feedback, cambios y listo. Transparencia total."
         }
       },
       {
         "@type": "Question",
-        "name": "No tengo idea de qué necesita mi negocio, ¿igual puedo consultar?",
+        "name": "¿Después puedo escalar la web?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Sí, es el punto de partida normal. No arranca diseñando: arranca preguntando sobre tu negocio para entender qué necesitás antes de proponerte una solución."
+          "text": "Sí. La web está hecha para escalar. Si después necesitás más funcionalidades, podemos hablar. O si preferís otro desarrollador, tenés acceso total al código y dominio."
         }
       },
       {
         "@type": "Question",
-        "name": "¿Cómo reservo la demo gratis?",
+        "name": "¿Necesito saber de tecnología?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Escribiendo por WhatsApp desde cualquier botón \"Reservá tu demo\" de la página. Sabrina responde directamente para coordinar el diagnóstico inicial."
+          "text": "No. Te hago una web pensada para que la entiendas vos. Si necesitás cambiar algo después, me escribís y lo hacemos juntos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo es el proceso de diagnóstico?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. Presencial: con cita, en tu negocio, si estás en Pocito. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades."
         }
       }
     ]
@@ -739,25 +871,39 @@
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
-    <div class="flex flex-col md:flex-row justify-between items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
 
-      <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
-        alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
+      <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
+        <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
+          alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
 
-      <!-- Acá van los links a mis redes sociales y contacto -->
-      <div class="flex gap-md font-body-main text-body-main">
-        <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-          <span class="material-symbols-outlined text-lg">photo_camera</span>
-          <span class="text-sm">Instagram</span>
-        </a>
-        <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
-        <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-          <span class="material-symbols-outlined text-lg">mail</span>
-          <span class="text-sm">Email</span>
-        </a>
+        <!-- Acá van los links a mis redes sociales y contacto -->
+        <div class="flex gap-md font-body-main text-body-main">
+          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">photo_camera</span>
+            <span class="text-sm">Instagram</span>
+          </a>
+          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">work</span>
+            <span class="text-sm">LinkedIn</span>
+          </a>
+          <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
+          <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
+            <span class="material-symbols-outlined text-lg">mail</span>
+            <span class="text-sm">Email</span>
+          </a>
+        </div>
       </div>
 
-      <div class="font-caption text-caption text-brand-blue">© 2026 Sabrina Sanso. Todos los derechos reservados.</div>
+      <!--
+        Esta línea va centrada y en su propia fila (no a la derecha) a propósito: el botón
+        flotante de WhatsApp vive fijo en esa esquina y tapaba el link cuando compartía fila
+        con el logo y las redes.
+      -->
+      <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-brand-blue text-center border-t border-brand-border w-full justify-center pt-md">
+        <span>© 2026 Sabrina Sanso. Todos los derechos reservados.</span>
+        <a href="politica-de-privacidad.html" class="hover:text-brand-secondary-blue transition-colors underline">Política de Privacidad</a>
+      </div>
 
     </div>
   </footer>
@@ -770,7 +916,7 @@
     abajo. A diferencia de los otros botones de Whatsapp, este abre el chat sin mensaje
     precargado, porque no está pensado para una sección puntual sino para toda la página.
   -->
-  <a href="https://wa.me/5492645854487" target="_blank" rel="noopener noreferrer"
+  <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
     class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este es el ícono de WhatsApp, lo dibujé a mano en SVG -->
@@ -827,20 +973,80 @@
     // 3. Le digo al observador que vigile cada una de las tarjetas
     animatedElements.forEach((el) => slideInObserver.observe(el));
 
+    // Fuente de tráfico: identifico de dónde vino la visita (UTM si el link lo trae,
+    // si no trato de inferirlo del referrer) para poder cruzarlo con las conversiones
+    // (WhatsApp, scroll a "Proceso") y saber qué canal trae gente que realmente convierte.
+    function detectarFuenteTrafico() {
+      const utmSource = new URLSearchParams(window.location.search).get('utm_source');
+      if (utmSource) return utmSource;
+
+      const referrer = document.referrer;
+      if (!referrer) return 'direct';
+      try {
+        const hostname = new URL(referrer).hostname.replace(/^www\./, '');
+        if (/(^|\.)google\./.test(hostname)) return 'google_organic';
+        if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
+        return `referral_${hostname}`;
+      } catch {
+        return 'direct';
+      }
+    }
+
+    // Lo guardo en sessionStorage para que se mantenga fijo durante toda la visita
+    // (si no, cada navegación con ancla tipo #proceso podría "perder" el referrer original).
+    let fuenteTrafico = sessionStorage.getItem('traffic_source');
+    if (!fuenteTrafico) {
+      fuenteTrafico = detectarFuenteTrafico();
+      sessionStorage.setItem('traffic_source', fuenteTrafico);
+    }
+
     // Tracking de conversión (SEM): registro cada clic en un link de WhatsApp,
-    // identificando desde qué sección de la página salió, para poder optimizar
-    // campañas de Google Ads con clics reales de contacto.
+    // identificando desde qué botón/sección de la página salió y de qué fuente vino
+    // la visita, para poder optimizar campañas de Google Ads con clics reales de contacto.
+    // El id de sección real (ej. "sobre-mi") se traduce a un nombre corto para el reporte
+    // de GA (ej. "sobre_mi"); el botón flotante no vive dentro de ninguna sección.
+    // button_location manda window.location.pathname: con 4 páginas reales en el sitio
+    // (landing + 2 proyectos + política de privacidad), el pathname sí distingue desde
+    // qué página salió el clic, cosa que el id de sección solo no podía hacer.
+    const whatsappSourceMap = {
+      hero: 'hero',
+      'sobre-mi': 'sobre_mi',
+      'preguntas-frecuentes': 'faq',
+    };
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
-        const section = link.closest('section[id]')?.id || (link.closest('nav') ? 'nav' : 'flotante');
+        const sectionId = link.closest('section[id]')?.id;
+        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
         if (typeof gtag === 'function') {
-          gtag('event', 'contacto_whatsapp', {
-            event_category: 'engagement',
-            event_label: section,
+          gtag('event', 'whatsapp_click', {
+            whatsapp_source: whatsappSource,
+            button_location: window.location.pathname,
+            traffic_source: fuenteTrafico,
           });
         }
       });
     });
+
+    // Scroll depth: mido cuánta gente llega a la sección "Proceso", que es la métrica
+    // de profundidad de scroll que pide el PRD (target >70%, sección 14).
+    const procesoSection = document.getElementById('proceso');
+    if (procesoSection) {
+      const procesoObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'scroll_proceso', {
+                event_category: 'engagement',
+                traffic_source: fuenteTrafico,
+              });
+            }
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0 }); // "Proceso" es una sección larga (varios pasos), así que disparo
+      // apenas empieza a entrar en pantalla, no cuando ya se ve la mitad
+      procesoObserver.observe(procesoSection);
+    }
   </script>
 
 </body>

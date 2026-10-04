@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./index.html", "./proyecto-*.html"],
+  content: ["./index.html", "./proyecto-*.html", "./politica-de-privacidad.html"],
   darkMode: "class",
   theme: {
     extend: {
@@ -84,24 +84,27 @@ module.exports = {
       },
 
       // Familias de fuente por tipo de texto (títulos, botones, párrafos, etc.)
+      // Space Mono como familia principal en todo el sitio, según la Guía de Marca
+      // (sección 4: "monospace, carácter tech/código, refuerza el diferencial de proceso técnico").
       fontFamily: {
-        "headline-h1-mobile": ["Space Grotesk"],
-        "headline-h1": ["Space Grotesk"],
-        "label-cta": ["Space Grotesk"],
-        "headline-h3": ["Space Grotesk"],
-        "headline-h2": ["Space Grotesk"],
-        "caption": ["Space Grotesk"],
-        "body-main": ["Space Grotesk"],
+        "headline-h1-mobile": ["Space Mono", "monospace"],
+        "headline-h1": ["Space Mono", "monospace"],
+        "label-cta": ["Space Mono", "monospace"],
+        "headline-h3": ["Space Mono", "monospace"],
+        "headline-h2": ["Space Mono", "monospace"],
+        "caption": ["Space Mono", "monospace"],
+        "body-main": ["Space Mono", "monospace"],
         "whatsapp-cta": ["Space Mono", "monospace"]
       },
 
       // Tamaños de fuente con su interlineado, peso, etc. ya definidos
+      // H1/H2 en peso 500 (nunca 600+): la Guía de Marca lo prohíbe explícitamente (sección 4).
       fontSize: {
-        "headline-h1-mobile": ["36px", { lineHeight: "1.2", fontWeight: "600" }],
-        "headline-h1": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "600" }],
+        "headline-h1-mobile": ["36px", { lineHeight: "1.2", fontWeight: "500" }],
+        "headline-h1": ["48px", { lineHeight: "1.2", letterSpacing: "-0.02em", fontWeight: "500" }],
         "label-cta": ["14px", { lineHeight: "1", letterSpacing: "0.5px", fontWeight: "500" }],
         "headline-h3": ["24px", { lineHeight: "1.4", fontWeight: "500" }],
-        "headline-h2": ["32px", { lineHeight: "1.3", fontWeight: "600" }],
+        "headline-h2": ["32px", { lineHeight: "1.3", fontWeight: "500" }],
         "caption": ["12px", { lineHeight: "1.4", fontWeight: "400" }],
         "body-main": ["16px", { lineHeight: "1.5", fontWeight: "400" }]
       },
