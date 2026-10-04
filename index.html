@@ -242,6 +242,53 @@
       transition: left 0.75s ease-out;
     }
     /*
+      Imagen del Hero: apenas carga la página entra desde la derecha con un leve zoom out,
+      y después la foto queda haciendo un "Ken Burns" (acercamiento lento de ida y vuelta)
+      dentro del marco, para que el hero tenga vida sin distraer del titular.
+      No le puse efecto al pasar el mouse a propósito: la imagen no es clickeable y un hover
+      invitaría a hacer clics muertos.
+    */
+    @keyframes heroImageIn {
+      from {
+        opacity: 0;
+        transform: translateX(48px) scale(0.96);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+      }
+    }
+    @keyframes heroKenBurns {
+      from {
+        transform: scale(1) translate(0, 0);
+      }
+      to {
+        transform: scale(1.08) translate(-1.5%, -1%);
+      }
+    }
+    /*
+      Flotación suave: el marco sube y baja apenas unos píxeles, solo, sin que nadie lo toque.
+      Al ser un movimiento automático y lento (no reacciona al mouse) no se lee como botón.
+      Arranca cuando termina la entrada (0.2s + 0.9s = 1.1s) y, como va después en la lista,
+      toma el control del transform.
+    */
+    @keyframes heroFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .hero-image {
+      animation: heroImageIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.2s both,
+        heroFloat 7s ease-in-out 1.1s infinite;
+    }
+    .hero-image-photo {
+      animation: heroKenBurns 18s ease-in-out 1.1s infinite alternate;
+      will-change: transform;
+    }
+    /*
       Si alguien tiene activada la opción de "reducir movimiento" en su celular o compu
       (por mareos o migrañas con las animaciones), acá le saco todas las transiciones y
       dejo todo mostrado directamente, sin efectos.
@@ -257,6 +304,10 @@
       }
       .project-card::after {
         display: none;
+      }
+      .hero-image,
+      .hero-image-photo {
+        animation: none;
       }
     }
   </style>
@@ -349,7 +400,7 @@
       </div>
 
       <!-- Y acá la columna derecha, con la foto que muestra el problema: la emprendedora que busca su negocio y no lo encuentra. La oculto en celular para no alargar tanto el hero -->
-      <div class="w-full md:w-1/2 relative aspect-[2912/1440] rounded-xl overflow-hidden border border-brand-border shadow-ambient bg-white hidden md:block">
+      <div class="hero-image w-full md:w-1/2 relative aspect-[2912/1440] rounded-xl overflow-hidden border border-brand-border bg-white hidden md:block">
         <!-- Le puse "aspect-[2912/1440]" porque es el mismo ancho x alto real de la foto, así el marco respeta su proporción y no la recorta -->
         <!-- No le puse "loading lazy" porque esta imagen se ve apenas entrás a la página (es la del Hero) -->
         <!--
@@ -363,7 +414,7 @@
           <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBTAA7"
             width="2912" height="1440"
             alt="Emprendedora buscando su negocio en Google desde el celular y no lo encuentra"
-            class="w-full h-full object-cover">
+            class="hero-image-photo w-full h-full object-cover">
         </picture>
         <!-- Le pongo una capa de degradado encima de la imagen para suavizarla -->
         <div class="absolute inset-0 bg-gradient-to-tr from-background/40 to-transparent"></div>
