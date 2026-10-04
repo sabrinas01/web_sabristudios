@@ -307,8 +307,8 @@
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
-  <!-- Ocupa toda la altura de la pantalla (min-h-screen) y tiene un degradé suave de fondo -->
-  <section id="hero" class="min-h-screen flex items-center gap-xl px-sm md:px-lg py-section bg-gradient-to-br from-background to-white">
+  <!-- Ocupa toda la altura de la pantalla desde desktop (md:min-h-screen) y tiene un degradé suave de fondo. En mobile dejo que el alto lo defina el contenido: con min-h-screen fijo quedaba un espacio en blanco enorme arriba y abajo del texto (se presta a clics muertos) -->
+  <section id="hero" class="md:min-h-screen flex items-center gap-xl px-sm md:px-lg py-lg md:py-section bg-gradient-to-br from-background to-white">
     <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
@@ -375,7 +375,7 @@
   <!-- ================================== -->
   <!-- SECCIÓN "ANTES / DESPUÉS" (problema) -->
   <!-- ================================== -->
-  <section id="problema" class="bg-white py-section border-y border-brand-border">
+  <section id="problema" class="bg-white py-lg md:py-section border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
       <!-- Acá pongo el título y la bajada de la sección -->
@@ -518,7 +518,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN PROCESO (3 pasos)      -->
   <!-- ============================== -->
-  <section id="proceso" class="py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="proceso" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -571,7 +571,7 @@
   <!-- SECCIÓN "LA DEMO GRATUITA ES ASÍ" -->
   <!-- ============================== -->
   <!-- Esta sección le muestra a la persona qué esperar del primer contacto por WhatsApp, paso a paso -->
-  <section id="demo-gratuita" class="bg-white py-section border-y border-brand-border">
+  <section id="demo-gratuita" class="bg-white py-lg md:py-section border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
       <!-- Título centrado, igual que en el resto de las secciones -->
@@ -647,7 +647,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
-  <section id="sobre-mi" class="py-section bg-white">
+  <section id="sobre-mi" class="py-lg md:py-section bg-white">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
       <div class="bg-white rounded-lg border border-brand-border p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
@@ -687,7 +687,7 @@
   <!-- ============================================ -->
   <!-- SECCIÓN "PREGUNTAS FRECUENTES" (SEO/GEO: FAQ) -->
   <!-- ============================================ -->
-  <section id="preguntas-frecuentes" class="py-section bg-white border-y border-brand-border">
+  <section id="preguntas-frecuentes" class="py-lg md:py-section bg-white border-y border-brand-border">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
 
       <div class="text-center max-w-2xl mx-auto">
