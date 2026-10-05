@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.19
+**Versión:** 1.21
 
 **Fecha:** Octubre 2026
 
@@ -956,6 +956,36 @@ Antes de publicar cambios:
 
 ---
 
+### v1.20 — 5 de octubre de 2026
+
+**Qué hice:** Diferencié visualmente la sección "Proceso" de "Proyectos desarrollados" (`index.html`).
+
+**Detalle del cambio:**
+
+- "Proceso" ahora es una franja a todo el ancho con fondo azul de marca muy suave (`bg-brand-blue/5`) y bordes arriba y abajo (`border-y border-brand-border`).
+- Antes las dos secciones compartían el mismo fondo crema y se leían como un solo bloque. Ahora la secuencia de fondos es: Hero (degradé) → Proyectos (crema) → Proceso (azul suave) → Demo gratuita (blanco).
+- Para que el fondo ocupe todo el ancho, el ancho máximo y el padding lateral pasaron a un `<div>` interno; el `id="proceso"` sigue en la `<section>`, así que el menú y el tracking de scroll no cambian.
+- Corrí `npm run build` para compilar la clase nueva.
+
+**Por qué lo hice:** Sabrina pidió diferenciar Proyectos y Proceso con otro fondo o un divisor.
+
+---
+
+### v1.21 — 5 de octubre de 2026
+
+**Qué hice:** Cambié el color de las etiquetas de rubro de los proyectos, de rojo (`#A10C10`) al azul de la marca (`bg-brand-blue`).
+
+**Detalle del cambio:**
+
+- Las 3 etiquetas de las tarjetas de "Proyectos desarrollados" en `index.html` ("Mantenimiento y Estética Vehicular", "Construcción en seco", "Textiles artesanales").
+- Las etiquetas del encabezado de las 3 páginas de proyecto (`proyecto-ar-estetica-vehicular.html`, `proyecto-jl-construcciones-en-seco.html`, `proyecto-mombe.html`).
+- El rojo venía del logo de AR Estética Vehicular y se había copiado a las demás tarjetas, pero no es parte de la paleta de Sabri Studios (azul `#1E3A5F`, naranja `#D97A3C`, neutro `#F5F3EF`) y se leía como alerta.
+- Elegí azul y no naranja a propósito: el naranja es el color de los CTAs, y una etiqueta naranja se confundiría con un botón (clic muerto). Así "Ver proyecto" sigue siendo lo único naranja de cada tarjeta.
+
+**Por qué lo hice:** Sabrina notó que las etiquetas rojas no iban con la identidad visual de la marca y pidió cambiarlas en todas las tarjetas de proyectos.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -982,3 +1012,5 @@ Antes de publicar cambios:
 | 1.17 | 5 de octubre de 2026 | Sabri Studios | Agregada animación de entrada vertical y escalonada a los pasos de "La demo gratuita es así" |
 | 1.18 | 5 de octubre de 2026 | Sabri Studios | Agregada la tarjeta de Mombé (textiles artesanales) en Proyectos, y su página `proyecto-mombe.html`, en desarrollo con el paso 1 (Diagnóstico) marcado como actual |
 | 1.19 | 5 de octubre de 2026 | Sabri Studios | Achicados los espacios en blanco: Hero sin pantalla completa, padding de secciones de 80px a 48px y gaps internos de 48px a 32px, también en las páginas internas |
+| 1.20 | 5 de octubre de 2026 | Sabri Studios | Sección Proceso con fondo azul suave a todo el ancho y bordes, para separarla de Proyectos |
+| 1.21 | 5 de octubre de 2026 | Sabri Studios | Etiquetas de rubro de los proyectos pasadas de rojo `#A10C10` al azul de marca, en las tarjetas y en las páginas de proyecto |

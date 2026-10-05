@@ -460,8 +460,8 @@
       <a href="proyecto-ar-estetica-vehicular.html"
         aria-label="Ver el proceso del proyecto de AR Mantenimiento y Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <!-- Esta etiqueta va arriba a la derecha de la tarjeta, con el mismo rojo del logo. Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
+        <!-- Esta etiqueta va arriba a la derecha de la tarjeta, en el azul de la marca (antes era el rojo del logo de AR, que no es parte de la paleta de Sabri Studios). Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
+        <span class="absolute top-2 right-2 z-20 bg-brand-blue text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
           Mantenimiento y Estética Vehicular
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
@@ -487,7 +487,7 @@
       <a href="proyecto-jl-construcciones-en-seco.html"
         aria-label="Ver el proceso del proyecto de JL Construcciones en Seco, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-brand-blue text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
           Construcción en seco
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center">
@@ -508,7 +508,7 @@
       <a href="proyecto-mombe.html"
         aria-label="Ver el proceso del proyecto de Mombé, textiles artesanales, en desarrollo por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
-        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-brand-blue text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
           Textiles artesanales
         </span>
         <!-- Todavía no tengo el logo de Mombé, así que por ahora pongo su inicial en el círculo -->
@@ -528,52 +528,55 @@
   <!-- ============================== -->
   <!-- SECCIÓN PROCESO (3 pasos)      -->
   <!-- ============================== -->
-  <section id="proceso" class="py-lg md:py-xl max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
+  <!-- Fondo azul muy suave a todo el ancho + bordes arriba y abajo, para separar visualmente Proceso de Proyectos (que queda sobre el fondo crema) -->
+  <section id="proceso" class="bg-brand-blue/5 border-y border-brand-border py-lg md:py-xl">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
-    <!-- Acá centro el título y la bajada de la sección -->
-    <div class="text-center max-w-2xl mx-auto">
-      <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
-        Un proceso directo, pensado para vender
-      </h2>
-      <p class="font-body-main text-body-main text-text-strong opacity-80">
-        No arranco diseñando. Arranco preguntando. Así la web no queda linda y vacía, queda con un
-        objetivo claro.
-      </p>
-    </div>
-
-    <!-- Armé una grilla de 3 pasos, con una línea que los conecta y que solo se ve en desktop -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-md relative">
-
-      <!-- Esta línea horizontal es solo decorativa, para dar la sensación de que "conecta" los 3 pasos en desktop -->
-      <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
-
-      <!-- Paso 1 -->
-      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
-          Hablamos de tu negocio en profundidad: qué vendés, a quién, y por qué hoy no te encuentran.
+      <!-- Acá centro el título y la bajada de la sección -->
+      <div class="text-center max-w-2xl mx-auto">
+        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+          Un proceso directo, pensado para vender
+        </h2>
+        <p class="font-body-main text-body-main text-text-strong opacity-80">
+          No arranco diseñando. Arranco preguntando. Así la web no queda linda y vacía, queda con un
+          objetivo claro.
         </p>
       </div>
 
-      <!-- Paso 2 -->
-      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
-          Traduzco ese diagnóstico en una web pensada para generar confianza y conversión, no solo para verse bien.
-        </p>
-      </div>
+      <!-- Armé una grilla de 3 pasos, con una línea que los conecta y que solo se ve en desktop -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
-      <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
-      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
-        <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
-        <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
-          Tu web lista, encontrable, y trabajando para captar clientes.
-        </p>
-      </div>
+        <!-- Esta línea horizontal es solo decorativa, para dar la sensación de que "conecta" los 3 pasos en desktop -->
+        <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-brand-border z-0"></div>
 
+        <!-- Paso 1 -->
+        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">1</div>
+          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+            Hablamos de tu negocio en profundidad: qué vendés, a quién, y por qué hoy no te encuentran.
+          </p>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
+          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+            Traduzco ese diagnóstico en una web pensada para generar confianza y conversión, no solo para verse bien.
+          </p>
+        </div>
+
+        <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
+        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+          <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
+          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+            Tu web lista, encontrable, y trabajando para captar clientes.
+          </p>
+        </div>
+
+      </div>
     </div>
   </section>
 
