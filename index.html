@@ -366,9 +366,11 @@
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
-  <!-- Ocupa toda la altura de la pantalla desde desktop (md:min-h-screen) y tiene un degradé suave de fondo. En mobile dejo que el alto lo defina el contenido: con min-h-screen fijo quedaba un espacio en blanco enorme arriba y abajo del texto (se presta a clics muertos) -->
-  <section id="hero" class="md:min-h-screen flex items-center gap-xl px-sm md:px-lg py-lg md:py-section bg-gradient-to-br from-background to-white">
-    <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-xl md:gap-[80px]">
+  <!-- Tiene un degradé suave de fondo. El alto lo define el contenido (ya no ocupa toda la pantalla en desktop): con min-h-screen quedaban ~200px en blanco arriba y abajo del texto, que se prestaban a clics muertos -->
+  <!-- Todas las secciones usan padding vertical "py-lg md:py-xl" (32px / 48px) y separación interna "gap-lg" (32px), para no dejar bloques vacíos grandes que parezcan clickeables -->
+
+  <section id="hero" class="flex items-center px-sm md:px-lg py-lg md:py-xl bg-gradient-to-br from-background to-white">
+    <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
       <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
@@ -434,7 +436,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN "PROYECTOS DESARROLLADOS" -->
   <!-- ============================== -->
-  <section id="proyectos" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg md:gap-xl">
+  <section id="proyectos" class="py-lg md:py-xl max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -526,7 +528,7 @@
   <!-- ============================== -->
   <!-- SECCIÓN PROCESO (3 pasos)      -->
   <!-- ============================== -->
-  <section id="proceso" class="py-lg md:py-section max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="proceso" class="py-lg md:py-xl max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
     <!-- Acá centro el título y la bajada de la sección -->
     <div class="text-center max-w-2xl mx-auto">
@@ -555,7 +557,7 @@
       </div>
 
       <!-- Paso 2 -->
-      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
         <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -564,7 +566,7 @@
       </div>
 
       <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
-      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-8 md:mt-0">
+      <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
         <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
         <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
         <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -579,8 +581,8 @@
   <!-- SECCIÓN "LA DEMO GRATUITA ES ASÍ" -->
   <!-- ============================== -->
   <!-- Esta sección le muestra a la persona qué esperar del primer contacto por WhatsApp, paso a paso -->
-  <section id="demo-gratuita" class="bg-white py-lg md:py-section border-y border-brand-border">
-    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="demo-gratuita" class="bg-white py-lg md:py-xl border-y border-brand-border">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
       <!-- Título centrado, igual que en el resto de las secciones -->
       <div class="text-center max-w-2xl mx-auto">
@@ -655,9 +657,9 @@
   <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
-  <section id="sobre-mi" class="py-lg md:py-section bg-white">
+  <section id="sobre-mi" class="py-lg md:py-xl bg-white">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
-      <div class="bg-white rounded-lg border border-brand-border p-md md:p-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl">
+      <div class="bg-white rounded-lg border border-brand-border p-md md:p-lg flex flex-col md:flex-row items-center gap-lg">
 
         <!-- Acá pongo mi foto de perfil -->
         <div class="w-full md:w-1/2">
@@ -695,8 +697,8 @@
   <!-- ============================================ -->
   <!-- SECCIÓN "PREGUNTAS FRECUENTES" (SEO/GEO: FAQ) -->
   <!-- ============================================ -->
-  <section id="preguntas-frecuentes" class="py-lg md:py-section bg-white border-y border-brand-border">
-    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
+  <section id="preguntas-frecuentes" class="py-lg md:py-xl bg-white border-y border-brand-border">
+    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
@@ -879,7 +881,7 @@
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
-    <div class="flex flex-col items-center w-full px-sm md:px-lg py-xl max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg py-lg max-w-container-max mx-auto gap-md">
 
       <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
         <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"

@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.18
+**Versión:** 1.19
 
 **Fecha:** Octubre 2026
 
@@ -129,7 +129,7 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 ### 7.1 Hero Section ✅ (Rediseñado en v1.7)
 
-**Estado actual:** Pantalla completa, headline con acento naranja, subheadline con dato de urgencia, dos CTAs (WhatsApp directo + "Ver cómo funciona"), imagen del problema y señales de confianza.
+**Estado actual:** Alto según el contenido (desde v1.19 ya no ocupa la pantalla completa), headline con acento naranja, subheadline con dato de urgencia, dos CTAs (WhatsApp directo + "Ver cómo funciona"), imagen del problema y señales de confianza.
 
 **Mejoras pendientes:**
 
@@ -937,6 +937,25 @@ Antes de publicar cambios:
 
 ---
 
+### v1.19 — 5 de octubre de 2026
+
+**Qué hice:** Achiqué los espacios en blanco de la landing y de las páginas internas, para que no queden bloques vacíos grandes que den la impresión de ser clickeables.
+
+**Detalle del cambio:**
+
+- Hero (`index.html`): le saqué `md:min-h-screen`. En desktop dejaba unos 206px vacíos arriba y abajo del texto; ahora el alto lo define el contenido (padding de 48px). La separación entre texto e imagen pasó de 80px a 48px.
+- Padding vertical de todas las secciones en desktop: de 80px (`md:py-section`) a 48px (`md:py-xl`). Entre una sección y otra pasan de 160px a 96px de aire. En mobile queda igual (32px).
+- Separación entre el título de cada sección y su contenido: de 48px (`gap-xl`) a 32px (`gap-lg`) en Proyectos, Proceso, Demo gratuita y Preguntas frecuentes.
+- Tarjeta de "Sobre Mí": padding interno en desktop de 48px a 32px.
+- Pasos del Proceso en mobile: el margen extra entre pasos pasó de 32px a 8px.
+- Footer: padding vertical de 48px a 32px.
+- Apliqué el mismo criterio en `proyecto-ar-estetica-vehicular.html`, `proyecto-jl-construcciones-en-seco.html`, `proyecto-mombe.html` y `politica-de-privacidad.html`.
+- Medido en el navegador a 1920px: el Hero pasó de 895px a 579px de alto y el resto de las secciones perdió entre 70 y 100px cada una.
+
+**Por qué lo hice:** Sabrina pidió achicar los espacios en blanco para que no den la impresión de ser clickeables (mismo criterio de evitar clics muertos).
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -962,3 +981,4 @@ Antes de publicar cambios:
 | 1.16 | 5 de octubre de 2026 | Sabri Studios | Eliminada la sección "Antes / Después" de la landing y su animación `.slide-in-left` |
 | 1.17 | 5 de octubre de 2026 | Sabri Studios | Agregada animación de entrada vertical y escalonada a los pasos de "La demo gratuita es así" |
 | 1.18 | 5 de octubre de 2026 | Sabri Studios | Agregada la tarjeta de Mombé (textiles artesanales) en Proyectos, y su página `proyecto-mombe.html`, en desarrollo con el paso 1 (Diagnóstico) marcado como actual |
+| 1.19 | 5 de octubre de 2026 | Sabri Studios | Achicados los espacios en blanco: Hero sin pantalla completa, padding de secciones de 80px a 48px y gaps internos de 48px a 32px, también en las páginas internas |
