@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.15
+**Versión:** 1.18
 
 **Fecha:** Octubre 2026
 
@@ -39,7 +39,6 @@ Convertir emprendedores sin web ni presencia en Google en consultantes activos q
 ### Incluido
 
 - Sección principal (Hero) con propuesta de valor y CTA.
-- Sección "Antes / Después" para explicar el costo de no aparecer en Google.
 - Sección de proceso con tres pasos: Diagnóstico, Diseño y Estrategia, y Resultados.
 - Sección "La demo gratuita es así", con el paso a paso del primer contacto.
 - Sección "Proyectos desarrollados", con casos reales de clientes.
@@ -113,7 +112,7 @@ Tráfico (IG, Google, referencia)
         ↓
 Landing: Leo el problema, veo que entienden mi situación
         ↓
-Secciones persuasivas: Antes/Después, Proceso, Demo gratuita, Casos, FAQ
+Secciones persuasivas: Proceso, Demo gratuita, Casos, FAQ
         ↓
 CTA claro: "Reservá tu demo ¡GRATIS!"
         ↓
@@ -136,11 +135,11 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 - Considerar A/B test de copy del headline/subheadline (ver Roadmap, Fase 3).
 
-### 7.2 Sección "Antes/Después" ✅ (Mantener, expandir)
+### 7.2 Sección "Antes/Después" ❌ (Eliminada en v1.16)
 
-**Estado actual:** Bien estructurada con iconos. Muestra el problema vs. la solución.
+**Estado actual:** Sacada de la landing en v1.16. El costo de no aparecer en Google ya lo comunican el titular y la imagen del Hero.
 
-**Mejoras identificadas:**
+**Mejoras que se habían identificado (quedan como referencia si se vuelve a agregar):**
 
 - Agregar métrica concreta: "Clientes perdidos por mes" o "Tiempo de crecimiento".
   - Antes: "No aparecés en Google ni en Maps" + "[X% de búsquedas locales las pierdés]".
@@ -240,7 +239,6 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 | Sección | Falta | Sugerencia |
 | --- | --- | --- |
 | Hero | ~~Imagen/ilustración~~ | Resuelto en v1.3/v1.4: emprendedora buscando su negocio en Google desde el celular. |
-| Antes/Después | Iconografía | Mantener, son claras. |
 | Proceso | Ilustraciones de cada paso | Timeline visual: Diagnóstico (chat) → Diseño (Figma/wireframe) → Go Live. |
 | Proyectos | Screenshots de webs | Agrandar, mostrar homepage completa, no solo logo. |
 
@@ -263,7 +261,7 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 | --- | --- | --- |
 | RF-01 | La landing debe mostrar una propuesta de valor clara en la primera pantalla. | Alta |
 | RF-02 | La landing debe incluir un CTA visible hacia WhatsApp. | Alta |
-| RF-03 | La landing debe explicar el problema mediante una comparación "Antes / Después". | Alta |
+| RF-03 | ~~La landing debe explicar el problema mediante una comparación "Antes / Después".~~ Dado de baja en v1.16: el problema lo explica el Hero. | — |
 | RF-04 | La landing debe mostrar el proceso en tres pasos numerados. | Alta |
 | RF-05 | La landing debe incluir una presentación de la persona responsable del servicio. | Media |
 | RF-06 | La landing debe ofrecer un acceso directo a WhatsApp. | Alta |
@@ -326,11 +324,10 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 ```gherkin
 Característica: Comunicar el costo de la invisibilidad digital
 
-Escenario: La persona visita la sección del problema
-  Dado que la persona está recorriendo la landing page
-  Cuando llega a la sección "Antes / Después"
-  Entonces ve un título que explica el costo de no aparecer en Google
-  Y puede comparar las consecuencias de no tener presencia digital con los beneficios de tenerla
+Escenario: La persona entra a la landing
+  Dado que la persona abre la landing page
+  Cuando ve la sección Hero
+  Entonces ve un titular que explica el costo de no aparecer en Google
 ```
 
 #### HU-02 - Comprender la propuesta de valor
@@ -888,6 +885,58 @@ Antes de publicar cambios:
 
 ---
 
+### v1.16 — 5 de octubre de 2026
+
+**Qué hice:** Saqué la sección "Antes / Después" (`#problema`) de `index.html`.
+
+**Detalle del cambio:**
+
+- Eliminé la sección completa (título "¿Cuánto te está costando no aparecer en Google?" y las tarjetas ANTES y DESPUÉS), que estaba entre "La demo gratuita es así" y "Sobre Mí".
+- Borré la animación `.slide-in-left` (CSS, regla de `prefers-reduced-motion` y selector del `IntersectionObserver`), porque solo la usaban esas dos tarjetas.
+- Ningún link del menú apuntaba a `#problema`, así que la navegación no cambia.
+- En este PRD: saqué la sección del alcance y del flujo de conversión, marqué la 7.2 como eliminada, di de baja el RF-03 y adapté la HU-01 para que el problema lo comunique el Hero.
+
+**Por qué lo hice:** Sabrina pidió quitar la sección.
+
+---
+
+### v1.17 — 5 de octubre de 2026
+
+**Qué hice:** Le agregué una animación de entrada vertical a los 4 pasos de "La demo gratuita es así" (`index.html`).
+
+**Detalle del cambio:**
+
+- Nueva clase `.demo-step` en cada paso: arranca invisible y 40px más abajo, y al entrar en pantalla sube a su lugar con un fundido (0.6s).
+- Retraso escalonado (0s, 0.15s, 0.3s, 0.45s) para que, si entran varios pasos juntos, aparezcan en orden de arriba hacia abajo.
+- Reutiliza el mismo `IntersectionObserver` que ya animaba Proceso y Proyectos (se suma `.demo-step` al selector).
+- Respeta `prefers-reduced-motion`: con esa opción activa, los pasos se muestran directamente sin animación.
+- Es CSS propio en el `<style>` de `index.html`, no hizo falta recompilar Tailwind.
+
+**Por qué lo hice:** Sabrina pidió que los pasos de la demo gratuita aparezcan con una animación vertical.
+
+---
+
+### v1.18 — 5 de octubre de 2026
+
+**Qué hice:** Agregué una tercera tarjeta en "Proyectos desarrollados" (`index.html`) para Mombé (textiles artesanales), que está en desarrollo, y su página propia `proyecto-mombe.html`.
+
+**Detalle del cambio:**
+
+- Tarjeta igual a las de AR y JL: link a la página del proyecto, etiqueta roja "Textiles artesanales", círculo de logo, nombre y botón "Ver proyecto".
+- Como todavía no tengo el logo, en el círculo (de la tarjeta y de la página) va la inicial "M" en naranja. Para la vista previa al compartir (`og:image`) uso el logotipo de Sabri Studios.
+- `proyecto-mombe.html` usa la misma estructura que las otras páginas de proyecto, adaptada a un proyecto en curso:
+  - El encabezado aclara que el proyecto está en desarrollo y que estamos en el paso 1.
+  - El paso 1 (Diagnóstico) está marcado como actual: número en naranja con halo, etiqueta "Estamos acá" y animación de rebote.
+  - Los pasos 2 y 3 aparecen "apagados" (opacidad baja) con la etiqueta "Próximamente".
+  - En desktop, la línea que une los pasos está punteada y solo el tramo hasta el paso 1 se dibuja en naranja.
+  - Como no hay sitio para visitar, el CTA final no tiene "Ver sitio web": invita directo a la demo por WhatsApp.
+  - Mismo tracking (`whatsapp_click`, fuente de tráfico) que las otras páginas.
+- Corrí `npm run build` para que se compilen las clases nuevas (`w-[18%]`, `border-dashed`).
+
+**Por qué lo hice:** Sabrina pidió sumar Mombé como proyecto en curso, con el botón "Ver proyecto" y marcando dentro que estamos en el paso 1.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -910,3 +959,6 @@ Antes de publicar cambios:
 | 1.13 | 27 de septiembre de 2026 | Sabri Studios | Sacada la sombra `shadow-ambient` de las etiquetas de las tarjetas de Proyectos y hechas responsive para que no se desborden en celulares angostos |
 | 1.14 | 4 de octubre de 2026 | Sabri Studios | Agregada animación a la imagen del Hero: entrada desde la derecha al cargar y efecto Ken Burns suave, con soporte para `prefers-reduced-motion` |
 | 1.15 | 4 de octubre de 2026 | Sabri Studios | Agregada flotación suave a la imagen del Hero y sacada su `shadow-ambient` para que no parezca clickeable |
+| 1.16 | 5 de octubre de 2026 | Sabri Studios | Eliminada la sección "Antes / Después" de la landing y su animación `.slide-in-left` |
+| 1.17 | 5 de octubre de 2026 | Sabri Studios | Agregada animación de entrada vertical y escalonada a los pasos de "La demo gratuita es así" |
+| 1.18 | 5 de octubre de 2026 | Sabri Studios | Agregada la tarjeta de Mombé (textiles artesanales) en Proyectos, y su página `proyecto-mombe.html`, en desarrollo con el paso 1 (Diagnóstico) marcado como actual |

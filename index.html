@@ -166,22 +166,6 @@
       display: none;
     }
 
-    /*
-      Animación de "deslizar de izquierda a derecha".
-      Arranco el elemento invisible (opacity: 0) y corrido 60px hacia la izquierda.
-      Cuando le agrego la clase "is-visible" (con JavaScript, al hacer scroll),
-      pasa a su posición y opacidad normales de forma suave gracias al "transition".
-    */
-    .slide-in-left {
-      opacity: 0;
-      transform: translateX(-60px);
-      transition: opacity 0.7s ease-out, transform 0.7s ease-out;
-    }
-    .slide-in-left.is-visible {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
     .process-step {
       opacity: 0;
       transform: translateY(32px) scale(0.96);
@@ -203,6 +187,30 @@
     .process-step.is-visible .process-step-number {
       transform: scale(1.12);
       box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
+    }
+    /*
+      Pasos de "La demo gratuita es así": aparecen de abajo hacia arriba, uno después del otro,
+      para que se lean como una secuencia vertical. Cada paso se observa por separado, así que
+      al ir bajando van apareciendo en orden; si entran varios juntos en pantalla, el retraso
+      escalonado mantiene el 1 → 2 → 3 → 4.
+    */
+    .demo-step {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .demo-step.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .demo-step:nth-child(2) {
+      transition-delay: 0.15s;
+    }
+    .demo-step:nth-child(3) {
+      transition-delay: 0.3s;
+    }
+    .demo-step:nth-child(4) {
+      transition-delay: 0.45s;
     }
     /*
       Tarjetas de "Proyectos desarrollados": las hice entrar con un efecto de aparición
@@ -294,8 +302,8 @@
       dejo todo mostrado directamente, sin efectos.
     */
     @media (prefers-reduced-motion: reduce) {
-      .slide-in-left,
       .process-step,
+      .demo-step,
       .project-card,
       .project-card.is-visible:hover {
         opacity: 1;
@@ -491,6 +499,27 @@
         </span>
       </a>
 
+      <!--
+        Proyecto de Mombé (textiles artesanales), todavía en desarrollo. Misma tarjeta-link que las
+        otras dos; su página propia muestra que estamos en el paso 1 (Diagnóstico).
+      -->
+      <a href="proyecto-mombe.html"
+        aria-label="Ver el proceso del proyecto de Mombé, textiles artesanales, en desarrollo por Sabri Studios"
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-brand-border shadow-ambient flex flex-col items-center text-center gap-sm">
+        <span class="absolute top-2 right-2 z-20 bg-[#A10C10] text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-bold uppercase px-1.5 py-1 rounded">
+          Textiles artesanales
+        </span>
+        <!-- Todavía no tengo el logo de Mombé, así que por ahora pongo su inicial en el círculo -->
+        <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center" aria-hidden="true">
+          <span class="font-headline-h1 text-headline-h1 text-brand-orange">M</span>
+        </div>
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">Mombé</h3>
+        <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
+          Ver proyecto
+          <span class="material-symbols-outlined text-base">arrow_forward</span>
+        </span>
+      </a>
+
     </div>
   </section>
 
@@ -560,10 +589,10 @@
         </h2>
       </div>
 
-      <!-- Lista de pasos con su número en un círculo naranja -->
+      <!-- Lista de pasos con su número en un círculo naranja. Cada paso tiene "demo-step" para que aparezca de abajo hacia arriba al hacer scroll -->
       <div class="max-w-3xl mx-auto w-full flex flex-col gap-md">
 
-        <div class="flex gap-md items-start">
+        <div class="demo-step flex gap-md items-start">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
             1
           </div>
@@ -575,7 +604,7 @@
           </div>
         </div>
 
-        <div class="flex gap-md items-start">
+        <div class="demo-step flex gap-md items-start">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
             2
           </div>
@@ -587,7 +616,7 @@
           </div>
         </div>
 
-        <div class="flex gap-md items-start">
+        <div class="demo-step flex gap-md items-start">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
             3
           </div>
@@ -599,7 +628,7 @@
           </div>
         </div>
 
-        <div class="flex gap-md items-start">
+        <div class="demo-step flex gap-md items-start">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3">
             4
           </div>
@@ -620,78 +649,6 @@
         </p>
       </div>
 
-    </div>
-  </section>
-
-  <!-- ================================== -->
-  <!-- SECCIÓN "ANTES / DESPUÉS" (problema) -->
-  <!-- ================================== -->
-  <section id="problema" class="bg-white py-lg md:py-section border-y border-brand-border">
-    <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-xl">
-
-      <!-- Acá pongo el título y la bajada de la sección -->
-      <div class="w-full">
-        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
-          ¿Cuánto te está costando no aparecer en Google?
-        </h2>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
-          No se trata de tener algo complejo. Se trata de existir donde tus clientes ya te están
-          buscando. Hoy, sin web ni Maps, tu crecimiento depende solo del boca a boca y eso tiene techo.
-        </p>
-      </div>
-
-      <!-- Hice una grilla de 2 columnas: en mobile se apilan y desde md se muestran lado a lado -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
-
-        <!--
-          Esta es la tarjeta "ANTES"; la hago deslizar de izquierda a derecha cuando llega al scroll.
-          Sin sombra a propósito: uso ese mismo estilo (sombra + borde) en las tarjetas de Proyectos,
-          que sí son clickeables, y no quiero que esta se confunda con algo interactivo.
-        -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-border bg-background flex flex-col gap-sm">
-          <div class="w-12 h-12 rounded-full bg-error/10 flex items-center justify-center mb-xs">
-            <span class="material-symbols-outlined text-error" style="font-variation-settings: 'FILL' 0;">close</span>
-          </div>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">ANTES</h3>
-          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80">
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              No aparecés en Google
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              Tu crecimiento depende solo del boca a boca
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 opacity-50">arrow_right</span>
-              Cada día que pasa, alguien elige a tu competencia sin saber que vos también tenías la solución
-            </li>
-          </ul>
-        </div>
-
-        <!-- Y esta es la tarjeta "DESPUÉS": la deslizo igual que la de "ANTES" pero con un poco más de retraso -->
-        <div class="slide-in-left p-md rounded-lg border border-brand-orange/30 bg-brand-orange/5 flex flex-col gap-sm relative overflow-hidden" style="transition-delay: 0.15s;">
-          <div class="w-12 h-12 rounded-full bg-brand-orange/20 flex items-center justify-center mb-xs">
-            <span class="material-symbols-outlined text-brand-orange" style="font-variation-settings: 'FILL' 0;">check</span>
-          </div>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">DESPUÉS</h3>
-          <ul class="flex flex-col gap-xs font-body-main text-body-main text-text-strong opacity-80 z-10">
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Aparecés en las búsquedas y en el mapa
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Generás confianza antes de que te escriban
-            </li>
-            <li class="flex items-start gap-xs">
-              <span class="material-symbols-outlined text-sm mt-1 text-brand-orange">check_circle</span>
-              Tu web trabaja para vos, incluso cuando no estás activo/a
-            </li>
-          </ul>
-        </div>
-
-      </div>
     </div>
   </section>
 
@@ -1003,11 +960,11 @@
     // Cierro el menú cuando tocan un link, para que no quede abierto al navegar
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
 
-    // Animación al hacer scroll: dejo las tarjetas con la clase "slide-in-left"
-    // ocultas y corridas a la izquierda hasta que aparecen en pantalla.
+    // Animación al hacer scroll: dejo los pasos del proceso, las tarjetas de proyectos
+    // y los pasos de la demo gratuita ocultos hasta que aparecen en pantalla.
 
     // 1. Busco todos los elementos que quiero animar
-    const animatedElements = document.querySelectorAll('.slide-in-left, .process-step, .project-card');
+    const animatedElements = document.querySelectorAll('.process-step, .project-card, .demo-step');
 
     // 2. Creo un "observador" que me avisa cuando un elemento entra en la ventana visible
     const slideInObserver = new IntersectionObserver((entries) => {
