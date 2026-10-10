@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="es-AR">
+<html class="light scroll-pt-20 motion-safe:scroll-smooth" lang="es-AR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +55,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=arrow_back,arrow_forward,check_circle,close,construction,expand_more,mail,menu,open_in_new,photo_camera,work&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap">
 
   <style>
@@ -319,7 +319,7 @@
         </div>
 
         <!-- Paso 2 -->
-        <div class="process-step process-step-2 flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+        <div class="process-step process-step-2 flex flex-col items-center text-center gap-sm relative z-10">
           <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -328,7 +328,7 @@
         </div>
 
         <!-- Paso 3 -->
-        <div class="process-step process-step-3 flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+        <div class="process-step process-step-3 flex flex-col items-center text-center gap-sm relative z-10">
           <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -369,7 +369,7 @@
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
-    <div class="flex flex-col items-center w-full px-sm md:px-lg py-lg max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg pt-lg pb-20 md:pb-lg max-w-container-max mx-auto gap-md">
 
       <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
         <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
@@ -408,7 +408,7 @@
   <!-- BOTÓN FLOTANTE DE WHATSAPP (fijo en pantalla)  -->
   <!-- ============================================= -->
   <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
-    class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
+    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este anillo "late" detrás del botón en loop, para llamar un poco la atención sin ser invasivo -->
     <span class="whatsapp-pulse" aria-hidden="true"></span>
@@ -419,6 +419,14 @@
   </a>
 
   <script>
+    // Reemplazo mínimo para navegadores sin IntersectionObserver (marca todo como visible)
+    if (!('IntersectionObserver' in window)) {
+      window.IntersectionObserver = function (callback) {
+        this.observe = function (el) { callback([{ isIntersecting: true, target: el }], this); };
+        this.unobserve = function () {};
+      };
+    }
+
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
@@ -441,6 +449,16 @@
     });
 
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+
+    // También lo cierro al tocar fuera del menú o con Escape
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
 
     const animatedElements = document.querySelectorAll('.process-step, .process-grid, .cta-final');
 
@@ -469,15 +487,21 @@
         if (/(^|\.)google\./.test(hostname)) return 'google_organic';
         if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
         return `referral_${hostname}`;
-      } catch {
+      } catch (e) {
         return 'direct';
       }
     }
 
-    let fuenteTrafico = sessionStorage.getItem('traffic_source');
-    if (!fuenteTrafico) {
-      fuenteTrafico = detectarFuenteTrafico();
-      sessionStorage.setItem('traffic_source', fuenteTrafico);
+    // try/catch: los navegadores internos de redes sociales a veces bloquean sessionStorage
+    let fuenteTrafico;
+    try {
+      fuenteTrafico = sessionStorage.getItem('traffic_source');
+      if (!fuenteTrafico) {
+        fuenteTrafico = detectarFuenteTrafico();
+        sessionStorage.setItem('traffic_source', fuenteTrafico);
+      }
+    } catch (e) {
+      fuenteTrafico = fuenteTrafico || detectarFuenteTrafico();
     }
 
     const whatsappSourceMap = {
@@ -485,7 +509,7 @@
     };
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
-        const sectionId = link.closest('section[id]')?.id;
+        const sectionId = (link.closest('section[id]') || {}).id;
         const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {

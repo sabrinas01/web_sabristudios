@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.21
+**Versión:** 1.23
 
 **Fecha:** Octubre 2026
 
@@ -986,6 +986,46 @@ Antes de publicar cambios:
 
 ---
 
+### v1.22 — 10 de octubre de 2026
+
+**Qué hice:** Mejoré la experiencia en mobile y saqué espacios vacíos que se prestaban a clics muertos (las 5 páginas del sitio).
+
+**Detalle del cambio:**
+
+- Tarjetas de Proyectos: el alto mínimo del nombre (`min-h-[68px]`) ahora aplica desde `sm:`. En celular las tarjetas van de a una, así que ese alto solo dejaba un hueco vacío dentro de la tarjeta.
+- Efectos de hover de las tarjetas (levantarse y brillo diagonal) envueltos en `@media (hover: hover)`. En celular el hover se queda "pegado" después de tocar y la tarjeta quedaba flotando.
+- Hero: el espacio entre elementos de la columna de texto pasa de 32px a 24px en mobile (`gap-md md:gap-lg`).
+- Proceso (`index.html` y 3 páginas de proyecto): saqué el `mt-2` extra entre pasos en mobile; la grilla ya los separa.
+- Sobre Mí: el margen arriba del botón pasa de 32px a 8px en mobile.
+- Botón flotante de WhatsApp: en mobile queda más pegado a la esquina (`bottom-4 right-4`) para tapar menos contenido; desde `md:` sigue igual. El footer suma padding abajo en mobile (`pb-20`) para que el botón no tape el link de Política de Privacidad.
+- `touch-action: manipulation` en links, botones y preguntas frecuentes, para sacar el retraso del toque y el zoom por doble toque.
+- Corrí `npm run build` para compilar las clases nuevas.
+
+**Por qué lo hice:** Sabrina pidió mejorar la experiencia en mobile y eliminar los espacios que dan sensación de ser clickeables cuando no lo son.
+
+---
+
+### v1.23 — 10 de octubre de 2026
+
+**Qué hice:** Apliqué tres mejoras a partir de las conclusiones de Clarity: carga más liviana, menos clics muertos en el menú y enlaces, y menos errores de JavaScript (las 5 páginas).
+
+**Detalle del cambio:**
+
+- **Retención / carga:** la fuente de íconos Material Symbols ahora pide solo los 11 íconos que usa el sitio (`icon_names=...`) en vez de la fuente completa, que pesa cientos de KB y bloquea el render de los íconos.
+- **Clics muertos:**
+  - El menú mobile se cierra al tocar fuera de él o con Escape; antes, tocar el contenido con el menú abierto no hacía nada.
+  - `<html>` suma `scroll-pt-20` para que la barra fija no tape el título de la sección al navegar por anclas, y `motion-safe:scroll-smooth` para que el salto sea suave (respeta "reducir movimiento").
+- **Errores de JavaScript:** el tráfico de redes sociales llega desde navegadores internos (Instagram, Facebook) que pueden bloquear `sessionStorage` o ser viejos.
+  - `sessionStorage` va dentro de `try/catch`.
+  - `catch {` pasó a `catch (e) {` y `?.` a `|| {}` por compatibilidad con navegadores viejos.
+  - Si no existe `IntersectionObserver`, un reemplazo mínimo marca todo como visible.
+  - Un error en cualquiera de estos puntos cortaba el resto del script (menú, animaciones y tracking de WhatsApp).
+- Corrí `npm run build` para compilar las clases nuevas.
+
+**Por qué lo hice:** Sabrina compartió tres conclusiones de Clarity (retención, dead clicks y errores JavaScript en sesiones desde redes sociales) y pidió aplicar mejoras.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1014,3 +1054,5 @@ Antes de publicar cambios:
 | 1.19 | 5 de octubre de 2026 | Sabri Studios | Achicados los espacios en blanco: Hero sin pantalla completa, padding de secciones de 80px a 48px y gaps internos de 48px a 32px, también en las páginas internas |
 | 1.20 | 5 de octubre de 2026 | Sabri Studios | Sección Proceso con fondo azul suave a todo el ancho y bordes, para separarla de Proyectos |
 | 1.21 | 5 de octubre de 2026 | Sabri Studios | Etiquetas de rubro de los proyectos pasadas de rojo `#A10C10` al azul de marca, en las tarjetas y en las páginas de proyecto |
+| 1.22 | 10 de octubre de 2026 | Sabri Studios | Mejoras mobile: hover solo con mouse, menos espacios vacíos en tarjetas/Hero/Proceso/Sobre Mí, botón flotante de WhatsApp más chico en esquina y `touch-action: manipulation` |
+| 1.23 | 10 de octubre de 2026 | Sabri Studios | Mejoras desde Clarity: íconos Material Symbols solo los usados, menú mobile se cierra al tocar fuera, `scroll-padding` para anclas y JS a prueba de `sessionStorage` bloqueado y navegadores viejos |

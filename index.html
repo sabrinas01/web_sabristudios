@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="light" lang="es-AR">
+<html class="light scroll-pt-20 motion-safe:scroll-smooth" lang="es-AR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,7 +146,7 @@
        para que cuando llegue el <link> real la fuente ya empiece a descargarse antes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=arrow_back,arrow_forward,check_circle,close,construction,expand_more,mail,menu,open_in_new,photo_camera,work&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500;700&display=swap">
 
   <!-- Acá abajo van mis estilos propios, fuera de Tailwind, para cosas puntuales que no me salían solo con clases -->
@@ -230,9 +230,16 @@
       opacity: 1;
       transform: translateY(0) scale(1) rotate(0deg);
     }
-    .project-card.is-visible:hover {
-      transform: translateY(-6px) scale(1.02) rotate(0deg);
-      box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
+    /*
+      El levantamiento y el brillo al pasar el mouse los dejo solo para dispositivos con mouse
+      real (hover: hover). En el celular, "hover" se queda pegado después de tocar y la tarjeta
+      quedaría flotando hasta que se toque otra cosa.
+    */
+    @media (hover: hover) {
+      .project-card.is-visible:hover {
+        transform: translateY(-6px) scale(1.02) rotate(0deg);
+        box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
+      }
     }
     .project-card::after {
       content: '';
@@ -245,9 +252,15 @@
       transform: skewX(-20deg);
       pointer-events: none;
     }
-    .project-card:hover::after {
-      left: 125%;
-      transition: left 0.75s ease-out;
+    @media (hover: hover) {
+      .project-card:hover::after {
+        left: 125%;
+        transition: left 0.75s ease-out;
+      }
+    }
+    /* Saco el retraso del toque y el zoom por doble toque en todo lo que sí se puede tocar */
+    a, button, summary {
+      touch-action: manipulation;
     }
     /*
       Imagen del Hero: apenas carga la página entra desde la derecha con un leve zoom out,
@@ -373,7 +386,7 @@
     <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
-      <div class="w-full md:w-1/2 flex flex-col gap-lg items-start">
+      <div class="w-full md:w-1/2 flex flex-col gap-md md:gap-lg items-start">
         <span class="font-label-cta text-label-cta text-brand-orange mb-2 block uppercase tracking-wider">
           El costo de la invisibilidad
         </span>
@@ -473,7 +486,7 @@
           <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
             alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">AR Estética Vehicular</h3>
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue sm:min-h-[68px] flex items-center justify-center">AR Estética Vehicular</h3>
         <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
           Ver proyecto
           <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -494,7 +507,7 @@
           <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
             alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">JL Construcciones en Seco</h3>
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue sm:min-h-[68px] flex items-center justify-center">JL Construcciones en Seco</h3>
         <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
           Ver proyecto
           <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -515,7 +528,7 @@
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-brand-border bg-background flex items-center justify-center" aria-hidden="true">
           <span class="font-headline-h1 text-headline-h1 text-brand-orange">M</span>
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue min-h-[68px] flex items-center justify-center">Mombé</h3>
+        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue sm:min-h-[68px] flex items-center justify-center">Mombé</h3>
         <span class="font-label-cta text-label-cta text-white bg-brand-orange group-hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
           Ver proyecto
           <span class="material-symbols-outlined text-base">arrow_forward</span>
@@ -559,7 +572,7 @@
         </div>
 
         <!-- Paso 2 -->
-        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
           <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -568,7 +581,7 @@
         </div>
 
         <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
-        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10 mt-2 md:mt-0">
+        <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
           <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
           <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
@@ -684,7 +697,7 @@
             Si estás lista/o para mejorar tu presencia online, hablemos.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-8">
+          <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-2 md:mt-8">
             <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_sobre_mi&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
               class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
@@ -884,7 +897,7 @@
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-brand-border full-width">
-    <div class="flex flex-col items-center w-full px-sm md:px-lg py-lg max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg pt-lg pb-20 md:pb-lg max-w-container-max mx-auto gap-md">
 
       <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
         <img src="imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg" width="480" height="160" loading="lazy"
@@ -930,7 +943,7 @@
     precargado, porque no está pensado para una sección puntual sino para toda la página.
   -->
   <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
-    class="fixed bottom-8 right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
+    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-lg transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este es el ícono de WhatsApp, lo dibujé a mano en SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
@@ -941,6 +954,15 @@
 
   <script>
     // Con esto manejo el menú hamburguesa del mobile: muestro/oculto el panel de links y cambio el ícono.
+    // Si el navegador es muy viejo y no tiene IntersectionObserver, uso un reemplazo que marca todo
+    // como visible al toque: sin esto tiraba error y cortaba el resto del script (menú, tracking).
+    if (!('IntersectionObserver' in window)) {
+      window.IntersectionObserver = function (callback) {
+        this.observe = function (el) { callback([{ isIntersecting: true, target: el }], this); };
+        this.unobserve = function () {};
+      };
+    }
+
     const mobileMenuButton = document.getElementById('mobile-menu-button');
     const mobileMenu = document.getElementById('mobile-menu');
     const mobileMenuIcon = document.getElementById('mobile-menu-icon');
@@ -964,6 +986,17 @@
 
     // Cierro el menú cuando tocan un link, para que no quede abierto al navegar
     mobileMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMobileMenu));
+
+    // También lo cierro al tocar fuera del menú o con Escape: antes, tocar el contenido con el
+    // menú abierto no hacía nada (clic muerto) y el menú seguía tapando la página.
+    document.addEventListener('click', (e) => {
+      if (!mobileMenu.classList.contains('hidden') && !mobileMenu.contains(e.target) && !mobileMenuButton.contains(e.target)) {
+        closeMobileMenu();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
 
     // Animación al hacer scroll: dejo los pasos del proceso, las tarjetas de proyectos
     // y los pasos de la demo gratuita ocultos hasta que aparecen en pantalla.
@@ -1000,17 +1033,24 @@
         if (/(^|\.)google\./.test(hostname)) return 'google_organic';
         if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
         return `referral_${hostname}`;
-      } catch {
+      } catch (e) {
         return 'direct';
       }
     }
 
     // Lo guardo en sessionStorage para que se mantenga fijo durante toda la visita
     // (si no, cada navegación con ancla tipo #proceso podría "perder" el referrer original).
-    let fuenteTrafico = sessionStorage.getItem('traffic_source');
-    if (!fuenteTrafico) {
-      fuenteTrafico = detectarFuenteTrafico();
-      sessionStorage.setItem('traffic_source', fuenteTrafico);
+    // Va dentro de try/catch porque los navegadores internos de Instagram/Facebook o el modo
+    // privado a veces bloquean sessionStorage y tiran error, lo que cortaba el resto del script.
+    let fuenteTrafico;
+    try {
+      fuenteTrafico = sessionStorage.getItem('traffic_source');
+      if (!fuenteTrafico) {
+        fuenteTrafico = detectarFuenteTrafico();
+        sessionStorage.setItem('traffic_source', fuenteTrafico);
+      }
+    } catch (e) {
+      fuenteTrafico = fuenteTrafico || detectarFuenteTrafico();
     }
 
     // Tracking de conversión (SEM): registro cada clic en un link de WhatsApp,
@@ -1028,7 +1068,7 @@
     };
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
-        const sectionId = link.closest('section[id]')?.id;
+        const sectionId = (link.closest('section[id]') || {}).id;
         const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {
