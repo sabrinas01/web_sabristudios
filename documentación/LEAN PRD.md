@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.27
+**Versión:** 1.29
 
 **Fecha:** Octubre 2026
 
@@ -1093,6 +1093,40 @@ Antes de publicar cambios:
 
 ---
 
+### v1.28 — 14 de octubre de 2026
+
+**Qué hice:** Corregí el dominio de producción en todo el sitio y ordené el link de agenda en la caja del FAQ.
+
+**Detalle del cambio:**
+
+- **Dominio:** el `canonical`, `og:url`, `og:image`, `twitter:image`, el JSON-LD de `index.html`, `sitemap.xml`, `robots.txt`, `llms.txt`, el texto de la política de privacidad y el `README.md` apuntaban a `sabristudios.vercel.app`, un dominio que no existe (Vercel responde `DEPLOYMENT_NOT_FOUND`). La producción real es `web-sabristudios.vercel.app`. Reemplacé el dominio en los 10 archivos (0 apariciones del viejo). Antes, Google recibía como canónica una URL inexistente y las vistas previas al compartir el link no encontraban la imagen.
+- **FAQ:** los links "Contactarme por WhatsApp" y "Agendar una reunión" quedan apilados en celular (sin la "o" suelta) y en fila con la "o" desde `sm`. El de la agenda ahora va subrayado para que se lea como clickeable (en azul oscuro parecía texto común).
+- **Botones de Sobre mí:** se midieron y se sacaron capturas en producción (360 a 1280 px): ambos botones tienen el mismo tamaño. No se cambió nada.
+- Corrí `npm run build`.
+- **Pendiente:** `sitemap.xml` solo lista la página principal; faltan las 4 páginas de proyecto y la política de privacidad.
+
+**Por qué lo hice:** al verificar el deploy vimos que el dominio del `canonical` no existía; Sabrina pidió corregirlo.
+
+---
+
+### v1.29 — 14 de octubre de 2026
+
+**Qué hice:** Corregí el CSP que impedía que Google Analytics 4 recibiera datos, y alineé el JSON-LD del FAQ con el texto visible.
+
+**Detalle del cambio:**
+
+- **GA4 no recibía datos.** Al verificar Tiempo real (0 usuarios) interceptamos las llamadas de red en producción: gtag envía a `https://analytics.google.com/g/collect` y a `https://www.google.com/g/collect`, y el `connect-src` del CSP de `vercel.json` los bloqueaba (el comodín `*.analytics.google.com` no cubre `analytics.google.com` a secas, y `www.google.com` no estaba). Solo `www.google-analytics.com` estaba permitido. Es un problema anterior a los eventos nuevos: el CSP ya estaba así, así que es probable que GA4 nunca haya recibido datos de producción.
+- **Corrección en `vercel.json`:**
+  - `connect-src`: se suman `https://analytics.google.com`, `https://www.google.com` y `https://*.g.doubleclick.net`.
+  - `img-src`: se suman `https://*.google-analytics.com`, `https://www.google.com` y `https://*.g.doubleclick.net`.
+- **Verificación:** servidor local con el CSP exacto de `vercel.json`. Antes del arreglo, las dos llamadas fallaban con violación de `connect-src`. Después, `analytics.google.com/g/collect` responde y no hay violaciones, ni en la carga ni en los clics. Estos envíos de prueba llegaron a GA4 real (con hostname `localhost`).
+- **FAQ:** el JSON-LD (`FAQPage`) decía "si estás en Pocito" y el texto visible "Pocito o en el gran San Juan" (cambio hecho por Sabrina en `163f7c5`). Los igualé.
+- **Pendiente:** el CSP solo se aplica después de mergear a `master` y desplegar; recién ahí GA4 va a recibir datos de producción.
+
+**Por qué lo hice:** Sabrina pidió seguir con GA4 y corregir el FAQ; el diagnóstico de Tiempo real vacío llevó a encontrar el bloqueo del CSP.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1127,3 +1161,5 @@ Antes de publicar cambios:
 | 1.25 | 14 de octubre de 2026 | Sabri Studios | Cuarta tarjeta en Proyectos, "Servicios AF" (con foto de portada), y su página `proyecto-web-servicios-profesionales.html` con los 3 pasos completos y botón al sitio publicado |
 | 1.26 | 14 de octubre de 2026 | Sabri Studios | Tracking GA4: `generate_lead` como conversión única (WhatsApp y reunión), medición de la agenda embebida, `section_view` para embudo, `project_click` y `project_site_click` |
 | 1.27 | 14 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" alineados (mismo ancho desde `sm`, con grilla de 2 columnas) en Hero y Sobre mí |
+| 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |
+| 1.29 | 14 de octubre de 2026 | Sabri Studios | CSP corregido para que GA4 reciba datos (`analytics.google.com` y `www.google.com` en `connect-src`, más `img-src`) y JSON-LD del FAQ igualado al texto visible |

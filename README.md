@@ -2,7 +2,7 @@
 
 Landing page de **Sabri Studios**, un estudio que diseña y desarrolla páginas web para pequeños negocios y emprendimientos de San Juan, Argentina. El objetivo de la página es convertir visitantes en consultas por WhatsApp para una demo gratuita.
 
-🔗 Producción: [sabristudios.vercel.app](https://sabristudios.vercel.app/)
+🔗 Producción: [web-sabristudios.vercel.app](https://web-sabristudios.vercel.app/)
 
 ## Stack
 
@@ -51,7 +51,7 @@ Si agregás o cambiás una clase de Tailwind con **valor arbitrario** (por ejemp
 
 ## Flujo de trabajo con Git
 
-- **`master`** es la rama de producción: lo que está ahí es lo que ve la gente en `sabristudios.vercel.app`.
+- **`master`** es la rama de producción: lo que está ahí es lo que ve la gente en `web-sabristudios.vercel.app`.
 - **`develop`** es la rama de trabajo: todos los cambios nuevos se hacen y se prueban acá antes de mergear a `master`.
 
 ## Documentación
