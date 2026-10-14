@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.26
+**Versión:** 1.27
 
 **Fecha:** Octubre 2026
 
@@ -1078,6 +1078,21 @@ Antes de publicar cambios:
 
 ---
 
+### v1.27 — 14 de octubre de 2026
+
+**Qué hice:** Alineé los botones "Reservá tu demo" y "Agendá una reunión" en el Hero y en Sobre mí (`index.html`).
+
+**Detalle del cambio:**
+
+- Medí los botones con tamaño real de pantalla: el alto ya era igual, pero en desktop el ancho no (en el Hero, 195 px contra 228 px; en Sobre mí, 215 px contra 228 px). En mobile ya estaban idénticos.
+- Los contenedores de ambos pares pasaron de `sm:flex-row` a `sm:grid sm:grid-cols-2`: desde `sm` los dos botones comparten dos columnas del mismo ancho. En mobile siguen apilados y a todo el ancho.
+- Verificado en 1280, 640 y 390 px de ancho. En Sobre mí los botones ahora ocupan todo el ancho de la columna de texto, por la grilla.
+- Corrí `npm run build` para compilar las clases nuevas (`sm:grid`, `sm:grid-cols-2`).
+
+**Por qué lo hice:** Sabrina pidió alinear los dos botones de contacto.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1111,3 +1126,4 @@ Antes de publicar cambios:
 | 1.24 | 14 de octubre de 2026 | Sabri Studios | Segundo canal de contacto: CTA "Agendá una reunión" (Hero, Sobre mí, FAQ, demo y footer), agenda de Google Calendar embebida, `frame-src` en el CSP y evento `calendar_click` |
 | 1.25 | 14 de octubre de 2026 | Sabri Studios | Cuarta tarjeta en Proyectos, "Servicios AF" (con foto de portada), y su página `proyecto-web-servicios-profesionales.html` con los 3 pasos completos y botón al sitio publicado |
 | 1.26 | 14 de octubre de 2026 | Sabri Studios | Tracking GA4: `generate_lead` como conversión única (WhatsApp y reunión), medición de la agenda embebida, `section_view` para embudo, `project_click` y `project_site_click` |
+| 1.27 | 14 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" alineados (mismo ancho desde `sm`, con grilla de 2 columnas) en Hero y Sobre mí |
