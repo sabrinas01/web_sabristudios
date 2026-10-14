@@ -517,6 +517,28 @@
             button_location: window.location.pathname,
             traffic_source: fuenteTrafico,
           });
+          // Evento recomendado de GA4 para leads: junta WhatsApp y reunión en una sola conversión
+          gtag('event', 'generate_lead', {
+            method: 'whatsapp',
+            lead_source: whatsappSource,
+            button_location: window.location.pathname,
+            traffic_source: fuenteTrafico,
+          });
+        }
+      });
+    });
+
+    // Clic en "Ver sitio web": project_name sale del nombre del archivo (proyecto-xxx.html -> xxx),
+    // igual que project_click en index.html, así se cruzan las tarjetas con los sitios visitados.
+    const nombreProyecto = window.location.pathname.split('/').pop().replace(/^proyecto-/, '').replace(/\.html.*$/, '');
+    document.querySelectorAll('a[aria-label^="Visitar el sitio web"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'project_site_click', {
+            project_name: nombreProyecto,
+            button_location: window.location.pathname,
+            traffic_source: fuenteTrafico,
+          });
         }
       });
     });

@@ -506,6 +506,13 @@
             button_location: window.location.pathname,
             traffic_source: fuenteTrafico,
           });
+          // Evento recomendado de GA4 para leads: junta WhatsApp y reunión en una sola conversión
+          gtag('event', 'generate_lead', {
+            method: 'whatsapp',
+            lead_source: whatsappSource,
+            button_location: window.location.pathname,
+            traffic_source: fuenteTrafico,
+          });
         }
       });
     });

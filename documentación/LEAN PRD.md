@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.23
+**Versión:** 1.26
 
 **Fecha:** Octubre 2026
 
@@ -1026,6 +1026,58 @@ Antes de publicar cambios:
 
 ---
 
+### v1.24 — 14 de octubre de 2026
+
+**Qué hice:** Sumé un segundo canal de contacto para quien prefiere una reunión: agenda de Google Calendar (citas), con un segundo CTA y la agenda embebida (solo `index.html`).
+
+**Detalle del cambio:**
+
+- **Segundo CTA en el Hero:** "Ver cómo funciona" (que bajaba a `#proceso`) pasó a ser "AGENDÁ UNA REUNIÓN", un botón outline azul que abre la agenda. Proceso sigue accesible desde el menú y el scroll.
+- **Más puntos de entrada:** botón outline en "Sobre mí", link "agendar una reunión" junto al de WhatsApp en la caja del FAQ, link bajo el paso 1 de "La demo gratuita es así" y "Agendar reunión" en el footer (ícono `calendar_month`, sumado a `icon_names`).
+- **Agenda embebida:** iframe de la página de citas bajo "O elegí tu horario acá mismo" en la sección de la demo, con `loading="lazy"` para no pesar en la carga inicial. Pensado para quien es visual y quiere ver los horarios disponibles.
+- **CSP:** agregué `frame-src https://calendar.google.com` en `vercel.json`; sin eso, `default-src 'self'` bloqueaba el iframe.
+- **Tracking:** evento `calendar_click` en GA con `calendar_source`, `button_location` y `traffic_source`, equivalente a `whatsapp_click`, para comparar canales.
+- Usé el link directo de la agenda y no el script/CSS del widget de Google, para no sumar peso ni otro origen en `script-src`.
+- Corrí `npm run build` para compilar las clases nuevas.
+
+**Por qué lo hice:** Sabrina quiso ofrecer la reunión como alternativa al chat, tanto con un CTA como con la agenda visible.
+
+---
+
+### v1.25 — 14 de octubre de 2026
+
+**Qué hice:** Agregué una cuarta tarjeta en "Proyectos desarrollados" (`index.html`), "Servicios AF", y su página propia `proyecto-web-servicios-profesionales.html`.
+
+**Detalle del cambio:**
+
+- La tarjeta repite el patrón de Mombé: etiqueta "Servicios profesionales", foto de portada en el círculo (`imagenes/servicios-af-portada.jpg`, recortada cuadrada y reducida de 10 MB a 23 KB; también es la imagen al compartir el link) y botón "Ver proyecto".
+- La página sigue el formato de `proyecto-ar-estetica-vehicular.html` (proyecto terminado): los 3 pasos completos con el texto que dio Sabrina (de una landing en Lovable a una web completa, mejora de diseño respetando su paleta y despliegue en GitHub Pages) y CTA final "Ver sitio web" hacia `https://sabrinas01.github.io/serviciosaf/`, más "Quiero algo así para mi negocio".
+- El link del sitio va sin los parámetros de tracking de Instagram (`utm_*`, `fbclid`) que traía la URL pegada.
+- Corrí `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió sumar este proyecto como una card más en Proyectos, con el contenido de cada paso.
+
+---
+
+### v1.26 — 14 de octubre de 2026
+
+**Qué hice:** Mejoré el tracking de GA4: una conversión única de contacto (`generate_lead`), medición de la agenda embebida, embudo por secciones y clics en proyectos.
+
+**Detalle del cambio:**
+
+- **`generate_lead`:** cada clic en WhatsApp o en la agenda manda además este evento recomendado de GA4, con `method` (`whatsapp` o `calendar`), `lead_source`, `button_location` y `traffic_source`. Va en `index.html`, las 4 páginas de proyecto y la política de privacidad (en la política y en los proyectos solo para WhatsApp). `whatsapp_click` y `calendar_click` se mantienen.
+- **Agenda embebida:** `calendar_embed_view` (el iframe llegó a verse) y `calendar_embed_interaction` (clic dentro del iframe, aproximado: se detecta por la pérdida de foco de la ventana). **No se puede saber si alguien reservó**, porque el iframe es de Google. La interacción no cuenta como lead.
+- **Embudo por secciones:** `section_view` con `section_name` (`hero`, `proyectos`, `proceso`, `demo_gratuita`, `sobre_mi`, `preguntas-frecuentes`) la primera vez que cada sección entra en pantalla (con un margen del 30% abajo, para secciones altas). `scroll_proceso` se mantiene por la métrica del PRD.
+- **Proyectos:** `project_click` en cada tarjeta de `index.html` y `project_site_click` en "Ver sitio web" de las páginas de proyecto (AR, JL y Servicios AF; Mombé aún no tiene sitio). `project_name` sale del nombre del archivo (`proyecto-mombe.html` → `mombe`) en ambos.
+- Unifiqué el envío en `index.html` con una función `enviarEvento` que agrega `traffic_source` y no falla si `gtag` no cargó. Sin clases nuevas, así que no hizo falta `npm run build`.
+- **Verificación en navegador** (servidor local con el mismo CSP de `vercel.json`, sin GA/Clarity para no mandar eventos reales): el iframe de la agenda carga con `frame-src https://calendar.google.com`; `calendar_embed_view` y `calendar_embed_interaction` (una sola vez) se disparan; `whatsapp_click`, `calendar_click`, `generate_lead`, `project_click` y `project_site_click` salen con los parámetros esperados; la foto de Servicios AF carga. No se probó contra GA4 real (DebugView).
+- Agregué `perfil (1).png` (foto original de 10 MB) al `.gitignore`.
+- **Pendiente en GA4 (no se hace desde el código):** registrar las dimensiones personalizadas nuevas y marcar `generate_lead` como evento clave.
+
+**Por qué lo hice:** Sabrina pidió mejorar el tema de GA4 a partir de una revisión del tracking existente.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1056,3 +1108,6 @@ Antes de publicar cambios:
 | 1.21 | 5 de octubre de 2026 | Sabri Studios | Etiquetas de rubro de los proyectos pasadas de rojo `#A10C10` al azul de marca, en las tarjetas y en las páginas de proyecto |
 | 1.22 | 10 de octubre de 2026 | Sabri Studios | Mejoras mobile: hover solo con mouse, menos espacios vacíos en tarjetas/Hero/Proceso/Sobre Mí, botón flotante de WhatsApp más chico en esquina y `touch-action: manipulation` |
 | 1.23 | 10 de octubre de 2026 | Sabri Studios | Mejoras desde Clarity: íconos Material Symbols solo los usados, menú mobile se cierra al tocar fuera, `scroll-padding` para anclas y JS a prueba de `sessionStorage` bloqueado y navegadores viejos |
+| 1.24 | 14 de octubre de 2026 | Sabri Studios | Segundo canal de contacto: CTA "Agendá una reunión" (Hero, Sobre mí, FAQ, demo y footer), agenda de Google Calendar embebida, `frame-src` en el CSP y evento `calendar_click` |
+| 1.25 | 14 de octubre de 2026 | Sabri Studios | Cuarta tarjeta en Proyectos, "Servicios AF" (con foto de portada), y su página `proyecto-web-servicios-profesionales.html` con los 3 pasos completos y botón al sitio publicado |
+| 1.26 | 14 de octubre de 2026 | Sabri Studios | Tracking GA4: `generate_lead` como conversión única (WhatsApp y reunión), medición de la agenda embebida, `section_view` para embudo, `project_click` y `project_site_click` |
