@@ -10,7 +10,7 @@
   <!-- Con este meta le doy luz verde a Google para que indexe la página y me muestre en los resultados -->
   <meta name="robots" content="index, follow">
   <!-- Acá le marco a Google cuál es mi URL "oficial", así no se confunde si en algún momento aparece una copia de la página -->
-  <link rel="canonical" href="https://sabristudios.vercel.app/">
+  <link rel="canonical" href="https://web-sabristudios.vercel.app/">
 
   <!-- Con estos dos meta les aviso a los buscadores de qué ciudad soy, para que me muestren a gente cerca -->
   <meta name="geo.region" content="AR-J">
@@ -20,16 +20,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Sabri Studios">
   <meta property="og:locale" content="es_AR">
-  <meta property="og:url" content="https://sabristudios.vercel.app/">
+  <meta property="og:url" content="https://web-sabristudios.vercel.app/">
   <meta property="og:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
-  <meta property="og:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+  <meta property="og:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <!-- Repito lo mismo de arriba pero con las etiquetas que lee Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
-  <meta name="twitter:image" content="https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+  <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <!-- Favicon / PWA -->
   <!-- Este es el iconito chiquito que aparece en la pestaña del navegador -->
@@ -51,9 +51,9 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Sabri Studios",
-    "url": "https://sabristudios.vercel.app/",
-    "logo": "https://sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg",
-    "image": "https://sabristudios.vercel.app/imagenes/sabrina-fundadora-sabri-studios.jpg",
+    "url": "https://web-sabristudios.vercel.app/",
+    "logo": "https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg",
+    "image": "https://web-sabristudios.vercel.app/imagenes/sabrina-fundadora-sabri-studios.jpg",
     "description": "Diseño y desarrollo de páginas web para pequeños negocios y emprendimientos, orientadas a generar presencia en Google y conseguir clientes.",
     "email": "estudiosabrina.26@gmail.com",
     "telephone": "+5492645854487",
@@ -875,17 +875,20 @@
           <span class="font-bold">¿No encontraste tu pregunta?</span> Escribime por WhatsApp y hablamos
           directamente.
         </p>
-        <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
-          target="_blank" rel="noopener noreferrer"
-          class="inline-block mt-sm font-label-cta text-label-cta text-brand-orange hover:underline">
-          Contactarme por WhatsApp
-        </a>
-        <span class="font-body-main text-body-main text-text-strong opacity-70"> o </span>
-        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
-          target="_blank" rel="noopener noreferrer"
-          class="inline-block mt-sm font-label-cta text-label-cta text-brand-blue hover:underline">
-          agendar una reunión
-        </a>
+        <!-- En celular los dos links van uno debajo del otro; desde sm van en fila, con la "o" en el medio -->
+        <div class="flex flex-col sm:flex-row sm:items-center gap-xs sm:gap-sm mt-sm">
+          <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
+            target="_blank" rel="noopener noreferrer"
+            class="font-label-cta text-label-cta text-brand-orange hover:underline">
+            Contactarme por WhatsApp
+          </a>
+          <span class="hidden sm:inline font-body-main text-body-main text-text-strong opacity-70">o</span>
+          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
+            target="_blank" rel="noopener noreferrer"
+            class="font-label-cta text-label-cta text-brand-blue underline hover:text-brand-secondary-blue">
+            Agendar una reunión
+          </a>
+        </div>
       </div>
     </div>
   </section>

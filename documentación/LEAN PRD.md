@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.27
+**Versión:** 1.28
 
 **Fecha:** Octubre 2026
 
@@ -1093,6 +1093,22 @@ Antes de publicar cambios:
 
 ---
 
+### v1.28 — 14 de octubre de 2026
+
+**Qué hice:** Corregí el dominio de producción en todo el sitio y ordené el link de agenda en la caja del FAQ.
+
+**Detalle del cambio:**
+
+- **Dominio:** el `canonical`, `og:url`, `og:image`, `twitter:image`, el JSON-LD de `index.html`, `sitemap.xml`, `robots.txt`, `llms.txt`, el texto de la política de privacidad y el `README.md` apuntaban a `sabristudios.vercel.app`, un dominio que no existe (Vercel responde `DEPLOYMENT_NOT_FOUND`). La producción real es `web-sabristudios.vercel.app`. Reemplacé el dominio en los 10 archivos (0 apariciones del viejo). Antes, Google recibía como canónica una URL inexistente y las vistas previas al compartir el link no encontraban la imagen.
+- **FAQ:** los links "Contactarme por WhatsApp" y "Agendar una reunión" quedan apilados en celular (sin la "o" suelta) y en fila con la "o" desde `sm`. El de la agenda ahora va subrayado para que se lea como clickeable (en azul oscuro parecía texto común).
+- **Botones de Sobre mí:** se midieron y se sacaron capturas en producción (360 a 1280 px): ambos botones tienen el mismo tamaño. No se cambió nada.
+- Corrí `npm run build`.
+- **Pendiente:** `sitemap.xml` solo lista la página principal; faltan las 4 páginas de proyecto y la política de privacidad.
+
+**Por qué lo hice:** al verificar el deploy vimos que el dominio del `canonical` no existía; Sabrina pidió corregirlo.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1127,3 +1143,4 @@ Antes de publicar cambios:
 | 1.25 | 14 de octubre de 2026 | Sabri Studios | Cuarta tarjeta en Proyectos, "Servicios AF" (con foto de portada), y su página `proyecto-web-servicios-profesionales.html` con los 3 pasos completos y botón al sitio publicado |
 | 1.26 | 14 de octubre de 2026 | Sabri Studios | Tracking GA4: `generate_lead` como conversión única (WhatsApp y reunión), medición de la agenda embebida, `section_view` para embudo, `project_click` y `project_site_click` |
 | 1.27 | 14 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" alineados (mismo ancho desde `sm`, con grilla de 2 columnas) en Hero y Sobre mí |
+| 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |

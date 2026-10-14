@@ -19,4 +19,4 @@ Sabri Studios es un servicio unipersonal fundado y operado por Sabrina Sanso, or
 
 ## Páginas
 
-- [Sitio principal](https://sabristudios.vercel.app/): propuesta de valor, proceso de trabajo, proyectos realizados, preguntas frecuentes y contacto.
+- [Sitio principal](https://web-sabristudios.vercel.app/): propuesta de valor, proceso de trabajo, proyectos realizados, preguntas frecuentes y contacto.
