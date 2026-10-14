@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.28
+**Versión:** 1.29
 
 **Fecha:** Octubre 2026
 
@@ -1109,6 +1109,24 @@ Antes de publicar cambios:
 
 ---
 
+### v1.29 — 14 de octubre de 2026
+
+**Qué hice:** Corregí el CSP que impedía que Google Analytics 4 recibiera datos, y alineé el JSON-LD del FAQ con el texto visible.
+
+**Detalle del cambio:**
+
+- **GA4 no recibía datos.** Al verificar Tiempo real (0 usuarios) interceptamos las llamadas de red en producción: gtag envía a `https://analytics.google.com/g/collect` y a `https://www.google.com/g/collect`, y el `connect-src` del CSP de `vercel.json` los bloqueaba (el comodín `*.analytics.google.com` no cubre `analytics.google.com` a secas, y `www.google.com` no estaba). Solo `www.google-analytics.com` estaba permitido. Es un problema anterior a los eventos nuevos: el CSP ya estaba así, así que es probable que GA4 nunca haya recibido datos de producción.
+- **Corrección en `vercel.json`:**
+  - `connect-src`: se suman `https://analytics.google.com`, `https://www.google.com` y `https://*.g.doubleclick.net`.
+  - `img-src`: se suman `https://*.google-analytics.com`, `https://www.google.com` y `https://*.g.doubleclick.net`.
+- **Verificación:** servidor local con el CSP exacto de `vercel.json`. Antes del arreglo, las dos llamadas fallaban con violación de `connect-src`. Después, `analytics.google.com/g/collect` responde y no hay violaciones, ni en la carga ni en los clics. Estos envíos de prueba llegaron a GA4 real (con hostname `localhost`).
+- **FAQ:** el JSON-LD (`FAQPage`) decía "si estás en Pocito" y el texto visible "Pocito o en el gran San Juan" (cambio hecho por Sabrina en `163f7c5`). Los igualé.
+- **Pendiente:** el CSP solo se aplica después de mergear a `master` y desplegar; recién ahí GA4 va a recibir datos de producción.
+
+**Por qué lo hice:** Sabrina pidió seguir con GA4 y corregir el FAQ; el diagnóstico de Tiempo real vacío llevó a encontrar el bloqueo del CSP.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1144,3 +1162,4 @@ Antes de publicar cambios:
 | 1.26 | 14 de octubre de 2026 | Sabri Studios | Tracking GA4: `generate_lead` como conversión única (WhatsApp y reunión), medición de la agenda embebida, `section_view` para embudo, `project_click` y `project_site_click` |
 | 1.27 | 14 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" alineados (mismo ancho desde `sm`, con grilla de 2 columnas) en Hero y Sobre mí |
 | 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |
+| 1.29 | 14 de octubre de 2026 | Sabri Studios | CSP corregido para que GA4 reciba datos (`analytics.google.com` y `www.google.com` en `connect-src`, más `img-src`) y JSON-LD del FAQ igualado al texto visible |
