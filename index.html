@@ -405,7 +405,8 @@
           Botón principal (WhatsApp) y botón secundario que abre mi agenda de Google Calendar,
           para quien prefiere una reunión en un horario fijo antes que escribir por chat.
         -->
-        <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
+        <!-- En pantallas medianas y grandes los dos botones van en una grilla de 2 columnas iguales, así miden lo mismo de ancho -->
+        <div class="flex flex-col sm:grid sm:grid-cols-2 gap-sm w-full sm:w-auto">
           <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
             class="bg-brand-orange hover:bg-[#C66A2E] text-white font-whatsapp-cta font-bold px-md py-[16px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-lg w-full sm:w-auto text-center inline-block">
@@ -743,7 +744,7 @@
             Si estás lista/o para mejorar tu presencia online, hablemos.
           </p>
 
-          <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto mt-2 md:mt-8">
+          <div class="flex flex-col sm:grid sm:grid-cols-2 gap-sm w-full sm:w-auto mt-2 md:mt-8">
             <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_sobre_mi&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
               class="bg-[#D97A3C] hover:bg-[#C66A2E] text-[#F5F3EF] font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-colors duration-200 shadow-ambient w-full sm:w-auto text-center inline-block">
