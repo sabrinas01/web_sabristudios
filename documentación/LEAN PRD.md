@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.48
+**Versión:** 1.49
 
 **Fecha:** Octubre 2026
 
@@ -1413,6 +1413,21 @@ Antes de publicar cambios:
 
 ---
 
+### v1.49 — 19 de octubre de 2026
+
+**Qué hice:** Reemplacé los 4 logotipos horizontales SVG por los nuevos de Sabrina, con el texto convertido a trazados, y eliminé el resto de lo que subió.
+
+**Detalle del cambio:**
+
+- **Se usan:** los 4 SVG nuevos (full color, monocromático, negativo y outline), copiados a `imagenes/logotipo-horizontal-*.svg` con los mismos nombres que ya tenían, así las 6 páginas los toman sin tocar HTML. El texto "Sabri Studios" ahora es un trazado en Space Mono, por lo que ya no depende de la fuente del dispositivo (resuelve el pendiente de los logos).
+- **Limpieza:** a los SVG se les quitó el bloque `<metadata>` (manifiesto de procedencia, unos 7 KB cada uno); pesan ~7 KB en vez de ~14 KB.
+- **Se eliminaron:** los 4 PNG de 480×160 (`*_480x160.png`): son los mismos logos con fondo transparente, y el sitio usa los SVG; `og:image` y el JSON-LD siguen con el JPG por el fondo opaco.
+- Revisé los 4 SVG en el navegador local (sobre fondo blanco y azul): se ven bien y con la tipografía de la marca.
+
+**Por qué lo hice:** Sabrina subió imágenes nuevas y pidió usar las necesarias y borrar las demás.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1468,3 +1483,4 @@ Antes de publicar cambios:
 | 1.46 | 19 de octubre de 2026 | Sabri Studios | Se quita "Agendá una reunión" de "Sobre mí": queda solo "Reservá tu demo" |
 | 1.47 | 19 de octubre de 2026 | Sabri Studios | Imágenes nuevas revisadas: favicon PNG de 32×32 en uso, el resto eliminado (duplicados de los SVG y SVG con estilos rotos) |
 | 1.48 | 19 de octubre de 2026 | Sabri Studios | Se eliminan dos imágenes sin uso (`imagen mia de frente.png` y `hero-presencia-online-google.jpg`) |
+| 1.49 | 19 de octubre de 2026 | Sabri Studios | Logotipos horizontales SVG nuevos con el texto en trazados (Space Mono), sin metadatos; se eliminan los PNG subidos |
