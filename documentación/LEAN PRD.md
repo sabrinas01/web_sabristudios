@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.32
+**Versión:** 1.35
 
 **Fecha:** Octubre 2026
 
@@ -249,9 +249,11 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 - Azul primario (`brand-blue`): `#1E3A5F`
 - Naranja (`brand-orange`): `#D97A3C`
 - Neutro (`background`): `#F5F3EF`
-- Tipografía de títulos y cuerpo: Space Grotesk. CTA de WhatsApp: Space Mono.
+- Tipografía: Space Mono en todo el sitio (corregido en v1.34; antes decía Space Grotesk para títulos y cuerpo, pero el sitio nunca la usó).
 
 **Asegurar:** CTAs en naranja (`brand-orange`), títulos en azul (`brand-blue`).
+
+**Design system:** el sistema completo de la marca está en [`Design System.md`](Design%20System.md). El design system manda en tipografía, color, espaciado y componentes.
 
 ---
 
@@ -1169,6 +1171,49 @@ Antes de publicar cambios:
 
 ---
 
+### v1.33 — 19 de octubre de 2026
+
+**Qué hice:** Agregué el design system de la marca a la documentación.
+
+**Detalle del cambio:**
+
+- **`documentación/Design System.md` (nuevo):** copia en español del [artifact del design system](https://claude.ai/artifact/RV4FVSzBaZLFuKDNCeRWLc): fundamentos de contenido y visuales, tokens (color con sus contrastes, tipografía, espaciado, radios, sombras), iconografía, logo, componentes y aplicaciones. La fuente de verdad sigue siendo el artifact.
+- **Sección 8.2 de este PRD y `README.md`:** agregué el enlace al nuevo documento.
+- **Diferencia detectada, sin resolver:** el design system pide todo en Space Mono; la sección 8.2 decía Space Grotesk para títulos y cuerpo. No toqué el sitio: falta decidir cuál manda.
+- Sin cambios de código ni clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió usar este design system y agregarlo a la documentación.
+
+---
+
+### v1.34 — 19 de octubre de 2026
+
+**Qué hice:** Dejé asentado que el design system manda y corregí la tipografía en la documentación.
+
+**Detalle del cambio:**
+
+- **Tipografía:** el design system define todo en Space Mono. El sitio ya lo cumple (`tailwind.config.js` y las 6 páginas cargan solo Space Mono), así que no hubo cambios de código: lo que estaba mal era la sección 8.2 de este PRD, que decía Space Grotesk. Corregida.
+- **Pendiente detectado:** el design system admite solo pesos 400 y 500, y el sitio carga `wght@400;500;700` y usa `font-bold` en `index.html`, `politica-de-privacidad.html` y las 4 páginas de proyecto (más un `font-semibold` en `index.html`). Falta decidir si se pasan a `font-medium`.
+- `Design System.md`: actualizada la sección "Diferencias con el sitio actual".
+
+**Por qué lo hice:** Sabrina indicó que el design system manda.
+
+---
+
+### v1.35 — 19 de octubre de 2026
+
+**Qué hice:** Pasé los pesos tipográficos al máximo que admite el design system (500).
+
+**Detalle del cambio:**
+
+- **Las 6 páginas HTML:** `font-bold` y `font-semibold` pasan a `font-medium` (logo del header, botones del Hero, badges de proyectos, cita de la demo y aviso del FAQ) y la carga de Space Mono baja de `wght@400;500;700` a `wght@400;500`.
+- `npm run build` corrido; `dist/output.css` está ignorado por git, así que no entra al commit.
+- Resuelve el pendiente de la v1.34. Cambio visible: títulos y botones que estaban en negrita ahora quedan en peso medio.
+
+**Por qué lo hice:** Sabrina aprobó adoptar los pesos del design system.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1208,3 +1253,6 @@ Antes de publicar cambios:
 | 1.30 | 19 de octubre de 2026 | Sabri Studios | Revisión de la configuración de GA4: `scroll_proceso` pasa por `enviarEvento` como el resto de los eventos de `index.html` |
 | 1.31 | 19 de octubre de 2026 | Sabri Studios | Eliminado el link "Agendar reunión" del footer de `index.html` |
 | 1.32 | 19 de octubre de 2026 | Sabri Studios | Eliminada la agenda de Google Calendar embebida (iframe, eventos `calendar_embed_*` y `frame-src` del CSP) |
+| 1.33 | 19 de octubre de 2026 | Sabri Studios | Agregado el design system de la marca a la documentación (`Design System.md`), con enlaces desde el PRD y el README |
+| 1.34 | 19 de octubre de 2026 | Sabri Studios | El design system manda: corregida la tipografía en el PRD (Space Mono en todo el sitio) y anotado el pendiente de pesos 700 |
+| 1.35 | 19 de octubre de 2026 | Sabri Studios | Pesos tipográficos según el design system: `font-bold`/`font-semibold` pasan a `font-medium` y se deja de cargar el peso 700 |
