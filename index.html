@@ -696,24 +696,6 @@
         </p>
       </div>
 
-      <!--
-        Agenda embebida de Google Calendar, para quien es más visual y prefiere ver los horarios
-        disponibles y reservar sin salir de la página. Va con loading="lazy" para que no frene la
-        carga inicial: el iframe recién se pide cuando la persona se acerca a esta parte.
-        Para el CSP necesita "frame-src https://calendar.google.com" en vercel.json.
-      -->
-      <div class="max-w-3xl mx-auto w-full flex flex-col gap-sm">
-        <h3 class="font-headline-h3 text-headline-h3 text-brand-blue text-center">
-          O elegí tu horario acá mismo
-        </h3>
-        <div class="w-full rounded-lg overflow-hidden border border-brand-border bg-white">
-          <iframe
-            src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
-            id="calendar-embed" title="Agenda de reuniones con Sabri Studios"
-            width="100%" height="600" loading="lazy" style="border: 0;"></iframe>
-        </div>
-      </div>
-
     </div>
   </section>
 
@@ -973,10 +955,6 @@
             <span class="material-symbols-outlined text-lg">work</span>
             <span class="text-sm">LinkedIn</span>
           </a>
-          <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-            <span class="material-symbols-outlined text-lg">calendar_month</span>
-            <span class="text-sm">Agendar reunión</span>
-          </a>
           <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
           <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
             <span class="material-symbols-outlined text-lg">mail</span>
@@ -1177,35 +1155,6 @@
         });
       });
     });
-
-    // Agenda embebida: como el iframe es de Google (otro dominio), no puedo saber si alguien
-    // reservó. Lo que sí mido es cuánta gente llega a verla (calendar_embed_view) y cuánta
-    // interactúa con ella (calendar_embed_interaction). Esto último es aproximado: cuando la
-    // persona hace clic dentro del iframe, la ventana pierde el foco y el elemento activo pasa a
-    // ser el iframe. No cuento la interacción como lead porque todavía no es una reserva.
-    const calendarEmbed = document.getElementById('calendar-embed');
-    if (calendarEmbed) {
-      const embedObserver = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            enviarEvento('calendar_embed_view', { button_location: window.location.pathname });
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.25 });
-      embedObserver.observe(calendarEmbed);
-
-      let interaccionEmbedEnviada = false;
-      window.addEventListener('blur', () => {
-        // Espero un instante: justo al perder el foco, document.activeElement todavía no se actualizó
-        setTimeout(() => {
-          if (!interaccionEmbedEnviada && document.activeElement === calendarEmbed) {
-            interaccionEmbedEnviada = true;
-            enviarEvento('calendar_embed_interaction', { button_location: window.location.pathname });
-          }
-        }, 0);
-      });
-    }
 
     // Clics en las tarjetas de proyectos: "project_name" sale del nombre del archivo de la
     // página (ej. proyecto-mombe.html -> mombe), el mismo criterio que usan las páginas de

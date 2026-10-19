@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.30
+**Versión:** 1.32
 
 **Fecha:** Octubre 2026
 
@@ -1142,6 +1142,33 @@ Antes de publicar cambios:
 
 ---
 
+### v1.31 — 19 de octubre de 2026
+
+**Qué hice:** Saqué el link "Agendar reunión" del footer de `index.html`.
+
+**Detalle del cambio:**
+
+- **Footer:** quedan Instagram, LinkedIn y Email. La opción de agendar sigue disponible en la sección de contacto y en el calendario embebido.
+- Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió quitar ese link del footer.
+
+---
+
+### v1.32 — 19 de octubre de 2026
+
+**Qué hice:** Quité la agenda de Google Calendar embebida de `index.html`.
+
+**Detalle del cambio:**
+
+- **`index.html`:** eliminé el bloque "O elegí tu horario acá mismo" (título + iframe) de la sección de demo y el JS de `calendar_embed_view` y `calendar_embed_interaction`.
+- **`vercel.json`:** saqué `frame-src https://calendar.google.com` del CSP, ya que no hay iframes.
+- Los botones "Agendá una reunión" que abren la agenda en otra pestaña (y `calendar_click`) siguen igual. Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió quitar la página de citas embebida.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1179,3 +1206,5 @@ Antes de publicar cambios:
 | 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |
 | 1.29 | 14 de octubre de 2026 | Sabri Studios | CSP corregido para que GA4 reciba datos (`analytics.google.com` y `www.google.com` en `connect-src`, más `img-src`) y JSON-LD del FAQ igualado al texto visible |
 | 1.30 | 19 de octubre de 2026 | Sabri Studios | Revisión de la configuración de GA4: `scroll_proceso` pasa por `enviarEvento` como el resto de los eventos de `index.html` |
+| 1.31 | 19 de octubre de 2026 | Sabri Studios | Eliminado el link "Agendar reunión" del footer de `index.html` |
+| 1.32 | 19 de octubre de 2026 | Sabri Studios | Eliminada la agenda de Google Calendar embebida (iframe, eventos `calendar_embed_*` y `frame-src` del CSP) |
