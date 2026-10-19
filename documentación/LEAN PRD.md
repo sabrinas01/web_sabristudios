@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.29
+**Versión:** 1.30
 
 **Fecha:** Octubre 2026
 
@@ -1126,6 +1126,21 @@ Antes de publicar cambios:
 
 ---
 
+### v1.30 — 19 de octubre de 2026
+
+**Qué hice:** Revisé la configuración de GA4 en el código y unifiqué el envío de `scroll_proceso`.
+
+**Detalle del cambio:**
+
+- **Revisión:** el ID `G-HLPQM5HE7G` está en las 6 páginas HTML, el CSP permite los dominios de envío y todas las páginas (incluida la política de privacidad) definen `fuenteTrafico` y mandan `traffic_source`.
+- **Cambio en `index.html`:** `scroll_proceso` usaba `gtag` directo; ahora usa `enviarEvento`, igual que los demás eventos. Se manda lo mismo (`event_category` y `traffic_source`). Sin clases nuevas, no hizo falta `npm run build`.
+- **Pendiente en el panel de GA4 (no se hace desde el código):** registrar como dimensiones personalizadas de alcance evento `whatsapp_source`, `lead_source`, `traffic_source`, `button_location`, `section_name`, `project_name` y `calendar_source`; marcar `generate_lead` como evento clave; verificar Tiempo real una vez desplegado el CSP de la v1.29.
+- **Consentimiento:** no hay Consent Mode ni banner; solo haría falta si hay público de la UE.
+
+**Por qué lo hice:** Sabrina pidió revisar la configuración de GA4.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1162,3 +1177,4 @@ Antes de publicar cambios:
 | 1.27 | 14 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" alineados (mismo ancho desde `sm`, con grilla de 2 columnas) en Hero y Sobre mí |
 | 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |
 | 1.29 | 14 de octubre de 2026 | Sabri Studios | CSP corregido para que GA4 reciba datos (`analytics.google.com` y `www.google.com` en `connect-src`, más `img-src`) y JSON-LD del FAQ igualado al texto visible |
+| 1.30 | 19 de octubre de 2026 | Sabri Studios | Revisión de la configuración de GA4: `scroll_proceso` pasa por `enviarEvento` como el resto de los eventos de `index.html` |
