@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.39
+**Versión:** 1.40
 
 **Fecha:** Octubre 2026
 
@@ -1278,6 +1278,24 @@ Antes de publicar cambios:
 
 ---
 
+### v1.40 — 19 de octubre de 2026
+
+**Qué hice:** Configuré el consentimiento de cookies (Consent Mode v2) solo para visitas del Espacio Económico Europeo, Reino Unido y Suiza.
+
+**Detalle del cambio:**
+
+- **GA4:** en las 6 páginas, antes de `gtag('js')`, `gtag('consent', 'default', …)` deniega `analytics_storage`, `ad_storage`, `ad_user_data` y `ad_personalization` con el parámetro `region` (EEE + GB + CH). Fuera de esos países el comportamiento no cambia y no se pierden datos.
+- **`api/region.js` (nuevo):** función de Vercel que lee `x-vercel-ip-country` y devuelve solo `{ pedirConsentimiento: true/false }`, sin cache y sin guardar el país.
+- **`consentimiento.js` (nuevo, cargado con `defer` en las 6 páginas):** si no hay elección guardada, consulta `/api/region`; si la visita es de la zona, muestra un aviso con los botones RECHAZAR y ACEPTAR con el mismo peso visual. La elección se guarda en `localStorage` y se manda a GA4 (`consent update`) y a Clarity (`consentv2`). Si no puede saber el país, no muestra nada.
+- **Política de privacidad:** la sección 5 explica el aviso e incluye el botón "Cambiar preferencias de cookies"; fecha de actualización al 19 de octubre de 2026.
+- **Tailwind:** se sumó `consentimiento.js` a `content`, el token `shadow-fuerte` y se corrió `npm run build`.
+- **Verificación local:** el aviso se ve bien, rechazar guarda `denied` y dispara `consent update`, y la función devuelve `true` para DE y GB y `false` para AR y sin país. **No probé `/api/region` desplegada en Vercel** ni con una visita real de la UE.
+- **Limitación:** Microsoft Clarity arranca antes de saber el país, así que no se le puede negar el consentimiento desde el primer instante; se le avisa apenas se sabe la región. Para Clarity conviene también revisar su propio panel de consentimiento.
+
+**Por qué lo hice:** Sabrina no sabe si tiene público de la UE y pidió dejarlo configurado por si acaso.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1324,3 +1342,4 @@ Antes de publicar cambios:
 | 1.37 | 19 de octubre de 2026 | Sabri Studios | Íconos de Material Symbols a Tabler Icons outline (máscaras SVG propias, sin fuente externa) y tokens de color renombrados con los nombres del design system |
 | 1.38 | 19 de octubre de 2026 | Sabri Studios | Sombra `shadow-media` del design system, aplicada solo en elementos clickeables (hover de botones y tarjetas de proyectos, botón flotante de WhatsApp) |
 | 1.39 | 19 de octubre de 2026 | Sabri Studios | Logos SVG del design system en `imagenes/`: logotipo horizontal en header y footer, favicon SVG; `og:image` y JSON-LD siguen en JPG |
+| 1.40 | 19 de octubre de 2026 | Sabri Studios | Consent Mode v2 solo para EEE, Reino Unido y Suiza: cookies denegadas por defecto por región, aviso con aceptar/rechazar (`consentimiento.js`), función `api/region.js` y política de privacidad actualizada |

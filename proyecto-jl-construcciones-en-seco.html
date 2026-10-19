@@ -39,6 +39,14 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consentimiento: cookies denegadas por defecto solo en el EEE, Reino Unido y Suiza (ver consentimiento.js)
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+    });
     gtag('js', new Date());
 
     gtag('config', 'G-HLPQM5HE7G');
@@ -51,6 +59,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ybpt6ju825");
   </script>
+  <script defer src="consentimiento.js"></script>
 
   <link rel="stylesheet" href="dist/output.css">
 

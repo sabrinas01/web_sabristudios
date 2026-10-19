@@ -39,6 +39,14 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    // Consentimiento: cookies denegadas por defecto solo en el EEE, Reino Unido y Suiza (ver consentimiento.js)
+    gtag('consent', 'default', {
+      analytics_storage: 'denied',
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      region: ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']
+    });
     gtag('js', new Date());
 
     gtag('config', 'G-HLPQM5HE7G');
@@ -51,6 +59,7 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "ybpt6ju825");
   </script>
+  <script defer src="consentimiento.js"></script>
 
   <link rel="stylesheet" href="dist/output.css">
 
@@ -120,7 +129,7 @@
         Política de Privacidad y Tratamiento de Datos Personales
       </h1>
       <p class="font-body-main text-body-main text-texto-fuerte opacity-70">
-        Última actualización: 4 de octubre de 2026.
+        Última actualización: 19 de octubre de 2026.
       </p>
     </div>
 
@@ -217,8 +226,18 @@
     </div>
 
     <!-- 5 -->
-    <div>
+    <div id="cookies">
       <h2 class="font-headline-h2 text-headline-h2 text-azul-primario mb-sm">5. Cookies y almacenamiento local</h2>
+      <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mb-sm">
+        Si la visita viene del Espacio Económico Europeo, el Reino Unido o Suiza, las cookies de Google
+        Analytics y Microsoft Clarity quedan desactivadas hasta que la persona las acepte en el aviso que
+        aparece al entrar. Puede rechazarlas y la página funciona igual, y puede cambiar su elección en
+        cualquier momento con el botón de abajo. La elección se guarda en el <code>localStorage</code> del
+        navegador.
+      </p>
+      <button type="button" onclick="mostrarPreferenciasCookies()" class="border border-azul-primario bg-gris-neutro text-azul-primario hover:bg-gris-claro font-label-cta text-label-cta font-medium px-sm py-[12px] rounded-lg transition-colors duration-200 mb-sm">
+        CAMBIAR PREFERENCIAS DE COOKIES
+      </button>
       <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
         Google Analytics y Microsoft Clarity instalan cookies propias para identificar visitas recurrentes
         de forma anónima. Además, el sitio guarda en el <code>sessionStorage</code> del navegador (no en
