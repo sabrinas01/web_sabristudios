@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.49
+**Versión:** 1.50
 
 **Fecha:** Octubre 2026
 
@@ -1428,6 +1428,19 @@ Antes de publicar cambios:
 
 ---
 
+### v1.50 — 19 de octubre de 2026
+
+**Qué hice:** Agrandé el logo del header y del footer en las 6 páginas.
+
+**Detalle del cambio:**
+
+- **Header:** el logotipo horizontal pasa de 32 px de alto (`h-8`) a 40 px en celular (`h-10`) y 64 px desde `md` (`md:h-16`). En celular no se puede crecer más sin que el logo, el botón "Reservá tu demo" y el menú dejen de entrar en 360 px de ancho; para ganar ese espacio, el padding horizontal del botón de la barra pasa a `px-3` en celular (`sm:px-sm` desde `sm`).
+- **Footer:** de `h-8` a `h-14` (56 px).
+- Verificado en el navegador local: a 360 px no hay desborde horizontal y el botón de la barra sigue midiendo 44 px de alto; en escritorio el logo se ve claramente más grande. Se corrió `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió que el logo se vea más grande.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1484,3 +1497,4 @@ Antes de publicar cambios:
 | 1.47 | 19 de octubre de 2026 | Sabri Studios | Imágenes nuevas revisadas: favicon PNG de 32×32 en uso, el resto eliminado (duplicados de los SVG y SVG con estilos rotos) |
 | 1.48 | 19 de octubre de 2026 | Sabri Studios | Se eliminan dos imágenes sin uso (`imagen mia de frente.png` y `hero-presencia-online-google.jpg`) |
 | 1.49 | 19 de octubre de 2026 | Sabri Studios | Logotipos horizontales SVG nuevos con el texto en trazados (Space Mono), sin metadatos; se eliminan los PNG subidos |
+| 1.50 | 19 de octubre de 2026 | Sabri Studios | Logo del header y del footer más grande (40 px en celular, 64 px en escritorio y 56 px en el footer) |
