@@ -112,7 +112,8 @@ module.exports = {
 
       // Sombra suave reutilizable (ej: "shadow-ambient")
       boxShadow: {
-        ambient: "0 2px 8px rgba(30, 58, 95, 0.08)"
+        ambient: "0 2px 8px rgba(30, 58, 95, 0.08)",
+        media: "0 4px 12px rgba(30, 58, 95, 0.12)"
       }
     }
   },

@@ -151,8 +151,8 @@ Revisado el 19 de octubre de 2026 (actualizado en la v1.36 del LEAN PRD).
 
 **Pendiente de aplicar:**
 
-1. **Sombras:** faltan `shadow-media` (hover de botones) y `shadow-fuerte` (dropdowns y modals). El Hero usa `hover:shadow-lg` y el botón flotante de WhatsApp `shadow-lg`, que no son del sistema. Además, el sistema pone `shadow-leve` en las cards, y la regla del proyecto dice que `shadow-ambient` va solo en lo clickeable: hay que decidir cuál manda.
-2. **Logo:** el sitio usa JPG y PNG; el sistema trae los SVG en cuatro variantes, que hay que bajar del artifact y copiar al repo.
+1. **Sombras:** `shadow-media` ya está (v1.38), solo en lo clickeable. Falta `shadow-fuerte`, que el sitio todavía no necesita porque no tiene dropdowns ni modals.
+2. **Logo (v1.39):** los SVG están en `imagenes/` y el sitio usa `logotipo-horizontal-full-color.svg` en header y footer, y `favicon-web.svg` como favicon. Quedan en JPG a propósito `og:image`, `twitter:image` y el `logo` del JSON-LD, porque redes y buscadores no siempre aceptan SVG. Ojo: el texto "Sabri Studios" del SVG usa `Inter` / `Space Grotesk` / sans-serif, y en un `<img>` se ve con la fuente del sistema, no con Space Mono.
 
 **Resuelto en v1.37:**
 

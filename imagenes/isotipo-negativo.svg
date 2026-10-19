@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="Sabri Studios Isotype - Negative on Dark Background">
+  <!-- Bloque de Fondo Azul Corporativo (#1E3A5F) -->
+  <rect width="512" height="512" fill="#1E3A5F" rx="24" /> <!-- rx para esquinas suavemente redondeadas en el contenedor, no el logo -->
+
+  <!-- Margen de seguridad del 20% aplicado -->
+  <g id="Isotype_Negative" transform="translate(102, 102) scale(0.6)">
+    <!-- Todo el conjunto en Marfil/Blanco (#F5F3EF) -->
+    <g fill="#F5F3EF">
+      <!-- Pin con hueco transparente (deja ver el fondo azul) -->
+      <path id="Pin_Neg" d="M256,0 C167.6,0 96,71.6 96,160 c0,40.1 15.2,76.7 40,105.1 L256,512 l120-246.9 c24.8-28.4 40-65 40-105.1 C416,71.6 344.4,0 256,0 z M256,224 c-35.3,0 -64,-28.7 -64,-64 s28.7,-64 64,-64 s64,28.7 64,64 S291.3,224 256,224 z" />
+      
+      <!-- Cursor Neg con trazo del mismo color marfil -->
+      <path id="Cursor_Neg" stroke="#F5F3EF" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" d="M300,300 L512,380 L420,420 L480,512 L430,540 L370,450 L300,512 Z" />
+    </g>
+  </g>
+</svg>

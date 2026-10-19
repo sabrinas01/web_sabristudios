@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.37
+**Versión:** 1.39
 
 **Fecha:** Octubre 2026
 
@@ -1246,6 +1246,38 @@ Antes de publicar cambios:
 
 ---
 
+### v1.38 — 19 de octubre de 2026
+
+**Qué hice:** Agregué la sombra `shadow-media` del design system y la apliqué solo en elementos clickeables.
+
+**Detalle del cambio:**
+
+- **Token:** `shadow-media` (`0 4px 12px rgba(30, 58, 95, 0.12)`) en `tailwind.config.js`, junto a `shadow-ambient` (que equivale a `shadow-leve`).
+- **Dónde va:** en el hover de los botones primarios y de las tarjetas de proyectos (`hover:shadow-media`, con `transition-all` para que la sombra anime) y fija en el botón flotante de WhatsApp. Reemplaza a `shadow-lg`, que no es del sistema.
+- **Dónde no va:** en bloques estáticos, como pide la regla de `shadow-ambient` solo en lo clickeable. Por eso `shadow-leve` no se agregó a cards estáticas.
+- **Logo:** Sabrina sube los SVG ella misma, queda fuera de este cambio.
+- Corrí `npm run build`. No lo revisé en el navegador.
+
+**Por qué lo hice:** Sabrina pidió aplicar `shadow-media` solo en lo clickeable.
+
+---
+
+### v1.39 — 19 de octubre de 2026
+
+**Qué hice:** Usé los logos SVG del design system, que Sabrina subió a `documentación/`.
+
+**Detalle del cambio:**
+
+- **Archivos:** moví los 9 SVG a `imagenes/` con los nombres del design system (`favicon-web`, `isotipo-full-color`, `isotipo-monocromatico`, `isotipo-negativo`, `isotipo-outline` y `logotipo-horizontal-full-color`, `-monocromatico`, `-negativo`, `-outline`).
+- **Uso:** el logotipo horizontal full color reemplaza al JPG en el header y el footer de las 6 páginas. `favicon-web.svg` es el favicon (el JPG queda como respaldo para navegadores sin favicon SVG).
+- **Se mantienen en JPG:** `og:image`, `twitter:image` y el `logo` del JSON-LD, porque las redes y los buscadores no siempre aceptan SVG.
+- **Ojo:** el texto del SVG pide `Inter` / `Space Grotesk` y, dentro de un `<img>`, se dibuja con la fuente del sistema (no Space Mono). Para respetar la marca, habría que convertir el texto a trazados en el diseño original.
+- Revisé el header de `index.html` en el navegador local. Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina subió los SVG para aplicarlos.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1290,3 +1322,5 @@ Antes de publicar cambios:
 | 1.35 | 19 de octubre de 2026 | Sabri Studios | Pesos tipográficos según el design system: `font-bold`/`font-semibold` pasan a `font-medium` y se deja de cargar el peso 700 |
 | 1.36 | 19 de octubre de 2026 | Sabri Studios | Botones según el design system: `brand-orange-hover` corregido a `#C66A2E`, texto `gris-neutro` en el botón primario y botón secundario con fondo `gris-neutro` y hover `gris-claro` |
 | 1.37 | 19 de octubre de 2026 | Sabri Studios | Íconos de Material Symbols a Tabler Icons outline (máscaras SVG propias, sin fuente externa) y tokens de color renombrados con los nombres del design system |
+| 1.38 | 19 de octubre de 2026 | Sabri Studios | Sombra `shadow-media` del design system, aplicada solo en elementos clickeables (hover de botones y tarjetas de proyectos, botón flotante de WhatsApp) |
+| 1.39 | 19 de octubre de 2026 | Sabri Studios | Logos SVG del design system en `imagenes/`: logotipo horizontal en header y footer, favicon SVG; `og:image` y JSON-LD siguen en JPG |
