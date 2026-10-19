@@ -34,7 +34,7 @@
   <!-- Favicon / PWA -->
   <!-- Este es el iconito chiquito que aparece en la pestaña del navegador -->
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
-  <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
   <!-- Y este otro es el ícono que queda si alguien guarda la página en la pantalla de inicio del celular -->
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
   <!-- Este manifest.json tiene los datos para que la página se pueda "instalar" como si fuera una app -->
@@ -338,7 +338,7 @@
   </style>
 </head>
 
-<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-white">
+<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-gris-neutro">
 
   <!-- ============================== -->
   <!-- BARRA DE NAVEGACIÓN (arriba)   -->
@@ -365,18 +365,21 @@
         "aria" para que las personas que usan lectores de pantalla también sepan que es un botón
         de menú y si está abierto o cerrado (aunque para mí sea solo un ícono).
       -->
-      <button id="mobile-menu-button" class="md:hidden p-2 text-azul-primario" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <div class="flex items-center gap-xs md:hidden">
+      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_nav&utm_campaign=demo" target="_blank" rel="noopener noreferrer" class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-label-cta text-label-cta font-medium px-sm min-h-[44px] inline-flex items-center rounded-lg transition-colors duration-200">Reservá tu demo</a>
+      <button id="mobile-menu-button" class="md:hidden p-[10px] text-azul-primario" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="ti ti-menu-2" aria-hidden="true"></span>
       </button>
+      </div>
 
     </div>
 
     <!-- Este es el menú mobile desplegable: lo dejo oculto por defecto y se abre/cierra con el botón hamburguesa -->
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
-      <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
-      <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
-      <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
-      <a href="#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
+      <a href="#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proyectos</a>
+      <a href="#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proceso</a>
+      <a href="#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Sobre Mí</a>
+      <a href="#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Preguntas</a>
     </div>
   </nav>
 
@@ -391,17 +394,17 @@
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
       <div class="w-full md:w-1/2 flex flex-col gap-md md:gap-lg items-start">
-        <span class="font-label-cta text-label-cta text-naranja mb-2 block uppercase tracking-wider">
+        <span class="font-label-cta text-label-cta text-azul-primario mb-2 block uppercase tracking-wider">
           El costo de la invisibilidad
         </span>
 
         <!-- El "no existe" va resaltado en naranja para que se lea como el golpe de efecto del titular -->
         <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario max-w-2xl leading-tight">
-          Si tu negocio no aparece en Google<span class="text-naranja"> no existe</span>
+          Si tu negocio no aparece en Google,<span class="text-naranja"> no existe</span>
         </h1>
 
         <p class="font-body-main text-body-main text-texto-fuerte opacity-80 max-w-lg text-lg font-medium">
-          Mientras lo pensás, probablemente ya hay clientes encontrando a tu competencia.
+          Mientras lo pensás, probablemente ya hay clientes que encuentran a tu competencia.
           ¿Vos querés perderlos?
         </p>
 
@@ -413,12 +416,12 @@
         <div class="flex flex-col sm:grid sm:grid-cols-2 gap-sm w-full sm:w-auto">
           <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
-            class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-whatsapp-cta font-medium px-md py-[16px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
+            class="border border-naranja bg-naranja text-gris-neutro hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
             RESERVÁ TU DEMO
           </a>
           <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
             target="_blank" rel="noopener noreferrer"
-            class="border border-azul-primario bg-gris-neutro text-azul-primario hover:bg-gris-claro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-colors duration-200 w-full sm:w-auto text-center inline-block">
+            class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-block">
             AGENDÁ UNA REUNIÓN
           </a>
         </div>
@@ -480,7 +483,7 @@
         aria-label="Ver el proceso del proyecto de AR Mantenimiento y Estética Vehicular, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
         <!-- Esta etiqueta va arriba a la derecha de la tarjeta, en el azul de la marca (antes era el rojo del logo de AR, que no es parte de la paleta de Sabri Studios). Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
-        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
           Mantenimiento y Estética Vehicular
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
@@ -506,7 +509,7 @@
       <a href="proyecto-jl-construcciones-en-seco.html"
         aria-label="Ver el proceso del proyecto de JL Construcciones en Seco, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
           Construcción en seco
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
@@ -527,7 +530,7 @@
       <a href="proyecto-mombe.html"
         aria-label="Ver el proceso del proyecto de Mombé, textiles artesanales, en desarrollo por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
           Textiles artesanales
         </span>
         <!-- Todavía no tengo el logo de Mombé, así que por ahora pongo su inicial en el círculo -->
@@ -535,8 +538,13 @@
           <span class="font-headline-h1 text-headline-h1 text-naranja">M</span>
         </div>
         <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">Mombé</h3>
+        <!-- Mombé todavía no terminó: lo aclaro en la tarjeta para que no se lea como un proyecto ya entregado -->
+        <span class="font-label-cta text-label-cta text-azul-primario border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
+          <span class="ti ti-tools text-base" aria-hidden="true"></span>
+          En desarrollo
+        </span>
         <span class="font-label-cta text-label-cta text-gris-neutro bg-naranja group-hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
-          Ver proyecto
+          Ver avance
           <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
         </span>
       </a>
@@ -548,7 +556,7 @@
       <a href="proyecto-web-servicios-profesionales.html"
         aria-label="Ver el proceso del proyecto Servicios AF, desarrollado por Sabri Studios"
         class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-white text-[10px] leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
+        <span class="absolute top-2 right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight max-w-[55%] whitespace-normal text-right md:max-w-none md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
           Servicios profesionales
         </span>
         <div class="mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
@@ -609,7 +617,7 @@
 
         <!-- Este es el paso 3, lo destaco con fondo naranja porque es el paso final -->
         <div class="process-step flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Resultados</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             Tu web lista, encontrable, y trabajando para captar clientes.
@@ -638,38 +646,26 @@
       <div class="max-w-3xl mx-auto w-full flex flex-col gap-md">
 
         <div class="demo-step flex gap-md items-start">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3">
             1
           </div>
           <div>
-            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario mb-1">Coordinamos el diagnóstico</h3>
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario mb-1">Coordinamos y hablamos de tu negocio</h3>
             <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
-              Ya sea sincrónico o asincrónico, elegimos la forma que más te convenga para que me cuentes sobre tu negocio y tus objetivos.
+              Elegimos la forma que más te convenga, sincrónica o asincrónica, para que me cuentes qué vendés, a quién y por qué hoy no te encuentran. No hablamos de diseño.
             </p>
             <!-- Si prefiere la opción sincrónica, puede elegir su horario directamente en mi agenda -->
             <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
               target="_blank" rel="noopener noreferrer"
-              class="inline-block mt-xs font-label-cta text-label-cta text-naranja hover:underline">
+              class="inline-block mt-xs font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
               Elegir día y horario para una reunión
             </a>
           </div>
         </div>
 
         <div class="demo-step flex gap-md items-start">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3">
             2
-          </div>
-          <div>
-            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario mb-1">Conversamos sobre tu negocio</h3>
-            <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
-              No sobre diseño. Quiero saber: ¿Qué vendés? ¿A quién? ¿Por qué hoy no te encuentran?
-            </p>
-          </div>
-        </div>
-
-        <div class="demo-step flex gap-md items-start">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3">
-            3
           </div>
           <div>
             <h3 class="font-headline-h3 text-headline-h3 text-azul-primario mb-1">Armo una propuesta</h3>
@@ -680,13 +676,13 @@
         </div>
 
         <div class="demo-step flex gap-md items-start">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3">
-            4
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3">
+            3
           </div>
           <div>
             <h3 class="font-headline-h3 text-headline-h3 text-azul-primario mb-1">Si avanzamos, hablamos del proceso</h3>
             <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
-              Cómo es el trabajo, plazos, inversión.
+              Te cuento cómo es el trabajo, los plazos y la inversión.
             </p>
           </div>
         </div>
@@ -698,6 +694,20 @@
         <p class="font-body-main text-body-main text-texto-fuerte font-medium">
           "No es una venta disfrazada de consulta. Es una conversación real para saber si podemos trabajar juntos o no."
         </p>
+      </div>
+
+      <!-- Contacto justo después de explicar qué pasa en la demo, para no obligar a seguir scrolleando -->
+      <div class="flex flex-col sm:flex-row justify-center gap-sm w-full">
+        <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_demo&utm_campaign=demo"
+          target="_blank" rel="noopener noreferrer"
+          class="border border-naranja bg-naranja text-gris-neutro hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
+          RESERVÁ TU DEMO
+        </a>
+        <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
+          target="_blank" rel="noopener noreferrer"
+          class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-block">
+          AGENDÁ UNA REUNIÓN
+        </a>
       </div>
 
     </div>
@@ -722,24 +732,17 @@
         <div class="w-full md:w-1/2 flex flex-col gap-md">
           <h2 class="font-headline-h2 text-headline-h2 text-azul-primario">¡Hola! Soy Sabri</h2>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-90">
-            Soy estudiante de Informatica además de una apasionada de la tecnología y de crear soluciones que hagan la vida cotidiana mucho más sencilla.
-            No hago solo páginas webs. Construyo herramientas de venta. Mi trabajo es entender tu negocio y traducirlo a un entorno digital que realmente funcione para vos. 
-            Mi enfoque es honesto, directo y 100% orientado a que tu negocio aparezca en internet.
+            Hago páginas web con un paso previo que para mí es clave: el diagnóstico. Primero entiendo tu negocio y recién después diseño. Así la web no queda linda y vacía, queda con un objetivo claro. Trabajo online o, si estás en Pocito o en el Gran San Juan, en persona y con cita. Soy estudiante de Informática y trabajo con honestidad: te muestro cada avance y te explico cada decisión.
           </p>
           <p class="font-medium text-azul-primario">
-            Si estás lista/o para mejorar tu presencia online, hablemos.
+            Si querés mejorar tu presencia online, hablemos.
           </p>
 
-          <div class="flex flex-col sm:grid sm:grid-cols-2 gap-sm w-full sm:w-auto mt-2 md:mt-8">
+          <div class="flex w-full sm:w-auto mt-2 md:mt-8">
             <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_sobre_mi&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
-              class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-whatsapp-cta font-medium px-md py-[12px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
+              class="border border-naranja bg-naranja text-gris-neutro hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[11px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
               ¡RESERVÁ TU DEMO!
-            </a>
-            <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
-              target="_blank" rel="noopener noreferrer"
-              class="border border-azul-primario bg-gris-neutro text-azul-primario hover:bg-gris-claro font-whatsapp-cta font-medium px-md py-[11px] rounded-lg transition-colors duration-200 w-full sm:w-auto text-center inline-block">
-              AGENDÁ UNA REUNIÓN
             </a>
           </div>
         </div>
@@ -776,9 +779,9 @@
             <span class="ti ti-chevron-down transition-transform group-open:rotate-180" aria-hidden="true"></span>
           </summary>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
-            La demo solemos tenerla lista en 2 días.
-            El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue.
-            Si necesitás cambios post-entrega, el servicio de soporte se cotiza aparte.
+            Solemos tener la demo lista en 2 días.
+            El proceso tarda entre 1 y 2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue.
+            Si necesitás cambios después de la entrega, el servicio de soporte se cotiza aparte.
           </p>
         </details>
 
@@ -790,7 +793,7 @@
           <ul class="flex flex-col gap-xs font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
             <li class="flex items-start gap-xs">
               <span class="ti ti-circle-check text-sm mt-1 text-naranja" aria-hidden="true"></span>
-              Diagnóstico (30 min conversación con vos)
+              Diagnóstico (30 minutos de conversación conmigo)
             </li>
             <li class="flex items-start gap-xs">
               <span class="ti ti-circle-check text-sm mt-1 text-naranja" aria-hidden="true"></span>
@@ -798,11 +801,11 @@
             </li>
             <li class="flex items-start gap-xs">
               <span class="ti ti-circle-check text-sm mt-1 text-naranja" aria-hidden="true"></span>
-              Dominio 12 meses GRATIS
+              Dominio gratis por 12 meses
             </li>
             <li class="flex items-start gap-xs">
               <span class="ti ti-circle-check text-sm mt-1 text-naranja" aria-hidden="true"></span>
-              Alojamiento 12 meses GRATIS
+              Alojamiento gratis por 12 meses
             </li>
             <li class="flex items-start gap-xs">
               <span class="ti ti-circle-check text-sm mt-1 text-naranja" aria-hidden="true"></span>
@@ -817,8 +820,7 @@
             <span class="ti ti-chevron-down transition-transform group-open:rotate-180" aria-hidden="true"></span>
           </summary>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
-            Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te digo qué necesitás,
-            avanzamos o no. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das feedback, cambios y listo.
+            Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te cuento qué necesitás y decidimos si avanzamos. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das tu devolución, ajustamos y listo.
           </p>
         </details>
 
@@ -848,7 +850,7 @@
             <span class="ti ti-chevron-down transition-transform group-open:rotate-180" aria-hidden="true"></span>
           </summary>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
-            Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. Presencial: con cita, en tu negocio, si estás en Pocito o en el gran San Juan. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades.
+            Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. Presencial: con cita, en tu negocio, si estás en Pocito o en el Gran San Juan. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades.
           </p>
         </details>
 
@@ -864,7 +866,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center gap-xs sm:gap-sm mt-sm">
           <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
-            class="font-label-cta text-label-cta text-naranja hover:underline">
+            class="font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
             Contactarme por WhatsApp
           </a>
           <span class="hidden sm:inline font-body-main text-body-main text-texto-fuerte opacity-70">o</span>
@@ -892,7 +894,7 @@
         "name": "¿Cuánto tarda el proyecto?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "La demo solemos tenerla lista en 2 días. El proceso tarda entre 1-2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue. Si necesitás cambios post-entrega, el servicio de soporte se cotiza aparte."
+          "text": "Solemos tener la demo lista en 2 días. El proceso tarda entre 1 y 2 semanas desde que confirmamos el diagnóstico. Incluye diseño, desarrollo, pruebas y despliegue. Si necesitás cambios después de la entrega, el servicio de soporte se cotiza aparte."
         }
       },
       {
@@ -900,7 +902,7 @@
         "name": "¿Qué incluye exactamente?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Diagnóstico (30 min conversación con vos), diseño personalizado para tu negocio, dominio 12 meses gratis, alojamiento 12 meses gratis, optimización para Google."
+          "text": "Diagnóstico (30 minutos de conversación conmigo), diseño personalizado para tu negocio, dominio gratis por 12 meses, alojamiento gratis por 12 meses, optimización para Google."
         }
       },
       {
@@ -908,7 +910,7 @@
         "name": "¿Cómo es el proceso de trabajo?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te digo qué necesitás, avanzamos o no. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das feedback, cambios y listo. Transparencia total."
+          "text": "Puede ser sincrónico o asincrónico. Coordinamos la demo, hablamos de tu negocio, te cuento qué necesitás y decidimos si avanzamos. Si avanzamos, trabajamos en iteraciones: te muestro avances, vos me das tu devolución, ajustamos y listo."
         }
       },
       {
@@ -932,7 +934,7 @@
         "name": "¿Cómo es el proceso de diagnóstico?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. Presencial: con cita, en tu negocio, si estás en Pocito o en el gran San Juan. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades."
+          "text": "Online: sincrónico por llamada o videollamada, o asincrónico por WhatsApp o correo electrónico. Presencial: con cita, en tu negocio, si estás en Pocito o en el Gran San Juan. En cualquier caso, se trata de un intercambio de información para entender tu negocio y tus necesidades."
         }
       }
     ]
@@ -1129,7 +1131,7 @@
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
         const sectionId = (link.closest('section[id]') || {}).id;
-        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
+        const whatsappSource = link.closest('nav') ? 'nav' : (sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating');
         enviarEvento('whatsapp_click', {
           whatsapp_source: whatsappSource,
           button_location: window.location.pathname,

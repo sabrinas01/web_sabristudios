@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
-  <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1E3A5F">
@@ -75,7 +75,7 @@
   </style>
 </head>
 
-<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-white">
+<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-gris-neutro">
 
   <!-- ============================== -->
   <!-- BARRA DE NAVEGACIÓN (arriba)   -->
@@ -95,17 +95,20 @@
         <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <div class="flex items-center gap-xs md:hidden">
+      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_nav&utm_campaign=demo" target="_blank" rel="noopener noreferrer" class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-label-cta text-label-cta font-medium px-sm min-h-[44px] inline-flex items-center rounded-lg transition-colors duration-200">Reservá tu demo</a>
+      <button id="mobile-menu-button" class="md:hidden p-[10px] text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="ti ti-menu-2" aria-hidden="true"></span>
       </button>
+      </div>
 
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
-      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
-      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
-      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
-      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
+      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proyectos</a>
+      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proceso</a>
+      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Sobre Mí</a>
+      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Preguntas</a>
     </div>
   </nav>
 
@@ -135,7 +138,7 @@
 
     <p class="font-body-main text-body-main text-texto-fuerte opacity-90">
       Esta política explica qué datos se recopilan al visitar
-      <a href="https://web-sabristudios.vercel.app/" class="text-naranja hover:underline">web-sabristudios.vercel.app</a>,
+      <a href="https://web-sabristudios.vercel.app/" class="text-azul-primario underline hover:text-azul-secundario">web-sabristudios.vercel.app</a>,
       para qué se usan y qué derechos tiene la persona titular de esos datos, de acuerdo con la Ley 25.326
       de Protección de Datos Personales de la República Argentina.
     </p>
@@ -147,7 +150,7 @@
         El sitio es operado por Sabrina Sanso, bajo el nombre comercial Sabri Studios, con domicilio en
         Pocito, San Juan, Argentina. Para cualquier consulta sobre esta política o sobre los datos
         tratados, el contacto es
-        <a href="mailto:estudiosabrina.26@gmail.com" class="text-naranja hover:underline">estudiosabrina.26@gmail.com</a>.
+        <a href="mailto:estudiosabrina.26@gmail.com" class="text-azul-primario underline hover:text-azul-secundario">estudiosabrina.26@gmail.com</a>.
       </p>
     </div>
 
@@ -200,23 +203,23 @@
         <li class="list-disc">
           <strong>Google Analytics (GA4):</strong> mide visitas y eventos de interacción (por ejemplo,
           clics en los botones de WhatsApp). Ver la
-          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-naranja hover:underline">política de privacidad de Google</a>.
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" class="text-azul-primario underline hover:text-azul-secundario">política de privacidad de Google</a>.
         </li>
         <li class="list-disc">
           <strong>Microsoft Clarity:</strong> graba sesiones anonimizadas de navegación (similar a un
           video de cómo se mueve el mouse y se hace scroll) para detectar en qué parte de la página la
           gente se traba o se va. Ver la
-          <a href="https://privacy.microsoft.com/es-ar/privacystatement" target="_blank" rel="noopener noreferrer" class="text-naranja hover:underline">política de privacidad de Microsoft</a>.
+          <a href="https://privacy.microsoft.com/es-ar/privacystatement" target="_blank" rel="noopener noreferrer" class="text-azul-primario underline hover:text-azul-secundario">política de privacidad de Microsoft</a>.
         </li>
         <li class="list-disc">
           <strong>Vercel Analytics:</strong> mide el rendimiento y las visitas de la página, provisto por
           el mismo servicio que aloja el sitio. Ver la
-          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-naranja hover:underline">política de privacidad de Vercel</a>.
+          <a href="https://vercel.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-azul-primario underline hover:text-azul-secundario">política de privacidad de Vercel</a>.
         </li>
         <li class="list-disc">
           <strong>WhatsApp (Meta):</strong> si se elige contactar por WhatsApp, esa conversación queda
           sujeta a la
-          <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-naranja hover:underline">política de privacidad de WhatsApp</a>.
+          <a href="https://www.whatsapp.com/legal/privacy-policy" target="_blank" rel="noopener noreferrer" class="text-azul-primario underline hover:text-azul-secundario">política de privacidad de WhatsApp</a>.
         </li>
       </ul>
       <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
@@ -273,11 +276,11 @@
       </ul>
       <p class="font-body-main text-body-main text-texto-fuerte opacity-80 mt-sm">
         Para ejercer cualquiera de estos derechos, alcanza con escribir a
-        <a href="mailto:estudiosabrina.26@gmail.com" class="text-naranja hover:underline">estudiosabrina.26@gmail.com</a>.
+        <a href="mailto:estudiosabrina.26@gmail.com" class="text-azul-primario underline hover:text-azul-secundario">estudiosabrina.26@gmail.com</a>.
         La Agencia de Acceso a la Información Pública (AAIP) es el organismo de control en Argentina, y
         ante ella se puede presentar cualquier reclamo o denuncia vinculada al tratamiento de datos
         personales:
-        <a href="https://www.argentina.gob.ar/aaip" target="_blank" rel="noopener noreferrer" class="text-naranja hover:underline">argentina.gob.ar/aaip</a>.
+        <a href="https://www.argentina.gob.ar/aaip" target="_blank" rel="noopener noreferrer" class="text-azul-primario underline hover:text-azul-secundario">argentina.gob.ar/aaip</a>.
       </p>
     </div>
 
@@ -409,7 +412,7 @@
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
         const sectionId = (link.closest('section[id]') || {}).id;
-        const whatsappSource = sectionId || 'floating';
+        const whatsappSource = link.closest('nav') ? 'nav' : (sectionId || 'floating');
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {
             whatsapp_source: whatsappSource,

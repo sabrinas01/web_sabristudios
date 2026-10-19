@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Foco visible al navegar con teclado: contorno azul de marca, con buen contraste sobre fondos claros */
+@layer base {
+  a:focus-visible,
+  button:focus-visible,
+  summary:focus-visible {
+    outline: 2px solid theme('colors.azul-primario');
+    outline-offset: 2px;
+  }
+}
+
 /*
   Íconos: Tabler Icons (estilo outline), como pide el design system.
   Solo incluyo los que uso, como máscaras SVG: así toman el color del texto (currentColor)

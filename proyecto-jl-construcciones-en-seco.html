@@ -25,7 +25,7 @@
   <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/logo-jl-construcciones-en-seco.jpg">
 
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
-  <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1E3A5F">
@@ -224,7 +224,7 @@
   </style>
 </head>
 
-<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-white">
+<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-gris-neutro">
 
   <!-- ============================== -->
   <!-- BARRA DE NAVEGACIÓN (arriba)   -->
@@ -244,17 +244,20 @@
         <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <div class="flex items-center gap-xs md:hidden">
+      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_nav&utm_campaign=demo" target="_blank" rel="noopener noreferrer" class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-label-cta text-label-cta font-medium px-sm min-h-[44px] inline-flex items-center rounded-lg transition-colors duration-200">Reservá tu demo</a>
+      <button id="mobile-menu-button" class="md:hidden p-[10px] text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="ti ti-menu-2" aria-hidden="true"></span>
       </button>
+      </div>
 
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
-      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
-      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
-      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
-      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
+      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proyectos</a>
+      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proceso</a>
+      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Sobre Mí</a>
+      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Preguntas</a>
     </div>
   </nav>
 
@@ -279,7 +282,7 @@
     </div>
 
     <div class="flex flex-col gap-sm items-center md:items-start">
-      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-white bg-azul-primario uppercase px-sm py-1 rounded">
+      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-gris-neutro bg-azul-primario uppercase px-sm py-1 rounded">
         Construcción en seco
       </span>
       <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario">
@@ -318,7 +321,7 @@
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             Realizamos un diagnóstico asincrónico, vía WhatsApp, donde entendimos que una página web ayudaría a mejorar su presencia online, permitiendo presentar mejor su propuesta y mostrar los trabajos que realiza.
-            Armamos una sección para que se pueda conocer la misión y visión de JL Construcciones, incorporamos una galería con fotos de diferentes trabajos realizados y nos apoyamos en Instagram para mostrar trabajos en formato video corto.
+            Armamos una sección para conocer la misión y la visión de JL Construcciones, incorporamos una galería con fotos de diferentes trabajos realizados y nos apoyamos en Instagram para mostrar trabajos en formato video corto.
           </p>
         </div>
 
@@ -327,13 +330,13 @@
           <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">2</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            Basándonos en el diagnóstico, construí una página que comunica con claridad los servicios técnicos que ofrecen: durlock, cielorrasos y estructuras en steel framing, transmitiendo la seriedad del equipo y con un camino simple para que cualquier interesado pueda escribirles.
+            Con base en el diagnóstico, construí una página que comunica con claridad los servicios técnicos que ofrecen (durlock, cielorrasos y estructuras en steel framing), transmite la seriedad del equipo y ofrece un camino simple para que cualquier interesado pueda escribirles.
           </p>
         </div>
 
         <!-- Paso 3 -->
         <div class="process-step process-step-3 flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">3</div>
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Resultados</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             JL Construcciones en Seco ahora tiene una presencia digital profesional, que los posiciona como una opción confiable para quien busca este tipo de trabajo en San Juan, más allá del boca a boca.
@@ -363,7 +366,7 @@
       </a>
       <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_final&utm_campaign=demo"
         target="_blank" rel="noopener noreferrer"
-        class="cta-shine font-label-cta text-label-cta text-azul-primario bg-white border border-gris-claro hover:bg-surface-container-low transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
+        class="cta-shine font-label-cta text-label-cta text-azul-primario bg-transparent border border-azul-primario hover:bg-azul-primario hover:text-gris-neutro transition-all duration-200 hover:shadow-media inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
         Quiero algo así para mi negocio
       </a>
     </div>
@@ -514,7 +517,7 @@
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
         const sectionId = (link.closest('section[id]') || {}).id;
-        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
+        const whatsappSource = link.closest('nav') ? 'nav' : (sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating');
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {
             whatsapp_source: whatsappSource,

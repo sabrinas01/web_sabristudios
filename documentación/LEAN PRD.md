@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.40
+**Versión:** 1.47
 
 **Fecha:** Octubre 2026
 
@@ -202,11 +202,11 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 **Mejoras pendientes:**
 
-- Agregar objeción de precio ("¿Cuánto cuesta?") cuando se defina si el pricing va visible en la landing (ver punto 7.8).
+- ~~Agregar objeción de precio ("¿Cuánto cuesta?")~~ Descartado en v1.44: Sabrina decidió no mostrar precio en la web (ver punto 7.8).
 
-### 7.8 Sección NUEVA: "Pricing" ❌ (Falta)
+### 7.8 Sección NUEVA: "Pricing" ❌ (Descartada en v1.44)
 
-**Estado actual:** No existe.
+**Estado actual:** No existe, y no se va a agregar: Sabrina decidió no mostrar precio en la web. La inversión se conversa en la demo (paso 3 de "La demo gratuita es así").
 
 **Por qué falta importa:**
 
@@ -1295,6 +1295,111 @@ Antes de publicar cambios:
 
 ---
 
+### v1.41 — 19 de octubre de 2026
+
+**Qué hice:** Unifiqué el formato de los dos botones de contacto del Hero y de "Sobre mí" ("Reservá tu demo" y "Agendá una reunión").
+
+**Detalle del cambio:**
+
+- **Mismo formato:** los dos son botones de contorno, con borde de 1px, fondo transparente y el mismo alto. Cada uno mantiene su color: "Reservá tu demo" en `naranja` y "Agendá una reunión" en `azul-primario`.
+- **Hover:** el botón se rellena con su color sólido y el texto pasa a `gris-neutro`, con `shadow-media`. Se sacó `shadow-ambient` en reposo porque un botón transparente con sombra se ve raro.
+- **Alcance:** solo `index.html` (Hero y Sobre mí). Los CTA de las páginas de proyecto y el botón de la política de privacidad no se tocaron.
+- **Se aparta del design system:** el sistema define el botón primario con relleno `naranja`. Además, el texto `naranja` sobre `gris-neutro` da 2.79:1, por debajo de 4.5:1 para texto chico.
+- Corrí `npm run build` y lo revisé en el navegador local, en reposo y con hover sobre el botón naranja.
+
+**Por qué lo hice:** Sabrina pidió que ambos botones tengan el mismo formato, con fondo transparente y relleno sólido al pasar el cursor.
+
+---
+
+### v1.42 — 19 de octubre de 2026
+
+**Qué hice:** Definí la acción principal y la secundaria, sumé "Reservá tu demo" en la barra de navegación del celular, acorté el recorrido hasta el contacto y revisé ortografía, semántica y sintaxis.
+
+**Detalle del cambio:**
+
+- **Jerarquía de botones:** acción principal "Reservá tu demo" (relleno `naranja`, texto `gris-neutro`, hover `naranja-hover`, como define el design system) y acción secundaria "Agendá una reunión" (contorno `azul-primario`, hover con relleno sólido). Reemplaza a la v1.41, donde los dos eran de contorno. Aplica en Hero, Sobre mí y la nueva fila de la sección de la demo.
+- **Barra de navegación (mobile):** botón "Reservá tu demo" junto al menú hamburguesa, en las 6 páginas (`utm_medium=cta_nav`). El seguimiento de GA4 ahora marca esos clics con `whatsapp_source: nav` en vez de `floating`.
+- **Recorrido más corto:** en "La demo gratuita es así" se fusionaron los pasos 1 y 2 (de 4 a 3 pasos) y se agregó una fila con los dos botones al final de la sección (`utm_medium=cta_demo`), para contactar justo después de entender qué pasa en la demo.
+- **Ortografía y redacción (index):** "Informatica" → "Informática", "páginas webs" → "páginas web", "lista/o" → "querés"; coma en el titular ("…en Google, no existe"); "clientes encontrando" → "clientes que encuentran"; "gran San Juan" → "Gran San Juan"; "1-2 semanas" → "1 y 2 semanas"; "post-entrega" → "después de la entrega"; "GRATIS" → "gratis por 12 meses"; "feedback" → "devolución"; paso 4 de la demo, que era un fragmento, ahora es una oración completa. El JSON-LD del FAQ queda igual al texto visible (se quitó "Transparencia total.").
+- **Ortografía y redacción (proyectos):** "que use" → "que uso", "recuperado" → "recuperación", "direccionar a… a que" → "dirigir a… a", "potenciar" → "reforzar" (palabra que el design system evita), "como trabaja" → "cómo trabaja", "landing" → "página" y "desplegar" → "publicar" en Servicios AF, y concordancias en JL.
+- **Verificación:** en un servidor local, el botón del menú móvil mide 168×30 px y no desborda a 390 px de ancho; el hero muestra el botón principal relleno. Se corrió `npm run build`. No revisé en el navegador cada página de proyecto.
+- **Incidente:** un error de mi script dejó vacío `proyecto-mombe.html`; lo restauré desde git y reapliqué los cambios del día. Verificado: la página tiene su tamaño normal y los 3 cambios presentes.
+
+**Por qué lo hice:** Sabrina aprobó las sugerencias de UX y pidió definir la acción principal y la secundaria, el botón en el celular, acortar el recorrido y revisar el texto.
+
+---
+
+### v1.43 — 19 de octubre de 2026
+
+**Qué hice:** Apliqué las mejoras de UX de la crítica: contraste del texto naranja, etiquetas de 12px, pista de precio, objetivos táctiles de 44px, foco visible y consistencia de colores y botones.
+
+**Detalle del cambio:**
+
+- **Contraste (naranja en texto chico):** el naranja sobre fondo claro da 2.79:1. Los textos chicos pasaron a `azul-primario` y los links, con subrayado y hover `azul-secundario`: etiqueta "El costo de la invisibilidad", links de la demo y del FAQ, links de la política de privacidad y la etiqueta "Estamos acá" de Mombé. El naranja sigue en texto grande (titular, números de pasos, la "M"), relleno de botones e íconos. **Se aparta del design system**, que define los links de texto en `naranja`; el valor de la marca no se tocó.
+- **Etiquetas de proyectos:** de `text-[10px]` a `text-xs` (12px).
+- **Pista de precio:** nueva pregunta "¿Cuánto cuesta?" en el FAQ (y en el JSON-LD, que sigue igual al texto visible). Dice que el precio depende del negocio, se define juntos después del diagnóstico y que la demo es gratuita y sin compromiso. Texto redactado por mí a partir de lo que ya decía el sitio; Sabrina debe confirmarlo.
+- **Objetivos táctiles de 44px (mobile):** botón "Reservá tu demo" de la barra con `min-h-[44px]`, botón de menú con `p-[10px]` (44×46) y links del menú desplegable con `py-[15px]`.
+- **Foco visible:** en `src/input.css`, `a`, `button` y `summary` muestran un contorno de 2px `azul-primario` con separación de 2px al navegar con teclado.
+- **Consistencia:** el texto sobre fondos `azul-primario` y `naranja` pasó de `text-white` a `gris-neutro` (el botón verde flotante de WhatsApp conserva el blanco), y el botón secundario "Quiero algo así para mi negocio" de las páginas de proyecto pasó a contorno azul con relleno al hover, igual que "Agendá una reunión".
+- **Verificación en navegador local:** etiquetas a 12px, botón de la barra de 44px sin desborde a 390 px, FAQ con 7 preguntas, JSON-LD válido con 7 entradas y foco con Tab: `solid 2px rgb(30, 58, 95)` con separación de 2px. Se corrió `npm run build`. No revisé a ojo cada página de proyecto.
+
+**Por qué lo hice:** Sabrina pidió ejecutar los puntos 1, 2, 4, 5, 6 y 7 de las mejoras de UX.
+
+---
+
+### v1.44 — 19 de octubre de 2026
+
+**Qué hice:** Marqué a Mombé como "En desarrollo" y saqué la pregunta de precio del FAQ.
+
+**Detalle del cambio:**
+
+- **Mombé en desarrollo:** la tarjeta de `index.html` muestra la etiqueta "En desarrollo" (contorno naranja, texto `azul-primario`, ícono de herramientas, igual que "Estamos acá" de su página) y el botón dice "Ver avance" en vez de "Ver proyecto". En `proyecto-mombe.html` la etiqueta del encabezado dice "Textiles artesanales · En desarrollo".
+- **Sin precio en la web:** se quitó "¿Cuánto cuesta?" del FAQ y del JSON-LD (que vuelve a tener 6 preguntas, iguales al texto visible). Esto revierte esa parte de la v1.43. La sección 7.8 "Pricing" y los pendientes de precio quedan descartados. En la demo se sigue conversando "cómo es el trabajo, los plazos y la inversión" (paso 3), sin mostrar cifras.
+- Corrí `npm run build` y lo revisé en el navegador local: la tarjeta se ve bien, el FAQ tiene 6 preguntas y el JSON-LD es válido.
+
+**Por qué lo hice:** Sabrina pidió marcar que Mombé está en desarrollo y no mostrar precio en la web.
+
+---
+### v1.45 — 19 de octubre de 2026
+
+**Qué hice:** Reescribí el texto de "Sobre mí" con la opción B, centrada en el diagnóstico.
+
+**Detalle del cambio:**
+
+- Nuevo párrafo: "Hago páginas web con un paso previo que para mí es clave: el diagnóstico. Primero entiendo tu negocio y recién después diseño. Así la web no queda linda y vacía, queda con un objetivo claro. Trabajo online o, si estás en Pocito o en el Gran San Juan, en persona y con cita. Soy estudiante de Informática y trabajo con honestidad: te muestro cada avance y te explico cada decisión."
+- Se cambió "que casi nadie hace" por "que para mí es clave", para no afirmar una comparación que no se puede respaldar. El título y la frase de cierre ("Si querés mejorar tu presencia online, hablemos.") y los botones no se tocaron.
+
+**Por qué lo hice:** Sabrina eligió la opción B para "Sobre mí".
+
+---
+### v1.46 — 19 de octubre de 2026
+
+**Qué hice:** Quité el botón secundario "Agendá una reunión" de la sección "Sobre mí" y dejé solo el principal.
+
+**Detalle del cambio:**
+
+- En `index.html` queda solo "¡Reservá tu demo!" en "Sobre mí" (el contenedor pasó de grilla de 2 columnas a una fila simple). "Agendá una reunión" sigue en el Hero, en la sección de la demo, en el link del paso 1 y en el FAQ.
+- Corrí `npm run build`.
+
+**Por qué lo hice:** Sabrina decidió dejar solo la acción principal en "Sobre mí" para bajar la repetición de botones.
+
+---
+
+### v1.47 — 19 de octubre de 2026
+
+**Qué hice:** Revisé las imágenes nuevas que subió Sabrina a `imagenes/`, conservé la que sirve y eliminé el resto.
+
+**Detalle del cambio:**
+
+- **Subidas:** 10 PNG (`Code_Generated_Image*`) y 4 SVG (`gemini-svg*`).
+- **Se usa:** `Code_Generated_Image (9).png` (isotipo de 32×32 con fondo transparente) pasó a `imagenes/favicon-32.png` y es el favicon de respaldo en las 6 páginas, en lugar de `FAVICON WEB.jpg` (que se eliminó). El favicon principal sigue siendo `favicon-web.svg`.
+- **Se eliminaron:** los otros 9 PNG, que eran las mismas variantes de logo que ya están en SVG (los dos de "logotipo outline" eran idénticos) y que el sitio no usa, y los 4 `gemini-svg*`: traen una etiqueta `<style>` rota y piden `Space Mono`, que dentro de un `<img>` no se carga y el navegador reemplaza por la monoespaciada del sistema (cambia según el dispositivo).
+- **No se tocó:** `LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg` sigue en `og:image`, `twitter:image` y el JSON-LD (los PNG tenían fondo transparente y las redes pueden mostrarlo negro).
+- **Archivos viejos sin uso (a decidir):** `imagen mia de frente.png` (4,5 MB) y `hero-presencia-online-google.jpg` no los usa ninguna página.
+
+**Por qué lo hice:** Sabrina pidió subir las imágenes nuevas y eliminar las que no sirven.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1342,3 +1447,10 @@ Antes de publicar cambios:
 | 1.38 | 19 de octubre de 2026 | Sabri Studios | Sombra `shadow-media` del design system, aplicada solo en elementos clickeables (hover de botones y tarjetas de proyectos, botón flotante de WhatsApp) |
 | 1.39 | 19 de octubre de 2026 | Sabri Studios | Logos SVG del design system en `imagenes/`: logotipo horizontal en header y footer, favicon SVG; `og:image` y JSON-LD siguen en JPG |
 | 1.40 | 19 de octubre de 2026 | Sabri Studios | Consent Mode v2 solo para EEE, Reino Unido y Suiza: cookies denegadas por defecto por región, aviso con aceptar/rechazar (`consentimiento.js`), función `api/region.js` y política de privacidad actualizada |
+| 1.41 | 19 de octubre de 2026 | Sabri Studios | Botones "Reservá tu demo" y "Agendá una reunión" (Hero y Sobre mí) con el mismo formato: contorno, fondo transparente y relleno sólido al hover |
+| 1.42 | 19 de octubre de 2026 | Sabri Studios | Acción principal "Reservá tu demo" (relleno) y secundaria "Agendá una reunión" (contorno), botón de demo en la barra del celular, demo de 4 a 3 pasos con botones al final y revisión de ortografía y redacción |
+| 1.43 | 19 de octubre de 2026 | Sabri Studios | Mejoras de UX: texto chico naranja a azul por contraste, etiquetas de 12px, FAQ "¿Cuánto cuesta?", objetivos táctiles de 44px, foco visible con teclado y colores y botones consistentes en las páginas de proyecto |
+| 1.44 | 19 de octubre de 2026 | Sabri Studios | Mombé marcado como "En desarrollo" en su tarjeta y su página; se quita el FAQ de precio (sin precio en la web) |
+| 1.45 | 19 de octubre de 2026 | Sabri Studios | Texto de "Sobre mí" reescrito (opción B, centrada en el diagnóstico) |
+| 1.46 | 19 de octubre de 2026 | Sabri Studios | Se quita "Agendá una reunión" de "Sobre mí": queda solo "Reservá tu demo" |
+| 1.47 | 19 de octubre de 2026 | Sabri Studios | Imágenes nuevas revisadas: favicon PNG de 32×32 en uso, el resto eliminado (duplicados de los SVG y SVG con estilos rotos) |
