@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.50
+**Versión:** 1.51
 
 **Fecha:** Octubre 2026
 
@@ -1440,6 +1440,21 @@ Antes de publicar cambios:
 **Por qué lo hice:** Sabrina pidió que el logo se vea más grande.
 
 ---
+### v1.51 — 19 de octubre de 2026
+
+**Qué hice:** Activé la protección de la rama `master` en GitHub.
+
+**Detalle del cambio:**
+
+- **Reglas activas:** hay que pasar por pull request para llegar a `master` (con 0 aprobaciones requeridas, porque Sabrina es la única persona que trabaja en el repositorio), y no se permite force push ni borrar la rama.
+- **Administradores:** la regla no se les aplica (`enforce_admins` desactivado), así que en una emergencia se puede saltar. Tampoco se exige historial lineal ni commits firmados.
+- **Cómo se ve en el flujo:** no cambia. Se sigue trabajando en `develop` y se mergea con PR hacia `master`. Ya no se puede subir directo a `master`.
+- **Check de Vercel descartado:** se probó exigir que el check `Vercel` esté en verde, pero los despliegues de prueba de `develop` salen siempre en `CANCELED` (Vercel los cancela antes de construir, sin registros: 7 de 7), así que bloqueaba todos los PR. Se quitó esa exigencia. Si más adelante se cambia el ajuste de Vercel para que `develop` construya, se puede volver a exigir.
+- Se hizo desde la API de GitHub (`gh api`); no hay cambios de código ni hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió proteger la rama de producción.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1497,3 +1512,4 @@ Antes de publicar cambios:
 | 1.48 | 19 de octubre de 2026 | Sabri Studios | Se eliminan dos imágenes sin uso (`imagen mia de frente.png` y `hero-presencia-online-google.jpg`) |
 | 1.49 | 19 de octubre de 2026 | Sabri Studios | Logotipos horizontales SVG nuevos con el texto en trazados (Space Mono), sin metadatos; se eliminan los PNG subidos |
 | 1.50 | 19 de octubre de 2026 | Sabri Studios | Logo del header y del footer más grande (40 px en celular, 64 px en escritorio y 56 px en el footer) |
+| 1.51 | 19 de octubre de 2026 | Sabri Studios | Protección de la rama `master`: PR obligatorio, sin force push ni borrado (los administradores pueden saltarla); se descartó exigir el check de Vercel porque los despliegues de `develop` se cancelan |
