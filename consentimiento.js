@@ -43,7 +43,7 @@
         '<p class="font-caption text-caption text-texto-fuerte flex-1">' +
           'Uso cookies de Google Analytics y Microsoft Clarity para entender cómo se usa la página. ' +
           'Podés aceptarlas o rechazarlas, y la página funciona igual. ' +
-          '<a href="politica-de-privacidad.html#cookies" class="text-naranja hover:underline">Más información</a>.' +
+          '<a href="politica-de-privacidad.html#cookies" class="text-naranja-texto hover:underline">Más información</a>.' +
         '</p>' +
         '<div class="flex flex-col sm:flex-row gap-xs">' +
           '<button type="button" data-consentimiento="denied" class="border border-azul-primario bg-gris-neutro text-azul-primario hover:bg-gris-claro font-label-cta text-label-cta font-medium px-sm py-[12px] rounded-lg transition-colors duration-200">RECHAZAR</button>' +

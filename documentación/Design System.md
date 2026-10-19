@@ -38,6 +38,7 @@ Sabri Studios hace páginas web para emprendedores chicos que hoy venden solo po
 | `azul-primario` | `#1E3A5F` | Logo, headings y elementos clave. Fondo de la versión negativa del logo. |
 | `naranja` | `#D97A3C` | Acentos, CTAs, links y énfasis. |
 | `naranja-hover` | `#C66A2E` | Hover del botón primario. |
+| `naranja-texto` | `#B05218` | Naranja para texto chico sobre fondo claro (links y hovers): 5.16:1 sobre blanco y 4.66:1 sobre `gris-neutro`. No es parte de la guía original de la marca; es una variante más oscura solo para texto. No usar como relleno ni sobre `azul-primario` (2.23:1). |
 | `azul-secundario` | `#4A90D9` | Elementos interactivos y hover. |
 | `gris-neutro` | `#F5F3EF` | Fondo de página, cards, inputs y botón secundario. |
 | `blanco` | `#FFFFFF` | Fondo alternativo de cards. |
@@ -52,6 +53,7 @@ Sabri Studios hace páginas web para emprendedores chicos que hoy venden solo po
 - `azul-primario` sobre `gris-neutro`: 10.4:1. `texto-fuerte` sobre `gris-neutro`: 14.9:1.
 - `naranja` sobre `gris-neutro`: 2.79:1; sobre blanco: 3.09:1; sobre `azul-primario`: 3.72:1. Está por debajo de 4.5:1, así que sirve para rellenos y texto de 24px o más, no para texto chico. Es el valor exacto de la marca y no se retoca.
 - Texto `gris-neutro` sobre `naranja-hover`: 3.44:1.
+- `naranja-texto` (`#B05218`) sobre `gris-neutro`: 4.66:1 y sobre blanco: 5.16:1. Es la opción para texto chico en naranja.
 - `azul-secundario` sobre `gris-neutro`: 3.02:1. Usarlo en bordes, íconos y rellenos, no en texto chico.
 - `gris-medio` sobre `gris-neutro`: 1.45:1 y `placeholder`: 2.57:1. Son valores exactos de la marca; el estado focus del input lo marca el naranja.
 

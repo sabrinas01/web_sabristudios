@@ -59,6 +59,7 @@ module.exports = {
         "tertiary-container": "#602900",
         "naranja": "#D97A3C",
         "naranja-hover": "#C66A2E",
+        "naranja-texto": "#B05218",
         "azul-primario": "#1E3A5F",
         "azul-secundario": "#4A90D9",
         "gris-claro": "#E8E4D8"

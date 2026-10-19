@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.53
+**Versión:** 1.54
 
 **Fecha:** Octubre 2026
 
@@ -1484,6 +1484,21 @@ Antes de publicar cambios:
 **Por qué lo hice:** Sabrina pidió ajustar ese detalle, que se vio al revisar la etiqueta de las tarjetas de proyectos.
 
 ---
+### v1.54 — 19 de octubre de 2026
+
+**Qué hice:** Agregué el token `naranja-texto` (`#B05218`) y lo apliqué al texto chico en naranja sobre fondo claro.
+
+**Detalle del cambio:**
+
+- **Token:** en `tailwind.config.js`, junto a `naranja` y `naranja-hover`. Sabrina lo pidió como `brand-orange-text`; como esos nombres `brand-*` ya se renombraron a los del design system en la v1.37, lo llamé `naranja-texto`. Contraste: 4.66:1 sobre `gris-neutro` y 5.16:1 sobre blanco (el `naranja` da 2.79:1 y 3.09:1), así que pasa 4.5:1 para texto chico. Sobre `azul-primario` da 2.23:1, por eso no se usa ahí.
+- **Dónde se usa (6 lugares):** el link "Más información" del aviso de cookies (`consentimiento.js`, texto chico sobre blanco) y el hover de "Volver a proyectos" / "Volver al inicio" en la política de privacidad y las 4 páginas de proyecto.
+- **Dónde no se usa:** donde el naranja es relleno (botones, círculos de pasos con número, `bg-naranja`), sobre azul, en íconos, ni en texto grande: el titular "no existe", la "M" de Mombé, los números de los pasos y el hover de las preguntas del FAQ (24 px). Los textos y links chicos que en la v1.43 pasaron a `azul-primario` se dejaron en azul: no había texto chico en `naranja` en esos lugares.
+- `Design System.md`: nueva fila `naranja-texto` en la tabla de colores y su contraste.
+- Corrí `npm run build`; la clase compila a `rgb(176 82 24)`.
+
+**Por qué lo hice:** Sabrina pidió sumar ese token y usarlo en el texto naranja chico sobre fondo claro.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1544,3 +1559,4 @@ Antes de publicar cambios:
 | 1.51 | 19 de octubre de 2026 | Sabri Studios | Protección de la rama `master`: PR obligatorio, sin force push ni borrado (los administradores pueden saltarla); se descartó exigir el check de Vercel porque los despliegues de `develop` se cancelan |
 | 1.52 | 19 de octubre de 2026 | Sabri Studios | En celular, la etiqueta de rubro de las tarjetas de Proyectos ocupa todo el ancho y ya no tapa el logo (en el flujo normal, y en la esquina solo desde `md`) |
 | 1.53 | 19 de octubre de 2026 | Sabri Studios | Botón "Reservá tu demo" de la barra sin partirse en dos líneas en celulares angostos (12 px y logo de 36 px por debajo de 360 px) |
+| 1.54 | 19 de octubre de 2026 | Sabri Studios | Nuevo token `naranja-texto` (`#B05218`, 4.66:1 sobre `gris-neutro`) para texto chico en naranja sobre fondo claro: link del aviso de cookies y hover de los links de volver |
