@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="Sabri Studios Isotype - Full Color">
+  <!-- Margen de seguridad del 20% aplicado en viewBox (aprox. 102px por lado) -->
+  <g id="Isotype_FullColor" transform="translate(102, 102) scale(0.6)"> <!-- Escalado interno para centrado y margen -->
+    <!-- Construcción del Pin Azul (#1E3A5F) -->
+    <path id="Pin_Body" fill="#1E3A5F" d="M256,0 C167.6,0 96,71.6 96,160 c0,40.1 15.2,76.7 40,105.1 L256,512 l120-246.9 c24.8-28.4 40-65 40-105.1 C416,71.6 344.4,0 256,0 z" />
+    <circle id="Pin_Hole" fill="#FFFFFF" cx="256" cy="160" r="64" /> <!-- Hueco del pin -->
+
+    <!-- Construcción del Cursor Naranja (#D97A3C) con trazo -->
+    <!-- El trazo de 2.5px se escala proporcionalmente aquí a approx 15px en este viewBox grande -->
+    <path id="Cursor_Arrow" fill="#D97A3C" stroke="#D97A3C" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" d="M300,300 L512,380 L420,420 L480,512 L430,540 L370,450 L300,512 Z" />
+  </g>
+</svg>

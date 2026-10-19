@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none" role="img" aria-label="Sabri Studios Isotype - Outline Version">
+  <!-- Margen de seguridad del 20% aplicado en viewBox -->
+  <g id="Isotype_Outline" transform="translate(102, 102) scale(0.6)">
+    
+    <!-- Contorno del Pin Azul (#1E3A5F) - Stroke aplicado, fill none -->
+    <path id="Pin_Outline" stroke="#1E3A5F" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" d="M256,15 C175.6,15 111,79.6 111,160 c0,35.1 13.2,67.7 35,93.1 L256,480 l110-226.9 c21.8-25.4 35-58 35-93.1 C401,79.6 336.4,15 256,15 z" fill="none"/>
+    <circle id="Pin_Hole_Outline" stroke="#1E3A5F" stroke-width="15" cx="256" cy="160" r="64" fill="none"/>
+
+    <!-- Contorno del Cursor Naranja (#D97A3C) - Stroke aplicado, fill none -->
+    <!-- Mismo grosor de trazo -->
+    <path id="Cursor_Outline" stroke="#D97A3C" stroke-width="15" stroke-linecap="round" stroke-linejoin="round" d="M300,300 L512,380 L420,420 L480,512 L430,540 L370,450 L300,512 Z" fill="none"/>
+  </g>
+</svg>

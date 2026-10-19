@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none" role="img" aria-label="Sabri Studios Favicon">
+  <!-- Margen de seguridad integrado en la simplicidad de las formas (aprox 2px) -->
+  <g id="Favicon_Optimized" transform="translate(2, 2)">
+    <!-- Pin Simplificado Azul (#1E3A5F) -->
+    <path id="Pin_Fav" fill="#1E3A5F" d="M14,0 C8.5,0 4,4.5 4,10 c0,2.5 1,4.8 2.5,6.6 L14,28 l7.5-11.4 C23,14.8 24,12.5 24,10 C24,4.5 19.5,0 14,0 z M14,14 c-2.2,0 -4,-1.8 -4,-4 c0,-2.2 1.8,-4 4,-4 s4,1.8 4,4 C18,12.2 16.2,14 14,14 z" />
+    
+    <!-- Hueco del pin como path para asegurar fondo transparente -->
+    <circle id="Pin_Hole_Fav" fill="none" cx="14" cy="10" r="4" />
+
+    <!-- Cursor Simplificado Naranja (#D97A3C) con trazo -->
+    <!-- Trazo ajustado a 1px para este tamaño micro -->
+    <path id="Cursor_Fav" fill="#D97A3C" stroke="#D97A3C" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" d="M16,16 L28,21 L23,23 L26,28 L23,30 L20,25 L16,28 Z" />
+  </g>
+</svg>

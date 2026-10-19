@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.30
+**Versión:** 1.40
 
 **Fecha:** Octubre 2026
 
@@ -245,12 +245,16 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 
 **Mantener:** Paleta de marca Sabri Studios.
 
-- Azul primario (`brand-blue`): `#1E3A5F`
-- Naranja (`brand-orange`): `#D97A3C`
-- Neutro (`background`): `#F5F3EF`
-- Tipografía de títulos y cuerpo: Space Grotesk. CTA de WhatsApp: Space Mono.
+- Azul primario (`azul-primario`): `#1E3A5F`
+- Naranja (`naranja`): `#D97A3C`
+- Neutro (`gris-neutro`): `#F5F3EF`
+- Tipografía: Space Mono en todo el sitio (corregido en v1.34; antes decía Space Grotesk para títulos y cuerpo, pero el sitio nunca la usó).
 
-**Asegurar:** CTAs en naranja (`brand-orange`), títulos en azul (`brand-blue`).
+**Asegurar:** CTAs en naranja (`naranja`), títulos en azul (`azul-primario`).
+
+*Los nombres de las clases cambiaron en la v1.37 (antes `brand-blue`, `brand-orange`, `background`); las entradas anteriores del historial conservan los nombres viejos.*
+
+**Design system:** el sistema completo de la marca está en [`Design System.md`](Design%20System.md). El design system manda en tipografía, color, espaciado y componentes.
 
 ---
 
@@ -1141,6 +1145,156 @@ Antes de publicar cambios:
 
 ---
 
+### v1.31 — 19 de octubre de 2026
+
+**Qué hice:** Saqué el link "Agendar reunión" del footer de `index.html`.
+
+**Detalle del cambio:**
+
+- **Footer:** quedan Instagram, LinkedIn y Email. La opción de agendar sigue disponible en la sección de contacto y en el calendario embebido.
+- Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió quitar ese link del footer.
+
+---
+
+### v1.32 — 19 de octubre de 2026
+
+**Qué hice:** Quité la agenda de Google Calendar embebida de `index.html`.
+
+**Detalle del cambio:**
+
+- **`index.html`:** eliminé el bloque "O elegí tu horario acá mismo" (título + iframe) de la sección de demo y el JS de `calendar_embed_view` y `calendar_embed_interaction`.
+- **`vercel.json`:** saqué `frame-src https://calendar.google.com` del CSP, ya que no hay iframes.
+- Los botones "Agendá una reunión" que abren la agenda en otra pestaña (y `calendar_click`) siguen igual. Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió quitar la página de citas embebida.
+
+---
+
+### v1.33 — 19 de octubre de 2026
+
+**Qué hice:** Agregué el design system de la marca a la documentación.
+
+**Detalle del cambio:**
+
+- **`documentación/Design System.md` (nuevo):** copia en español del [artifact del design system](https://claude.ai/artifact/RV4FVSzBaZLFuKDNCeRWLc): fundamentos de contenido y visuales, tokens (color con sus contrastes, tipografía, espaciado, radios, sombras), iconografía, logo, componentes y aplicaciones. La fuente de verdad sigue siendo el artifact.
+- **Sección 8.2 de este PRD y `README.md`:** agregué el enlace al nuevo documento.
+- **Diferencia detectada, sin resolver:** el design system pide todo en Space Mono; la sección 8.2 decía Space Grotesk para títulos y cuerpo. No toqué el sitio: falta decidir cuál manda.
+- Sin cambios de código ni clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió usar este design system y agregarlo a la documentación.
+
+---
+
+### v1.34 — 19 de octubre de 2026
+
+**Qué hice:** Dejé asentado que el design system manda y corregí la tipografía en la documentación.
+
+**Detalle del cambio:**
+
+- **Tipografía:** el design system define todo en Space Mono. El sitio ya lo cumple (`tailwind.config.js` y las 6 páginas cargan solo Space Mono), así que no hubo cambios de código: lo que estaba mal era la sección 8.2 de este PRD, que decía Space Grotesk. Corregida.
+- **Pendiente detectado:** el design system admite solo pesos 400 y 500, y el sitio carga `wght@400;500;700` y usa `font-bold` en `index.html`, `politica-de-privacidad.html` y las 4 páginas de proyecto (más un `font-semibold` en `index.html`). Falta decidir si se pasan a `font-medium`.
+- `Design System.md`: actualizada la sección "Diferencias con el sitio actual".
+
+**Por qué lo hice:** Sabrina indicó que el design system manda.
+
+---
+
+### v1.35 — 19 de octubre de 2026
+
+**Qué hice:** Pasé los pesos tipográficos al máximo que admite el design system (500).
+
+**Detalle del cambio:**
+
+- **Las 6 páginas HTML:** `font-bold` y `font-semibold` pasan a `font-medium` (logo del header, botones del Hero, badges de proyectos, cita de la demo y aviso del FAQ) y la carga de Space Mono baja de `wght@400;500;700` a `wght@400;500`.
+- `npm run build` corrido; `dist/output.css` está ignorado por git, así que no entra al commit.
+- Resuelve el pendiente de la v1.34. Cambio visible: títulos y botones que estaban en negrita ahora quedan en peso medio.
+
+**Por qué lo hice:** Sabrina aprobó adoptar los pesos del design system.
+
+---
+
+### v1.36 — 19 de octubre de 2026
+
+**Qué hice:** Alineé los botones y el naranja de hover con el design system.
+
+**Detalle del cambio:**
+
+- **Token de hover:** en `tailwind.config.js`, `brand-orange-hover` valía `#4A90D9` (el azul secundario); ahora vale `#C66A2E`, el naranja de hover del sistema. Los `#C66A2E` y `#D97A3C` escritos a mano en las 6 páginas pasaron a `hover:bg-brand-orange-hover` y `bg-brand-orange`.
+- **Texto del botón primario:** de `text-white` a `text-background` (`gris-neutro`, `#F5F3EF`) en los botones naranja (Hero, tarjetas de proyectos y CTA de las páginas de proyecto). Los círculos numerados de pasos no son botones y quedaron igual.
+- **Botón secundario ("Agendá una reunión"):** fondo `gris-neutro`, borde de 1px (antes 2px) y hover `gris-claro` (`brand-border`), en lugar de pasar a azul sólido con texto blanco. Ajusté el padding vertical en 1px por lado para que mida lo mismo que el primario.
+- Hubo que correr `npm run build` por las clases nuevas.
+
+**Por qué lo hice:** Sabrina pidió aplicar los puntos 1, 2 y 3 de lo pendiente del design system.
+
+---
+
+### v1.37 — 19 de octubre de 2026
+
+**Qué hice:** Pasé los íconos a Tabler Icons y renombré los tokens de color con los nombres del design system.
+
+**Detalle del cambio:**
+
+- **Íconos:** de Material Symbols (fuente de Google) a Tabler Icons en estilo outline. Armé las 11 máscaras SVG que usa el sitio en `src/input.css` (clases `ti ti-nombre`, color con `currentColor`), así que no se carga ninguna fuente ni dominio externo y el CSP no cambia. Equivalencias: `menu`→`menu-2`, `close`→`x`, `arrow_back`→`arrow-left`, `arrow_forward`→`arrow-right`, `open_in_new`→`external-link`, `photo_camera`→`camera`, `work`→`briefcase`, `mail`→`mail`, `construction`→`tools`, `expand_more`→`chevron-down` y `check_circle`→`circle-check`. Salieron el `<link>` de Material Symbols y su bloque de estilos de las 6 páginas. El botón del menú móvil ahora cambia la clase (`ti-menu-2` / `ti-x`) en vez del texto.
+- **Tokens:** `brand-blue`→`azul-primario`, `brand-orange`→`naranja`, `brand-orange-hover`→`naranja-hover`, `brand-secondary-blue`→`azul-secundario`, `brand-border`→`gris-claro`, `input-border`→`gris-medio`, `text-strong`→`texto-fuerte`, y `bg-background`/`text-background`→`bg-gris-neutro`/`text-gris-neutro` (se agregó `gris-neutro`; `background` sigue definido). Los tokens tipo Material de la web no se tocaron.
+- **Verificación en navegador** (servidor local): las máscaras de los 19 íconos de `index.html` se aplican, el botón primario sale `rgb(217,122,60)` con texto `rgb(245,243,239)`, y el menú móvil alterna entre `menu-2` y `x`. No revisé a ojo cada página de proyecto ni probé con el CSP de Vercel.
+- Corrí `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió aplicar los puntos 4 y 2 de lo pendiente del design system.
+
+---
+
+### v1.38 — 19 de octubre de 2026
+
+**Qué hice:** Agregué la sombra `shadow-media` del design system y la apliqué solo en elementos clickeables.
+
+**Detalle del cambio:**
+
+- **Token:** `shadow-media` (`0 4px 12px rgba(30, 58, 95, 0.12)`) en `tailwind.config.js`, junto a `shadow-ambient` (que equivale a `shadow-leve`).
+- **Dónde va:** en el hover de los botones primarios y de las tarjetas de proyectos (`hover:shadow-media`, con `transition-all` para que la sombra anime) y fija en el botón flotante de WhatsApp. Reemplaza a `shadow-lg`, que no es del sistema.
+- **Dónde no va:** en bloques estáticos, como pide la regla de `shadow-ambient` solo en lo clickeable. Por eso `shadow-leve` no se agregó a cards estáticas.
+- **Logo:** Sabrina sube los SVG ella misma, queda fuera de este cambio.
+- Corrí `npm run build`. No lo revisé en el navegador.
+
+**Por qué lo hice:** Sabrina pidió aplicar `shadow-media` solo en lo clickeable.
+
+---
+
+### v1.39 — 19 de octubre de 2026
+
+**Qué hice:** Usé los logos SVG del design system, que Sabrina subió a `documentación/`.
+
+**Detalle del cambio:**
+
+- **Archivos:** moví los 9 SVG a `imagenes/` con los nombres del design system (`favicon-web`, `isotipo-full-color`, `isotipo-monocromatico`, `isotipo-negativo`, `isotipo-outline` y `logotipo-horizontal-full-color`, `-monocromatico`, `-negativo`, `-outline`).
+- **Uso:** el logotipo horizontal full color reemplaza al JPG en el header y el footer de las 6 páginas. `favicon-web.svg` es el favicon (el JPG queda como respaldo para navegadores sin favicon SVG).
+- **Se mantienen en JPG:** `og:image`, `twitter:image` y el `logo` del JSON-LD, porque las redes y los buscadores no siempre aceptan SVG.
+- **Ojo:** el texto del SVG pide `Inter` / `Space Grotesk` y, dentro de un `<img>`, se dibuja con la fuente del sistema (no Space Mono). Para respetar la marca, habría que convertir el texto a trazados en el diseño original.
+- Revisé el header de `index.html` en el navegador local. Sin clases nuevas, no hizo falta `npm run build`.
+
+**Por qué lo hice:** Sabrina subió los SVG para aplicarlos.
+
+---
+
+### v1.40 — 19 de octubre de 2026
+
+**Qué hice:** Configuré el consentimiento de cookies (Consent Mode v2) solo para visitas del Espacio Económico Europeo, Reino Unido y Suiza.
+
+**Detalle del cambio:**
+
+- **GA4:** en las 6 páginas, antes de `gtag('js')`, `gtag('consent', 'default', …)` deniega `analytics_storage`, `ad_storage`, `ad_user_data` y `ad_personalization` con el parámetro `region` (EEE + GB + CH). Fuera de esos países el comportamiento no cambia y no se pierden datos.
+- **`api/region.js` (nuevo):** función de Vercel que lee `x-vercel-ip-country` y devuelve solo `{ pedirConsentimiento: true/false }`, sin cache y sin guardar el país.
+- **`consentimiento.js` (nuevo, cargado con `defer` en las 6 páginas):** si no hay elección guardada, consulta `/api/region`; si la visita es de la zona, muestra un aviso con los botones RECHAZAR y ACEPTAR con el mismo peso visual. La elección se guarda en `localStorage` y se manda a GA4 (`consent update`) y a Clarity (`consentv2`). Si no puede saber el país, no muestra nada.
+- **Política de privacidad:** la sección 5 explica el aviso e incluye el botón "Cambiar preferencias de cookies"; fecha de actualización al 19 de octubre de 2026.
+- **Tailwind:** se sumó `consentimiento.js` a `content`, el token `shadow-fuerte` y se corrió `npm run build`.
+- **Verificación local:** el aviso se ve bien, rechazar guarda `denied` y dispara `consent update`, y la función devuelve `true` para DE y GB y `false` para AR y sin país. **No probé `/api/region` desplegada en Vercel** ni con una visita real de la UE.
+- **Limitación:** Microsoft Clarity arranca antes de saber el país, así que no se le puede negar el consentimiento desde el primer instante; se le avisa apenas se sabe la región. Para Clarity conviene también revisar su propio panel de consentimiento.
+
+**Por qué lo hice:** Sabrina no sabe si tiene público de la UE y pidió dejarlo configurado por si acaso.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1178,3 +1332,13 @@ Antes de publicar cambios:
 | 1.28 | 14 de octubre de 2026 | Sabri Studios | Dominio de producción corregido a `web-sabristudios.vercel.app` (canonical, Open Graph, JSON-LD, sitemap, robots, llms.txt, política y README) y links del FAQ ordenados en celular |
 | 1.29 | 14 de octubre de 2026 | Sabri Studios | CSP corregido para que GA4 reciba datos (`analytics.google.com` y `www.google.com` en `connect-src`, más `img-src`) y JSON-LD del FAQ igualado al texto visible |
 | 1.30 | 19 de octubre de 2026 | Sabri Studios | Revisión de la configuración de GA4: `scroll_proceso` pasa por `enviarEvento` como el resto de los eventos de `index.html` |
+| 1.31 | 19 de octubre de 2026 | Sabri Studios | Eliminado el link "Agendar reunión" del footer de `index.html` |
+| 1.32 | 19 de octubre de 2026 | Sabri Studios | Eliminada la agenda de Google Calendar embebida (iframe, eventos `calendar_embed_*` y `frame-src` del CSP) |
+| 1.33 | 19 de octubre de 2026 | Sabri Studios | Agregado el design system de la marca a la documentación (`Design System.md`), con enlaces desde el PRD y el README |
+| 1.34 | 19 de octubre de 2026 | Sabri Studios | El design system manda: corregida la tipografía en el PRD (Space Mono en todo el sitio) y anotado el pendiente de pesos 700 |
+| 1.35 | 19 de octubre de 2026 | Sabri Studios | Pesos tipográficos según el design system: `font-bold`/`font-semibold` pasan a `font-medium` y se deja de cargar el peso 700 |
+| 1.36 | 19 de octubre de 2026 | Sabri Studios | Botones según el design system: `brand-orange-hover` corregido a `#C66A2E`, texto `gris-neutro` en el botón primario y botón secundario con fondo `gris-neutro` y hover `gris-claro` |
+| 1.37 | 19 de octubre de 2026 | Sabri Studios | Íconos de Material Symbols a Tabler Icons outline (máscaras SVG propias, sin fuente externa) y tokens de color renombrados con los nombres del design system |
+| 1.38 | 19 de octubre de 2026 | Sabri Studios | Sombra `shadow-media` del design system, aplicada solo en elementos clickeables (hover de botones y tarjetas de proyectos, botón flotante de WhatsApp) |
+| 1.39 | 19 de octubre de 2026 | Sabri Studios | Logos SVG del design system en `imagenes/`: logotipo horizontal en header y footer, favicon SVG; `og:image` y JSON-LD siguen en JPG |
+| 1.40 | 19 de octubre de 2026 | Sabri Studios | Consent Mode v2 solo para EEE, Reino Unido y Suiza: cookies denegadas por defecto por región, aviso con aceptar/rechazar (`consentimiento.js`), función `api/region.js` y política de privacidad actualizada |
