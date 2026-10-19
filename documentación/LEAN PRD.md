@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.51
+**Versión:** 1.53
 
 **Fecha:** Octubre 2026
 
@@ -1455,6 +1455,35 @@ Antes de publicar cambios:
 **Por qué lo hice:** Sabrina pidió proteger la rama de producción.
 
 ---
+### v1.52 — 19 de octubre de 2026
+
+**Qué hice:** En celular, la etiqueta de rubro de las tarjetas de "Proyectos desarrollados" ocupa todo el ancho de la tarjeta y ya no tapa el logo.
+
+**Detalle del cambio:**
+
+- **Celular:** la etiqueta pasó de `absolute` en la esquina (con `max-w-[55%]`, que en "Servicios profesionales" se partía en dos líneas y pisaba el círculo del logo) a un bloque en el flujo normal, `w-full` y centrado, arriba de la tarjeta. Como ya no flota, no puede solaparse con el logo.
+- **Escritorio (`md`):** queda igual que antes, en la esquina superior derecha (`md:absolute md:top-2 md:right-2 md:w-auto`, texto a la derecha).
+- El margen superior del logo (`mt-6`) pasó a aplicar solo desde `md`; en celular lo separa el `gap` de la tarjeta.
+- Verificado en el navegador local a 360 px y 320 px, en las 4 tarjetas: la etiqueta ocupa el ancho interno de la tarjeta (236 px y 202 px) y no se solapa con el logo, incluso cuando el texto se parte en dos líneas ("Mantenimiento y Estética Vehicular" a 320 px). Se corrió `npm run build`.
+- **Detalle aparte, sin cambiar:** en ventanas de alrededor de 334 px el botón "Reservá tu demo" de la barra se parte en dos líneas.
+
+**Por qué lo hice:** Sabrina pidió que la etiqueta ocupe todo el ancho de la tarjeta y no tape el logo.
+
+---
+### v1.53 — 19 de octubre de 2026
+
+**Qué hice:** Ajusté el botón "Reservá tu demo" de la barra de navegación para que no se parta en dos líneas en celulares angostos.
+
+**Detalle del cambio:**
+
+- **Botón:** `whitespace-nowrap` y texto de 12 px (`text-xs`) por debajo de 360 px de ancho; desde 360 px vuelve al tamaño del sistema (`min-[360px]:text-label-cta`). Antes, en ventanas de unos 334 px, el texto se partía en dos líneas.
+- **Logo de la barra:** por debajo de 360 px baja de 40 px a 36 px de alto (`h-9 min-[360px]:h-10`), para que logo, botón y menú sigan entrando. Desde `md` sigue en 64 px.
+- Aplica en las 6 páginas.
+- Verificado en el navegador local en `index.html`, `proyecto-mombe.html` y `politica-de-privacidad.html` a 320, 334, 360, 375, 390 y 412 px: el botón mide 44 px de alto en una sola línea (134 px de ancho por debajo de 360 y 160 px desde 360), sin desborde horizontal y sin que se toquen logo, botón y menú. Se corrió `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió ajustar ese detalle, que se vio al revisar la etiqueta de las tarjetas de proyectos.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1513,3 +1542,5 @@ Antes de publicar cambios:
 | 1.49 | 19 de octubre de 2026 | Sabri Studios | Logotipos horizontales SVG nuevos con el texto en trazados (Space Mono), sin metadatos; se eliminan los PNG subidos |
 | 1.50 | 19 de octubre de 2026 | Sabri Studios | Logo del header y del footer más grande (40 px en celular, 64 px en escritorio y 56 px en el footer) |
 | 1.51 | 19 de octubre de 2026 | Sabri Studios | Protección de la rama `master`: PR obligatorio, sin force push ni borrado (los administradores pueden saltarla); se descartó exigir el check de Vercel porque los despliegues de `develop` se cancelan |
+| 1.52 | 19 de octubre de 2026 | Sabri Studios | En celular, la etiqueta de rubro de las tarjetas de Proyectos ocupa todo el ancho y ya no tapa el logo (en el flujo normal, y en la esquina solo desde `md`) |
+| 1.53 | 19 de octubre de 2026 | Sabri Studios | Botón "Reservá tu demo" de la barra sin partirse en dos líneas en celulares angostos (12 px y logo de 36 px por debajo de 360 px) |
