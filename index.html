@@ -1250,12 +1250,7 @@
       const procesoObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            if (typeof gtag === 'function') {
-              gtag('event', 'scroll_proceso', {
-                event_category: 'engagement',
-                traffic_source: fuenteTrafico,
-              });
-            }
+            enviarEvento('scroll_proceso', { event_category: 'engagement' });
             observer.unobserve(entry.target);
           }
         });
