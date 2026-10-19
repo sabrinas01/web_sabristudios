@@ -9,7 +9,6 @@
 **Objetivo:** Mejorar conversión de visitantes → consultas WhatsApp para demo gratuita
 
 > Cada cambio que se haga sobre la landing o sobre este documento se registra en la sección [19. Historial de Versiones](#19-historial-de-versiones) y en la [Tabla de Versiones](#20-tabla-de-versiones) al final del documento.
-
 > **Nota:** este documento nació de fusionar dos PRDs que convivían en el proyecto — el PRD original (`docs/PRD.md`, más formal: alcance, requisitos e historias de usuario) y el LEAN PRD (`documentación/LEAN PRD.md`, más vivo: persona, propuesta de valor, roadmap e historial de cada cambio). A partir de la v1.9 este es el único PRD del proyecto.
 
 ---
@@ -107,7 +106,7 @@ Después de trabajar con Sabri Studios, tu negocio aparece en Google y Google Ma
 
 ## 6. Flujo de Conversión (Macro)
 
-```
+```text
 Tráfico (IG, Google, referencia)
         ↓
 Landing: Leo el problema, veo que entienden mi situación
@@ -319,7 +318,7 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 **quiero** entender cuánto me cuesta no aparecer en Google,
 **para** reconocer la necesidad de mejorar mi presencia digital.
 
-##### Criterios de aceptación (BDD)
+##### Criterios de aceptación (BDD) - HU-01
 
 ```gherkin
 Característica: Comunicar el costo de la invisibilidad digital
@@ -336,7 +335,7 @@ Escenario: La persona entra a la landing
 **quiero** entender qué hace Sabri Studios,
 **para** decidir si el servicio puede ayudar a mi negocio.
 
-##### Criterios de aceptación (BDD)
+##### Criterios de aceptación (BDD) - HU-02
 
 ```gherkin
 Característica: Presentar la propuesta de valor
@@ -357,7 +356,7 @@ Escenario: La persona llega a la primera pantalla
 **quiero** conocer los pasos del trabajo,
 **para** saber qué puedo esperar antes de contactar.
 
-##### Criterios de aceptación (BDD)
+##### Criterios de aceptación (BDD) - HU-03
 
 ```gherkin
 Característica: Mostrar el proceso de trabajo
@@ -377,7 +376,7 @@ Escenario: La persona consulta el proceso
 **quiero** que los pasos aparezcan de forma progresiva y ordenada,
 **para** identificar fácilmente la secuencia del servicio.
 
-##### Criterios de aceptación (BDD)
+##### Criterios de aceptación (BDD) - HU-04
 
 ```gherkin
 Característica: Animar la sección de proceso
@@ -402,7 +401,7 @@ Escenario: La persona tiene activada la reducción de movimiento
 **quiero** ver el paso a paso de la demo gratuita,
 **para** animarme a escribir sabiendo que no es una venta forzada.
 
-##### Criterios de aceptación (BDD)
+##### Criterios de aceptación (BDD) - HU-09
 
 ```gherkin
 Característica: Mostrar el paso a paso de la demo gratuita
@@ -422,7 +421,7 @@ Escenario: La persona consulta la sección "La demo gratuita es así"
 **quiero** tener un botón visible de WhatsApp,
 **para** iniciar una consulta sin completar un formulario.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD) - HU-06
 
 ```gherkin
 Característica: Contactar por WhatsApp
@@ -440,7 +439,7 @@ Escenario: La persona selecciona el botón flotante
 **quiero** encontrar respuestas a las preguntas más comunes,
 **para** decidir si escribir por WhatsApp sin quedarme con dudas.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD) - HU-10
 
 ```gherkin
 Característica: Responder objeciones comunes en la sección FAQ
@@ -460,7 +459,7 @@ Escenario: La persona consulta las preguntas frecuentes
 **quiero** acceder a las secciones principales desde la navegación,
 **para** encontrar rápidamente la información que necesito.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD) - HU-07
 
 ```gherkin
 Característica: Navegación interna
@@ -482,7 +481,7 @@ Escenario: La persona selecciona "Sobre Mí"
 **quiero** leer y utilizar todos los controles sin hacer zoom,
 **para** contactar desde cualquier dispositivo.
 
-**Criterios de aceptación (BDD)**
+##### Criterios de aceptación (BDD) - HU-08
 
 ```gherkin
 Característica: Experiencia responsive
