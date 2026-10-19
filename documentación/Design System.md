@@ -142,8 +142,19 @@ El design system también incluye la paleta tipo Material que ya está en `tailw
 
 ## 8. Diferencias con el sitio actual
 
-Revisado el 19 de octubre de 2026. No se cambió nada del sitio con este documento.
+Revisado el 19 de octubre de 2026 (actualizado en la v1.36 del LEAN PRD).
 
 - **Tipografía:** resuelta. El design system manda: todo en Space Mono. El sitio ya cumple (`tailwind.config.js` y las 6 páginas cargan solo Space Mono). La mención anterior de Space Grotesk en el LEAN PRD estaba desactualizada y se corrigió.
 - **Pesos:** resuelto en v1.35. El sistema admite solo 400 y 500, nunca 700 o más; el sitio ya no usa `font-bold` ni `font-semibold` y carga `wght@400;500`.
+- **Botones y naranja de hover:** resuelto en v1.36. `naranja-hover` vale `#C66A2E`, el botón primario lleva texto `gris-neutro` y el secundario fondo `gris-neutro`, borde de 1px y hover `gris-claro`.
 - **Contraste del naranja:** el botón primario (texto `gris-neutro` sobre `naranja`) no llega a 4.5:1. Es valor de marca, pero conviene saberlo para el texto chico.
+
+**Pendiente de aplicar:**
+
+1. **Sombras:** faltan `shadow-media` (hover de botones) y `shadow-fuerte` (dropdowns y modals). El Hero usa `hover:shadow-lg` y el botón flotante de WhatsApp `shadow-lg`, que no son del sistema. Además, el sistema pone `shadow-leve` en las cards, y la regla del proyecto dice que `shadow-ambient` va solo en lo clickeable: hay que decidir cuál manda.
+2. **Logo:** el sitio usa JPG y PNG; el sistema trae los SVG en cuatro variantes, que hay que bajar del artifact y copiar al repo.
+
+**Resuelto en v1.37:**
+
+- **Íconos:** el sitio usa Tabler Icons outline, como máscaras SVG propias en `src/input.css` (clases `ti ti-nombre`), sin fuente externa. Si hace falta un ícono nuevo, hay que sumar su máscara ahí.
+- **Nombres de tokens:** las clases usan `azul-primario`, `naranja`, `naranja-hover`, `azul-secundario`, `gris-neutro`, `gris-claro`, `gris-medio` y `texto-fuerte`. Los tokens tipo Material de la web quedaron como estaban.

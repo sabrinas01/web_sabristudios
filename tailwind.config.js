@@ -18,7 +18,7 @@ module.exports = {
         "on-surface": "#1b1c1a",
         "on-primary-fixed": "#001c3b",
         "on-error": "#ffffff",
-        "text-strong": "#12202E",
+        "texto-fuerte": "#12202E",
         "error-container": "#ffdad6",
         "on-primary": "#ffffff",
         "surface-container-lowest": "#ffffff",
@@ -33,7 +33,8 @@ module.exports = {
         "secondary-container": "#6fb2fd",
         "on-primary-fixed-variant": "#2d486d",
         "background": "#F5F3EF",
-        "input-border": "#D0CCC0",
+        "gris-neutro": "#F5F3EF",
+        "gris-medio": "#D0CCC0",
         "on-tertiary-fixed": "#321200",
         "on-surface-variant": "#43474e",
         "on-tertiary": "#ffffff",
@@ -56,11 +57,11 @@ module.exports = {
         "primary-container": "#1e3a5f",
         "on-secondary-fixed-variant": "#00497e",
         "tertiary-container": "#602900",
-        "brand-orange": "#D97A3C",
-        "brand-orange-hover": "#4A90D9",
-        "brand-blue": "#1E3A5F",
-        "brand-secondary-blue": "#4A90D9",
-        "brand-border": "#E8E4D8"
+        "naranja": "#D97A3C",
+        "naranja-hover": "#C66A2E",
+        "azul-primario": "#1E3A5F",
+        "azul-secundario": "#4A90D9",
+        "gris-claro": "#E8E4D8"
       },
 
       // Bordes redondeados reutilizables (ej: "rounded-lg")

@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.35
+**Versión:** 1.37
 
 **Fecha:** Octubre 2026
 
@@ -246,12 +246,14 @@ SOPORTE POST: $15.000 ARS / 30 días (cambios ilimitados)
 
 **Mantener:** Paleta de marca Sabri Studios.
 
-- Azul primario (`brand-blue`): `#1E3A5F`
-- Naranja (`brand-orange`): `#D97A3C`
-- Neutro (`background`): `#F5F3EF`
+- Azul primario (`azul-primario`): `#1E3A5F`
+- Naranja (`naranja`): `#D97A3C`
+- Neutro (`gris-neutro`): `#F5F3EF`
 - Tipografía: Space Mono en todo el sitio (corregido en v1.34; antes decía Space Grotesk para títulos y cuerpo, pero el sitio nunca la usó).
 
-**Asegurar:** CTAs en naranja (`brand-orange`), títulos en azul (`brand-blue`).
+**Asegurar:** CTAs en naranja (`naranja`), títulos en azul (`azul-primario`).
+
+*Los nombres de las clases cambiaron en la v1.37 (antes `brand-blue`, `brand-orange`, `background`); las entradas anteriores del historial conservan los nombres viejos.*
 
 **Design system:** el sistema completo de la marca está en [`Design System.md`](Design%20System.md). El design system manda en tipografía, color, espaciado y componentes.
 
@@ -1214,6 +1216,36 @@ Antes de publicar cambios:
 
 ---
 
+### v1.36 — 19 de octubre de 2026
+
+**Qué hice:** Alineé los botones y el naranja de hover con el design system.
+
+**Detalle del cambio:**
+
+- **Token de hover:** en `tailwind.config.js`, `brand-orange-hover` valía `#4A90D9` (el azul secundario); ahora vale `#C66A2E`, el naranja de hover del sistema. Los `#C66A2E` y `#D97A3C` escritos a mano en las 6 páginas pasaron a `hover:bg-brand-orange-hover` y `bg-brand-orange`.
+- **Texto del botón primario:** de `text-white` a `text-background` (`gris-neutro`, `#F5F3EF`) en los botones naranja (Hero, tarjetas de proyectos y CTA de las páginas de proyecto). Los círculos numerados de pasos no son botones y quedaron igual.
+- **Botón secundario ("Agendá una reunión"):** fondo `gris-neutro`, borde de 1px (antes 2px) y hover `gris-claro` (`brand-border`), en lugar de pasar a azul sólido con texto blanco. Ajusté el padding vertical en 1px por lado para que mida lo mismo que el primario.
+- Hubo que correr `npm run build` por las clases nuevas.
+
+**Por qué lo hice:** Sabrina pidió aplicar los puntos 1, 2 y 3 de lo pendiente del design system.
+
+---
+
+### v1.37 — 19 de octubre de 2026
+
+**Qué hice:** Pasé los íconos a Tabler Icons y renombré los tokens de color con los nombres del design system.
+
+**Detalle del cambio:**
+
+- **Íconos:** de Material Symbols (fuente de Google) a Tabler Icons en estilo outline. Armé las 11 máscaras SVG que usa el sitio en `src/input.css` (clases `ti ti-nombre`, color con `currentColor`), así que no se carga ninguna fuente ni dominio externo y el CSP no cambia. Equivalencias: `menu`→`menu-2`, `close`→`x`, `arrow_back`→`arrow-left`, `arrow_forward`→`arrow-right`, `open_in_new`→`external-link`, `photo_camera`→`camera`, `work`→`briefcase`, `mail`→`mail`, `construction`→`tools`, `expand_more`→`chevron-down` y `check_circle`→`circle-check`. Salieron el `<link>` de Material Symbols y su bloque de estilos de las 6 páginas. El botón del menú móvil ahora cambia la clase (`ti-menu-2` / `ti-x`) en vez del texto.
+- **Tokens:** `brand-blue`→`azul-primario`, `brand-orange`→`naranja`, `brand-orange-hover`→`naranja-hover`, `brand-secondary-blue`→`azul-secundario`, `brand-border`→`gris-claro`, `input-border`→`gris-medio`, `text-strong`→`texto-fuerte`, y `bg-background`/`text-background`→`bg-gris-neutro`/`text-gris-neutro` (se agregó `gris-neutro`; `background` sigue definido). Los tokens tipo Material de la web no se tocaron.
+- **Verificación en navegador** (servidor local): las máscaras de los 19 íconos de `index.html` se aplican, el botón primario sale `rgb(217,122,60)` con texto `rgb(245,243,239)`, y el menú móvil alterna entre `menu-2` y `x`. No revisé a ojo cada página de proyecto ni probé con el CSP de Vercel.
+- Corrí `npm run build`.
+
+**Por qué lo hice:** Sabrina pidió aplicar los puntos 4 y 2 de lo pendiente del design system.
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1256,3 +1288,5 @@ Antes de publicar cambios:
 | 1.33 | 19 de octubre de 2026 | Sabri Studios | Agregado el design system de la marca a la documentación (`Design System.md`), con enlaces desde el PRD y el README |
 | 1.34 | 19 de octubre de 2026 | Sabri Studios | El design system manda: corregida la tipografía en el PRD (Space Mono en todo el sitio) y anotado el pendiente de pesos 700 |
 | 1.35 | 19 de octubre de 2026 | Sabri Studios | Pesos tipográficos según el design system: `font-bold`/`font-semibold` pasan a `font-medium` y se deja de cargar el peso 700 |
+| 1.36 | 19 de octubre de 2026 | Sabri Studios | Botones según el design system: `brand-orange-hover` corregido a `#C66A2E`, texto `gris-neutro` en el botón primario y botón secundario con fondo `gris-neutro` y hover `gris-claro` |
+| 1.37 | 19 de octubre de 2026 | Sabri Studios | Íconos de Material Symbols a Tabler Icons outline (máscaras SVG propias, sin fuente externa) y tokens de color renombrados con los nombres del design system |

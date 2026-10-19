@@ -56,7 +56,6 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&icon_names=arrow_back,arrow_forward,check_circle,close,construction,expand_more,mail,menu,open_in_new,photo_camera,work&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500&display=swap">
 
   <style>
@@ -64,11 +63,6 @@
       background-color: #F5F3EF;
       color: #12202E;
     }
-    .material-symbols-outlined {
-      font-family: 'Material Symbols Outlined', sans-serif;
-      font-weight: 300;
-    }
-
     .process-step {
       opacity: 0;
       transform: translateY(32px) scale(0.96);
@@ -211,7 +205,7 @@
   </style>
 </head>
 
-<body class="font-body-main antialiased bg-background selection:bg-brand-orange selection:text-white">
+<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-white">
 
   <!-- ============================== -->
   <!-- BARRA DE NAVEGACIÓN (arriba)   -->
@@ -225,23 +219,23 @@
       </a>
 
       <div class="hidden md:flex items-center gap-md">
-        <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proyectos</a>
-        <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proceso</a>
-        <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Sobre Mí</a>
-        <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
+        <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proyectos</a>
+        <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Proceso</a>
+        <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Sobre Mí</a>
+        <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 text-brand-blue hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
-        <span id="mobile-menu-icon" class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">menu</span>
+      <button id="mobile-menu-button" class="md:hidden p-2 text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+        <span id="mobile-menu-icon" class="ti ti-menu-2" aria-hidden="true"></span>
       </button>
 
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
-      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
-      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
-      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
-      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-brand-secondary-blue hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
+      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
+      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
+      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
+      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
     </div>
   </nav>
 
@@ -249,8 +243,8 @@
   <!-- VOLVER A PROYECTOS             -->
   <!-- ============================== -->
   <div class="max-w-container-max mx-auto px-sm md:px-lg pt-md">
-    <a href="index.html#proyectos" class="font-label-cta text-label-cta text-brand-blue hover:text-brand-orange transition-colors duration-200 inline-flex items-center gap-1">
-      <span class="material-symbols-outlined text-base">arrow_back</span>
+    <a href="index.html#proyectos" class="font-label-cta text-label-cta text-azul-primario hover:text-naranja transition-colors duration-200 inline-flex items-center gap-1">
+      <span class="ti ti-arrow-left text-base" aria-hidden="true"></span>
       Volver a proyectos
     </a>
   </div>
@@ -261,18 +255,18 @@
   <section class="max-w-container-max mx-auto px-sm md:px-lg py-lg md:py-xl flex flex-col md:flex-row items-center gap-lg md:gap-xl text-center md:text-left">
 
     <!-- Todavía no tengo el logo de Mombé, así que por ahora pongo su inicial en el círculo -->
-    <div class="hero-logo-in w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border border-brand-border bg-white flex items-center justify-center" aria-hidden="true">
-      <span class="font-headline-h1 text-headline-h1 text-brand-orange">M</span>
+    <div class="hero-logo-in w-32 h-32 md:w-40 md:h-40 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-white flex items-center justify-center" aria-hidden="true">
+      <span class="font-headline-h1 text-headline-h1 text-naranja">M</span>
     </div>
 
     <div class="flex flex-col gap-sm items-center md:items-start">
-      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-white bg-brand-blue uppercase px-sm py-1 rounded">
+      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-white bg-azul-primario uppercase px-sm py-1 rounded">
         Textiles artesanales
       </span>
-      <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-brand-blue">
+      <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario">
         Mombé
       </h1>
-      <p class="hero-fade-up hero-fade-up-3 font-body-main text-body-main text-text-strong opacity-80 max-w-xl">
+      <p class="hero-fade-up hero-fade-up-3 font-body-main text-body-main text-texto-fuerte opacity-80 max-w-xl">
         Textiles artesanales. Este proyecto está en desarrollo: hoy estamos en el paso 1, el diagnóstico.
       </p>
     </div>
@@ -282,14 +276,14 @@
   <!-- ============================== -->
   <!-- LOS 3 PASOS DE ESTE PROYECTO   -->
   <!-- ============================== -->
-  <section class="py-lg md:py-xl bg-white border-y border-brand-border">
+  <section class="py-lg md:py-xl bg-white border-y border-gris-claro">
     <div class="max-w-container-max mx-auto px-sm md:px-lg flex flex-col gap-lg">
 
       <div class="text-center max-w-2xl mx-auto">
-        <h2 class="font-headline-h2 text-headline-h2 text-brand-blue mb-sm">
+        <h2 class="font-headline-h2 text-headline-h2 text-azul-primario mb-sm">
           En qué paso estamos
         </h2>
-        <p class="font-body-main text-body-main text-text-strong opacity-80">
+        <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
           El mismo proceso que uso con cada negocio, aplicado a Mombé. Voy actualizando esta página a medida que avanzamos.
         </p>
       </div>
@@ -297,42 +291,42 @@
       <div class="process-grid grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
         <!-- Línea de fondo punteada (camino que falta) + tramo naranja ya recorrido hasta el paso 1. Solo en desktop -->
-        <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] border-t border-dashed border-brand-border z-0"></div>
-        <div class="process-line-done hidden md:block absolute top-[24px] left-[15%] w-[18%] h-px bg-brand-orange z-0"></div>
+        <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] border-t border-dashed border-gris-claro z-0"></div>
+        <div class="process-line-done hidden md:block absolute top-[24px] left-[15%] w-[18%] h-px bg-naranja z-0"></div>
 
         <!-- Paso 1: el actual -->
         <div class="process-step process-step-1 is-current flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-brand-orange border border-brand-orange flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">1</div>
-          <span class="font-label-cta text-label-cta text-brand-orange border border-brand-orange inline-flex items-center gap-1 px-sm py-1 rounded-lg">
-            <span class="material-symbols-outlined text-base">construction</span>
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">1</div>
+          <span class="font-label-cta text-label-cta text-naranja border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
+            <span class="ti ti-tools text-base" aria-hidden="true"></span>
             Estamos acá
           </span>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diagnóstico</h3>
-          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+          <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
+          <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             Estamos conociendo el negocio: qué hace Mombé, a quién le vende, como trabaja y cómo la encuentran hoy sus clientes, para definir qué necesita su presencia digital.
           </p>
         </div>
 
         <!-- Paso 2: pendiente -->
         <div class="process-step process-step-2 is-pending flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">2</div>
-          <span class="font-label-cta text-label-cta text-text-strong inline-flex items-center gap-1 px-sm py-1">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">2</div>
+          <span class="font-label-cta text-label-cta text-texto-fuerte inline-flex items-center gap-1 px-sm py-1">
             Próximamente
           </span>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Diseño y Estrategia</h3>
-          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+          <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diseño y Estrategia</h3>
+          <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             Con lo que salga del diagnóstico, armamos la propuesta de diseño y contenido.
           </p>
         </div>
 
         <!-- Paso 3: pendiente -->
         <div class="process-step process-step-3 is-pending flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-brand-border flex items-center justify-center text-brand-orange font-headline-h3 text-headline-h3 mb-2">3</div>
-          <span class="font-label-cta text-label-cta text-text-strong inline-flex items-center gap-1 px-sm py-1">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">3</div>
+          <span class="font-label-cta text-label-cta text-texto-fuerte inline-flex items-center gap-1 px-sm py-1">
             Próximamente
           </span>
-          <h3 class="font-headline-h3 text-headline-h3 text-brand-blue">Resultados</h3>
-          <p class="font-body-main text-body-main text-text-strong opacity-80 px-4">
+          <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Resultados</h3>
+          <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             La web de Mombé publicada y lista para que sus clientes la encuentren.
           </p>
         </div>
@@ -346,16 +340,16 @@
   <!-- ============================== -->
   <!-- Todavía no hay sitio para visitar, así que el CTA final invita directamente a la demo por WhatsApp -->
   <section id="cta-final" class="cta-final py-lg md:py-xl max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
-    <h2 class="font-headline-h2 text-headline-h2 text-brand-blue">
+    <h2 class="font-headline-h2 text-headline-h2 text-azul-primario">
       ¿Querés que tu negocio sea el próximo?
     </h2>
-    <p class="font-body-main text-body-main text-text-strong opacity-80 max-w-lg">
+    <p class="font-body-main text-body-main text-texto-fuerte opacity-80 max-w-lg">
       Empezamos igual que con Mombé: con una demo gratuita para conocer tu negocio.
     </p>
     <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
       <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_final&utm_campaign=demo"
         target="_blank" rel="noopener noreferrer"
-        class="cta-shine font-label-cta text-label-cta text-white bg-brand-orange hover:bg-[#C66A2E] transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient">
+        class="cta-shine font-label-cta text-label-cta text-gris-neutro bg-naranja hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient">
         Quiero algo así para mi negocio
       </a>
     </div>
@@ -364,7 +358,7 @@
   <!-- ============================== -->
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
-  <footer class="bg-white border-t border-brand-border full-width">
+  <footer class="bg-white border-t border-gris-claro full-width">
     <div class="flex flex-col items-center w-full px-sm md:px-lg pt-lg pb-20 md:pb-lg max-w-container-max mx-auto gap-md">
 
       <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
@@ -372,24 +366,24 @@
           alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-8 w-auto object-contain">
 
         <div class="flex gap-md font-body-main text-body-main">
-          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-            <span class="material-symbols-outlined text-lg">photo_camera</span>
+          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+            <span class="ti ti-camera text-lg" aria-hidden="true"></span>
             <span class="text-sm">Instagram</span>
           </a>
-          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-            <span class="material-symbols-outlined text-lg">work</span>
+          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+            <span class="ti ti-briefcase text-lg" aria-hidden="true"></span>
             <span class="text-sm">LinkedIn</span>
           </a>
-          <a href="mailto:estudiosabrina.26@gmail.com" class="text-brand-blue hover:text-brand-secondary-blue transition-colors flex items-center gap-xs">
-            <span class="material-symbols-outlined text-lg">mail</span>
+          <a href="mailto:estudiosabrina.26@gmail.com" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+            <span class="ti ti-mail text-lg" aria-hidden="true"></span>
             <span class="text-sm">Email</span>
           </a>
         </div>
       </div>
 
-      <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-brand-blue text-center border-t border-brand-border w-full justify-center pt-md">
+      <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-azul-primario text-center border-t border-gris-claro w-full justify-center pt-md">
         <span>© 2026 Sabrina Sanso. Todos los derechos reservados.</span>
-        <a href="politica-de-privacidad.html" class="hover:text-brand-secondary-blue transition-colors underline">Política de Privacidad</a>
+        <a href="politica-de-privacidad.html" class="hover:text-azul-secundario transition-colors underline">Política de Privacidad</a>
       </div>
 
     </div>
@@ -424,7 +418,7 @@
     function closeMobileMenu() {
       mobileMenu.classList.add('hidden');
       mobileMenuButton.setAttribute('aria-expanded', 'false');
-      mobileMenuIcon.textContent = 'menu';
+      mobileMenuIcon.className = 'ti ti-menu-2';
     }
 
     mobileMenuButton.addEventListener('click', () => {
@@ -434,7 +428,7 @@
       } else {
         mobileMenu.classList.remove('hidden');
         mobileMenuButton.setAttribute('aria-expanded', 'true');
-        mobileMenuIcon.textContent = 'close';
+        mobileMenuIcon.className = 'ti ti-x';
       }
     });
 
