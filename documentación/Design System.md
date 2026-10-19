@@ -153,7 +153,7 @@ Revisado el 19 de octubre de 2026 (actualizado en la v1.36 del LEAN PRD).
 **Pendiente de aplicar:**
 
 1. **Sombras:** `shadow-media` ya está (v1.38), solo en lo clickeable. Falta `shadow-fuerte`, que el sitio todavía no necesita porque no tiene dropdowns ni modals.
-2. **Logo (v1.39):** los SVG están en `imagenes/` y el sitio usa `logotipo-horizontal-full-color.svg` en header y footer, y `favicon-web.svg` como favicon. Quedan en JPG a propósito `og:image`, `twitter:image` y el `logo` del JSON-LD, porque redes y buscadores no siempre aceptan SVG. Ojo: el texto "Sabri Studios" del SVG usa `Inter` / `Space Grotesk` / sans-serif, y en un `<img>` se ve con la fuente del sistema, no con Space Mono.
+2. **Logo:** resuelto en v1.49. Los SVG están en `imagenes/` y el sitio usa `logotipo-horizontal-full-color.svg` en header y footer, y `favicon-web.svg` como favicon (con `favicon-32.png` de respaldo). El texto "Sabri Studios" de los logotipos está convertido a trazados en Space Mono, así que se ve igual en todos los dispositivos. Quedan en JPG a propósito `og:image`, `twitter:image` y el `logo` del JSON-LD, porque redes y buscadores no siempre aceptan SVG.
 
 **Resuelto en v1.37:**
 
