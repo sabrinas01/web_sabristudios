@@ -147,6 +147,7 @@ Revisado el 19 de octubre de 2026 (actualizado en la v1.36 del LEAN PRD).
 - **Tipografía:** resuelta. El design system manda: todo en Space Mono. El sitio ya cumple (`tailwind.config.js` y las 6 páginas cargan solo Space Mono). La mención anterior de Space Grotesk en el LEAN PRD estaba desactualizada y se corrigió.
 - **Pesos:** resuelto en v1.35. El sistema admite solo 400 y 500, nunca 700 o más; el sitio ya no usa `font-bold` ni `font-semibold` y carga `wght@400;500`.
 - **Botones y naranja de hover:** resuelto en v1.36. `naranja-hover` vale `#C66A2E`, el botón primario lleva texto `gris-neutro` y el secundario fondo `gris-neutro`, borde de 1px y hover `gris-claro`.
+- **Links de texto (v1.43):** el sistema los define en `naranja`, pero con 2.79:1 no pasan para texto chico. El sitio usa `azul-primario` subrayado, con hover `azul-secundario`. El `naranja` queda para texto de 24px o más, rellenos e íconos.
 - **Contraste del naranja:** el botón primario (texto `gris-neutro` sobre `naranja`) no llega a 4.5:1. Es valor de marca, pero conviene saberlo para el texto chico.
 
 **Pendiente de aplicar:**

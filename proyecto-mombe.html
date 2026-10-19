@@ -26,7 +26,7 @@
   <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
 
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
-  <link rel="icon" type="image/jpeg" href="imagenes/FAVICON%20WEB.jpg">
+  <link rel="icon" type="image/png" sizes="32x32" href="imagenes/favicon-32.png">
   <link rel="apple-touch-icon" href="imagenes/apple-touch-icon.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#1E3A5F">
@@ -215,7 +215,7 @@
   </style>
 </head>
 
-<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-white">
+<body class="font-body-main antialiased bg-gris-neutro selection:bg-naranja selection:text-gris-neutro">
 
   <!-- ============================== -->
   <!-- BARRA DE NAVEGACIÓN (arriba)   -->
@@ -235,17 +235,20 @@
         <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-2 rounded">Preguntas</a>
       </div>
 
-      <button id="mobile-menu-button" class="md:hidden p-2 text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
+      <div class="flex items-center gap-xs md:hidden">
+      <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_nav&utm_campaign=demo" target="_blank" rel="noopener noreferrer" class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-label-cta text-label-cta font-medium px-sm min-h-[44px] inline-flex items-center rounded-lg transition-colors duration-200">Reservá tu demo</a>
+      <button id="mobile-menu-button" class="md:hidden p-[10px] text-azul-primario hover:bg-surface-container-low rounded transition-colors duration-200" aria-expanded="false" aria-controls="mobile-menu" aria-label="Abrir menú">
         <span id="mobile-menu-icon" class="ti ti-menu-2" aria-hidden="true"></span>
       </button>
+      </div>
 
     </div>
 
     <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant bg-white">
-      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proyectos</a>
-      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Proceso</a>
-      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Sobre Mí</a>
-      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-3 block">Preguntas</a>
+      <a href="index.html#proyectos" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proyectos</a>
+      <a href="index.html#proceso" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Proceso</a>
+      <a href="index.html#sobre-mi" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Sobre Mí</a>
+      <a href="index.html#preguntas-frecuentes" class="font-label-cta text-label-cta text-primary hover:text-azul-secundario hover:bg-surface-container-low transition-all duration-200 px-sm py-[15px] block">Preguntas</a>
     </div>
   </nav>
 
@@ -270,8 +273,8 @@
     </div>
 
     <div class="flex flex-col gap-sm items-center md:items-start">
-      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-white bg-azul-primario uppercase px-sm py-1 rounded">
-        Textiles artesanales
+      <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-gris-neutro bg-azul-primario uppercase px-sm py-1 rounded">
+        Textiles artesanales · En desarrollo
       </span>
       <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario">
         Mombé
@@ -306,14 +309,14 @@
 
         <!-- Paso 1: el actual -->
         <div class="process-step process-step-1 is-current flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-white font-headline-h3 text-headline-h3 mb-2">1</div>
-          <span class="font-label-cta text-label-cta text-naranja border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">1</div>
+          <span class="font-label-cta text-label-cta text-azul-primario border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
             <span class="ti ti-tools text-base" aria-hidden="true"></span>
             Estamos acá
           </span>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            Estamos conociendo el negocio: qué hace Mombé, a quién le vende, como trabaja y cómo la encuentran hoy sus clientes, para definir qué necesita su presencia digital.
+            Estamos conociendo el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes, para definir qué necesita su presencia digital.
           </p>
         </div>
 
@@ -503,7 +506,7 @@
     document.querySelectorAll('a[href^="https://wa.me/"]').forEach((link) => {
       link.addEventListener('click', () => {
         const sectionId = (link.closest('section[id]') || {}).id;
-        const whatsappSource = sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating';
+        const whatsappSource = link.closest('nav') ? 'nav' : (sectionId ? (whatsappSourceMap[sectionId] || sectionId) : 'floating');
         if (typeof gtag === 'function') {
           gtag('event', 'whatsapp_click', {
             whatsapp_source: whatsappSource,
