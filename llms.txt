@@ -20,3 +20,4 @@ Sabri Studios es un servicio unipersonal fundado y operado por Sabrina Sanso, or
 ## Páginas
 
 - [Sitio principal](https://web-sabristudios.vercel.app/): propuesta de valor, proceso de trabajo, proyectos realizados, preguntas frecuentes y contacto.
+- [Cómo aparecer en Google Maps con tu negocio en San Juan](https://web-sabristudios.vercel.app/guia-aparecer-en-google-maps.html): guía paso a paso para crear y verificar el Perfil de Negocio de Google, qué datos cargar y qué errores evitar.

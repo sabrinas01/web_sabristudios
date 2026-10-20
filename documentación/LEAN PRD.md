@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.55
+**Versión:** 1.56
 
 **Fecha:** Octubre 2026
 
@@ -1517,6 +1517,21 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió corregir el punto 1 de la revisión de GA4 y actualizar el PRD.
 
+### v1.56 — 20 de octubre de 2026
+
+**Qué hice:** Sumé la primera página de contenido del sitio, `guia-aparecer-en-google-maps.html`, para aparecer en las búsquedas de IA y de Google.
+
+**Detalle del cambio:**
+
+- **Página nueva:** "Cómo aparecer en Google Maps con tu negocio en San Juan". Arranca con una respuesta corta (así una IA o Google pueden citarla directo), explica los 3 factores que usa Google para ordenar resultados locales (relevancia, distancia y prominencia), da 8 pasos para crear y verificar el Perfil de Negocio, lista errores comunes, explica si hace falta una web además del perfil y cierra con 4 preguntas frecuentes y el CTA de WhatsApp.
+- **Datos estructurados:** un solo bloque JSON-LD con `Article` (autora Sabrina Sanso, con su LinkedIn e Instagram), `FAQPage` y `BreadcrumbList`.
+- **Sin inventar nada:** no puse precios, plazos garantizados ni números de resultados. Donde hay incertidumbre (cuánto tarda en aparecer) lo digo así: nadie puede garantizar una posición.
+- **Conexiones:** link "Guía: aparecer en Google Maps" en el footer de `index.html`, la página sumada a `sitemap.xml` (prioridad 0.8) y a `llms.txt`.
+- **Misma base que las páginas de proyecto:** barra de navegación, footer, botón flotante de WhatsApp, consentimiento de cookies, Clarity/GA4 y el mismo evento `whatsapp_click` con `traffic_source`. El texto usa los tokens de color del Design System y el link del texto toma `naranja-texto` al pasar el mouse.
+- Corrí `npm run build` y revisé la página en local: sin scroll horizontal y sin errores propios en consola (los 404 de `/api/region` y `/_vercel/insights` son esperables fuera de Vercel).
+
+**Por qué lo hice:** Sabrina preguntó cómo aparecer en las búsquedas de IA. Con una sola página el sitio tenía poco contenido que citar; esta guía responde una pregunta concreta que hacen los negocios locales y es el primer paso de un contenido que pueda crecer.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1580,3 +1595,4 @@ Antes de publicar cambios:
 | 1.53 | 19 de octubre de 2026 | Sabri Studios | Botón "Reservá tu demo" de la barra sin partirse en dos líneas en celulares angostos (12 px y logo de 36 px por debajo de 360 px) |
 | 1.54 | 19 de octubre de 2026 | Sabri Studios | Nuevo token `naranja-texto` (`#B05218`, 4.66:1 sobre `gris-neutro`) para texto chico en naranja sobre fondo claro: link del aviso de cookies y hover de los links de volver |
 | 1.55 | 20 de octubre de 2026 | Sabri Studios | Fuente de tráfico: un `utm_source` nuevo en la URL pisa el valor guardado en la pestaña, y los referrers de Gmail ya no cuentan como `google_organic` (6 páginas) |
+| 1.56 | 20 de octubre de 2026 | Sabri Studios | Nueva página de contenido `guia-aparecer-en-google-maps.html` (Article + FAQPage + BreadcrumbList), con link en el footer, sitemap y `llms.txt` |
