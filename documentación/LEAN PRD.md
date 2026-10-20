@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.54
+**Versión:** 1.58
 
 **Fecha:** Octubre 2026
 
@@ -1499,6 +1499,66 @@ Antes de publicar cambios:
 **Por qué lo hice:** Sabrina pidió sumar ese token y usarlo en el texto naranja chico sobre fondo claro.
 
 ---
+
+### v1.55 — 20 de octubre de 2026
+
+**Qué hice:** Corregí la fuente de tráfico (`traffic_source`) en las 6 páginas HTML, a partir de una revisión de GA4 hecha sobre el sitio publicado.
+
+**Detalle del cambio:**
+
+- **Problema:** el valor se guardaba en `sessionStorage` la primera vez y nunca se pisaba. Si la persona ya tenía una visita guardada en la pestaña (por ejemplo `direct`) y entraba de nuevo con un link con `?utm_source=...`, los eventos salían con el valor viejo. Lo reproduje en producción: entré a `?utm_source=revision_ga4` y el evento mandó `direct`.
+- **Arreglo:** si la URL trae `utm_source`, ese valor manda y se vuelve a guardar. Si no lo trae, se mantiene el valor guardado (así una visita que pasa de la landing a un proyecto conserva su fuente original); y si no hay ninguno, se detecta por el `referrer`, como antes.
+- **Gmail:** el chequeo de `google_organic` aceptaba cualquier subdominio de Google, por lo que un clic desde un mail en Gmail (`mail.google.com`) se contaba como búsqueda orgánica. Ahora solo cuenta `google.*` (con o sin `www`); Gmail queda como `referral_mail.google.com`.
+- **Dónde:** `index.html`, las 4 páginas de proyecto y `politica-de-privacidad.html` (el mismo bloque estaba repetido en las seis).
+- Probé la lógica aislada: primera visita `direct`, luego `?utm_source=instagram` pasa a `instagram`, y una navegación posterior sin UTM mantiene `instagram`. `google.com` y `google.com.ar` dan `google_organic`, `l.instagram.com` da `instagram` y `mail.google.com` da `referral_mail.google.com`. Sin clases nuevas, así que no hizo falta `npm run build`.
+- **Quedó sin tocar de la revisión:** `scroll_proceso` y `section_view` de `proceso` miden lo mismo; y el consentimiento por defecto no tiene `wait_for_update`, de baja prioridad porque el público es de Argentina. Siguen pendientes en el panel de GA4 el registro de las dimensiones personalizadas y marcar solo `generate_lead` como evento clave (ver v1.30).
+- **Ojo con esto:** la revisión mandó dos visitas de prueba al GA de producción (una con `utm_source=revision_ga4`); pueden aparecer en Adquisición.
+
+**Por qué lo hice:** Sabrina pidió corregir el punto 1 de la revisión de GA4 y actualizar el PRD.
+
+### v1.56 — 20 de octubre de 2026
+
+**Qué hice:** Sumé la primera página de contenido del sitio, `guia-aparecer-en-google-maps.html`, para aparecer en las búsquedas de IA y de Google.
+
+**Detalle del cambio:**
+
+- **Página nueva:** "Cómo aparecer en Google Maps con tu negocio en San Juan". Arranca con una respuesta corta (así una IA o Google pueden citarla directo), explica los 3 factores que usa Google para ordenar resultados locales (relevancia, distancia y prominencia), da 8 pasos para crear y verificar el Perfil de Negocio, lista errores comunes, explica si hace falta una web además del perfil y cierra con 4 preguntas frecuentes y el CTA de WhatsApp.
+- **Datos estructurados:** un solo bloque JSON-LD con `Article` (autora Sabrina Sanso, con su LinkedIn e Instagram), `FAQPage` y `BreadcrumbList`.
+- **Sin inventar nada:** no puse precios, plazos garantizados ni números de resultados. Donde hay incertidumbre (cuánto tarda en aparecer) lo digo así: nadie puede garantizar una posición.
+- **Conexiones:** link "Guía: aparecer en Google Maps" en el footer de `index.html`, la página sumada a `sitemap.xml` (prioridad 0.8) y a `llms.txt`.
+- **Misma base que las páginas de proyecto:** barra de navegación, footer, botón flotante de WhatsApp, consentimiento de cookies, Clarity/GA4 y el mismo evento `whatsapp_click` con `traffic_source`. El texto usa los tokens de color del Design System y el link del texto toma `naranja-texto` al pasar el mouse.
+- Corrí `npm run build` y revisé la página en local: sin scroll horizontal y sin errores propios en consola (los 404 de `/api/region` y `/_vercel/insights` son esperables fuera de Vercel).
+
+**Por qué lo hice:** Sabrina preguntó cómo aparecer en las búsquedas de IA. Con una sola página el sitio tenía poco contenido que citar; esta guía responde una pregunta concreta que hacen los negocios locales y es el primer paso de un contenido que pueda crecer.
+
+### v1.57 — 20 de octubre de 2026
+
+**Qué hice:** Alineé el logo de la barra de navegación con el borde izquierdo del contenido (7 páginas).
+
+**Detalle del cambio:**
+
+- **Problema:** el archivo SVG del logo tiene un margen interno a la izquierda, así que el pin quedaba unos 20 px más adentro que el texto de abajo ("EL COSTO DE LA INVISIBILIDAD").
+- **Arreglo:** margen izquierdo negativo en la imagen del logo del header, con un valor por tamaño: `-ml-[11.1px]` (logo de 36 px), `min-[360px]:-ml-[12.4px]` (40 px) y `md:-ml-[19.8px]` (64 px). Los valores salen de medir el logo ya renderizado.
+- **`shrink-0`:** lo agregué al link y a la imagen del logo, porque el link es un elemento flex y se achicaba, y eso cambiaba cuánto había que correrlo.
+- **Dónde:** `index.html`, la guía nueva, la política de privacidad y las 4 páginas de proyecto. El logo del footer no se tocó (en celular va centrado).
+- Corrí `npm run build` (son clases arbitrarias nuevas). Medí el borde izquierdo del pin contra el del texto: 32,3 px contra 32 px en escritorio y 14,4 px contra 16 px en celular de 375 px, sin scroll horizontal.
+
+**Por qué lo hice:** Sabrina pidió que el logo quedara a la altura de "EL COSTO DE LA INVISIBILIDAD".
+
+### v1.58 — 20 de octubre de 2026
+
+**Qué hice:** Verifiqué la guía de Google Maps contra la documentación oficial de Google, corregí lo que no estaba respaldado y agregué una sección "Fuentes".
+
+**Detalle del cambio:**
+
+- **Cómo se verificó:** la primera versión la escribí con conocimiento general, sin citar fuentes. Después contrasté cada afirmación con 7 páginas de ayuda de Google Business Profile (ranking local, pautas de representación, verificación, reclamar perfil, área de servicio, reseñas y la página del producto).
+- **Corregido:** la prominencia incluye los enlaces desde otros sitios web (no "lo que se encuentra en internet"); la descripción no admite links, promociones ni precios (antes decía "teléfonos"); el área de servicio se define con ciudades o zonas, hasta 20, sin radio; la carta postal tarda unos 14 días y el código vence a los 30; reseñas incentivadas están prohibidas.
+- **Sacado por no tener respaldo:** "Google verifica mejor el negocio si hay web", "el negocio se encuentra por su nombre en poco tiempo", "el perfil queda incompleto hasta verificar" y "comprar reseñas te cuesta el perfil".
+- **Fuentes:** sección nueva al final de la guía con los 7 links oficiales y la fecha de revisión. Las preguntas frecuentes del JSON-LD quedaron iguales al texto visible.
+
+**Por qué lo hice:** Sabrina preguntó si la información de la guía estaba chequeada y de dónde salía.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1560,3 +1620,7 @@ Antes de publicar cambios:
 | 1.52 | 19 de octubre de 2026 | Sabri Studios | En celular, la etiqueta de rubro de las tarjetas de Proyectos ocupa todo el ancho y ya no tapa el logo (en el flujo normal, y en la esquina solo desde `md`) |
 | 1.53 | 19 de octubre de 2026 | Sabri Studios | Botón "Reservá tu demo" de la barra sin partirse en dos líneas en celulares angostos (12 px y logo de 36 px por debajo de 360 px) |
 | 1.54 | 19 de octubre de 2026 | Sabri Studios | Nuevo token `naranja-texto` (`#B05218`, 4.66:1 sobre `gris-neutro`) para texto chico en naranja sobre fondo claro: link del aviso de cookies y hover de los links de volver |
+| 1.55 | 20 de octubre de 2026 | Sabri Studios | Fuente de tráfico: un `utm_source` nuevo en la URL pisa el valor guardado en la pestaña, y los referrers de Gmail ya no cuentan como `google_organic` (6 páginas) |
+| 1.56 | 20 de octubre de 2026 | Sabri Studios | Nueva página de contenido `guia-aparecer-en-google-maps.html` (Article + FAQPage + BreadcrumbList), con link en el footer, sitemap y `llms.txt` |
+| 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
+| 1.58 | 20 de octubre de 2026 | Sabri Studios | Guía de Google Maps verificada contra la documentación oficial de Google: correcciones, afirmaciones sin respaldo eliminadas y sección "Fuentes" |

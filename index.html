@@ -347,9 +347,9 @@
     <div class="flex justify-between items-center w-full px-sm md:px-lg py-4 max-w-container-max mx-auto">
 
       <!-- Este es el logo, lo uso como link al inicio de la página -->
-      <a href="#" class="text-headline-h3 font-headline-h3 font-medium text-primary tracking-tight">
+      <a href="#" class="shrink-0 text-headline-h3 font-headline-h3 font-medium text-primary tracking-tight">
         <img src="imagenes/logotipo-horizontal-full-color.svg" width="480" height="160"
-          alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-9 min-[360px]:h-10 md:h-16 w-auto object-contain">
+          alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-9 min-[360px]:h-10 md:h-16 w-auto shrink-0 object-contain -ml-[11.1px] min-[360px]:-ml-[12.4px] md:-ml-[19.8px]">
       </a>
 
       <!-- Estos son los links de navegación: los oculto en mobile y los muestro desde pantallas medianas con md:flex -->
@@ -977,6 +977,7 @@
       <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-azul-primario text-center border-t border-gris-claro w-full justify-center pt-md">
         <span>© 2026 Sabrina Sanso. Todos los derechos reservados.</span>
         <a href="politica-de-privacidad.html" class="hover:text-azul-secundario transition-colors underline">Política de Privacidad</a>
+        <a href="guia-aparecer-en-google-maps.html" class="hover:text-azul-secundario transition-colors underline">Guía: aparecer en Google Maps</a>
       </div>
 
     </div>
@@ -1078,7 +1079,7 @@
       if (!referrer) return 'direct';
       try {
         const hostname = new URL(referrer).hostname.replace(/^www\./, '');
-        if (/(^|\.)google\./.test(hostname)) return 'google_organic';
+        if (/^google\./.test(hostname)) return 'google_organic';
         if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
         return `referral_${hostname}`;
       } catch (e) {
@@ -1092,11 +1093,10 @@
     // privado a veces bloquean sessionStorage y tiran error, lo que cortaba el resto del script.
     let fuenteTrafico;
     try {
-      fuenteTrafico = sessionStorage.getItem('traffic_source');
-      if (!fuenteTrafico) {
-        fuenteTrafico = detectarFuenteTrafico();
-        sessionStorage.setItem('traffic_source', fuenteTrafico);
-      }
+      // Si el link trae utm_source, ese valor manda aunque la pestaña ya tenga uno guardado
+      const utmNuevo = new URLSearchParams(window.location.search).get('utm_source');
+      fuenteTrafico = utmNuevo || sessionStorage.getItem('traffic_source') || detectarFuenteTrafico();
+      sessionStorage.setItem('traffic_source', fuenteTrafico);
     } catch (e) {
       fuenteTrafico = fuenteTrafico || detectarFuenteTrafico();
     }
