@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.57
+**Versión:** 1.58
 
 **Fecha:** Octubre 2026
 
@@ -1546,6 +1546,19 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió que el logo quedara a la altura de "EL COSTO DE LA INVISIBILIDAD".
 
+### v1.58 — 20 de octubre de 2026
+
+**Qué hice:** Verifiqué la guía de Google Maps contra la documentación oficial de Google, corregí lo que no estaba respaldado y agregué una sección "Fuentes".
+
+**Detalle del cambio:**
+
+- **Cómo se verificó:** la primera versión la escribí con conocimiento general, sin citar fuentes. Después contrasté cada afirmación con 7 páginas de ayuda de Google Business Profile (ranking local, pautas de representación, verificación, reclamar perfil, área de servicio, reseñas y la página del producto).
+- **Corregido:** la prominencia incluye los enlaces desde otros sitios web (no "lo que se encuentra en internet"); la descripción no admite links, promociones ni precios (antes decía "teléfonos"); el área de servicio se define con ciudades o zonas, hasta 20, sin radio; la carta postal tarda unos 14 días y el código vence a los 30; reseñas incentivadas están prohibidas.
+- **Sacado por no tener respaldo:** "Google verifica mejor el negocio si hay web", "el negocio se encuentra por su nombre en poco tiempo", "el perfil queda incompleto hasta verificar" y "comprar reseñas te cuesta el perfil".
+- **Fuentes:** sección nueva al final de la guía con los 7 links oficiales y la fecha de revisión. Las preguntas frecuentes del JSON-LD quedaron iguales al texto visible.
+
+**Por qué lo hice:** Sabrina preguntó si la información de la guía estaba chequeada y de dónde salía.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1611,3 +1624,4 @@ Antes de publicar cambios:
 | 1.55 | 20 de octubre de 2026 | Sabri Studios | Fuente de tráfico: un `utm_source` nuevo en la URL pisa el valor guardado en la pestaña, y los referrers de Gmail ya no cuentan como `google_organic` (6 páginas) |
 | 1.56 | 20 de octubre de 2026 | Sabri Studios | Nueva página de contenido `guia-aparecer-en-google-maps.html` (Article + FAQPage + BreadcrumbList), con link en el footer, sitemap y `llms.txt` |
 | 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
+| 1.58 | 20 de octubre de 2026 | Sabri Studios | Guía de Google Maps verificada contra la documentación oficial de Google: correcciones, afirmaciones sin respaldo eliminadas y sección "Fuentes" |
