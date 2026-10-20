@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.54
+**Versión:** 1.55
 
 **Fecha:** Octubre 2026
 
@@ -1500,6 +1500,24 @@ Antes de publicar cambios:
 **Por qué lo hice:** Sabrina pidió sumar ese token y usarlo en el texto naranja chico sobre fondo claro.
 
 ---
+
+### v1.55 — 20 de octubre de 2026
+
+**Qué hice:** Corregí la fuente de tráfico (`traffic_source`) en las 6 páginas HTML, a partir de una revisión de GA4 hecha sobre el sitio publicado.
+
+**Detalle del cambio:**
+
+- **Problema:** el valor se guardaba en `sessionStorage` la primera vez y nunca se pisaba. Si la persona ya tenía una visita guardada en la pestaña (por ejemplo `direct`) y entraba de nuevo con un link con `?utm_source=...`, los eventos salían con el valor viejo. Lo reproduje en producción: entré a `?utm_source=revision_ga4` y el evento mandó `direct`.
+- **Arreglo:** si la URL trae `utm_source`, ese valor manda y se vuelve a guardar. Si no lo trae, se mantiene el valor guardado (así una visita que pasa de la landing a un proyecto conserva su fuente original); y si no hay ninguno, se detecta por el `referrer`, como antes.
+- **Gmail:** el chequeo de `google_organic` aceptaba cualquier subdominio de Google, por lo que un clic desde un mail en Gmail (`mail.google.com`) se contaba como búsqueda orgánica. Ahora solo cuenta `google.*` (con o sin `www`); Gmail queda como `referral_mail.google.com`.
+- **Dónde:** `index.html`, las 4 páginas de proyecto y `politica-de-privacidad.html` (el mismo bloque estaba repetido en las seis).
+- Probé la lógica aislada: primera visita `direct`, luego `?utm_source=instagram` pasa a `instagram`, y una navegación posterior sin UTM mantiene `instagram`. `google.com` y `google.com.ar` dan `google_organic`, `l.instagram.com` da `instagram` y `mail.google.com` da `referral_mail.google.com`. Sin clases nuevas, así que no hizo falta `npm run build`.
+- **Quedó sin tocar de la revisión:** `scroll_proceso` y `section_view` de `proceso` miden lo mismo; y el consentimiento por defecto no tiene `wait_for_update`, de baja prioridad porque el público es de Argentina. Siguen pendientes en el panel de GA4 el registro de las dimensiones personalizadas y marcar solo `generate_lead` como evento clave (ver v1.30).
+- **Ojo con esto:** la revisión mandó dos visitas de prueba al GA de producción (una con `utm_source=revision_ga4`); pueden aparecer en Adquisición.
+
+**Por qué lo hice:** Sabrina pidió corregir el punto 1 de la revisión de GA4 y actualizar el PRD.
+
+---
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1561,3 +1579,4 @@ Antes de publicar cambios:
 | 1.52 | 19 de octubre de 2026 | Sabri Studios | En celular, la etiqueta de rubro de las tarjetas de Proyectos ocupa todo el ancho y ya no tapa el logo (en el flujo normal, y en la esquina solo desde `md`) |
 | 1.53 | 19 de octubre de 2026 | Sabri Studios | Botón "Reservá tu demo" de la barra sin partirse en dos líneas en celulares angostos (12 px y logo de 36 px por debajo de 360 px) |
 | 1.54 | 19 de octubre de 2026 | Sabri Studios | Nuevo token `naranja-texto` (`#B05218`, 4.66:1 sobre `gris-neutro`) para texto chico en naranja sobre fondo claro: link del aviso de cookies y hover de los links de volver |
+| 1.55 | 20 de octubre de 2026 | Sabri Studios | Fuente de tráfico: un `utm_source` nuevo en la URL pisa el valor guardado en la pestaña, y los referrers de Gmail ya no cuentan como `google_organic` (6 páginas) |

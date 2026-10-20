@@ -491,7 +491,7 @@
       if (!referrer) return 'direct';
       try {
         const hostname = new URL(referrer).hostname.replace(/^www\./, '');
-        if (/(^|\.)google\./.test(hostname)) return 'google_organic';
+        if (/^google\./.test(hostname)) return 'google_organic';
         if (/(^|\.)instagram\.com$/.test(hostname)) return 'instagram';
         return `referral_${hostname}`;
       } catch (e) {
@@ -502,11 +502,10 @@
     // try/catch: los navegadores internos de redes sociales a veces bloquean sessionStorage
     let fuenteTrafico;
     try {
-      fuenteTrafico = sessionStorage.getItem('traffic_source');
-      if (!fuenteTrafico) {
-        fuenteTrafico = detectarFuenteTrafico();
-        sessionStorage.setItem('traffic_source', fuenteTrafico);
-      }
+      // Si el link trae utm_source, ese valor manda aunque la pestaña ya tenga uno guardado
+      const utmNuevo = new URLSearchParams(window.location.search).get('utm_source');
+      fuenteTrafico = utmNuevo || sessionStorage.getItem('traffic_source') || detectarFuenteTrafico();
+      sessionStorage.setItem('traffic_source', fuenteTrafico);
     } catch (e) {
       fuenteTrafico = fuenteTrafico || detectarFuenteTrafico();
     }
