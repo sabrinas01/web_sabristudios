@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.56
+**Versión:** 1.57
 
 **Fecha:** Octubre 2026
 
@@ -1532,6 +1532,20 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina preguntó cómo aparecer en las búsquedas de IA. Con una sola página el sitio tenía poco contenido que citar; esta guía responde una pregunta concreta que hacen los negocios locales y es el primer paso de un contenido que pueda crecer.
 
+### v1.57 — 20 de octubre de 2026
+
+**Qué hice:** Alineé el logo de la barra de navegación con el borde izquierdo del contenido (7 páginas).
+
+**Detalle del cambio:**
+
+- **Problema:** el archivo SVG del logo tiene un margen interno a la izquierda, así que el pin quedaba unos 20 px más adentro que el texto de abajo ("EL COSTO DE LA INVISIBILIDAD").
+- **Arreglo:** margen izquierdo negativo en la imagen del logo del header, con un valor por tamaño: `-ml-[11.1px]` (logo de 36 px), `min-[360px]:-ml-[12.4px]` (40 px) y `md:-ml-[19.8px]` (64 px). Los valores salen de medir el logo ya renderizado.
+- **`shrink-0`:** lo agregué al link y a la imagen del logo, porque el link es un elemento flex y se achicaba, y eso cambiaba cuánto había que correrlo.
+- **Dónde:** `index.html`, la guía nueva, la política de privacidad y las 4 páginas de proyecto. El logo del footer no se tocó (en celular va centrado).
+- Corrí `npm run build` (son clases arbitrarias nuevas). Medí el borde izquierdo del pin contra el del texto: 32,3 px contra 32 px en escritorio y 14,4 px contra 16 px en celular de 375 px, sin scroll horizontal.
+
+**Por qué lo hice:** Sabrina pidió que el logo quedara a la altura de "EL COSTO DE LA INVISIBILIDAD".
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1596,3 +1610,4 @@ Antes de publicar cambios:
 | 1.54 | 19 de octubre de 2026 | Sabri Studios | Nuevo token `naranja-texto` (`#B05218`, 4.66:1 sobre `gris-neutro`) para texto chico en naranja sobre fondo claro: link del aviso de cookies y hover de los links de volver |
 | 1.55 | 20 de octubre de 2026 | Sabri Studios | Fuente de tráfico: un `utm_source` nuevo en la URL pisa el valor guardado en la pestaña, y los referrers de Gmail ya no cuentan como `google_organic` (6 páginas) |
 | 1.56 | 20 de octubre de 2026 | Sabri Studios | Nueva página de contenido `guia-aparecer-en-google-maps.html` (Article + FAQPage + BreadcrumbList), con link en el footer, sitemap y `llms.txt` |
+| 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
