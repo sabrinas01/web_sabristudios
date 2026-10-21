@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.58
+**Versión:** 1.59
 
 **Fecha:** Octubre 2026
 
@@ -1559,6 +1559,20 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina preguntó si la información de la guía estaba chequeada y de dónde salía.
 
+### v1.59 — 21 de octubre de 2026
+
+**Qué hice:** Conecté la ficha de Google Maps ya publicada con la web: link de la ficha en los datos estructurados de `index.html` y en `llms.txt`.
+
+**Detalle del cambio:**
+
+- **Cómo se verificó la ficha:** abrí el link que pasó Sabrina (`share.google/...`) en el navegador y llegué al panel de "Sabri Studios" (categoría "Diseñador de sitios web"). Sus datos: teléfono 0264 585-4487 (coincide con el de la web), sitio web `https://web-sabristudios.vercel.app/`, perfiles de Facebook e Instagram, sin opiniones todavía.
+- **Link usado:** `https://www.google.com/maps?cid=12366024978632205242`. El CID sale del enlace de la ficha (`0xab9cf23336fae3ba` en hexadecimal; la conversión a decimal la comprobé) y abre la misma ficha en Google Maps.
+- **`index.html`:** `hasMap` y un segundo elemento en `sameAs` (junto al Instagram). Los 2 bloques JSON-LD se leen bien.
+- **`llms.txt`:** línea "Google Maps" en Contacto.
+- **Diferencias detectadas, sin cambiar nada:** la ficha muestra una dirección pública (RP215, Villa Aberastain) aunque Sabrina eligió atender solo en San Juan Capital y alrededores; muestra "cierra a las 7 p.m." y Sabrina había indicado 10 a 13 y 14 a 20; lista un perfil de Facebook. Quedaron a confirmar con Sabrina antes de agregar horarios o dirección a la web.
+
+**Por qué lo hice:** Sabrina avisó que la ficha ya está publicada y pasó el link.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1625,3 +1639,4 @@ Antes de publicar cambios:
 | 1.56 | 20 de octubre de 2026 | Sabri Studios | Nueva página de contenido `guia-aparecer-en-google-maps.html` (Article + FAQPage + BreadcrumbList), con link en el footer, sitemap y `llms.txt` |
 | 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
 | 1.58 | 20 de octubre de 2026 | Sabri Studios | Guía de Google Maps verificada contra la documentación oficial de Google: correcciones, afirmaciones sin respaldo eliminadas y sección "Fuentes" |
+| 1.59 | 21 de octubre de 2026 | Sabri Studios | Ficha de Google Maps conectada: `hasMap` y `sameAs` en el JSON-LD de `index.html` y línea en `llms.txt` |
