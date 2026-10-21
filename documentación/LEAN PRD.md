@@ -1569,7 +1569,8 @@ Antes de publicar cambios:
 - **Link usado:** `https://www.google.com/maps?cid=12366024978632205242`. El CID sale del enlace de la ficha (`0xab9cf23336fae3ba` en hexadecimal; la conversión a decimal la comprobé) y abre la misma ficha en Google Maps.
 - **`index.html`:** `hasMap` y un segundo elemento en `sameAs` (junto al Instagram). Los 2 bloques JSON-LD se leen bien.
 - **`llms.txt`:** línea "Google Maps" en Contacto.
-- **Diferencias detectadas, sin cambiar nada:** la ficha muestra una dirección pública (RP215, Villa Aberastain) aunque Sabrina eligió atender solo en San Juan Capital y alrededores; muestra "cierra a las 7 p.m." y Sabrina había indicado 10 a 13 y 14 a 20; lista un perfil de Facebook. Quedaron a confirmar con Sabrina antes de agregar horarios o dirección a la web.
+- **Diferencias detectadas y resueltas con Sabrina:** la ficha mostraba una dirección pública (RP215, Villa Aberastain) aunque Sabrina eligió atender solo en San Juan Capital y alrededores; Sabrina la ocultó en su panel y en el panel de Google ya no aparece la línea "Dirección". El horario real es de 10 a 19 (no de 10 a 13 y 14 a 20 como había dicho antes) y el panel muestra "cierra a las 7 p.m.", que coincide. El perfil de Facebook que figura en la ficha es de Sabrina. La web no publica horarios ni dirección, así que no hubo que cambiarla.
+- **Pendiente:** el link del Facebook de Sabrina para sumarlo a `sameAs` (el panel de Google no muestra la URL real).
 
 **Por qué lo hice:** Sabrina avisó que la ficha ya está publicada y pasó el link.
 
