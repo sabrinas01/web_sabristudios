@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.59
+**Versión:** 1.61
 
 **Fecha:** Octubre 2026
 
@@ -1574,6 +1574,35 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina avisó que la ficha ya está publicada y pasó el link.
 
+### v1.60 — 29 de octubre de 2026
+
+**Qué hice:** Agregué el link "Dejanos tu reseña" al footer de `index.html`, con el link de reseñas de la ficha de Google.
+
+**Detalle del cambio:**
+
+- **Link usado:** `https://g.page/r/Cbrj-jYz8pyrEBM/review`, que pasó Sabrina desde su panel de Google Business Profile. Lo comprobé: redirige a la solicitud de reseña de la ficha, con el mismo CID hexadecimal (`0xab9cf23336fae3ba`) que ya usa el `hasMap` de la v1.59.
+- **`index.html`:** cuarto link en la fila de redes del footer (junto a Instagram, LinkedIn y Email), con ícono de estrella, `target="_blank"` y `rel="noopener noreferrer"`. En celular los 4 links se apilan uno debajo del otro (`flex-col items-center`) porque en una fila se salían de la pantalla; desde `md` vuelven a quedar en fila.
+- **`src/input.css`:** ícono nuevo `ti-star` (Tabler, estilo outline) como máscara SVG, igual que el resto. Corrí `npm run build` y el ícono quedó en `dist/output.css`.
+- **Alcance:** solo la página principal. Las páginas de proyecto, la política y la guía no cambian.
+- **Pendiente:** probar el link en el navegador del sitio desplegado, ver el footer en móvil (4 links en una fila) y evaluar si conviene medir el clic como evento de GA4.
+
+**Por qué lo hice:** Sabrina ya tiene reseñas en la ficha y el pendiente de Notion pedía el botón con el link de reseñas en la web.
+
+### v1.61 — 29 de octubre de 2026
+
+**Qué hice:** Creé una imagen propia de 1200×630 para compartir el sitio en redes (`og:image`) y revisé el pendiente "CTA de contacto más visible en celular".
+
+**Detalle del cambio:**
+
+- **`imagenes/og-sabri-studios.png` (nuevo):** 1200×630 px, 35 KB. Fondo `azul-primario` (`#1E3A5F`), logotipo horizontal negativo (el del design system, con el texto en trazados), barra y frase en `naranja` (`#D97A3C`) y la frase "Páginas web para emprendedores y negocios de San Juan" en Space Mono. Lo armé en HTML con la fuente real y lo exporté con Edge sin interfaz.
+- **Por qué hacía falta:** la imagen anterior (`LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg`) mide 480×160, relación 3:1. Las redes piden alrededor de 1,91:1 (1200×630), así que la recortaban o la mostraban chica con bordes.
+- **`index.html`, `proyecto-mombe.html`, `politica-de-privacidad.html` y `guia-aparecer-en-google-maps.html`:** `og:image` y `twitter:image` apuntan a la imagen nueva. Se agregaron `og:image:width` (1200), `og:image:height` (630) y `og:image:alt`.
+- **No se tocó:** las páginas de AR Estética, JL Construcciones y Servicios AF siguen con el logo de cada cliente. El `logo` del JSON-LD sigue con el JPG, porque es el logo de la marca y no una vista previa.
+- **CTA en celular (sin cambios de código):** ya está resuelto desde la v1.42. El header en celular tiene el botón "Reservá tu demo" (`cta_nav`) junto al menú, y hay un botón flotante de WhatsApp. Los datos de Pulsar en que se basaba el pendiente son de la semana del 04/10, anteriores a ese botón. Falta medir con datos posteriores al 19/10.
+- **Pendiente:** compartir el link en WhatsApp e Instagram para ver la vista previa real (las redes guardan caché; el Depurador de Facebook permite reforzar la actualización). Los despliegues de develop siguen cancelados por "Require Verified Commits", así que la prueba depende de resolver eso o de publicar en master.
+
+**Por qué lo hice:** Casi todo el tráfico real llega desde Instagram y el link se comparte por chat, así que la vista previa es lo primero que ve la persona.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1641,3 +1670,5 @@ Antes de publicar cambios:
 | 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
 | 1.58 | 20 de octubre de 2026 | Sabri Studios | Guía de Google Maps verificada contra la documentación oficial de Google: correcciones, afirmaciones sin respaldo eliminadas y sección "Fuentes" |
 | 1.59 | 21 de octubre de 2026 | Sabri Studios | Ficha de Google Maps conectada: `hasMap` y `sameAs` en el JSON-LD de `index.html` y línea en `llms.txt` |
+| 1.60 | 29 de octubre de 2026 | Sabri Studios | Link "Dejanos tu reseña" en el footer de `index.html` con el link de reseñas de la ficha de Google; ícono `ti-star` |
+| 1.61 | 29 de octubre de 2026 | Sabri Studios | Imagen propia de 1200×630 para compartir en redes (`og:image` y `twitter:image` en 4 páginas) y revisión del CTA en celular (ya resuelto en v1.42) |
