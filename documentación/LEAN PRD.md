@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.67
+**Versión:** 1.68
 
 **Fecha:** Octubre 2026
 
@@ -1691,6 +1691,24 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** PageSpeed marcaba el contraste de los botones naranja como la única falla de accesibilidad que quedaba.
 
+### v1.68 — 30 de octubre de 2026
+
+**Qué hice:** Rediseñé el hero de la home con la skill de diseño: la foto de la derecha se reemplaza por una búsqueda de Google ilustrada donde aparece la competencia y el negocio de quien mira no aparece.
+
+**Detalle del cambio:**
+
+- **Idea:** el titular dice "Si tu negocio no aparece en Google, no existe", así que el hero lo muestra con el propio objeto del problema. Una ventana de búsqueda con "tu rubro en San Juan", tres resultados de otros negocios (barras grises, sin nombres) y un hueco con borde punteado naranja: "Tu negocio / No aparece en los resultados". No se inventó ningún negocio, dato ni cifra.
+- **Un solo movimiento:** los tres resultados aparecen uno detrás del otro (0,25 s, 0,47 s y 0,69 s) y el hueco aparece al final (1,3 s). Pasa una vez y queda quieto. Reemplaza los tres movimientos de la foto (entrada, flotación de 7 s y zoom lento de 18 s). Con "reducir movimiento" activado se muestra todo de entrada. Solo cambia la opacidad y 8 px al principio, así que no mueve el resto de la página.
+- **Titular y rótulo:** el texto es el mismo. Se quitó el naranja de "no existe" (un acento en una sola frase) y el rótulo "El costo de la invisibilidad" pasa de mayúsculas separadas a minúscula normal. El naranja queda para el botón principal y para el hueco.
+- **Celular:** la ilustración se muestra también en celular, debajo de los botones, así que "Reservá tu demo" y "Agendá una reunión" siguen arriba y a la vista. Antes la foto se ocultaba en celular.
+- **Accesibilidad:** la ilustración es un `figure` con `role="img"` y un `aria-label` que la describe; su contenido interno queda oculto para lectores de pantalla. No tiene botón ni cursor de texto.
+- **Peso:** el hero ya no pide la foto `sabristudios_subheadline.jpeg` (1,9 MB en escritorio). El archivo sigue en `imagenes/` sin usarse; se puede borrar después, queda en el historial de git. Se eliminaron del CSS los `heroImageIn`, `heroKenBurns`, `heroFloat` y las reglas `.hero-image`.
+- **Verificación (navegador local):** escritorio y marco de celular de 390 px; las cuatro piezas terminan con opacidad 1; el cambio de diseño de la carga fue 0,0012; no se hace ningún pedido a la foto vieja; el `h1` conserva el texto. Compilé el CSS con `npm run build`.
+- **Riesgo a medir:** la ilustración no es clickeable pero parece una ventana de buscador, y puede atraer toques sin respuesta (clics inactivos en Clarity). Hay que mirar esa métrica en las próximas semanas; si sube, se le puede dar un destino (por ejemplo, llevarla al botón de la demo).
+- **Pendiente:** ver cómo se ve en el sitio desplegado y en un celular real, y volver a pasar PageSpeed (el LCP ahora es el titular, no la foto).
+
+**Por qué lo hice:** Sabrina pidió ejecutar la skill de diseño y eligió el hero de la home como parte a rediseñar.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1766,3 +1784,4 @@ Antes de publicar cambios:
 | 1.65 | 29 de octubre de 2026 | Sabri Studios | Página de Mombé en el paso 2 (Diseño y Estrategia): diagnóstico completado, texto del paso actual, línea de progreso y metadescripciones |
 | 1.66 | 30 de octubre de 2026 | Sabri Studios | `develop` vuelve a desplegar en Vercel (Require Verified Commits en Disabled y Branch Tracking de Preview activado) y `master` vuelve a exigir el check "Vercel" |
 | 1.67 | 30 de octubre de 2026 | Sabri Studios | Contraste de los botones naranja (opción B): texto `texto-fuerte` (5,35:1) y `naranja-hover` más claro `#E58F52` (6,59:1); Design System actualizado |
+| 1.68 | 30 de octubre de 2026 | Sabri Studios | Hero de la home rediseñado: la foto se reemplaza por una búsqueda de Google ilustrada (resultados de la competencia y hueco "Tu negocio / No aparece"), visible también en celular, con un solo movimiento y sin la foto de 1,9 MB |
