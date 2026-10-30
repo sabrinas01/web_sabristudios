@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.59
+**Versión:** 1.66
 
 **Fecha:** Octubre 2026
 
@@ -1573,6 +1573,108 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina avisó que la ficha ya está publicada y pasó el link.
 
+### v1.60 — 29 de octubre de 2026
+
+**Qué hice:** Agregué el link "Dejanos tu reseña" al footer de `index.html`, con el link de reseñas de la ficha de Google.
+
+**Detalle del cambio:**
+
+- **Link usado:** `https://g.page/r/Cbrj-jYz8pyrEBM/review`, que pasó Sabrina desde su panel de Google Business Profile. Lo comprobé: redirige a la solicitud de reseña de la ficha, con el mismo CID hexadecimal (`0xab9cf23336fae3ba`) que ya usa el `hasMap` de la v1.59.
+- **`index.html`:** cuarto link en la fila de redes del footer (junto a Instagram, LinkedIn y Email), con ícono de estrella, `target="_blank"` y `rel="noopener noreferrer"`. En celular los 4 links se apilan uno debajo del otro (`flex-col items-center`) porque en una fila se salían de la pantalla; desde `md` vuelven a quedar en fila.
+- **`src/input.css`:** ícono nuevo `ti-star` (Tabler, estilo outline) como máscara SVG, igual que el resto. Corrí `npm run build` y el ícono quedó en `dist/output.css`.
+- **Alcance:** solo la página principal. Las páginas de proyecto, la política y la guía no cambian.
+- **Pendiente:** probar el link en el navegador del sitio desplegado, ver el footer en móvil (4 links en una fila) y evaluar si conviene medir el clic como evento de GA4.
+
+**Por qué lo hice:** Sabrina ya tiene reseñas en la ficha y el pendiente de Notion pedía el botón con el link de reseñas en la web.
+
+### v1.61 — 29 de octubre de 2026
+
+**Qué hice:** Creé una imagen propia de 1200×630 para compartir el sitio en redes (`og:image`) y revisé el pendiente "CTA de contacto más visible en celular".
+
+**Detalle del cambio:**
+
+- **`imagenes/og-sabri-studios.png` (nuevo):** 1200×630 px, 35 KB. Fondo `azul-primario` (`#1E3A5F`), logotipo horizontal negativo (el del design system, con el texto en trazados), barra y frase en `naranja` (`#D97A3C`) y la frase "Páginas web para emprendedores y negocios de San Juan" en Space Mono. Lo armé en HTML con la fuente real y lo exporté con Edge sin interfaz.
+- **Por qué hacía falta:** la imagen anterior (`LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg`) mide 480×160, relación 3:1. Las redes piden alrededor de 1,91:1 (1200×630), así que la recortaban o la mostraban chica con bordes.
+- **`index.html`, `proyecto-mombe.html`, `politica-de-privacidad.html` y `guia-aparecer-en-google-maps.html`:** `og:image` y `twitter:image` apuntan a la imagen nueva. Se agregaron `og:image:width` (1200), `og:image:height` (630) y `og:image:alt`.
+- **No se tocó:** las páginas de AR Estética, JL Construcciones y Servicios AF siguen con el logo de cada cliente. El `logo` del JSON-LD sigue con el JPG, porque es el logo de la marca y no una vista previa.
+- **CTA en celular (sin cambios de código):** ya está resuelto desde la v1.42. El header en celular tiene el botón "Reservá tu demo" (`cta_nav`) junto al menú, y hay un botón flotante de WhatsApp. Los datos de Pulsar en que se basaba el pendiente son de la semana del 04/10, anteriores a ese botón. Falta medir con datos posteriores al 19/10.
+- **Pendiente:** compartir el link en WhatsApp e Instagram para ver la vista previa real (las redes guardan caché; el Depurador de Facebook permite reforzar la actualización). Los despliegues de develop siguen cancelados por "Require Verified Commits", así que la prueba depende de resolver eso o de publicar en master.
+
+**Por qué lo hice:** Casi todo el tráfico real llega desde Instagram y el link se comparte por chat, así que la vista previa es lo primero que ve la persona.
+
+### v1.62 — 29 de octubre de 2026
+
+**Qué hice:** Sumé la página de Facebook de Sabri Studios al `sameAs` del JSON-LD de `index.html`.
+
+**Detalle del cambio:**
+
+- **`index.html`:** el `sameAs` de la organización pasa de 2 a 3 perfiles: Instagram, Facebook (`https://www.facebook.com/sabristudios`) y la ficha de Google Maps.
+- **Verificación:** Sabrina pasó primero el link con el identificador numérico (`profile.php?id=61595375138267`) y después el de usuario. Probé los dos: responden 200 con el título "Sabri Studios" y el numérico redirige a `facebook.com/sabristudios`, así que es la misma página. Quedó el link con el nombre de usuario, que es el definitivo. El JSON-LD sigue siendo JSON válido.
+- **No se tocó:** el `sameAs` del autor en la guía de Google Maps (es el de la persona, con LinkedIn e Instagram, no el de la organización).
+- **Pendiente:** falta evaluar si se muestra un ícono de Facebook en el footer.
+
+**Por qué lo hice:** era un pendiente de Notion (sumar el Facebook al `sameAs`) para que Google asocie ese perfil con la marca.
+
+### v1.63 — 29 de octubre de 2026
+
+**Qué hice:** Corregí las fallas de accesibilidad que marcó PageSpeed Insights en móvil (Accesibilidad 88): punto de referencia principal, objetivos táctiles y el contraste del botón flotante de WhatsApp.
+
+**Detalle del cambio:**
+
+- **Medición de partida (PageSpeed Insights, Lighthouse 13.6, producción):** móvil con rendimiento 99 en la segunda corrida (la primera dio 66 por un cambio de diseño aislado que no se repitió), escritorio 98 a 100, SEO 100, Prácticas recomendadas 92, Accesibilidad 88 en móvil y 92 en escritorio.
+- **Etiqueta `main` (6 páginas):** `index.html`, la política y las 4 páginas de proyecto envuelven su contenido, entre la barra y el footer, en una etiqueta `main`. La guía de Google Maps ya la tenía. Comprobé en el navegador que hay un solo `main` por página y que la barra y el footer quedan afuera.
+- **Objetivos táctiles (7 páginas):** los links de redes del footer (Instagram, LinkedIn, Email y, en la home, "Dejanos tu reseña") y los links legales (Política de Privacidad y Guía) pasan a `min-h-[44px]`. En la home también "Contactarme por WhatsApp", "Agendar una reunión" y "Elegir día y horario para una reunión" (`inline-flex items-center min-h-[44px]`). Medí en el navegador: los links del footer de Mombé miden 44 px de alto. Clase ya existente en el CSS compilado, no hizo falta `npm run build` por clases nuevas (igual lo corrí).
+- **Botón flotante de WhatsApp (7 páginas):** el texto y el ícono pasan de blanco a `texto-fuerte` (`#12202E`). El contraste sube de 1,98:1 (blanco sobre `#25D366`) a 8,33:1. El verde de WhatsApp no cambia.
+- **Footer tapado por el botón flotante (7 páginas):** Sabrina avisó con una captura que, en una pantalla de unos 740 px, el botón "¡Hablemos!" tapaba el link "Guía: aparecer en Google Maps". Desde `md` (768 px) el footer tenía solo 32 px de espacio abajo, menos que el botón (que ocupa unos 84 px desde el borde). El contenedor del footer pasa de `pb-20 md:pb-lg` a `pb-24` en todos los tamaños. Lo comprobé en el navegador con la página en marcos de 360, 740, 780 y 1280 px, llevada al final: con 32 px el contenido más bajo del footer queda 32 px por debajo del tope del botón (se tapan) y con `pb-24` queda por encima en todos los tamaños.
+- **No se tocó:** el contraste de los botones naranja (texto `gris-neutro` sobre `naranja`, 2,79:1). Es una decisión de marca ya documentada en el Design System (el naranja es el valor exacto de la marca y no se retoca). Con texto `texto-fuerte` daría 5,35:1. Decisión de Sabrina (30/10): se mantiene lo que diga el manual de marca, así que los botones naranja quedan sin cambios.
+- **Pendiente:** volver a pasar PageSpeed Insights cuando esto esté en producción, para ver el puntaje real de accesibilidad. Los elementos táctiles que PageSpeed marcó más allá de los de este cambio no se pudieron listar completos (el informe se truncó); conviene mirar el informe otra vez.
+
+**Por qué lo hice:** eran pendientes abiertos en Notion que salieron de la medición de rendimiento y accesibilidad de la v1.62.
+
+### v1.64 — 29 de octubre de 2026
+
+**Qué hice:** La tarjeta de Mombé en "Proyectos desarrollados" de `index.html` pasa a mostrar el logo de la marca en lugar de la inicial "M".
+
+**Detalle del cambio:**
+
+- **`imagenes/logo-mombe.jpg` (nuevo):** 320×320 px, 9 KB. Lo recorté cuadrado desde el logo que pasó Sabrina (caracol con burbujas y el nombre "MOMBé" sobre fondo crema `#F5F1E8`), centrado para que el nombre entre completo dentro del círculo de la tarjeta. Comprobé el recorte con una máscara circular: no se corta nada.
+- **`index.html`:** el círculo de la tarjeta usa la imagen (`width`/`height` 320, `loading="lazy"`, `object-cover`, alt "Logo de Mombé"), con el mismo patrón que las otras tarjetas. Se quita `aria-hidden` del círculo, porque ahora la imagen tiene texto alternativo. Lo vi en el navegador local junto a las otras tres tarjetas.
+- **`proyecto-mombe.html`:** el círculo del encabezado también usa `logo-mombe.jpg` (alt "Logo de Mombé"; se quitó `aria-hidden`). Lo vi en el navegador: la imagen carga a 320 px y se muestra en 159 px.
+- **`imagenes/og-mombe.jpg` (nuevo):** 1200×630 px, 25 KB, con el logo centrado sobre su fondo crema. `og:image` y `twitter:image` de `proyecto-mombe.html` apuntan a esta imagen (antes usaban la de Sabri Studios), con ancho, alto y alt "Logo de Mombé, textiles artesanales".
+- **Permiso:** Sabrina confirmó (30/10) que tiene el permiso de Mombé para publicar su logo en la web.
+
+**Por qué lo hice:** el comentario del código decía que la inicial era provisoria hasta tener el logo; Sabrina pasó el logo y pidió usarlo en la tarjeta.
+
+### v1.65 — 29 de octubre de 2026
+
+**Qué hice:** La página de Mombé (`proyecto-mombe.html`) pasa al paso 2, Diseño y Estrategia: el diagnóstico queda completo.
+
+**Detalle del cambio:**
+
+- **Paso 1 (Diagnóstico):** ahora figura como "Completado" (número en `azul-primario`, sin "Estamos acá") y su texto pasa a pasado: "Conocimos el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes. De ahí salió el brief del proyecto."
+- **Paso 2 (Diseño y Estrategia):** es el paso actual, con el número naranja con halo y la etiqueta "Estamos acá". Texto de Sabrina: "Luego del brief resultante del diagnóstico, pasamos a unificar la identidad visual de Mombé y definimos la de sus dos líneas textiles. Comenzamos a bajar la idea en un borrador de diseño y lo seguimos iterando." (corregí tildes y la forma "iterando").
+- **Paso 3 (Resultados):** sigue "Próximamente", apagado.
+- **Línea de progreso:** el tramo naranja llega ahora hasta el centro del paso 2 (`w-[18%]` pasa a `w-[35%]`). Corrí `npm run build` por la clase nueva.
+- **Texto del encabezado y metadescripciones:** `description`, `og:description` y `twitter:description` dicen "Hoy estamos en el paso 2, diseño y estrategia." (antes paso 1, el diagnóstico). Se actualizaron también los comentarios del CSS y el de la tarjeta en `index.html`.
+- **Verificación:** lo vi en el navegador local: paso 1 con número azul, paso 2 con halo y la línea naranja llegando hasta él, paso 3 apagado. Después comprobé la vista previa de develop en Vercel (despliegue `dpl_WVM6yx…`, READY): la página trae el paso 2, el logo, `<main>`, el footer con `pb-24` y `og-mombe.jpg`. Se corrigió también un comentario viejo del HTML que decía que todavía no había logo de Mombé.
+
+**Por qué lo hice:** Sabrina avisó que el proyecto de Mombé avanzó a la etapa de diseño.
+
+### v1.66 — 30 de octubre de 2026
+
+**Qué hice:** Resolví que la rama `develop` no desplegaba en Vercel y volví a exigir el check "Vercel" en la protección de `master`.
+
+**Detalle del cambio:**
+
+- **Causa 1 (Settings, Git):** "Require Verified Commits" estaba en "Inherit from Team (Enabled)". Vercel solo desplegaba commits firmados y los de `develop`, hechos en local, no lo estaban; los merges a `master` los hace GitHub y sí van firmados. Se pasó a "Disabled" en el proyecto `web-sabristudios`.
+- **Causa 2 (Settings, Environments, Preview):** "Branch Tracking" estaba en "Disabled". Se activó para "All unassigned branches". Desde entonces `develop` despliega: lo comprobé con un commit vacío (`5f1996a`, READY) y con uno con cambios reales (`34fb8db`).
+- **Incidente en el medio:** al desconectar y volver a conectar el repositorio se creó un proyecto nuevo (`websabristudios`), que quedó conectado en lugar del viejo. Se borró y se reconectó `web-sabristudios`, que es el dueño del dominio `web-sabristudios.vercel.app` al que apunta todo el sitio.
+- **Protección de `master` (GitHub, Settings, Branches):** además de pull request obligatorio sin aprobaciones, sin force push y sin borrado, ahora exige el check de estado "Vercel" (`strict: false`). Los administradores siguen pudiendo saltarla (`enforce_admins: false`). Lo apliqué con la API de GitHub y comprobé el resultado: `contexts: ["Vercel"]`.
+- **Efecto:** un pull request de `develop` a `master` necesita que el despliegue de prueba de Vercel termine bien antes de mergear. Esto reemplaza lo anotado en la v1.51, que había descartado el check porque los despliegues de `develop` se cancelaban.
+- **Pendiente:** el alias `websabristudios.com` aparece en el entorno Preview de `develop` pero no resuelve (no tiene DNS apuntando); Sabrina pidió dejarlo como está.
+
+**Por qué lo hice:** Sabrina pidió resolver los despliegues de `develop` y, una vez resueltos, volver a exigir el check en `master`.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1640,3 +1742,10 @@ Antes de publicar cambios:
 | 1.57 | 20 de octubre de 2026 | Sabri Studios | Logo del header alineado con el borde izquierdo del contenido: margen negativo por tamaño y `shrink-0` (7 páginas) |
 | 1.58 | 20 de octubre de 2026 | Sabri Studios | Guía de Google Maps verificada contra la documentación oficial de Google: correcciones, afirmaciones sin respaldo eliminadas y sección "Fuentes" |
 | 1.59 | 21 de octubre de 2026 | Sabri Studios | Ficha de Google Maps conectada: `hasMap` y `sameAs` en el JSON-LD de `index.html` y línea en `llms.txt` |
+| 1.60 | 29 de octubre de 2026 | Sabri Studios | Link "Dejanos tu reseña" en el footer de `index.html` con el link de reseñas de la ficha de Google; ícono `ti-star` |
+| 1.61 | 29 de octubre de 2026 | Sabri Studios | Imagen propia de 1200×630 para compartir en redes (`og:image` y `twitter:image` en 4 páginas) y revisión del CTA en celular (ya resuelto en v1.42) |
+| 1.62 | 29 de octubre de 2026 | Sabri Studios | Página de Facebook de Sabri Studios en el `sameAs` del JSON-LD de `index.html` |
+| 1.63 | 29 de octubre de 2026 | Sabri Studios | Accesibilidad: etiqueta `main` en 6 páginas, objetivos táctiles de 44 px en links de footer y texto, y contraste del botón flotante de WhatsApp (1,98:1 a 8,33:1); footer con más espacio abajo para que el botón flotante no tape los links |
+| 1.64 | 29 de octubre de 2026 | Sabri Studios | Logo de Mombé (`imagenes/logo-mombe.jpg`) en la tarjeta de `index.html` y en el encabezado de `proyecto-mombe.html`, en lugar de la inicial "M"; imagen propia para compartir (`og-mombe.jpg`) |
+| 1.65 | 29 de octubre de 2026 | Sabri Studios | Página de Mombé en el paso 2 (Diseño y Estrategia): diagnóstico completado, texto del paso actual, línea de progreso y metadescripciones |
+| 1.66 | 30 de octubre de 2026 | Sabri Studios | `develop` vuelve a desplegar en Vercel (Require Verified Commits en Disabled y Branch Tracking de Preview activado) y `master` vuelve a exigir el check "Vercel" |

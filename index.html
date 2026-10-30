@@ -23,13 +23,16 @@
   <meta property="og:url" content="https://web-sabristudios.vercel.app/">
   <meta property="og:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta property="og:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
-  <meta property="og:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+  <meta property="og:image" content="https://web-sabristudios.vercel.app/imagenes/og-sabri-studios.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Sabri Studios: páginas web para emprendedores y negocios de San Juan">
 
   <!-- Repito lo mismo de arriba pero con las etiquetas que lee Twitter/X -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Sabri Studios | Diseño de páginas web para emprendedores y negocios en San Juan, Argentina">
   <meta name="twitter:description" content="Si tu negocio no aparece en Google, no existe para quien te busca. Te ayudo a construir la presencia online que hace que te encuentren a vos primero.">
-  <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/LOGOTIPO_HORIZONTAL_FULL_COLOR.jpg">
+  <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/og-sabri-studios.png">
 
   <!-- Favicon / PWA -->
   <!-- Este es el iconito chiquito que aparece en la pestaña del navegador -->
@@ -76,6 +79,7 @@
     "hasMap": "https://www.google.com/maps?cid=12366024978632205242",
     "sameAs": [
       "https://www.instagram.com/sabristudios/",
+      "https://www.facebook.com/sabristudios",
       "https://www.google.com/maps?cid=12366024978632205242"
     ],
     "makesOffer": [
@@ -385,6 +389,8 @@
     </div>
   </nav>
 
+  <main>
+
   <!-- ============================== -->
   <!-- SECCIÓN HERO (portada principal) -->
   <!-- ============================== -->
@@ -527,7 +533,7 @@
 
       <!--
         Proyecto de Mombé (textiles artesanales), todavía en desarrollo. Misma tarjeta-link que las
-        otras dos; su página propia muestra que estamos en el paso 1 (Diagnóstico).
+        otras dos; su página propia muestra que estamos en el paso 2 (Diseño y Estrategia).
       -->
       <a href="proyecto-mombe.html"
         aria-label="Ver el proceso del proyecto de Mombé, textiles artesanales, en desarrollo por Sabri Studios"
@@ -535,9 +541,10 @@
         <span class="w-full md:w-auto md:absolute md:top-2 md:right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight whitespace-normal text-center md:text-right md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
           Textiles artesanales
         </span>
-        <!-- Todavía no tengo el logo de Mombé, así que por ahora pongo su inicial en el círculo -->
-        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center" aria-hidden="true">
-          <span class="font-headline-h1 text-headline-h1 text-naranja">M</span>
+        <!-- Logo de Mombé (caracol con burbujas y el nombre), recortado cuadrado para el círculo de la tarjeta -->
+        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
+          <img src="imagenes/logo-mombe.jpg" width="320" height="320" loading="lazy"
+            alt="Logo de Mombé" class="w-full h-full object-cover">
         </div>
         <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">Mombé</h3>
         <!-- Mombé todavía no terminó: lo aclaro en la tarjeta para que no se lea como un proyecto ya entregado -->
@@ -659,7 +666,7 @@
             <!-- Si prefiere la opción sincrónica, puede elegir su horario directamente en mi agenda -->
             <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
               target="_blank" rel="noopener noreferrer"
-              class="inline-block mt-xs font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
+              class="inline-flex items-center min-h-[44px] mt-xs font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
               Elegir día y horario para una reunión
             </a>
           </div>
@@ -868,13 +875,13 @@
         <div class="flex flex-col sm:flex-row sm:items-center gap-xs sm:gap-sm mt-sm">
           <a href="https://wa.me/5492645854487?text=Hola%2C%20tengo%20una%20pregunta%20que%20no%20encontr%C3%A9%20en%20las%20preguntas%20frecuentes&utm_source=whatsapp&utm_medium=cta_faq&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
-            class="font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
+            class="inline-flex items-center min-h-[44px] font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
             Contactarme por WhatsApp
           </a>
           <span class="hidden sm:inline font-body-main text-body-main text-texto-fuerte opacity-70">o</span>
           <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
             target="_blank" rel="noopener noreferrer"
-            class="font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
+            class="inline-flex items-center min-h-[44px] font-label-cta text-label-cta text-azul-primario underline hover:text-azul-secundario">
             Agendar una reunión
           </a>
         </div>
@@ -943,30 +950,37 @@
   }
   </script>
 
+  </main>
+
   <!-- ============================== -->
   <!-- FOOTER (pie de página)         -->
   <!-- ============================== -->
   <footer class="bg-white border-t border-gris-claro full-width">
-    <div class="flex flex-col items-center w-full px-sm md:px-lg pt-lg pb-20 md:pb-lg max-w-container-max mx-auto gap-md">
+    <div class="flex flex-col items-center w-full px-sm md:px-lg pt-lg pb-24 max-w-container-max mx-auto gap-md">
 
       <div class="flex flex-col md:flex-row justify-between items-center w-full gap-md">
         <img src="imagenes/logotipo-horizontal-full-color.svg" width="480" height="160" loading="lazy"
           alt="Sabri Studios - Diseño y desarrollo de páginas web" class="h-14 w-auto object-contain">
 
         <!-- Acá van los links a mis redes sociales y contacto -->
-        <div class="flex gap-md font-body-main text-body-main">
-          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+        <div class="flex flex-col md:flex-row items-center gap-sm md:gap-md font-body-main text-body-main">
+          <a href="https://www.instagram.com/sabristudios/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs min-h-[44px]">
             <span class="ti ti-camera text-lg" aria-hidden="true"></span>
             <span class="text-sm">Instagram</span>
           </a>
-          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+          <a href="https://www.linkedin.com/in/sabrinasanso/" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs min-h-[44px]">
             <span class="ti ti-briefcase text-lg" aria-hidden="true"></span>
             <span class="text-sm">LinkedIn</span>
           </a>
           <!-- Este link abre directamente la app de mail de quien lo toca, con mi correo ya puesto -->
-          <a href="mailto:estudiosabrina.26@gmail.com" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs">
+          <a href="mailto:estudiosabrina.26@gmail.com" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs min-h-[44px]">
             <span class="ti ti-mail text-lg" aria-hidden="true"></span>
             <span class="text-sm">Email</span>
+          </a>
+          <!-- Link de reseñas de la ficha de Google: abre el formulario para dejar una opinión -->
+          <a href="https://g.page/r/Cbrj-jYz8pyrEBM/review" target="_blank" rel="noopener noreferrer" class="text-azul-primario hover:text-azul-secundario transition-colors flex items-center gap-xs min-h-[44px]">
+            <span class="ti ti-star text-lg" aria-hidden="true"></span>
+            <span class="text-sm">Dejanos tu reseña</span>
           </a>
         </div>
       </div>
@@ -978,8 +992,8 @@
       -->
       <div class="flex flex-col sm:flex-row items-center gap-xs sm:gap-sm font-caption text-caption text-azul-primario text-center border-t border-gris-claro w-full justify-center pt-md">
         <span>© 2026 Sabrina Sanso. Todos los derechos reservados.</span>
-        <a href="politica-de-privacidad.html" class="hover:text-azul-secundario transition-colors underline">Política de Privacidad</a>
-        <a href="guia-aparecer-en-google-maps.html" class="hover:text-azul-secundario transition-colors underline">Guía: aparecer en Google Maps</a>
+        <a href="politica-de-privacidad.html" class="inline-flex items-center min-h-[44px] hover:text-azul-secundario transition-colors underline">Política de Privacidad</a>
+        <a href="guia-aparecer-en-google-maps.html" class="inline-flex items-center min-h-[44px] hover:text-azul-secundario transition-colors underline">Guía: aparecer en Google Maps</a>
       </div>
 
     </div>
@@ -994,7 +1008,7 @@
     precargado, porque no está pensado para una sección puntual sino para toda la página.
   -->
   <a href="https://wa.me/5492645854487?utm_source=whatsapp&utm_medium=cta_floating&utm_campaign=demo" target="_blank" rel="noopener noreferrer"
-    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-white shadow-media transition-transform duration-200 hover:scale-105"
+    class="fixed bottom-4 right-4 md:bottom-8 md:right-8 z-50 flex items-center gap-2 px-4 py-3 rounded-full text-texto-fuerte shadow-media transition-transform duration-200 hover:scale-105"
     style="background-color: rgb(37, 211, 102);">
     <!-- Este es el ícono de WhatsApp, lo dibujé a mano en SVG -->
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
