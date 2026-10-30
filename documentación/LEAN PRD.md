@@ -1709,6 +1709,19 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió ejecutar la skill de diseño y eligió el hero de la home como parte a rediseñar.
 
+### v1.70 — 29 de octubre de 2026
+
+**Qué hice:** Corté la medición de Google Analytics y Clarity cuando la página no se abre desde el sitio real o la abre un navegador automático, para que mis pruebas y los robots no cuenten como visitas.
+
+**Detalle del cambio:**
+
+- **Corte (7 páginas):** antes de cargar GA4 hay un script corto que marca `window.sinMedicion` y `window['ga-disable-G-HLPQM5HE7G']` cuando el `hostname` no es `web-sabristudios.vercel.app`, o cuando `navigator.webdriver` es verdadero, o el user agent contiene HeadlessChrome, Lighthouse, PageSpeed o Googlebot. Clarity solo se inicia si `sinMedicion` no está activo.
+- **Qué evita:** visitas de las vistas previas de Vercel (`web-sabristudios-xxxx-sabristudios.vercel.app`), de `localhost` y de PageSpeed/Lighthouse, que explican buena parte del tráfico de centros de datos de EE. UU. (63 de 277 eventos).
+- **Qué no cubre:** el tráfico histórico ya registrado y los robots que se hagan pasar por un navegador normal; esos se leen en los informes comparando sin esos países.
+- **Hallazgo en Analytics (sin tocar todavía):** la regla de Crear eventos `whatsapp_click` crea un evento por cada `page_view` de la web, así que los `whatsapp_click` de GA4 no son clics reales. La borra Sabrina desde Analytics.
+- **Pendiente:** verificar en el sitio desplegado que los eventos siguen llegando desde la web real y no desde las vistas previas.
+
+**Por qué lo hice:** Sabrina pidió corregir lo posible de los bots y del tráfico falso en Analytics.
 ### v1.69 — 30 de octubre de 2026
 
 **Qué hice:** Seguí con las ideas de la skill de diseño: rediseñé la sección "Proyectos desarrollados" de la home (1), quité el movimiento genérico de la home (3) y pasé los botones y etiquetas de mayúsculas a minúscula normal (5).
