@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.62
+**Versión:** 1.64
 
 **Fecha:** Octubre 2026
 
@@ -1616,6 +1616,36 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** era un pendiente de Notion (sumar el Facebook al `sameAs`) para que Google asocie ese perfil con la marca.
 
+### v1.63 — 29 de octubre de 2026
+
+**Qué hice:** Corregí las fallas de accesibilidad que marcó PageSpeed Insights en móvil (Accesibilidad 88): punto de referencia principal, objetivos táctiles y el contraste del botón flotante de WhatsApp.
+
+**Detalle del cambio:**
+
+- **Medición de partida (PageSpeed Insights, Lighthouse 13.6, producción):** móvil con rendimiento 99 en la segunda corrida (la primera dio 66 por un cambio de diseño aislado que no se repitió), escritorio 98 a 100, SEO 100, Prácticas recomendadas 92, Accesibilidad 88 en móvil y 92 en escritorio.
+- **`<main>` (6 páginas):** `index.html`, la política, las 4 páginas de proyecto envuelven su contenido entre la barra y el footer en `<main>`. La guía de Google Maps ya lo tenía. Comprobé en el navegador que hay un solo `<main>` por página y que la barra y el footer quedan afuera.
+- **Objetivos táctiles (7 páginas):** los links de redes del footer (Instagram, LinkedIn, Email y, en la home, "Dejanos tu reseña") y los links legales (Política de Privacidad y Guía) pasan a `min-h-[44px]`. En la home también "Contactarme por WhatsApp", "Agendar una reunión" y "Elegir día y horario para una reunión" (`inline-flex items-center min-h-[44px]`). Medí en el navegador: los links del footer de Mombé miden 44 px de alto. Clase ya existente en el CSS compilado, no hizo falta `npm run build` por clases nuevas (igual lo corrí).
+- **Botón flotante de WhatsApp (7 páginas):** el texto y el ícono pasan de blanco a `texto-fuerte` (`#12202E`). El contraste sube de 1,98:1 (blanco sobre `#25D366`) a 8,33:1. El verde de WhatsApp no cambia.
+- **Footer tapado por el botón flotante (7 páginas):** Sabrina avisó con una captura que, en una pantalla de unos 740 px, el botón "¡Hablemos!" tapaba el link "Guía: aparecer en Google Maps". Desde `md` (768 px) el footer tenía solo 32 px de espacio abajo, menos que el botón (que ocupa unos 84 px desde el borde). El contenedor del footer pasa de `pb-20 md:pb-lg` a `pb-24` en todos los tamaños. Lo comprobé en el navegador con la página en marcos de 360, 740, 780 y 1280 px, llevada al final: con 32 px el contenido más bajo del footer queda 32 px por debajo del tope del botón (se tapan) y con `pb-24` queda por encima en todos los tamaños.
+- **No se tocó:** el contraste de los botones naranja (texto `gris-neutro` sobre `naranja`, 2,79:1). Es una decisión de marca ya documentada en el Design System (el naranja es el valor exacto de la marca y no se retoca). Con texto `texto-fuerte` daría 5,35:1; queda a decisión de Sabrina.
+- **Pendiente:** volver a pasar PageSpeed Insights cuando esto esté en producción, para ver el puntaje real de accesibilidad. Los elementos táctiles que PageSpeed marcó más allá de los de este cambio no se pudieron listar completos (el informe se truncó); conviene mirar el informe otra vez.
+
+**Por qué lo hice:** eran pendientes abiertos en Notion que salieron de la medición de rendimiento y accesibilidad de la v1.62.
+
+### v1.64 — 29 de octubre de 2026
+
+**Qué hice:** La tarjeta de Mombé en "Proyectos desarrollados" de `index.html` pasa a mostrar el logo de la marca en lugar de la inicial "M".
+
+**Detalle del cambio:**
+
+- **`imagenes/logo-mombe.jpg` (nuevo):** 320×320 px, 9 KB. Lo recorté cuadrado desde el logo que pasó Sabrina (caracol con burbujas y el nombre "MOMBé" sobre fondo crema `#F5F1E8`), centrado para que el nombre entre completo dentro del círculo de la tarjeta. Comprobé el recorte con una máscara circular: no se corta nada.
+- **`index.html`:** el círculo de la tarjeta usa la imagen (`width`/`height` 320, `loading="lazy"`, `object-cover`, alt "Logo de Mombé"), con el mismo patrón que las otras tarjetas. Se quita `aria-hidden` del círculo, porque ahora la imagen tiene texto alternativo. Lo vi en el navegador local junto a las otras tres tarjetas.
+- **`proyecto-mombe.html`:** el círculo del encabezado también usa `logo-mombe.jpg` (alt "Logo de Mombé"; se quitó `aria-hidden`). Lo vi en el navegador: la imagen carga a 320 px y se muestra en 159 px.
+- **`imagenes/og-mombe.jpg` (nuevo):** 1200×630 px, 25 KB, con el logo centrado sobre su fondo crema. `og:image` y `twitter:image` de `proyecto-mombe.html` apuntan a esta imagen (antes usaban la de Sabri Studios), con ancho, alto y alt "Logo de Mombé, textiles artesanales".
+- **Pendiente:** el logo es de Mombé; conviene confirmar que Sabrina tiene su permiso para publicarlo en la web.
+
+**Por qué lo hice:** el comentario del código decía que la inicial era provisoria hasta tener el logo; Sabrina pasó el logo y pidió usarlo en la tarjeta.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1686,3 +1716,5 @@ Antes de publicar cambios:
 | 1.60 | 29 de octubre de 2026 | Sabri Studios | Link "Dejanos tu reseña" en el footer de `index.html` con el link de reseñas de la ficha de Google; ícono `ti-star` |
 | 1.61 | 29 de octubre de 2026 | Sabri Studios | Imagen propia de 1200×630 para compartir en redes (`og:image` y `twitter:image` en 4 páginas) y revisión del CTA en celular (ya resuelto en v1.42) |
 | 1.62 | 29 de octubre de 2026 | Sabri Studios | Página de Facebook de Sabri Studios en el `sameAs` del JSON-LD de `index.html` |
+| 1.63 | 29 de octubre de 2026 | Sabri Studios | Accesibilidad: `<main>` en 6 páginas, objetivos táctiles de 44 px en links de footer y texto, y contraste del botón flotante de WhatsApp (1,98:1 a 8,33:1); footer con más espacio abajo para que el botón flotante no tape los links |
+| 1.64 | 29 de octubre de 2026 | Sabri Studios | Logo de Mombé (`imagenes/logo-mombe.jpg`) en la tarjeta de `index.html` y en el encabezado de `proyecto-mombe.html`, en lugar de la inicial "M"; imagen propia para compartir (`og-mombe.jpg`) |
