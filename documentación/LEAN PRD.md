@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.70
+**Versión:** 1.71
 
 **Fecha:** Octubre 2026
 
@@ -1740,6 +1740,21 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina eligió probar las ideas 1, 3 y 5 de la skill de diseño.
 
+### v1.71 — 30 de octubre de 2026
+
+**Qué hice:** Corregí el desborde horizontal de la home y las páginas de proyecto en celulares angostos: el fondo no cubría todo el ancho y los títulos se salían de las tarjetas. Sabrina lo avisó con dos capturas.
+
+**Detalle del cambio:**
+
+- **Causa:** en las tarjetas de proyectos, el título (por ejemplo "Servicios AF") no entraba al lado del logo de 64 px y se salía de la tarjeta, lo que ensanchaba la página. Medí con un marco de ancho variable: la página medía 318 px de ancho aunque la pantalla fuera de 285 px.
+- **Tarjetas (`index.html`):** el bloque logo + nombre se apila (logo arriba) cuando la tarjeta tiene menos de 260 px de contenido (`@[260px]:flex-row`, container query) y los títulos llevan `break-words`. El título de la sección también.
+- **Encabezado (7 páginas):** por debajo de 320 px baja el padding lateral, la altura del logo (`h-7`) y el texto y padding del botón "Reservá tu demo", para que no empuje la página.
+- **Pie (6 páginas):** la fila Instagram / Email pasa a `flex-wrap` para que no se salga en pantallas angostas.
+- **Verificación (navegador local, marco de ancho variable):** sin desborde horizontal en las 7 páginas a 360, 390 y 768 px, y en la home también a 300 y 320 px. Quedan entre 2 y 25 px de desborde solo a 280 px en todas las páginas, a 320 px en la de JL y en la de Mombé del pie, tipo Galaxy Fold plegado; no se corrigió.
+- **Pendiente:** mirar la vista previa de Vercel en un celular real.
+
+**Por qué lo hice:** Sabrina mostró dos capturas del celular con el fondo cortado y el título de la tarjeta fuera de su caja.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1818,3 +1833,4 @@ Antes de publicar cambios:
 | 1.68 | 30 de octubre de 2026 | Sabri Studios | Hero de la home rediseñado: la foto se reemplaza por una búsqueda de Google ilustrada (resultados de la competencia y hueco "Tu negocio / No aparece"), visible también en celular, con un solo movimiento y sin la foto de 1,9 MB |
 | 1.69 | 30 de octubre de 2026 | Sabri Studios | Proyectos de la home rediseñados (qué cambió + estado del proceso, 2 columnas), movimiento genérico de la home eliminado y botones y etiquetas en minúscula normal |
 | 1.70 | 29 de octubre de 2026 | Sabri Studios | Corte de la medición de GA4 y Clarity fuera del sitio real y en navegadores automáticos |
+| 1.71 | 30 de octubre de 2026 | Sabri Studios | Corrección del desborde horizontal en celulares angostos (tarjetas de proyectos, encabezado y pie) |
