@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.64
+**Versión:** 1.65
 
 **Fecha:** Octubre 2026
 
@@ -1646,6 +1646,21 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** el comentario del código decía que la inicial era provisoria hasta tener el logo; Sabrina pasó el logo y pidió usarlo en la tarjeta.
 
+### v1.65 — 29 de octubre de 2026
+
+**Qué hice:** La página de Mombé (`proyecto-mombe.html`) pasa al paso 2, Diseño y Estrategia: el diagnóstico queda completo.
+
+**Detalle del cambio:**
+
+- **Paso 1 (Diagnóstico):** ahora figura como "Completado" (número en `azul-primario`, sin "Estamos acá") y su texto pasa a pasado: "Conocimos el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes. De ahí salió el brief del proyecto."
+- **Paso 2 (Diseño y Estrategia):** es el paso actual, con el número naranja con halo y la etiqueta "Estamos acá". Texto de Sabrina: "Luego del brief resultante del diagnóstico, pasamos a unificar la identidad visual de Mombé y definimos la de sus dos líneas textiles. Comenzamos a bajar la idea en un borrador de diseño y lo seguimos iterando." (corregí tildes y la forma "iterando").
+- **Paso 3 (Resultados):** sigue "Próximamente", apagado.
+- **Línea de progreso:** el tramo naranja llega ahora hasta el centro del paso 2 (`w-[18%]` pasa a `w-[35%]`). Corrí `npm run build` por la clase nueva.
+- **Texto del encabezado y metadescripciones:** `description`, `og:description` y `twitter:description` dicen "Hoy estamos en el paso 2, diseño y estrategia." (antes paso 1, el diagnóstico). Se actualizaron también los comentarios del CSS y el de la tarjeta en `index.html`.
+- **Verificación:** lo vi en el navegador local: paso 1 con número azul, paso 2 con halo y la línea naranja llegando hasta él, paso 3 apagado.
+
+**Por qué lo hice:** Sabrina avisó que el proyecto de Mombé avanzó a la etapa de diseño.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1718,3 +1733,4 @@ Antes de publicar cambios:
 | 1.62 | 29 de octubre de 2026 | Sabri Studios | Página de Facebook de Sabri Studios en el `sameAs` del JSON-LD de `index.html` |
 | 1.63 | 29 de octubre de 2026 | Sabri Studios | Accesibilidad: `<main>` en 6 páginas, objetivos táctiles de 44 px en links de footer y texto, y contraste del botón flotante de WhatsApp (1,98:1 a 8,33:1); footer con más espacio abajo para que el botón flotante no tape los links |
 | 1.64 | 29 de octubre de 2026 | Sabri Studios | Logo de Mombé (`imagenes/logo-mombe.jpg`) en la tarjeta de `index.html` y en el encabezado de `proyecto-mombe.html`, en lugar de la inicial "M"; imagen propia para compartir (`og-mombe.jpg`) |
+| 1.65 | 29 de octubre de 2026 | Sabri Studios | Página de Mombé en el paso 2 (Diseño y Estrategia): diagnóstico completado, texto del paso actual, línea de progreso y metadescripciones |

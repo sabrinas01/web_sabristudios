@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto: Mombé | Sabri Studios</title>
-  <meta name="description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 1, el diagnóstico.">
+  <meta name="description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://web-sabristudios.vercel.app/proyecto-mombe.html">
 
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="es_AR">
   <meta property="og:url" content="https://web-sabristudios.vercel.app/proyecto-mombe.html">
   <meta property="og:title" content="Proyecto: Mombé | Sabri Studios">
-  <meta property="og:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 1, el diagnóstico.">
+  <meta property="og:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
   <!-- Todavía no tengo el logo de Mombé: mientras tanto uso el logotipo de Sabri Studios para la vista previa al compartir -->
   <meta property="og:image" content="https://web-sabristudios.vercel.app/imagenes/og-mombe.jpg">
   <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Proyecto: Mombé | Sabri Studios">
-  <meta name="twitter:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 1, el diagnóstico.">
+  <meta name="twitter:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
   <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/og-mombe.jpg">
 
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
@@ -87,9 +87,10 @@
       transform: translateY(0) scale(1);
     }
     /*
-      Este proyecto está en desarrollo: los pasos 2 y 3 todavía no llegaron, así que aparecen
-      más rápido que en las otras páginas de proyecto y quedan "apagados" (opacidad baja),
-      para que el foco esté en el paso 1, que es donde estamos hoy.
+      Este proyecto está en desarrollo: el paso 1 ya está completo, el 2 es el actual y el 3
+      todavía no llegó, así que los pasos aparecen más rápido que en las otras páginas de
+      proyecto y el 3 queda "apagado" (opacidad baja), para que el foco esté en el paso 2,
+      que es donde estamos hoy.
     */
     .process-step-1 { --step-delay: 0s; }
     .process-step-2 { --step-delay: 0.3s; }
@@ -112,7 +113,7 @@
       100% { transform: scale(1.12) rotate(0deg); }
     }
     /*
-      La línea que conecta los pasos se "dibuja" solo hasta el paso 1 (un tercio del recorrido),
+      La línea que conecta los pasos se "dibuja" solo hasta el paso 2 (la mitad del recorrido),
       y el resto queda punteado, como camino que todavía falta recorrer.
     */
     .process-line-done {
@@ -286,7 +287,7 @@
         Mombé
       </h1>
       <p class="hero-fade-up hero-fade-up-3 font-body-main text-body-main text-texto-fuerte opacity-80 max-w-xl">
-        Textiles artesanales. Este proyecto está en desarrollo: hoy estamos en el paso 1, el diagnóstico.
+        Textiles artesanales. Este proyecto está en desarrollo: hoy estamos en el paso 2, diseño y estrategia.
       </p>
     </div>
 
@@ -309,32 +310,32 @@
 
       <div class="process-grid grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
-        <!-- Línea de fondo punteada (camino que falta) + tramo naranja ya recorrido hasta el paso 1. Solo en desktop -->
+        <!-- Línea de fondo punteada (camino que falta) + tramo naranja ya recorrido hasta el paso 2. Solo en desktop -->
         <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] border-t border-dashed border-gris-claro z-0"></div>
-        <div class="process-line-done hidden md:block absolute top-[24px] left-[15%] w-[18%] h-px bg-naranja z-0"></div>
+        <div class="process-line-done hidden md:block absolute top-[24px] left-[15%] w-[35%] h-px bg-naranja z-0"></div>
 
-        <!-- Paso 1: el actual -->
-        <div class="process-step process-step-1 is-current flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">1</div>
+        <!-- Paso 1: completo -->
+        <div class="process-step process-step-1 is-done flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-azul-primario border border-azul-primario flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">1</div>
+          <span class="font-label-cta text-label-cta text-azul-primario inline-flex items-center gap-1 px-sm py-1">
+            Completado
+          </span>
+          <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
+          <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
+            Conocimos el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes. De ahí salió el brief del proyecto.
+          </p>
+        </div>
+
+        <!-- Paso 2: el actual -->
+        <div class="process-step process-step-2 is-current flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">2</div>
           <span class="font-label-cta text-label-cta text-azul-primario border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
             <span class="ti ti-tools text-base" aria-hidden="true"></span>
             Estamos acá
           </span>
-          <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
-          <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            Estamos conociendo el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes, para definir qué necesita su presencia digital.
-          </p>
-        </div>
-
-        <!-- Paso 2: pendiente -->
-        <div class="process-step process-step-2 is-pending flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">2</div>
-          <span class="font-label-cta text-label-cta text-texto-fuerte inline-flex items-center gap-1 px-sm py-1">
-            Próximamente
-          </span>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            Con lo que salga del diagnóstico, armamos la propuesta de diseño y contenido.
+            Luego del brief resultante del diagnóstico, pasamos a unificar la identidad visual de Mombé y definimos la de sus dos líneas textiles. Comenzamos a bajar la idea en un borrador de diseño y lo seguimos iterando.
           </p>
         </div>
 
