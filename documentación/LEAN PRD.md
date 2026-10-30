@@ -1657,7 +1657,7 @@ Antes de publicar cambios:
 - **Paso 3 (Resultados):** sigue "Próximamente", apagado.
 - **Línea de progreso:** el tramo naranja llega ahora hasta el centro del paso 2 (`w-[18%]` pasa a `w-[35%]`). Corrí `npm run build` por la clase nueva.
 - **Texto del encabezado y metadescripciones:** `description`, `og:description` y `twitter:description` dicen "Hoy estamos en el paso 2, diseño y estrategia." (antes paso 1, el diagnóstico). Se actualizaron también los comentarios del CSS y el de la tarjeta en `index.html`.
-- **Verificación:** lo vi en el navegador local: paso 1 con número azul, paso 2 con halo y la línea naranja llegando hasta él, paso 3 apagado.
+- **Verificación:** lo vi en el navegador local: paso 1 con número azul, paso 2 con halo y la línea naranja llegando hasta él, paso 3 apagado. Después comprobé la vista previa de develop en Vercel (despliegue `dpl_WVM6yx…`, READY): la página trae el paso 2, el logo, `<main>`, el footer con `pb-24` y `og-mombe.jpg`. Se corrigió también un comentario viejo del HTML que decía que todavía no había logo de Mombé.
 
 **Por qué lo hice:** Sabrina avisó que el proyecto de Mombé avanzó a la etapa de diseño.
 
