@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.61
+**Versión:** 1.62
 
 **Fecha:** Octubre 2026
 
@@ -1603,6 +1603,19 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Casi todo el tráfico real llega desde Instagram y el link se comparte por chat, así que la vista previa es lo primero que ve la persona.
 
+### v1.62 — 29 de octubre de 2026
+
+**Qué hice:** Sumé la página de Facebook de Sabri Studios al `sameAs` del JSON-LD de `index.html`.
+
+**Detalle del cambio:**
+
+- **`index.html`:** el `sameAs` de la organización pasa de 2 a 3 perfiles: Instagram, Facebook (`https://www.facebook.com/sabristudios`) y la ficha de Google Maps.
+- **Verificación:** Sabrina pasó primero el link con el identificador numérico (`profile.php?id=61595375138267`) y después el de usuario. Probé los dos: responden 200 con el título "Sabri Studios" y el numérico redirige a `facebook.com/sabristudios`, así que es la misma página. Quedó el link con el nombre de usuario, que es el definitivo. El JSON-LD sigue siendo JSON válido.
+- **No se tocó:** el `sameAs` del autor en la guía de Google Maps (es el de la persona, con LinkedIn e Instagram, no el de la organización).
+- **Pendiente:** falta evaluar si se muestra un ícono de Facebook en el footer.
+
+**Por qué lo hice:** era un pendiente de Notion (sumar el Facebook al `sameAs`) para que Google asocie ese perfil con la marca.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1672,3 +1685,4 @@ Antes de publicar cambios:
 | 1.59 | 21 de octubre de 2026 | Sabri Studios | Ficha de Google Maps conectada: `hasMap` y `sameAs` en el JSON-LD de `index.html` y línea en `llms.txt` |
 | 1.60 | 29 de octubre de 2026 | Sabri Studios | Link "Dejanos tu reseña" en el footer de `index.html` con el link de reseñas de la ficha de Google; ícono `ti-star` |
 | 1.61 | 29 de octubre de 2026 | Sabri Studios | Imagen propia de 1200×630 para compartir en redes (`og:image` y `twitter:image` en 4 páginas) y revisión del CTA en celular (ya resuelto en v1.42) |
+| 1.62 | 29 de octubre de 2026 | Sabri Studios | Página de Facebook de Sabri Studios en el `sameAs` del JSON-LD de `index.html` |
