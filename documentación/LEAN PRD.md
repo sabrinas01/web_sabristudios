@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.68
+**Versión:** 1.69
 
 **Fecha:** Octubre 2026
 
@@ -1709,6 +1709,24 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió ejecutar la skill de diseño y eligió el hero de la home como parte a rediseñar.
 
+### v1.69 — 30 de octubre de 2026
+
+**Qué hice:** Seguí con las ideas de la skill de diseño: rediseñé la sección "Proyectos desarrollados" de la home (1), quité el movimiento genérico de la home (3) y pasé los botones y etiquetas de mayúsculas a minúscula normal (5).
+
+**Detalle del cambio:**
+
+- **Tarjetas de proyectos (`index.html`):** cada tarjeta cuenta qué cambió para ese negocio, con una frase tomada de la propia página del proyecto, y en qué paso del proceso está. AR Estética: "Del boca a boca a una web con sus servicios y un camino directo a WhatsApp". JL Construcciones: "De trabajar por recomendación a una web con sus servicios, una galería de trabajos y contacto directo". Servicios AF: "De una página en Lovable a una web completa, con perfil profesional y servicios más claros". Mombé: "En desarrollo: hoy estamos en el paso 2, diseño y estrategia". No se inventó ningún dato.
+- **Barra de estado:** 3 tramos que indican el proceso. Llena en los tres proyectos con los 3 pasos completos ("Proceso completo") y con 2 tramos llenos en Mombé ("Paso 2 de 3"). Lleva `role="img"` y `aria-label`. **Cuando Mombé pase de paso hay que actualizar esa barra y el texto de su tarjeta a mano.**
+- **Layout:** texto alineado a la izquierda, logo de 64 px al costado del nombre y del rubro, grilla de 2 columnas desde tablet (antes 3 columnas con una tarjeta huérfana abajo). En pantallas de menos de 420 px el pie (estado y link) se apila en dos líneas. Se quitó la etiqueta azul en mayúsculas de la esquina: el rubro pasa a ser texto normal bajo el nombre.
+- **"Ver proyecto" / "Ver avance":** pasan de botón naranja a link subrayado con flecha, para dejar el naranja a la acción principal. La tarjeta entera sigue siendo un solo link. El hover es un cambio de borde a `azul-primario`.
+- **Seguimiento:** se conserva la clase `project-card` y el `href`: el evento `project_click` de GA4 sigue enviándose con el mismo `project_name`. Lo comprobé disparando un clic en la tarjeta de Mombé.
+- **Movimiento (3), solo en la home:** se eliminaron la entrada de las tarjetas (escala, rotación y desplazamiento), el brillo diagonal al pasar el mouse, el levantamiento al hover y las entradas de los pasos del proceso y de la demo, junto con el observador de scroll de `index.html`. El único movimiento que se dispara solo queda en el hero (v1.68). Las páginas de proyecto conservan sus entradas.
+- **Minúscula normal (5):** "Reservá tu demo", "Agendá una reunión" y "¡Reservá tu demo!" en la home (5 botones); "Aceptar" y "Rechazar" del aviso de cookies (`consentimiento.js`); "Cambiar preferencias de cookies" en la política; y la etiqueta azul de arriba de las 4 páginas de proyecto y de la guía de Google Maps (se quitó `uppercase`). El texto no cambia, solo las mayúsculas. El estilo de mayúsculas de los botones era parte de la marca; Sabrina pidió probarlo.
+- **Verificación (navegador local):** escritorio y marco de celular de 390 px; 4 tarjetas, todas visibles; ningún elemento con `text-transform: uppercase` en la home; sin scroll horizontal; el CSS se compiló con `npm run build` por las clases nuevas (`min-[420px]:`).
+- **Pendiente:** ver el sitio desplegado y medir en Clarity el efecto en los clics a las tarjetas (`project_click`) y en los clics inactivos; si el cambio de botón a link baja los clics, se puede volver al botón.
+
+**Por qué lo hice:** Sabrina eligió probar las ideas 1, 3 y 5 de la skill de diseño.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1785,3 +1803,4 @@ Antes de publicar cambios:
 | 1.66 | 30 de octubre de 2026 | Sabri Studios | `develop` vuelve a desplegar en Vercel (Require Verified Commits en Disabled y Branch Tracking de Preview activado) y `master` vuelve a exigir el check "Vercel" |
 | 1.67 | 30 de octubre de 2026 | Sabri Studios | Contraste de los botones naranja (opción B): texto `texto-fuerte` (5,35:1) y `naranja-hover` más claro `#E58F52` (6,59:1); Design System actualizado |
 | 1.68 | 30 de octubre de 2026 | Sabri Studios | Hero de la home rediseñado: la foto se reemplaza por una búsqueda de Google ilustrada (resultados de la competencia y hueco "Tu negocio / No aparece"), visible también en celular, con un solo movimiento y sin la foto de 1,9 MB |
+| 1.69 | 30 de octubre de 2026 | Sabri Studios | Proyectos de la home rediseñados (qué cambió + estado del proceso, 2 columnas), movimiento genérico de la home eliminado y botones y etiquetas en minúscula normal |

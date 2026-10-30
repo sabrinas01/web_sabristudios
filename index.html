@@ -176,98 +176,12 @@
       display: none;
     }
 
-    .process-step {
-      opacity: 0;
-      transform: translateY(32px) scale(0.96);
-      transition: opacity 0.65s ease-out, transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .process-step.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-    }
-    .process-step:nth-of-type(3) {
-      transition-delay: 0.15s;
-    }
-    .process-step:nth-of-type(4) {
-      transition-delay: 0.3s;
-    }
-    .process-step-number {
-      transition: transform 0.65s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.65s ease-out;
-    }
-    .process-step.is-visible .process-step-number {
-      transform: scale(1.12);
-      box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
-    }
     /*
-      Pasos de "La demo gratuita es así": aparecen de abajo hacia arriba, uno después del otro,
-      para que se lean como una secuencia vertical. Cada paso se observa por separado, así que
-      al ir bajando van apareciendo en orden; si entran varios juntos en pantalla, el retraso
-      escalonado mantiene el 1 → 2 → 3 → 4.
+      Las tarjetas de proyectos, los pasos del proceso y los pasos de la demo ya no se animan al
+      aparecer (antes entraban con escala, rotación y desplazamiento, y las tarjetas tenían un brillo
+      al pasar el mouse): el único movimiento que se dispara solo es el de la búsqueda del Hero.
+      El hover de las tarjetas es un cambio de borde, sin mover nada.
     */
-    .demo-step {
-      opacity: 0;
-      transform: translateY(40px);
-      transition: opacity 0.6s ease-out, transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .demo-step.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .demo-step:nth-child(2) {
-      transition-delay: 0.15s;
-    }
-    .demo-step:nth-child(3) {
-      transition-delay: 0.3s;
-    }
-    .demo-step:nth-child(4) {
-      transition-delay: 0.45s;
-    }
-    /*
-      Tarjetas de "Proyectos desarrollados": las hice entrar con un efecto de aparición
-      más marcado (escala + rotación leve) y, al pasar el mouse, agrego un brillo
-      diagonal que recorre la tarjeta de punta a punta.
-    */
-    .project-card {
-      opacity: 0;
-      transform: translateY(40px) scale(0.85) rotate(-2deg);
-      transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.3s ease-out;
-      position: relative;
-      overflow: hidden;
-    }
-    .project-card.is-visible {
-      opacity: 1;
-      transform: translateY(0) scale(1) rotate(0deg);
-    }
-    /*
-      El levantamiento y el brillo al pasar el mouse los dejo solo para dispositivos con mouse
-      real (hover: hover). En el celular, "hover" se queda pegado después de tocar y la tarjeta
-      quedaría flotando hasta que se toque otra cosa.
-    */
-    @media (hover: hover) {
-      .project-card.is-visible:hover {
-        transform: translateY(-6px) scale(1.02) rotate(0deg);
-        box-shadow: 0 20px 30px -12px rgba(18, 32, 46, 0.25);
-      }
-    }
-    .project-card::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -75%;
-      width: 50%;
-      height: 100%;
-      background: linear-gradient(115deg, transparent 0%, rgba(255, 255, 255, 0.55) 50%, transparent 100%);
-      transform: skewX(-20deg);
-      pointer-events: none;
-    }
-    @media (hover: hover) {
-      .project-card:hover::after {
-        left: 125%;
-        transition: left 0.75s ease-out;
-      }
-    }
     /* Saco el retraso del toque y el zoom por doble toque en todo lo que sí se puede tocar */
     a, button, summary {
       touch-action: manipulation;
@@ -311,17 +225,6 @@
       dejo todo mostrado directamente, sin efectos.
     */
     @media (prefers-reduced-motion: reduce) {
-      .process-step,
-      .demo-step,
-      .project-card,
-      .project-card.is-visible:hover {
-        opacity: 1;
-        transform: none;
-        transition: none;
-      }
-      .project-card::after {
-        display: none;
-      }
       .hero-busqueda-fila,
       .hero-busqueda-ausente {
         animation: none;
@@ -411,12 +314,12 @@
           <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
             class="border border-naranja bg-naranja text-texto-fuerte hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
-            RESERVÁ TU DEMO
+            Reservá tu demo
           </a>
           <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
             target="_blank" rel="noopener noreferrer"
             class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-block">
-            AGENDÁ UNA REUNIÓN
+            Agendá una reunión
           </a>
         </div>
 
@@ -496,105 +399,134 @@
       </p>
     </div>
 
-    <!-- Armé una grilla de proyectos donde cada tarjeta lleva a una página propia con el proceso de ese proyecto -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-md md:gap-lg">
+    <!-- Dos columnas desde tablet: con 4 tarjetas quedan 2 por fila y no una sola huérfana abajo -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-md md:gap-lg">
 
       <!--
-        Este es el proyecto de AR Estética Vehicular. Hice que toda la tarjeta sea un solo link,
-        así se puede hacer clic en cualquier parte (la foto, el título, el texto) y no solo en
-        el botón "Ver proyecto" de abajo. Lleva a una página propia con los 3 pasos del proceso
-        y, al final, un botón para visitar el sitio real del cliente.
+        Cada tarjeta cuenta qué cambió para ese negocio (la frase sale de la propia página del proyecto) y
+        en qué paso del proceso está: 3 tramos llenos si ya se completaron los 3 pasos. Toda la tarjeta es
+        un solo link, así se puede tocar en cualquier parte, y lleva a la página del proyecto con sus 3 pasos.
+        El hover es solo un cambio de borde: nada se mueve ni brilla.
       -->
       <a href="proyecto-ar-estetica-vehicular.html"
         aria-label="Ver el proceso del proyecto de AR Mantenimiento y Estética Vehicular, desarrollado por Sabri Studios"
-        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <!-- Esta etiqueta va arriba a la derecha de la tarjeta, en el azul de la marca (antes era el rojo del logo de AR, que no es parte de la paleta de Sabri Studios). Le bajé el logo con "mt-6" para dejarle un espacio propio arriba y que no se toquen -->
-        <span class="w-full md:w-auto md:absolute md:top-2 md:right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight whitespace-normal text-center md:text-right md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
-          Mantenimiento y Estética Vehicular
-        </span>
-        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
-          <!--
-            Le puse el ancho y alto de la imagen para que la página no se mueva de golpe mientras
-            carga, y "loading lazy" para que esta foto recién se descargue cuando la persona
-            va llegando a esta parte al hacer scroll (así la página arranca más rápido).
-          -->
-          <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
-            alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
+            <img src="imagenes/logo-ar-estetica-vehicular.png" width="150" height="150" loading="lazy"
+              alt="Logo de AR Estética Vehicular" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">AR Estética Vehicular</h3>
+            <span class="font-body-main text-sm text-texto-fuerte opacity-80">Mantenimiento y estética vehicular</span>
+          </div>
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">AR Estética Vehicular</h3>
-        <span class="font-label-cta text-label-cta text-texto-fuerte bg-naranja group-hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
-          Ver proyecto
-          <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
-        </span>
+        <p class="font-body-main text-body-main text-texto-fuerte">Del boca a boca a una web con sus servicios y un camino directo a WhatsApp.</p>
+        <div class="mt-auto flex flex-col gap-sm min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between border-t border-gris-claro pt-sm">
+          <div class="flex items-center gap-xs">
+            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            </span>
+            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
+          </div>
+          <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1">
+            Ver proyecto
+            <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
+          </span>
+        </div>
       </a>
 
-      <!--
-        Este es el proyecto de JL Construcciones en Seco (Durlock & Steel). Repetí el mismo patrón
-        de tarjeta-link que en la de AR Estética Vehicular, así queda todo consistente.
-      -->
       <a href="proyecto-jl-construcciones-en-seco.html"
         aria-label="Ver el proceso del proyecto de JL Construcciones en Seco, desarrollado por Sabri Studios"
-        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="w-full md:w-auto md:absolute md:top-2 md:right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight whitespace-normal text-center md:text-right md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
-          Construcción en seco
-        </span>
-        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
-          <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
-            alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
+            <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
+              alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">JL Construcciones en Seco</h3>
+            <span class="font-body-main text-sm text-texto-fuerte opacity-80">Construcción en seco</span>
+          </div>
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">JL Construcciones en Seco</h3>
-        <span class="font-label-cta text-label-cta text-texto-fuerte bg-naranja group-hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
-          Ver proyecto
-          <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
-        </span>
+        <p class="font-body-main text-body-main text-texto-fuerte">De trabajar por recomendación a una web con sus servicios, una galería de trabajos y contacto directo.</p>
+        <div class="mt-auto flex flex-col gap-sm min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between border-t border-gris-claro pt-sm">
+          <div class="flex items-center gap-xs">
+            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            </span>
+            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
+          </div>
+          <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1">
+            Ver proyecto
+            <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
+          </span>
+        </div>
       </a>
 
-      <!--
-        Proyecto de Mombé (textiles artesanales), todavía en desarrollo. Misma tarjeta-link que las
-        otras dos; su página propia muestra que estamos en el paso 2 (Diseño y Estrategia).
-      -->
+      <!-- Mombé todavía no terminó: lo dice el texto y la barra, que llega solo hasta el paso 2 -->
       <a href="proyecto-mombe.html"
         aria-label="Ver el proceso del proyecto de Mombé, textiles artesanales, en desarrollo por Sabri Studios"
-        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="w-full md:w-auto md:absolute md:top-2 md:right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight whitespace-normal text-center md:text-right md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
-          Textiles artesanales
-        </span>
-        <!-- Logo de Mombé (caracol con burbujas y el nombre), recortado cuadrado para el círculo de la tarjeta -->
-        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
-          <img src="imagenes/logo-mombe.jpg" width="320" height="320" loading="lazy"
-            alt="Logo de Mombé" class="w-full h-full object-cover">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
+            <img src="imagenes/logo-mombe.jpg" width="150" height="150" loading="lazy"
+              alt="Logo de Mombé" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Mombé</h3>
+            <span class="font-body-main text-sm text-texto-fuerte opacity-80">Textiles artesanales</span>
+          </div>
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">Mombé</h3>
-        <!-- Mombé todavía no terminó: lo aclaro en la tarjeta para que no se lea como un proyecto ya entregado -->
-        <span class="font-label-cta text-label-cta text-azul-primario border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
-          <span class="ti ti-tools text-base" aria-hidden="true"></span>
-          En desarrollo
-        </span>
-        <span class="font-label-cta text-label-cta text-texto-fuerte bg-naranja group-hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
-          Ver avance
-          <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
-        </span>
+        <p class="font-body-main text-body-main text-texto-fuerte">En desarrollo: hoy estamos en el paso 2, diseño y estrategia.</p>
+        <div class="mt-auto flex flex-col gap-sm min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between border-t border-gris-claro pt-sm">
+          <div class="flex items-center gap-xs">
+            <span class="flex items-center gap-1" role="img" aria-label="Paso 2 de 3">
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-gris-claro"></span>
+            </span>
+            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Paso 2 de 3</span>
+          </div>
+          <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1">
+            Ver avance
+            <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
+          </span>
+        </div>
       </a>
 
-      <!--
-        Proyecto "Servicios AF". Misma tarjeta-link que las demás; no tiene
-        logo propio, así que en el círculo va la foto de portada del proyecto.
-      -->
       <a href="proyecto-web-servicios-profesionales.html"
         aria-label="Ver el proceso del proyecto Servicios AF, desarrollado por Sabri Studios"
-        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro shadow-ambient hover:shadow-media flex flex-col items-center text-center gap-sm transition-shadow duration-200">
-        <span class="w-full md:w-auto md:absolute md:top-2 md:right-2 z-20 bg-azul-primario text-gris-neutro text-xs leading-tight whitespace-normal text-center md:text-right md:whitespace-nowrap md:leading-none font-medium uppercase px-1.5 py-1 rounded">
-          Servicios profesionales
-        </span>
-        <div class="md:mt-6 w-32 h-32 md:w-36 md:h-36 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro flex items-center justify-center">
-          <img src="imagenes/servicios-af-portada.jpg" width="150" height="150" loading="lazy"
-            alt="Portada del proyecto Servicios AF" class="w-full h-full object-cover">
+        class="project-card group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm">
+        <div class="flex items-center gap-sm">
+          <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
+            <img src="imagenes/servicios-af-portada.jpg" width="150" height="150" loading="lazy"
+              alt="Portada del proyecto Servicios AF" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Servicios AF</h3>
+            <span class="font-body-main text-sm text-texto-fuerte opacity-80">Servicios profesionales</span>
+          </div>
         </div>
-        <h3 class="font-headline-h3 text-headline-h3 text-azul-primario sm:min-h-[68px] flex items-center justify-center">Servicios AF</h3>
-        <span class="font-label-cta text-label-cta text-texto-fuerte bg-naranja group-hover:bg-naranja-hover transition-colors duration-200 inline-flex items-center gap-1 mt-auto px-sm py-2 rounded-lg">
-          Ver proyecto
-          <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
-        </span>
+        <p class="font-body-main text-body-main text-texto-fuerte">De una página en Lovable a una web completa, con perfil profesional y servicios más claros.</p>
+        <div class="mt-auto flex flex-col gap-sm min-[420px]:flex-row min-[420px]:items-center min-[420px]:justify-between border-t border-gris-claro pt-sm">
+          <div class="flex items-center gap-xs">
+            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            </span>
+            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
+          </div>
+          <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1">
+            Ver proyecto
+            <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
+          </span>
+        </div>
       </a>
 
     </div>
@@ -669,7 +601,7 @@
         </h2>
       </div>
 
-      <!-- Lista de pasos con su número en un círculo naranja. Cada paso tiene "demo-step" para que aparezca de abajo hacia arriba al hacer scroll -->
+      <!-- Lista de pasos con su número en un círculo naranja -->
       <div class="max-w-3xl mx-auto w-full flex flex-col gap-md">
 
         <div class="demo-step flex gap-md items-start">
@@ -728,12 +660,12 @@
         <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_demo&utm_campaign=demo"
           target="_blank" rel="noopener noreferrer"
           class="border border-naranja bg-naranja text-texto-fuerte hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
-          RESERVÁ TU DEMO
+          Reservá tu demo
         </a>
         <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
           target="_blank" rel="noopener noreferrer"
           class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-block">
-          AGENDÁ UNA REUNIÓN
+          Agendá una reunión
         </a>
       </div>
 
@@ -769,7 +701,7 @@
             <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_sobre_mi&utm_campaign=demo"
               target="_blank" rel="noopener noreferrer"
               class="border border-naranja bg-naranja text-texto-fuerte hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[11px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
-              ¡RESERVÁ TU DEMO!
+              ¡Reservá tu demo!
             </a>
           </div>
         </div>
@@ -1080,27 +1012,6 @@
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') closeMobileMenu();
     });
-
-    // Animación al hacer scroll: dejo los pasos del proceso, las tarjetas de proyectos
-    // y los pasos de la demo gratuita ocultos hasta que aparecen en pantalla.
-
-    // 1. Busco todos los elementos que quiero animar
-    const animatedElements = document.querySelectorAll('.process-step, .project-card, .demo-step');
-
-    // 2. Creo un "observador" que me avisa cuando un elemento entra en la ventana visible
-    const slideInObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          // El elemento ya es visible: le agrego la clase que dispara la transición CSS
-          entry.target.classList.add('is-visible');
-          // Dejo de observarlo: no necesito que se anime de nuevo
-          slideInObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.2 }); // lo disparo cuando al menos el 20% de la tarjeta es visible
-
-    // 3. Le digo al observador que vigile cada una de las tarjetas
-    animatedElements.forEach((el) => slideInObserver.observe(el));
 
     // Fuente de tráfico: identifico de dónde vino la visita (UTM si el link lo trae,
     // si no trato de inferirlo del referrer) para poder cruzarlo con las conversiones
