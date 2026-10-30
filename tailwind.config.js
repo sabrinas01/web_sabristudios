@@ -58,7 +58,7 @@ module.exports = {
         "on-secondary-fixed-variant": "#00497e",
         "tertiary-container": "#602900",
         "naranja": "#D97A3C",
-        "naranja-hover": "#C66A2E",
+        "naranja-hover": "#E58F52",
         "naranja-texto": "#B05218",
         "azul-primario": "#1E3A5F",
         "azul-secundario": "#4A90D9",

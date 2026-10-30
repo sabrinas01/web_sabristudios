@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.66
+**Versión:** 1.71
 
 **Fecha:** Octubre 2026
 
@@ -1675,6 +1675,86 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió resolver los despliegues de `develop` y, una vez resueltos, volver a exigir el check en `master`.
 
+### v1.67 — 30 de octubre de 2026
+
+**Qué hice:** Apliqué la opción B de contraste a los botones naranja: texto oscuro sobre el naranja de marca y hover más claro.
+
+**Detalle del cambio:**
+
+- **Propuesta y decisión:** el 29/10 Sabrina había pedido mantener lo que dijera el manual de marca; el 30/10 pidió una propuesta de contraste y eligió la opción B, que cambia el color del texto sin tocar el naranja de fondo.
+- **Texto de los botones (8 archivos):** todos los elementos con fondo `naranja` pasan de texto `gris-neutro` (2,79:1) a `texto-fuerte` `#12202E` (5,35:1). Son 35 lugares: el botón de la barra, los botones del hero, la demo y "Sobre mí", los botones "Ver proyecto" y "Ver avance" de las tarjetas, los números de los pasos, el CTA final de las 4 páginas de proyecto, "Aceptar" del aviso de cookies (`consentimiento.js`) y el color del texto seleccionado.
+- **Token `naranja-hover` (`tailwind.config.js`):** pasa de `#C66A2E` a `#E58F52`. Ahora el hover aclara el botón en lugar de oscurecerlo: con texto oscuro, el hover oscuro daba 4,33:1 y el claro da 6,59:1. Como los botones usan el token, no hizo falta tocar cada hover.
+- **`documentación/Design System.md`:** actualicé la tabla de colores, los contrastes, la definición del botón primario y las notas de "Botones y naranja de hover" y "Contraste del naranja".
+- **Verificación:** corrí `npm run build` y, en el navegador local, los 11 botones naranja de la home miden 5,35:1 y las reglas de hover compiladas usan `rgb(229 143 82)`. No pude ver el hover real con el cursor: el simulador de la extensión no activa `:hover`. Chrome guardaba el CSS viejo en caché y tuve que forzar la recarga.
+- **No se tocó:** el naranja de fondo (`#D97A3C`), el botón secundario ni los textos en `naranja` de 24 px o más.
+- **Pendiente:** ver el hover a mano en el sitio desplegado y volver a pasar PageSpeed para confirmar que desaparece el aviso de contraste.
+
+**Por qué lo hice:** PageSpeed marcaba el contraste de los botones naranja como la única falla de accesibilidad que quedaba.
+
+### v1.68 — 30 de octubre de 2026
+
+**Qué hice:** Rediseñé el hero de la home con la skill de diseño: la foto de la derecha se reemplaza por una búsqueda de Google ilustrada donde aparece la competencia y el negocio de quien mira no aparece.
+
+**Detalle del cambio:**
+
+- **Idea:** el titular dice "Si tu negocio no aparece en Google, no existe", así que el hero lo muestra con el propio objeto del problema. Una ventana de búsqueda con "tu rubro en San Juan", tres resultados de otros negocios (barras grises, sin nombres) y un hueco con borde punteado naranja: "Tu negocio / No aparece en los resultados". No se inventó ningún negocio, dato ni cifra.
+- **Un solo movimiento:** los tres resultados aparecen uno detrás del otro (0,25 s, 0,47 s y 0,69 s) y el hueco aparece al final (1,3 s). Pasa una vez y queda quieto. Reemplaza los tres movimientos de la foto (entrada, flotación de 7 s y zoom lento de 18 s). Con "reducir movimiento" activado se muestra todo de entrada. Solo cambia la opacidad y 8 px al principio, así que no mueve el resto de la página.
+- **Titular y rótulo:** el texto es el mismo. Se quitó el naranja de "no existe" (un acento en una sola frase) y el rótulo "El costo de la invisibilidad" pasa de mayúsculas separadas a minúscula normal. El naranja queda para el botón principal y para el hueco.
+- **Celular:** la ilustración se muestra también en celular, debajo de los botones, así que "Reservá tu demo" y "Agendá una reunión" siguen arriba y a la vista. Antes la foto se ocultaba en celular.
+- **Accesibilidad:** la ilustración es un `figure` con `role="img"` y un `aria-label` que la describe; su contenido interno queda oculto para lectores de pantalla. No tiene botón ni cursor de texto.
+- **Peso:** el hero ya no pide la foto `sabristudios_subheadline.jpeg` (1,9 MB en escritorio). El archivo sigue en `imagenes/` sin usarse; se puede borrar después, queda en el historial de git. Se eliminaron del CSS los `heroImageIn`, `heroKenBurns`, `heroFloat` y las reglas `.hero-image`.
+- **Verificación (navegador local):** escritorio y marco de celular de 390 px; las cuatro piezas terminan con opacidad 1; el cambio de diseño de la carga fue 0,0012; no se hace ningún pedido a la foto vieja; el `h1` conserva el texto. Compilé el CSS con `npm run build`.
+- **Riesgo a medir:** la ilustración no es clickeable pero parece una ventana de buscador, y puede atraer toques sin respuesta (clics inactivos en Clarity). Hay que mirar esa métrica en las próximas semanas; si sube, se le puede dar un destino (por ejemplo, llevarla al botón de la demo).
+- **Pendiente:** ver cómo se ve en el sitio desplegado y en un celular real, y volver a pasar PageSpeed (el LCP ahora es el titular, no la foto).
+
+**Por qué lo hice:** Sabrina pidió ejecutar la skill de diseño y eligió el hero de la home como parte a rediseñar.
+
+### v1.70 — 29 de octubre de 2026
+
+**Qué hice:** Corté la medición de Google Analytics y Clarity cuando la página no se abre desde el sitio real o la abre un navegador automático, para que mis pruebas y los robots no cuenten como visitas.
+
+**Detalle del cambio:**
+
+- **Corte (7 páginas):** antes de cargar GA4 hay un script corto que marca `window.sinMedicion` y `window['ga-disable-G-HLPQM5HE7G']` cuando el `hostname` no es `web-sabristudios.vercel.app`, o cuando `navigator.webdriver` es verdadero, o el user agent contiene HeadlessChrome, Lighthouse, PageSpeed o Googlebot. Clarity solo se inicia si `sinMedicion` no está activo.
+- **Qué evita:** visitas de las vistas previas de Vercel (`web-sabristudios-xxxx-sabristudios.vercel.app`), de `localhost` y de PageSpeed/Lighthouse, que explican buena parte del tráfico de centros de datos de EE. UU. (63 de 277 eventos).
+- **Qué no cubre:** el tráfico histórico ya registrado y los robots que se hagan pasar por un navegador normal; esos se leen en los informes comparando sin esos países.
+- **Hallazgo en Analytics (sin tocar todavía):** la regla de Crear eventos `whatsapp_click` crea un evento por cada `page_view` de la web, así que los `whatsapp_click` de GA4 no son clics reales. La borra Sabrina desde Analytics.
+- **Pendiente:** verificar en el sitio desplegado que los eventos siguen llegando desde la web real y no desde las vistas previas.
+
+**Por qué lo hice:** Sabrina pidió corregir lo posible de los bots y del tráfico falso en Analytics.
+### v1.69 — 30 de octubre de 2026
+
+**Qué hice:** Seguí con las ideas de la skill de diseño: rediseñé la sección "Proyectos desarrollados" de la home (1), quité el movimiento genérico de la home (3) y pasé los botones y etiquetas de mayúsculas a minúscula normal (5).
+
+**Detalle del cambio:**
+
+- **Tarjetas de proyectos (`index.html`):** cada tarjeta cuenta qué cambió para ese negocio, con una frase tomada de la propia página del proyecto, y en qué paso del proceso está. AR Estética: "Del boca a boca a una web con sus servicios y un camino directo a WhatsApp". JL Construcciones: "De trabajar por recomendación a una web con sus servicios, una galería de trabajos y contacto directo". Servicios AF: "De una página en Lovable a una web completa, con perfil profesional y servicios más claros". Mombé: "En desarrollo: hoy estamos en el paso 2, diseño y estrategia". No se inventó ningún dato.
+- **Barra de estado:** 3 tramos que indican el proceso. Llena en los tres proyectos con los 3 pasos completos ("Proceso completo") y con 2 tramos llenos en Mombé ("Paso 2 de 3"). Lleva `role="img"` y `aria-label`. **Cuando Mombé pase de paso hay que actualizar esa barra y el texto de su tarjeta a mano.**
+- **Layout:** texto alineado a la izquierda, logo de 64 px al costado del nombre y del rubro, grilla de 2 columnas desde tablet (antes 3 columnas con una tarjeta huérfana abajo). El pie (estado y link) pasa a fila solo si la tarjeta tiene 400 px de contenido o más, y si no se apila en dos líneas. Eso depende del ancho de la tarjeta y no del de la pantalla (container query con `@container` y `@[400px]:`): una primera versión usaba el ancho de la pantalla (420 px) y en tablet, con dos tarjetas de unos 330 px por fila, el link "Ver proyecto" se partía en dos líneas y la flecha se salía; Sabrina lo avisó con una captura. El link lleva `whitespace-nowrap`. Se quitó la etiqueta azul en mayúsculas de la esquina: el rubro pasa a ser texto normal bajo el nombre.
+- **"Ver proyecto" / "Ver avance":** pasan de botón naranja a link subrayado con flecha, para dejar el naranja a la acción principal. La tarjeta entera sigue siendo un solo link. El hover es un cambio de borde a `azul-primario`.
+- **Seguimiento:** se conserva la clase `project-card` y el `href`: el evento `project_click` de GA4 sigue enviándose con el mismo `project_name`. Lo comprobé disparando un clic en la tarjeta de Mombé.
+- **Movimiento (3), solo en la home:** se eliminaron la entrada de las tarjetas (escala, rotación y desplazamiento), el brillo diagonal al pasar el mouse, el levantamiento al hover y las entradas de los pasos del proceso y de la demo, junto con el observador de scroll de `index.html`. El único movimiento que se dispara solo queda en el hero (v1.68). Las páginas de proyecto conservan sus entradas.
+- **Minúscula normal (5):** "Reservá tu demo", "Agendá una reunión" y "¡Reservá tu demo!" en la home (5 botones); "Aceptar" y "Rechazar" del aviso de cookies (`consentimiento.js`); "Cambiar preferencias de cookies" en la política; y la etiqueta azul de arriba de las 4 páginas de proyecto y de la guía de Google Maps (se quitó `uppercase`). El texto no cambia, solo las mayúsculas. El estilo de mayúsculas de los botones era parte de la marca; Sabrina pidió probarlo.
+- **Verificación (navegador local):** escritorio y marco de celular de 390 px; 4 tarjetas, todas visibles; ningún elemento con `text-transform: uppercase` en la home; sin scroll horizontal; el CSS se compiló con `npm run build` por las clases nuevas (`@container`, `@[400px]:`). Después de la corrección medí el pie en pantallas de 360, 390, 600, 720, 750, 768, 900, 1024 y 1280 px: sin desborde y con el link en una sola línea en todas.
+- **Pendiente:** ver el sitio desplegado y medir en Clarity el efecto en los clics a las tarjetas (`project_click`) y en los clics inactivos; si el cambio de botón a link baja los clics, se puede volver al botón.
+
+**Por qué lo hice:** Sabrina eligió probar las ideas 1, 3 y 5 de la skill de diseño.
+
+### v1.71 — 30 de octubre de 2026
+
+**Qué hice:** Corregí el desborde horizontal de la home y las páginas de proyecto en celulares angostos: el fondo no cubría todo el ancho y los títulos se salían de las tarjetas. Sabrina lo avisó con dos capturas.
+
+**Detalle del cambio:**
+
+- **Causa:** en las tarjetas de proyectos, el título (por ejemplo "Servicios AF") no entraba al lado del logo de 64 px y se salía de la tarjeta, lo que ensanchaba la página. Medí con un marco de ancho variable: la página medía 318 px de ancho aunque la pantalla fuera de 285 px.
+- **Tarjetas (`index.html`):** el bloque logo + nombre se apila (logo arriba) cuando la tarjeta tiene menos de 260 px de contenido (`@[260px]:flex-row`, container query) y los títulos llevan `break-words`. El título de la sección también.
+- **Encabezado (7 páginas):** por debajo de 320 px baja el padding lateral, la altura del logo (`h-7`) y el texto y padding del botón "Reservá tu demo", para que no empuje la página.
+- **Pie (6 páginas):** la fila Instagram / Email pasa a `flex-wrap` para que no se salga en pantallas angostas.
+- **Verificación (navegador local, marco de ancho variable):** sin desborde horizontal en las 7 páginas a 360, 390 y 768 px, y en la home también a 300 y 320 px. Quedan entre 6 y 25 px de desborde a 280 px en 4 páginas (home, AR, JL y política) y 2 px a 320 px en la de JL (tipo Galaxy Fold plegado); no se corrigió.
+- **Pendiente:** mirar la vista previa de Vercel en un celular real.
+
+**Por qué lo hice:** Sabrina mostró dos capturas del celular con el fondo cortado y el título de la tarjeta fuera de su caja.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1749,3 +1829,8 @@ Antes de publicar cambios:
 | 1.64 | 29 de octubre de 2026 | Sabri Studios | Logo de Mombé (`imagenes/logo-mombe.jpg`) en la tarjeta de `index.html` y en el encabezado de `proyecto-mombe.html`, en lugar de la inicial "M"; imagen propia para compartir (`og-mombe.jpg`) |
 | 1.65 | 29 de octubre de 2026 | Sabri Studios | Página de Mombé en el paso 2 (Diseño y Estrategia): diagnóstico completado, texto del paso actual, línea de progreso y metadescripciones |
 | 1.66 | 30 de octubre de 2026 | Sabri Studios | `develop` vuelve a desplegar en Vercel (Require Verified Commits en Disabled y Branch Tracking de Preview activado) y `master` vuelve a exigir el check "Vercel" |
+| 1.67 | 30 de octubre de 2026 | Sabri Studios | Contraste de los botones naranja (opción B): texto `texto-fuerte` (5,35:1) y `naranja-hover` más claro `#E58F52` (6,59:1); Design System actualizado |
+| 1.68 | 30 de octubre de 2026 | Sabri Studios | Hero de la home rediseñado: la foto se reemplaza por una búsqueda de Google ilustrada (resultados de la competencia y hueco "Tu negocio / No aparece"), visible también en celular, con un solo movimiento y sin la foto de 1,9 MB |
+| 1.69 | 30 de octubre de 2026 | Sabri Studios | Proyectos de la home rediseñados (qué cambió + estado del proceso, 2 columnas), movimiento genérico de la home eliminado y botones y etiquetas en minúscula normal |
+| 1.70 | 29 de octubre de 2026 | Sabri Studios | Corte de la medición de GA4 y Clarity fuera del sitio real y en navegadores automáticos |
+| 1.71 | 30 de octubre de 2026 | Sabri Studios | Corrección del desborde horizontal en celulares angostos (tarjetas de proyectos, encabezado y pie) |

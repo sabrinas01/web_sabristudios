@@ -37,7 +37,7 @@ Sabri Studios hace páginas web para emprendedores chicos que hoy venden solo po
 | --- | --- | --- |
 | `azul-primario` | `#1E3A5F` | Logo, headings y elementos clave. Fondo de la versión negativa del logo. |
 | `naranja` | `#D97A3C` | Acentos, CTAs, links y énfasis. |
-| `naranja-hover` | `#C66A2E` | Hover del botón primario. |
+| `naranja-hover` | `#E58F52` | Hover del botón primario. Es más claro que `naranja` (desde v1.67) para que el texto oscuro del botón mantenga el contraste. |
 | `naranja-texto` | `#B05218` | Naranja para texto chico sobre fondo claro (links y hovers): 5.16:1 sobre blanco y 4.66:1 sobre `gris-neutro`. No es parte de la guía original de la marca; es una variante más oscura solo para texto. No usar como relleno ni sobre `azul-primario` (2.23:1). |
 | `azul-secundario` | `#4A90D9` | Elementos interactivos y hover. |
 | `gris-neutro` | `#F5F3EF` | Fondo de página, cards, inputs y botón secundario. |
@@ -52,7 +52,7 @@ Sabri Studios hace páginas web para emprendedores chicos que hoy venden solo po
 
 - `azul-primario` sobre `gris-neutro`: 10.4:1. `texto-fuerte` sobre `gris-neutro`: 14.9:1.
 - `naranja` sobre `gris-neutro`: 2.79:1; sobre blanco: 3.09:1; sobre `azul-primario`: 3.72:1. Está por debajo de 4.5:1, así que sirve para rellenos y texto de 24px o más, no para texto chico. Es el valor exacto de la marca y no se retoca.
-- Texto `gris-neutro` sobre `naranja-hover`: 3.44:1.
+- Texto `texto-fuerte` sobre `naranja` (botón primario): 5.35:1; sobre `naranja-hover`: 6.59:1. Pasan 4.5:1 (AA).
 - `naranja-texto` (`#B05218`) sobre `gris-neutro`: 4.66:1 y sobre blanco: 5.16:1. Es la opción para texto chico en naranja.
 - `azul-secundario` sobre `gris-neutro`: 3.02:1. Usarlo en bordes, íconos y rellenos, no en texto chico.
 - `gris-medio` sobre `gris-neutro`: 1.45:1 y `placeholder`: 2.57:1. Son valores exactos de la marca; el estado focus del input lo marca el naranja.
@@ -121,7 +121,7 @@ El design system también incluye la paleta tipo Material que ya está en `tailw
 
 ## 6. Componentes
 
-- **Botón primario:** fondo `naranja`, texto `gris-neutro`, padding 12px 24px, `radius-md`, peso 500, hover `naranja-hover`.
+- **Botón primario:** fondo `naranja`, texto `texto-fuerte`, padding 12px 24px, `radius-md`, peso 500, hover `naranja-hover` (más claro).
 - **Botón secundario:** fondo `gris-neutro`, texto `azul-primario`, borde 1px `azul-primario`, `radius-md`, hover con fondo `gris-claro`.
 - **Botón terciario (link):** sin fondo ni borde, texto `naranja`, peso 500, subrayado solo en hover.
 - **Card:** fondo `gris-neutro` o `blanco`, borde 1px `gris-claro`, `radius-md`, padding `space-3`, `shadow-leve`.
@@ -148,9 +148,9 @@ Revisado el 19 de octubre de 2026 (actualizado en la v1.36 del LEAN PRD).
 
 - **Tipografía:** resuelta. El design system manda: todo en Space Mono. El sitio ya cumple (`tailwind.config.js` y las 6 páginas cargan solo Space Mono). La mención anterior de Space Grotesk en el LEAN PRD estaba desactualizada y se corrigió.
 - **Pesos:** resuelto en v1.35. El sistema admite solo 400 y 500, nunca 700 o más; el sitio ya no usa `font-bold` ni `font-semibold` y carga `wght@400;500`.
-- **Botones y naranja de hover:** resuelto en v1.36. `naranja-hover` vale `#C66A2E`, el botón primario lleva texto `gris-neutro` y el secundario fondo `gris-neutro`, borde de 1px y hover `gris-claro`.
+- **Botones y naranja de hover:** resuelto en v1.36 y ajustado en v1.67 (ver "Contraste del naranja"). Desde la v1.67 `naranja-hover` vale `#E58F52` (antes `#C66A2E`) y el botón primario lleva texto `texto-fuerte` (antes `gris-neutro`); el secundario lleva fondo `gris-neutro`, borde de 1px y hover `gris-claro`.
 - **Links de texto (v1.43):** el sistema los define en `naranja`, pero con 2.79:1 no pasan para texto chico. El sitio usa `azul-primario` subrayado, con hover `azul-secundario`. El `naranja` queda para texto de 24px o más, rellenos e íconos.
-- **Contraste del naranja:** el botón primario (texto `gris-neutro` sobre `naranja`) no llega a 4.5:1. Es valor de marca, pero conviene saberlo para el texto chico.
+- **Contraste del naranja:** resuelto en v1.67. El botón primario ya no lleva texto `gris-neutro` (2.79:1) sino `texto-fuerte` (5.35:1), y el hover es `naranja-hover` `#E58F52` (6.59:1). El relleno `naranja` no cambia, es el valor exacto de la marca. Quedan igual los números en `naranja` de las insignias de pasos y el texto seleccionado, que también usan `texto-fuerte`.
 
 **Pendiente de aplicar:**
 
