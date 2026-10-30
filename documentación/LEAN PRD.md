@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.69
+**Versión:** 1.70
 
 **Fecha:** Octubre 2026
 
@@ -1817,3 +1817,4 @@ Antes de publicar cambios:
 | 1.67 | 30 de octubre de 2026 | Sabri Studios | Contraste de los botones naranja (opción B): texto `texto-fuerte` (5,35:1) y `naranja-hover` más claro `#E58F52` (6,59:1); Design System actualizado |
 | 1.68 | 30 de octubre de 2026 | Sabri Studios | Hero de la home rediseñado: la foto se reemplaza por una búsqueda de Google ilustrada (resultados de la competencia y hueco "Tu negocio / No aparece"), visible también en celular, con un solo movimiento y sin la foto de 1,9 MB |
 | 1.69 | 30 de octubre de 2026 | Sabri Studios | Proyectos de la home rediseñados (qué cambió + estado del proceso, 2 columnas), movimiento genérico de la home eliminado y botones y etiquetas en minúscula normal |
+| 1.70 | 29 de octubre de 2026 | Sabri Studios | Corte de la medición de GA4 y Clarity fuera del sitio real y en navegadores automáticos |
