@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.66
+**Versión:** 1.67
 
 **Fecha:** Octubre 2026
 
@@ -1675,6 +1675,22 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pidió resolver los despliegues de `develop` y, una vez resueltos, volver a exigir el check en `master`.
 
+### v1.67 — 30 de octubre de 2026
+
+**Qué hice:** Apliqué la opción B de contraste a los botones naranja: texto oscuro sobre el naranja de marca y hover más claro.
+
+**Detalle del cambio:**
+
+- **Propuesta y decisión:** el 29/10 Sabrina había pedido mantener lo que dijera el manual de marca; el 30/10 pidió una propuesta de contraste y eligió la opción B, que cambia el color del texto sin tocar el naranja de fondo.
+- **Texto de los botones (8 archivos):** todos los elementos con fondo `naranja` pasan de texto `gris-neutro` (2,79:1) a `texto-fuerte` `#12202E` (5,35:1). Son 35 lugares: el botón de la barra, los botones del hero, la demo y "Sobre mí", los botones "Ver proyecto" y "Ver avance" de las tarjetas, los números de los pasos, el CTA final de las 4 páginas de proyecto, "Aceptar" del aviso de cookies (`consentimiento.js`) y el color del texto seleccionado.
+- **Token `naranja-hover` (`tailwind.config.js`):** pasa de `#C66A2E` a `#E58F52`. Ahora el hover aclara el botón en lugar de oscurecerlo: con texto oscuro, el hover oscuro daba 4,33:1 y el claro da 6,59:1. Como los botones usan el token, no hizo falta tocar cada hover.
+- **`documentación/Design System.md`:** actualicé la tabla de colores, los contrastes, la definición del botón primario y las notas de "Botones y naranja de hover" y "Contraste del naranja".
+- **Verificación:** corrí `npm run build` y, en el navegador local, los 11 botones naranja de la home miden 5,35:1 y las reglas de hover compiladas usan `rgb(229 143 82)`. No pude ver el hover real con el cursor: el simulador de la extensión no activa `:hover`. Chrome guardaba el CSS viejo en caché y tuve que forzar la recarga.
+- **No se tocó:** el naranja de fondo (`#D97A3C`), el botón secundario ni los textos en `naranja` de 24 px o más.
+- **Pendiente:** ver el hover a mano en el sitio desplegado y volver a pasar PageSpeed para confirmar que desaparece el aviso de contraste.
+
+**Por qué lo hice:** PageSpeed marcaba el contraste de los botones naranja como la única falla de accesibilidad que quedaba.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1749,3 +1765,4 @@ Antes de publicar cambios:
 | 1.64 | 29 de octubre de 2026 | Sabri Studios | Logo de Mombé (`imagenes/logo-mombe.jpg`) en la tarjeta de `index.html` y en el encabezado de `proyecto-mombe.html`, en lugar de la inicial "M"; imagen propia para compartir (`og-mombe.jpg`) |
 | 1.65 | 29 de octubre de 2026 | Sabri Studios | Página de Mombé en el paso 2 (Diseño y Estrategia): diagnóstico completado, texto del paso actual, línea de progreso y metadescripciones |
 | 1.66 | 30 de octubre de 2026 | Sabri Studios | `develop` vuelve a desplegar en Vercel (Require Verified Commits en Disabled y Branch Tracking de Preview activado) y `master` vuelve a exigir el check "Vercel" |
+| 1.67 | 30 de octubre de 2026 | Sabri Studios | Contraste de los botones naranja (opción B): texto `texto-fuerte` (5,35:1) y `naranja-hover` más claro `#E58F52` (6,59:1); Design System actualizado |

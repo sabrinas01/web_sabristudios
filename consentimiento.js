@@ -47,7 +47,7 @@
         '</p>' +
         '<div class="flex flex-col sm:flex-row gap-xs">' +
           '<button type="button" data-consentimiento="denied" class="border border-azul-primario bg-gris-neutro text-azul-primario hover:bg-gris-claro font-label-cta text-label-cta font-medium px-sm py-[12px] rounded-lg transition-colors duration-200">RECHAZAR</button>' +
-          '<button type="button" data-consentimiento="granted" class="bg-naranja hover:bg-naranja-hover text-gris-neutro font-label-cta text-label-cta font-medium px-sm py-[12px] rounded-lg transition-colors duration-200">ACEPTAR</button>' +
+          '<button type="button" data-consentimiento="granted" class="bg-naranja hover:bg-naranja-hover text-texto-fuerte font-label-cta text-label-cta font-medium px-sm py-[12px] rounded-lg transition-colors duration-200">ACEPTAR</button>' +
         '</div>' +
       '</div>';
     banner.addEventListener('click', function (e) {
