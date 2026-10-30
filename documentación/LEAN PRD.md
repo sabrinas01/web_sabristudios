@@ -1784,8 +1784,9 @@ Antes de publicar cambios:
 - **Sitemap:** pasa de 2 a 6 URLs. Se suman `proyecto-ar-estetica-vehicular.html`, `proyecto-jl-construcciones-en-seco.html`, `proyecto-mombe.html` y `proyecto-web-servicios-profesionales.html` (las 4 ya tienen `index, follow` y su canonical).
 - **Fechas (`lastmod`):** home `2026-10-30` (hero y proyectos rediseñados); guía de Google Maps `2026-10-20` (última revisión de contenido, v1.58); Mombé `2026-10-29` (pasa al paso 2, v1.65). Las otras 3 páginas de proyecto van **sin `lastmod`** (es opcional): sus últimos cambios en `git` son técnicos (scripts, contraste, logo) y no pude distinguir uno de contenido, así que no puse una fecha que no se pueda respaldar.
 - **No incluí** `politica-de-privacidad.html`: no es una página pensada para aparecer en búsquedas.
-- **Verificación:** el XML es válido y las 6 URLs existen en el repo y responden 200 en producción.
-- **Pendiente:** (1) con la v1.73 publicada, reenviar el sitemap en Search Console (Indexación → Sitemaps) para que lea las 6 páginas; (2) alta en Bing Webmaster Tools, que ya trae visitas; (3) cuando haya 2 a 3 semanas de datos, mirar en Search Console para qué consultas aparece la home. Una de las consultas visibles de la guía es "aparecer en google maps fuenlabrada" (una ciudad de España), así que la guía aparece en búsquedas de otros lugares.
+- **`BingSiteAuth.xml` (nuevo, en la raíz):** archivo de verificación de propiedad que entrega Bing Webmaster Tools al dar de alta el sitio. Contiene el código de usuario de la cuenta de Sabrina, tal como lo generó Bing, sin modificar. No lleva datos sensibles: es el código que Bing pide publicar para comprobar que el sitio es suyo. Tiene que quedar publicado en `https://web-sabristudios.vercel.app/BingSiteAuth.xml` para poder verificar.
+- **Verificación:** el XML del sitemap es válido y las 6 URLs existen en el repo y responden 200 en producción.
+- **Pendiente:** (1) con la v1.73 publicada, reenviar el sitemap en Search Console (Indexación → Sitemaps) para que lea las 6 páginas; (2) con el archivo publicado, verificar el sitio en Bing Webmaster Tools (que ya trae visitas) y enviar el sitemap; (3) cuando haya 2 a 3 semanas de datos, mirar en Search Console para qué consultas aparece la home. Una de las consultas visibles de la guía es "aparecer en google maps fuenlabrada" (una ciudad de España), así que la guía aparece en búsquedas de otros lugares.
 
 **Por qué lo hice:** Sabrina eligió los puntos 1 (arreglo del sitemap) y 2 (Bing Webmaster Tools) de las opciones para traer más tráfico.
 
@@ -1869,4 +1870,4 @@ Antes de publicar cambios:
 | 1.70 | 29 de octubre de 2026 | Sabri Studios | Corte de la medición de GA4 y Clarity fuera del sitio real y en navegadores automáticos |
 | 1.71 | 30 de octubre de 2026 | Sabri Studios | Corrección del desborde horizontal en celulares angostos (tarjetas de proyectos, encabezado y pie) |
 | 1.72 | 30 de octubre de 2026 | Sabri Studios | Eventos de contacto también en Clarity, UTM completos para Instagram, etiqueta de navegador interno de Instagram/Facebook (`medicion.js`) y guía de UTM |
-| 1.73 | 30 de octubre de 2026 | Sabri Studios | Sitemap con las 4 páginas de proyecto y fechas respaldadas (la home figuraba con `2026-09-05`) |
+| 1.73 | 30 de octubre de 2026 | Sabri Studios | Sitemap con las 4 páginas de proyecto y fechas respaldadas (la home figuraba con `2026-09-05`) y archivo de verificación de Bing (`BingSiteAuth.xml`) |
