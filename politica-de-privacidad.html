@@ -77,6 +77,7 @@
     })(window, document, "clarity", "script", "ybpt6ju825");
   </script>
   <script defer src="consentimiento.js"></script>
+  <script defer src="medicion.js"></script>
 
   <link rel="stylesheet" href="dist/output.css">
 
@@ -263,8 +264,11 @@
       <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
         Google Analytics y Microsoft Clarity instalan cookies propias para identificar visitas recurrentes
         de forma anónima. Además, el sitio guarda en el <code>sessionStorage</code> del navegador (no en
-        una cookie) un dato llamado <code>traffic_source</code>, que recuerda de qué canal vino la visita
-        mientras dura esa sesión, y se borra solo al cerrar la pestaña. Ningún dato de navegación personal
+        una cookie) un dato llamado <code>traffic_source</code>, que recuerda de qué canal vino la visita,
+        y, si el link que usaste la trae, la campaña (<code>utm_medium</code>, <code>utm_campaign</code>
+        y <code>utm_content</code>). Dura esa sesión y se borra solo al cerrar la pestaña. También se
+        detecta si abriste la página desde el navegador interno de Instagram o de Facebook, para poder
+        revisar que se vea bien ahí. Ningún dato de navegación personal
         se guarda en servidores propios: todo queda en los paneles de los proveedores de la sección 4.
       </p>
     </div>

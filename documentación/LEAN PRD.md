@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.71
+**Versión:** 1.72
 
 **Fecha:** Octubre 2026
 
@@ -1755,6 +1755,25 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina mostró dos capturas del celular con el fondo cortado y el título de la tarjeta fuera de su caja.
 
+### v1.72 — 30 de octubre de 2026
+
+**Qué hice:** Los clics de contacto llegan ahora también a Clarity, los links de Instagram pueden llevar UTM completos y la visita queda marcada cuando viene del navegador interno de Instagram o Facebook. Salió de revisar la base "Landing Analytics" de Notion (7 semanas, entre 3 y 24 sesiones reales por semana).
+
+**Detalle del cambio:**
+
+- **Hallazgo:** GA4 ya recibía `whatsapp_click`, `calendar_click`, `project_click`, `project_site_click` y `generate_lead` desde el script de cada página, pero Clarity, de donde salen los datos semanales de Notion, no recibía ninguno. Por eso el export traía 0 clics de salida y ningún clic de contacto. Además, la regla de GA4 que duplica `whatsapp_click` en cada `page_view` (v1.70) hace que esos números de GA4 no sean confiables; los de Clarity sí cuentan clics reales.
+- **`medicion.js` (nuevo, cargado con `defer` en las 7 páginas):** no hace nada si `window.sinMedicion` está activo (vistas previas, localhost, navegadores automáticos). Hace tres cosas:
+  1. Manda a Clarity (`clarity('event', …)`) los mismos eventos que GA4: `whatsapp_click`, `calendar_click`, `project_click`, `project_site_click` y `generate_lead`, con un solo escuchador de clics en el documento.
+  2. Guarda `utm_medium`, `utm_campaign` y `utm_content` en `sessionStorage` (igual que `traffic_source`) para que sobrevivan al pasar de la home a un proyecto, y los manda a Clarity como etiquetas (`clarity('set', …)`) junto con `traffic_source`. Un link nuevo con UTM reemplaza a los anteriores.
+  3. Detecta el navegador interno de Instagram o Facebook por el user agent y lo manda como etiqueta `navegador_interno` (`instagram`, `facebook` o `no`) a Clarity y como parámetro a GA4 (`gtag('set')`).
+- **Guía de UTM:** `documentación/guia-utm-instagram.md`, con la estructura, las reglas (minúscula, sin tildes, mismo nombre siempre), los links listos para bio, story, reel, carrusel y mensaje directo, y cómo leerlos en Clarity y GA4.
+- **Política de privacidad:** la sección de cookies menciona que `sessionStorage` también guarda la campaña y que se detecta el navegador interno de Instagram o Facebook.
+- **Qué no cambió:** no toqué el diseño ni los eventos de GA4 existentes. No se agregó ninguna adaptación específica al navegador interno: primero hay que medir cuánto pesa y dónde se traba, ahora que está etiquetado.
+- **Verificación:** 19 pruebas con un entorno simulado (UA de Instagram, de Facebook y de Chrome; UTM completos; UTM que se conservan entre páginas; UTM nuevos que reemplazan a los viejos; `sinMedicion`; Clarity ausente; `sessionStorage` bloqueado; clics en WhatsApp, agenda, tarjeta, sitio del proyecto y ancla interna), todas correctas.
+- **Pendiente:** (1) con la web publicada, hacer un clic de prueba en WhatsApp y confirmar en Clarity que aparece el evento; (2) registrar `navegador_interno` como dimensión personalizada en GA4; (3) cambiar el link de la bio y los links de las stories por los de la guía; (4) después de 2 a 3 semanas con etiquetas, filtrar en Clarity las grabaciones con `navegador_interno = instagram` y ver dónde se traba la gente.
+
+**Por qué lo hice:** Sabrina pidió implementar los puntos 1, 2 y 3 de las mejoras surgidas de la base de analítica semanal.
+
 ---
 ## 20. Tabla de Versiones
 
@@ -1834,3 +1853,4 @@ Antes de publicar cambios:
 | 1.69 | 30 de octubre de 2026 | Sabri Studios | Proyectos de la home rediseñados (qué cambió + estado del proceso, 2 columnas), movimiento genérico de la home eliminado y botones y etiquetas en minúscula normal |
 | 1.70 | 29 de octubre de 2026 | Sabri Studios | Corte de la medición de GA4 y Clarity fuera del sitio real y en navegadores automáticos |
 | 1.71 | 30 de octubre de 2026 | Sabri Studios | Corrección del desborde horizontal en celulares angostos (tarjetas de proyectos, encabezado y pie) |
+| 1.72 | 30 de octubre de 2026 | Sabri Studios | Eventos de contacto también en Clarity, UTM completos para Instagram, etiqueta de navegador interno de Instagram/Facebook (`medicion.js`) y guía de UTM |
