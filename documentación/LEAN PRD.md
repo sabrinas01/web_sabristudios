@@ -1750,7 +1750,7 @@ Antes de publicar cambios:
 - **Tarjetas (`index.html`):** el bloque logo + nombre se apila (logo arriba) cuando la tarjeta tiene menos de 260 px de contenido (`@[260px]:flex-row`, container query) y los títulos llevan `break-words`. El título de la sección también.
 - **Encabezado (7 páginas):** por debajo de 320 px baja el padding lateral, la altura del logo (`h-7`) y el texto y padding del botón "Reservá tu demo", para que no empuje la página.
 - **Pie (6 páginas):** la fila Instagram / Email pasa a `flex-wrap` para que no se salga en pantallas angostas.
-- **Verificación (navegador local, marco de ancho variable):** sin desborde horizontal en las 7 páginas a 360, 390 y 768 px, y en la home también a 300 y 320 px. Quedan entre 2 y 25 px de desborde solo a 280 px en todas las páginas, a 320 px en la de JL y en la de Mombé del pie, tipo Galaxy Fold plegado; no se corrigió.
+- **Verificación (navegador local, marco de ancho variable):** sin desborde horizontal en las 7 páginas a 360, 390 y 768 px, y en la home también a 300 y 320 px. Quedan entre 6 y 25 px de desborde a 280 px en 4 páginas (home, AR, JL y política) y 2 px a 320 px en la de JL (tipo Galaxy Fold plegado); no se corrigió.
 - **Pendiente:** mirar la vista previa de Vercel en un celular real.
 
 **Por qué lo hice:** Sabrina mostró dos capturas del celular con el fondo cortado y el título de la tarjeta fuera de su caja.
