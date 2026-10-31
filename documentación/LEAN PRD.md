@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.77
+**Versión:** 1.78
 
 **Fecha:** Octubre 2026
 
@@ -547,27 +547,26 @@ Escenario: La persona abre la landing desde un celular
 
 ### Fase 1 (Inmediata: Octubre 2026)
 
-- [ ]  Agregar pricing visible.
-- [ ]  Expandir sección "Proyectos" con testimoniales.
+- [x]  ~~Agregar pricing visible.~~ Descartado en v1.44: Sabrina decidió no mostrar precio en la web (ver punto 7.8).
+- [ ]  Expandir sección "Proyectos" con testimoniales. Pendiente: necesita frases o datos reales de los clientes (pendiente "Prueba social" en Notion).
 - [x]  Agregar sección "Cómo funciona el diagnóstico" → hecho en v1.1 como "La demo gratuita es así".
 - [x]  Mejorar subheadline hero con dato de urgencia → hecho en v1.2.
 - [x]  Agregar imagen/ilustración hero → hecho en v1.3 y v1.4.
-- [x]  Expandir FAQs con objeciones: tiempo, garantía, escalabilidad, conocimientos técnicos → hecho en v1.8. Falta la objeción de precio (ver punto 7.8).
+- [x]  Expandir FAQs con objeciones: tiempo, garantía, escalabilidad, conocimientos técnicos → hecho en v1.8. La objeción de precio se descartó en v1.44 (ver punto 7.8).
 
 ### Fase 2 (Corto plazo: Noviembre 2026)
 
-- [ ]  Agregar 2-3 casos más (mínimo 3 totales).
-- [ ]  Crear video testimonial cliente (30s).
-- [ ]  Expandir FAQ con objeción de precio, una vez definido el pricing visible.
-- [ ]  Setup de Google Analytics + tracking de WhatsApp.
+- [x]  Agregar 2-3 casos más (mínimo 3 totales) → hecho con un matiz: hoy hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.44). Mombé sigue en desarrollo (paso 2, Diseño y Estrategia, desde la v1.65).
+- [ ]  Crear video testimonial cliente (30s). Pendiente.
+- [x]  ~~Expandir FAQ con objeción de precio, una vez definido el pricing visible.~~ Descartado en v1.44, junto con el pricing.
+- [x]  Setup de Google Analytics + tracking de WhatsApp → hecho: GA4 con scroll y fuente de tráfico desde la v1.11, eventos de contacto y `generate_lead` desde la v1.30, y desde la v1.72 los eventos de contacto también llegan a Clarity (verificado en una sesión real el 31/10/2026, ver v1.77).
 
 ### Fase 3 (Mediano plazo: Diciembre 2026+)
 
-- [ ]  Agregar blog (si hay tiempo).
-- [ ]  A/B test de copy en hero.
-- [ ]  Considerar ads (Google Ads, Instagram).
-- [ ]  Crear landing secundaria: "Plan de 30 días post-entrega".
-
+- [ ]  Agregar blog (si hay tiempo). Pendiente. Hoy hay una página de contenido, `guia-aparecer-en-google-maps.html`, pero no un blog.
+- [ ]  A/B test de copy en hero. Pendiente.
+- [ ]  Considerar ads (Google Ads, Instagram). Pendiente; la configuración de conversiones a partir de `whatsapp_click` y `generate_lead` está en el backlog de Notion.
+- [ ]  Crear landing secundaria: "Plan de 30 días post-entrega". Pendiente.
 ---
 
 ## 17. Notas Importantes
@@ -1859,6 +1858,23 @@ Antes de publicar cambios:
 
 ---
 
+### v1.78 — 31 de octubre de 2026
+
+**Qué hice:** Actualicé la sección 16 "Roadmap de Mejoras", que tenía tildes desactualizadas.
+
+**Detalle del cambio:**
+
+- **Pricing y FAQ de precio:** pasan a "descartado" (v1.44), con el texto tachado. Antes figuraban como pendientes.
+- **Más casos:** pasa a hecho con un matiz: hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.44), pero Mombé sigue en desarrollo (paso 2 desde la v1.65).
+- **Google Analytics + tracking de WhatsApp:** pasa a hecho, con las versiones que lo respaldan (v1.11, v1.30 y v1.72, verificado en Clarity el 31/10/2026).
+- **Siguen pendientes:** testimoniales en "Proyectos", video testimonial, blog, A/B test del hero, ads y la landing secundaria. Cada uno lleva una nota de por qué sigue abierto.
+- **No toqué otras secciones.** La sección 18 (Checklist Pre-Launch) todavía tiene dos líneas que se pueden revisar ("Pricing claro (si se agrega)" y "Google Analytics + tracking activos"), y la 7.5 dice "2 casos" cuando hoy hay 4 tarjetas.
+- **Sin cambios en el sitio:** solo documentación.
+
+**Por qué lo hice:** Sabrina pidió actualizar el roadmap del PRD para que refleje lo que ya se hizo y lo que se descartó.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -1945,3 +1961,4 @@ Antes de publicar cambios:
 | 1.75 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://*.clarity.ms` en `img-src` para que Clarity pueda cargar su imagen de seguimiento (`c.gif`) |
 | 1.76 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://c.bing.com` en `img-src` (redirección del pixel de Clarity) y se aclara en la política de privacidad |
 | 1.77 | 31 de octubre de 2026 | Sabri Studios | Guía de UTM de Instagram simplificada: dos links fijos (stories y reels) en vez de uno por publicación; Clarity verificado en una sesión real |
+| 1.78 | 31 de octubre de 2026 | Sabri Studios | Roadmap (sección 16) actualizado: pricing y FAQ de precio descartados, casos y tracking de GA marcados como hechos, el resto con su motivo de pendiente |
