@@ -172,12 +172,8 @@
   <!-- Uso Tailwind CSS para los estilos, ya viene precompilado en build time (lo configuré en tailwind.config.js) -->
   <link rel="stylesheet" href="dist/output.css">
 
-  <!-- Esta es la fuente que traigo de Google Fonts: la tipografía Space Mono (los íconos son Tabler y van en dist/output.css) -->
-  <!-- Con preconnect adelanto la conexión (DNS+TLS) a los dominios de Google Fonts,
-       para que cuando llegue el <link> real la fuente ya empiece a descargarse antes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;500&display=swap">
+  <!-- Space Mono la alojo en el propio sitio (fuentes/) y la precargo: así no depende de Google Fonts y el texto no se mueve cuando llega la fuente (la de reserva "Space Mono Fallback" está en dist/output.css). Los íconos son Tabler y van en dist/output.css -->
+  <link rel="preload" href="fuentes/space-mono-latin-400.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- Acá abajo van mis estilos propios, fuera de Tailwind, para cosas puntuales que no me salían solo con clases -->
   <style>
@@ -458,7 +454,7 @@
         class="project-card @container group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm">
         <div class="flex flex-col items-start @[260px]:flex-row @[260px]:items-center gap-sm">
           <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
-            <img src="imagenes/logo-jl-construcciones-en-seco.jpg" width="150" height="150" loading="lazy"
+            <img src="imagenes/logo-jl-construcciones-en-seco-cuadrado.jpg" width="150" height="150" loading="lazy"
               alt="Logo de JL Construcciones en Seco" class="w-full h-full object-cover">
           </div>
           <div class="flex flex-col gap-1 min-w-0">
