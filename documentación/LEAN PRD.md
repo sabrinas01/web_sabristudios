@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.74
+**Versión:** 1.75
 
 **Fecha:** Octubre 2026
 
@@ -1808,6 +1808,22 @@ Antes de publicar cambios:
 
 ---
 
+### v1.75 — 31 de octubre de 2026
+
+**Qué hice:** Agregué `https://*.clarity.ms` a la directiva `img-src` del CSP en `vercel.json`, porque Clarity pide una imagen (`c.clarity.ms/c.gif`) y el navegador la bloqueaba.
+
+**Detalle del cambio:**
+
+- **Cómo lo encontré:** midiendo producción con PageSpeed Insights (31/10/2026, móvil, 10 corridas con la v1.74). En "Prácticas recomendadas" (92 en todas las corridas) figuraba un solo error de consola: `Loading the image 'https://c.clarity.ms/c.gif' violates the following Content Security Policy directive: "img-src 'self' data: https://www.google-analytics.com ..."`. Clarity ya estaba permitido en `script-src` y `connect-src`, pero no en `img-src`.
+- **Qué cambia:** `img-src` pasa a `'self' data: https://*.clarity.ms https://www.google-analytics.com ...`. No se tocó ninguna otra directiva.
+- **Verificación local:** `vercel.json` sigue siendo un JSON válido y la directiva queda como se espera. El efecto real (que el error desaparezca de la consola y de PageSpeed) solo se puede ver en el sitio publicado.
+- **Qué NO sé:** si esta imagen influye en que Clarity no muestre `whatsapp_click` ni las etiquetas (paso B). Puede ser solo un envío de respaldo. Hay que mirar Clarity con sesiones nuevas después de publicar.
+- **Pendiente:** (1) con la v1.75 publicada, pasar PageSpeed y confirmar que "Prácticas recomendadas" sube de 92 y que el error de consola desaparece; (2) revisar en Clarity si aparecen `whatsapp_click` y las etiquetas (`traffic_source`, `utm_*`, `navegador_interno`); (3) el CLS intermitente sigue sin causa identificada: en 10 corridas de PageSpeed móvil con la v1.74 hubo 1 con CLS 0,839 (rendimiento 66) y 7 de las 8 que pude leer dieron 99 o 100.
+
+**Por qué lo hice:** Sabrina pidió arreglar el CSP después de ver el error en las corridas de PageSpeed.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -1891,3 +1907,4 @@ Antes de publicar cambios:
 | 1.72 | 30 de octubre de 2026 | Sabri Studios | Eventos de contacto también en Clarity, UTM completos para Instagram, etiqueta de navegador interno de Instagram/Facebook (`medicion.js`) y guía de UTM |
 | 1.73 | 30 de octubre de 2026 | Sabri Studios | Sitemap con las 4 páginas de proyecto y fechas respaldadas (la home figuraba con `2026-09-05`) y archivo de verificación de Bing (`BingSiteAuth.xml`) |
 | 1.74 | 31 de octubre de 2026 | Sabri Studios | Limpieza de rendimiento: Space Mono alojada en el sitio con fuente de reserva de medidas parecidas, foto sin usar de 1,9 MB borrada y logo de JL achicado |
+| 1.75 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://*.clarity.ms` en `img-src` para que Clarity pueda cargar su imagen de seguimiento (`c.gif`) |
