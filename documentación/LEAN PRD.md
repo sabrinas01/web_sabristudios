@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.78
+**Versión:** 1.79
 
 **Fecha:** Octubre 2026
 
@@ -168,11 +168,11 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 ### 7.5 Sección "Proyectos" ⚠️ (Mejorar)
 
-**Estado actual:** 2 casos (AR Estética Vehicular, JL Construcciones), con tarjetas que giran (frente: logo/etiqueta/nombre; dorso: detalle + link al sitio, agregado en v1.5).
+**Estado actual:** 4 casos (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF y Mombé, que sigue en desarrollo en el paso 2). Desde la v1.69 cada tarjeta es un solo link a la página del proyecto (ya no giran, como en la v1.5), con una frase de qué cambió para ese negocio, el logo y una barra de estado de 3 tramos que indica en qué paso del proceso está.
 
 **Problemas identificados:**
 
-- Ambos tienen link a sitio web, pero faltan resultados cuantitativos.
+- Los tres casos terminados tienen link a su sitio web, pero faltan resultados cuantitativos.
 - No hay testimonial de cliente (solo el caso visual).
 - Falta contexto: "¿Qué vendía antes? ¿Cómo cambió después?".
 
@@ -181,7 +181,7 @@ Cierre o no-cierre (fuera del scope del PRD)
 1. Agregar testimonial por cliente (voz del cliente real).
    - Ejemplo: "Antes no aparecía en Google. Ahora recibo 3-4 consultas por semana desde la web" — *Carlos, JL Construcciones*.
 2. Agregar métrica: "Resultados después de 2 meses" (consultas, llamadas, visitantes).
-3. Agregar 1-2 casos más (mínimo 3 para credibilidad).
+3. ~~Agregar 1-2 casos más (mínimo 3 para credibilidad).~~ Hecho: hay 4 tarjetas (ver sección 16).
 4. Considerar video corto: Cliente hablando sobre el resultado (30 segundos max).
 
 ### 7.6 Sección "Sobre Mí" ✅ (Mantener, reforzar creencia)
@@ -556,7 +556,7 @@ Escenario: La persona abre la landing desde un celular
 
 ### Fase 2 (Corto plazo: Noviembre 2026)
 
-- [x]  Agregar 2-3 casos más (mínimo 3 totales) → hecho con un matiz: hoy hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.44). Mombé sigue en desarrollo (paso 2, Diseño y Estrategia, desde la v1.65).
+- [x]  Agregar 2-3 casos más (mínimo 3 totales) → hecho con un matiz: hoy hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.18). Mombé sigue en desarrollo (paso 2, Diseño y Estrategia, desde la v1.65).
 - [ ]  Crear video testimonial cliente (30s). Pendiente.
 - [x]  ~~Expandir FAQ con objeción de precio, una vez definido el pricing visible.~~ Descartado en v1.44, junto con el pricing.
 - [x]  Setup de Google Analytics + tracking de WhatsApp → hecho: GA4 con scroll y fuente de tráfico desde la v1.11, eventos de contacto y `generate_lead` desde la v1.30, y desde la v1.72 los eventos de contacto también llegan a Clarity (verificado en una sesión real el 31/10/2026, ver v1.77).
@@ -589,8 +589,8 @@ Antes de publicar cambios:
 - [ ]  Mobile responsive (testear en teléfono real).
 - [ ]  CTA visible en cada sección (no scroll infinito sin poder clickear).
 - [ ]  FAQs responden objeciones reales (no asumir).
-- [ ]  Pricing claro (si se agrega).
-- [ ]  Google Analytics + tracking activos.
+- [x]  ~~Pricing claro (si se agrega).~~ No aplica: el precio se descartó en la v1.44.
+- [ ]  Google Analytics + Clarity activos: los eventos de contacto y las etiquetas llegan, y no hay errores de CSP en la consola (se mira con PageSpeed o con la consola del navegador en el sitio publicado).
 - [ ]  Testimoniales con permiso de cliente (no inventar).
 
 ---
@@ -1865,13 +1865,28 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - **Pricing y FAQ de precio:** pasan a "descartado" (v1.44), con el texto tachado. Antes figuraban como pendientes.
-- **Más casos:** pasa a hecho con un matiz: hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.44), pero Mombé sigue en desarrollo (paso 2 desde la v1.65).
+- **Más casos:** pasa a hecho con un matiz: hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.18), pero Mombé sigue en desarrollo (paso 2 desde la v1.65).
 - **Google Analytics + tracking de WhatsApp:** pasa a hecho, con las versiones que lo respaldan (v1.11, v1.30 y v1.72, verificado en Clarity el 31/10/2026).
 - **Siguen pendientes:** testimoniales en "Proyectos", video testimonial, blog, A/B test del hero, ads y la landing secundaria. Cada uno lleva una nota de por qué sigue abierto.
 - **No toqué otras secciones.** La sección 18 (Checklist Pre-Launch) todavía tiene dos líneas que se pueden revisar ("Pricing claro (si se agrega)" y "Google Analytics + tracking activos"), y la 7.5 dice "2 casos" cuando hoy hay 4 tarjetas.
 - **Sin cambios en el sitio:** solo documentación.
 
 **Por qué lo hice:** Sabrina pidió actualizar el roadmap del PRD para que refleje lo que ya se hizo y lo que se descartó.
+
+---
+
+### v1.79 — 31 de octubre de 2026
+
+**Qué hice:** Dos limpiezas de documentación que dejé anotadas en la v1.78: el punto 7.5 "Proyectos" y la sección 18 "Checklist Pre-Launch". Además corregí un error mío de la v1.78.
+
+**Detalle del cambio:**
+
+- **Punto 7.5 (Proyectos):** el "Estado actual" decía 2 casos con tarjetas que giran. Ahora dice 4 casos (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF y Mombé en desarrollo) y que desde la v1.69 cada tarjeta es un solo link, sin giro. "Ambos tienen link" pasa a "los tres casos terminados". La mejora obligatoria 3 ("agregar 1-2 casos más") queda tachada como hecha.
+- **Sección 18 (Checklist Pre-Launch):** "Pricing claro (si se agrega)" queda tachado y marcado como no aplica (v1.44). "Google Analytics + tracking activos" pasa a "Google Analytics + Clarity activos", con cómo se comprueba (eventos y etiquetas llegan, sin errores de CSP en la consola). Las demás líneas siguen sin marcar a propósito: es la lista que se repasa antes de cada publicación, no un registro de lo hecho.
+- **Corrección de la v1.78:** en la sección 16 y en la entrada de la v1.78 escribí que Mombé figuraba "desde la v1.44". La tarjeta de Mombé se agregó en la v1.18 (5 de octubre); la v1.44 solo la marcó "En desarrollo". Quedó corregido en los dos lugares.
+- **Sin cambios en el sitio:** solo documentación.
+
+**Por qué lo hice:** Sabrina pidió hacer las dos limpiezas que quedaron pendientes en la v1.78.
 
 ---
 
@@ -1962,3 +1977,4 @@ Antes de publicar cambios:
 | 1.76 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://c.bing.com` en `img-src` (redirección del pixel de Clarity) y se aclara en la política de privacidad |
 | 1.77 | 31 de octubre de 2026 | Sabri Studios | Guía de UTM de Instagram simplificada: dos links fijos (stories y reels) en vez de uno por publicación; Clarity verificado en una sesión real |
 | 1.78 | 31 de octubre de 2026 | Sabri Studios | Roadmap (sección 16) actualizado: pricing y FAQ de precio descartados, casos y tracking de GA marcados como hechos, el resto con su motivo de pendiente |
+| 1.79 | 31 de octubre de 2026 | Sabri Studios | Punto 7.5 (Proyectos) y sección 18 (checklist) actualizados; corregido que Mombé se sumó en la v1.18, no en la v1.44 |
