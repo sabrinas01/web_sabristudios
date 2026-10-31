@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.79
+**Versión:** 1.80
 
 **Fecha:** Octubre 2026
 
@@ -1890,6 +1890,27 @@ Antes de publicar cambios:
 
 ---
 
+### v1.80 — 31 de octubre de 2026
+
+**Qué hice:** Convertí a WebP y achiqué las imágenes de los proyectos (logos y portada), que PageSpeed marcaba como grandes y en formato antiguo.
+
+**Detalle del cambio:**
+
+- **Qué marcaba PageSpeed (corrida local de Lighthouse, 31/10/2026):** "Formatos modernos" (ahorro estimado 51 KiB: el logo de AR Estética en PNG de 44 KB y la portada de Servicios AF) e "Imágenes del tamaño correcto" (62 KiB: los logos de AR, Mombé y JL y la portada de AF venían más grandes de lo que se muestran).
+- **Archivos nuevos en `imagenes/` (WebP, calidad 82, recorte cuadrado centrado, el mismo que hacía `object-cover`):**
+  - Home (tarjetas de Proyectos, se ven a 64 px): `logo-ar-estetica-vehicular-128.webp` (2,5 KB), `logo-jl-construcciones-en-seco-128.webp` (2,4 KB), `logo-mombe-128.webp` (1,4 KB) y `servicios-af-portada-128.webp` (2,3 KB), de 128×128 (el doble de lo que se ve).
+  - Páginas de proyecto (se ven a 128 o 160 px): `logo-ar-estetica-vehicular-150.webp` (3,2 KB; el original es de 150 px, así que no se agrandó), `logo-jl-construcciones-en-seco-320.webp` (6 KB), `logo-mombe-320.webp` (4,9 KB) y `servicios-af-portada-320.webp` (9,9 KB).
+- **Peso de los logos de la home:** pasan de unos 90 KB (44 + 13 + 9 + 24) a unos 9 KB.
+- **HTML:** `index.html` y las 4 páginas de proyecto apuntan a los WebP; los atributos `width` y `height` de cada `<img>` ahora coinciden con el archivo.
+- **Se borraron** `logo-jl-construcciones-en-seco-cuadrado.jpg` (de la v1.74) y `logo-mombe.jpg`, que ya nadie usa. **Se conservan** el PNG de AR, el JPG original de JL y la portada JPG de AF, porque son las imágenes `og:image` y `twitter:image` de sus páginas.
+- **Verificación (navegador local):** las 8 imágenes cargan sin error en las 5 páginas, con el tamaño natural esperado (128 en la home; 150 o 320 en cada proyecto). Vi la página de Servicios AF y la foto circular se ve nítida. No medí de nuevo con PageSpeed: eso se hace con el sitio publicado.
+- **No cambia:** el JavaScript sin usar (78 KiB, es `gtag/js` de Google) y la caché del script de Vercel (2 KB) no se pueden tocar desde el sitio.
+- **Pendiente:** con la v1.80 publicada, volver a pasar PageSpeed y confirmar que "Formatos modernos" e "Imágenes del tamaño correcto" ya no aparecen.
+
+**Por qué lo hice:** Sabrina pidió hacer la conversión de imágenes que quedaba pendiente de los avisos de PageSpeed.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -1978,3 +1999,4 @@ Antes de publicar cambios:
 | 1.77 | 31 de octubre de 2026 | Sabri Studios | Guía de UTM de Instagram simplificada: dos links fijos (stories y reels) en vez de uno por publicación; Clarity verificado en una sesión real |
 | 1.78 | 31 de octubre de 2026 | Sabri Studios | Roadmap (sección 16) actualizado: pricing y FAQ de precio descartados, casos y tracking de GA marcados como hechos, el resto con su motivo de pendiente |
 | 1.79 | 31 de octubre de 2026 | Sabri Studios | Punto 7.5 (Proyectos) y sección 18 (checklist) actualizados; corregido que Mombé se sumó en la v1.18, no en la v1.44 |
+| 1.80 | 31 de octubre de 2026 | Sabri Studios | Imágenes de proyectos (logos y portada) convertidas a WebP y achicadas al doble de lo que se ve: los logos de la home pasan de unos 90 KB a unos 9 KB |
