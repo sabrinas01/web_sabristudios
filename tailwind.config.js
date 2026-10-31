@@ -89,14 +89,14 @@ module.exports = {
       // Space Mono como familia principal en todo el sitio, según la Guía de Marca
       // (sección 4: "monospace, carácter tech/código, refuerza el diferencial de proceso técnico").
       fontFamily: {
-        "headline-h1-mobile": ["Space Mono", "monospace"],
-        "headline-h1": ["Space Mono", "monospace"],
-        "label-cta": ["Space Mono", "monospace"],
-        "headline-h3": ["Space Mono", "monospace"],
-        "headline-h2": ["Space Mono", "monospace"],
-        "caption": ["Space Mono", "monospace"],
-        "body-main": ["Space Mono", "monospace"],
-        "whatsapp-cta": ["Space Mono", "monospace"]
+        "headline-h1-mobile": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "headline-h1": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "label-cta": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "headline-h3": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "headline-h2": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "caption": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "body-main": ["Space Mono", "Space Mono Fallback", "monospace"],
+        "whatsapp-cta": ["Space Mono", "Space Mono Fallback", "monospace"]
       },
 
       // Tamaños de fuente con su interlineado, peso, etc. ya definidos

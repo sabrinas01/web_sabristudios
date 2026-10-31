@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.73
+**Versión:** 1.74
 
 **Fecha:** Octubre 2026
 
@@ -1786,11 +1786,30 @@ Antes de publicar cambios:
 - **No incluí** `politica-de-privacidad.html`: no es una página pensada para aparecer en búsquedas.
 - **`BingSiteAuth.xml` (nuevo, en la raíz):** archivo de verificación de propiedad que entrega Bing Webmaster Tools al dar de alta el sitio. Contiene el código de usuario de la cuenta de Sabrina, tal como lo generó Bing, sin modificar. No lleva datos sensibles: es el código que Bing pide publicar para comprobar que el sitio es suyo. Tiene que quedar publicado en `https://web-sabristudios.vercel.app/BingSiteAuth.xml` para poder verificar.
 - **Verificación:** el XML del sitemap es válido y las 6 URLs existen en el repo y responden 200 en producción.
-- **Pendiente:** (1) con la v1.73 publicada, reenviar el sitemap en Search Console (Indexación → Sitemaps) para que lea las 6 páginas; (2) con el archivo publicado, verificar el sitio en Bing Webmaster Tools (que ya trae visitas) y enviar el sitemap; (3) cuando haya 2 a 3 semanas de datos, mirar en Search Console para qué consultas aparece la home. Una de las consultas visibles de la guía es "aparecer en google maps fuenlabrada" (una ciudad de España), así que la guía aparece en búsquedas de otros lugares.
+- **Pendiente:** (1) ~~reenviar el sitemap en Search Console~~ hecho el 30/10; (2) ~~verificar el sitio en Bing Webmaster Tools y enviar el sitemap~~ hecho el 30/10; (3) cuando haya 2 a 3 semanas de datos, mirar en Search Console para qué consultas aparece la home. Una de las consultas visibles de la guía es "aparecer en google maps fuenlabrada" (una ciudad de España), así que la guía aparece en búsquedas de otros lugares.
 
 **Por qué lo hice:** Sabrina eligió los puntos 1 (arreglo del sitemap) y 2 (Bing Webmaster Tools) de las opciones para traer más tráfico.
 
+### v1.74 — 31 de octubre de 2026
+
+**Qué hice:** Limpieza de rendimiento: alojé la tipografía Space Mono en el propio sitio con una fuente de reserva de medidas casi iguales, borré una foto de 1,9 MB que no se usaba y achiqué el logo de JL Construcciones en seco.
+
+**Detalle del cambio:**
+
+- **Tipografía propia (`fuentes/space-mono-latin-400.woff2`, 16 KB):** es el mismo archivo latino que cargaba Google Fonts (Space Mono v17, licencia OFL). Se declara con `@font-face` en `src/input.css` (peso `400 500`, porque Space Mono solo tiene 400 y 700 y el sitio usa 400 y 500, que ya se dibujaban con el 400) y se precarga con `<link rel="preload">` en las 7 páginas. Se sacaron los dos `preconnect` y el `<link>` de Google Fonts: son 2 conexiones y 1 pedido menos que bloqueaban el primer dibujado.
+- **Fuente de reserva "Space Mono Fallback":** usa Courier New (o Liberation Mono / Courier) con `size-adjust: 102%`, porque Space Mono mide 0,612 em de ancho por letra y Courier New 0,6. `tailwind.config.js` pasa de `["Space Mono", "monospace"]` a `["Space Mono", "Space Mono Fallback", "monospace"]`. Medí en el navegador una frase de 36 px: Space Mono 1255,8 px, la reserva nueva 1256,0 px y la reserva anterior (`monospace`) 1128,2 px, o sea 10 % más angosta. Ese corrimiento es el mecanismo del CLS intermitente que se había detectado.
+- **CSP y caché (`vercel.json`):** se quitan `fonts.googleapis.com` de `style-src` y `fonts.gstatic.com` de `font-src` (ya no se usan). Nueva regla de caché para `/fuentes/*`: un año e `immutable`.
+- **Foto sin usar:** se borró `imagenes/sabristudios_subheadline.jpeg` (1,9 MB, 2912×1440). No la referenciaba ningún archivo.
+- **Logo de JL Construcciones en seco:** el original (1360×784, 41 KB) se mostraba en un cuadrado de 150 px con `object-cover`. Se creó `imagenes/logo-jl-construcciones-en-seco-cuadrado.jpg` (320×320, 13 KB, recorte centrado, el mismo que hacía `object-cover`) y lo usan la home y la página del proyecto. El original sigue en el repo porque es la imagen `og:image` de la página del proyecto.
+- **Verificación:** en local, `document.fonts` muestra "Space Mono 400 500" y "Space Mono Fallback" cargadas, la tipografía se pide solo a `/fuentes/` (ningún pedido a Google), las imágenes cargan y los únicos errores de consola son los 404 de `/api/region` y `/_vercel/insights`, que solo existen en Vercel.
+- **Pendiente:** (1) con la v1.74 publicada, volver a pasar PageSpeed y mirar el CLS en varias corridas (el 0,9 a 1 no se pudo reproducir, así que no se puede asegurar que este cambio lo elimine); (2) de los avisos de PageSpeed del 29/10 (JavaScript sin usar 72 KiB, tiempos de caché 28 KiB, solicitudes que bloquean el renderizado) falta ver el informe completo para saber cuánto es de scripts de terceros (Google Tag Manager, Clarity) que no se pueden cambiar desde el sitio; (3) abrir la consola en el sitio desplegado para ver el error que PageSpeed marcó en Prácticas recomendadas.
+
+**Por qué lo hice:** Sabrina pidió hacer la limpieza de rendimiento, que reunía los pendientes de PageSpeed (CLS intermitente, foto sin usar, avisos de imágenes y caché).
+
 ---
+
+---
+
 ## 20. Tabla de Versiones
 
 | Versión | Fecha | Autor | Resumen de cambios |
@@ -1871,3 +1890,4 @@ Antes de publicar cambios:
 | 1.71 | 30 de octubre de 2026 | Sabri Studios | Corrección del desborde horizontal en celulares angostos (tarjetas de proyectos, encabezado y pie) |
 | 1.72 | 30 de octubre de 2026 | Sabri Studios | Eventos de contacto también en Clarity, UTM completos para Instagram, etiqueta de navegador interno de Instagram/Facebook (`medicion.js`) y guía de UTM |
 | 1.73 | 30 de octubre de 2026 | Sabri Studios | Sitemap con las 4 páginas de proyecto y fechas respaldadas (la home figuraba con `2026-09-05`) y archivo de verificación de Bing (`BingSiteAuth.xml`) |
+| 1.74 | 31 de octubre de 2026 | Sabri Studios | Limpieza de rendimiento: Space Mono alojada en el sitio con fuente de reserva de medidas parecidas, foto sin usar de 1,9 MB borrada y logo de JL achicado |
