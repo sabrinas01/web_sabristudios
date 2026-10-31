@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.76
+**Versión:** 1.77
 
 **Fecha:** Octubre 2026
 
@@ -1841,6 +1841,24 @@ Antes de publicar cambios:
 
 ---
 
+### v1.77 — 31 de octubre de 2026
+
+**Qué hice:** Simplifiqué `documentación/guia-utm-instagram.md`: ahora recomienda dos links fijos (stories y reels) en lugar de etiquetar cada publicación.
+
+**Detalle del cambio:**
+
+- **Por qué:** Sabrina no tiene forma de armar un link distinto por cada publicación, y con 5 a 10 sesiones reales por semana ese detalle no daría datos usables.
+- **Qué dice la guía ahora:** una sección "Versión simple" con la bio sin cambios y dos links para guardar una vez: stories (`utm_source=instagram&utm_medium=story&utm_campaign=general`) y reels (`utm_source=instagram&utm_medium=reel&utm_campaign=general`). La estructura completa (con `utm_content` por pieza) queda como opcional para cuando haya más tráfico.
+- **Por qué la bio no se cambia:** en una sesión real de Clarity (31/10/2026) llegaron `traffic_source=ig`, `utm_medium=social` y `utm_content=link_in_bio`, valores que no están en la guía. Eso hace pensar que Instagram agrega esos parámetros solo a los clics en el link de la bio; no lo verifiqué en la documentación de Instagram. Si es así, la bio ya queda etiquetada.
+- **Verificado el 31/10/2026 en una sesión real de Clarity (Instagram):** `whatsapp_click`, `generate_lead` y "Clic de salida" se registran al tocar "Reservá tu demo gratis", y las etiquetas `traffic_source`, `utm_medium`, `utm_content` y `navegador_interno` llegan. Con eso quedan cumplidos los pendientes de la v1.72 sobre Clarity.
+- **Qué NO sé:** (1) si Instagram también agrega sus propios parámetros a los links de los stickers de story; (2) qué pasa si un link ya trae `utm_*` y Instagram suma los suyos (la web toma el primer `utm_source` que encuentra). Se ve en Clarity una vez que se usen los links nuevos.
+- **Sin cambios en el sitio:** solo documentación; no se tocó ningún archivo publicado.
+- **Pendiente:** (1) pegar el link fijo en las próximas stories y reels; (2) mirar en Clarity qué etiquetas llegan con esos links; (3) revisar las grabaciones del navegador interno de Instagram tras 2 a 3 semanas (pendiente de la v1.72).
+
+**Por qué lo hice:** Sabrina pidió una forma de etiquetar los links de Instagram que no obligue a configurarlos por cada publicación.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -1926,3 +1944,4 @@ Antes de publicar cambios:
 | 1.74 | 31 de octubre de 2026 | Sabri Studios | Limpieza de rendimiento: Space Mono alojada en el sitio con fuente de reserva de medidas parecidas, foto sin usar de 1,9 MB borrada y logo de JL achicado |
 | 1.75 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://*.clarity.ms` en `img-src` para que Clarity pueda cargar su imagen de seguimiento (`c.gif`) |
 | 1.76 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://c.bing.com` en `img-src` (redirección del pixel de Clarity) y se aclara en la política de privacidad |
+| 1.77 | 31 de octubre de 2026 | Sabri Studios | Guía de UTM de Instagram simplificada: dos links fijos (stories y reels) en vez de uno por publicación; Clarity verificado en una sesión real |

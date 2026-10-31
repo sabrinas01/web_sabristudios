@@ -7,7 +7,21 @@ La web ya las lee y las guarda mientras dura la visita (`medicion.js` y los scri
 - **Clarity:** filtros de grabaciones y mapas de calor por `utm_medium`, `utm_campaign`, `utm_content`, `traffic_source` y `navegador_interno`.
 - **Google Analytics 4:** Adquisición de tráfico (fuente / medio / campaña) y el parámetro `traffic_source` de cada evento de contacto.
 
-## Estructura
+## Versión simple (la que se usa hoy)
+
+Con pocas visitas por semana no vale la pena etiquetar cada publicación. Alcanza con **dos links fijos** que se guardan una vez (por ejemplo en las notas del celular) y se pegan siempre iguales:
+
+| Dónde | Qué hacer | Link |
+|---|---|---|
+| Bio | No cambiar nada: Instagram ya agrega solo `utm_source=ig`, `utm_medium=social` y `utm_content=link_in_bio` (se vio en una sesión real de Clarity el 31/10/2026) | el que ya está |
+| Stories (sticker de link) | Pegar siempre este link | `https://web-sabristudios.vercel.app/?utm_source=instagram&utm_medium=story&utm_campaign=general` |
+| Reels (descripción o comentario fijado) | Pegar siempre este link | `https://web-sabristudios.vercel.app/?utm_source=instagram&utm_medium=reel&utm_campaign=general` |
+
+Con esto se distingue **de dónde** viene la visita (bio, stories o reels), pero no **qué publicación puntual** la trajo. Si más adelante hay más tráfico y hace falta ese detalle, se usa la estructura completa de abajo.
+
+Dos cosas sin confirmar, que se ven en Clarity después de usar los links nuevos: (1) si Instagram también agrega sus propios parámetros a los links de los stickers, y (2) qué pasa si un link ya trae `utm_*` y Instagram suma los suyos.
+
+## Estructura completa (opcional)
 
 ```
 https://web-sabristudios.vercel.app/?utm_source=instagram&utm_medium=MEDIO&utm_campaign=CAMPAÑA&utm_content=PIEZA
