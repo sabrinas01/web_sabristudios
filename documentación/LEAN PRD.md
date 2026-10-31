@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.80
+**Versión:** 1.81
 
 **Fecha:** Octubre 2026
 
@@ -1911,6 +1911,24 @@ Antes de publicar cambios:
 
 ---
 
+### v1.81 — 31 de octubre de 2026
+
+**Qué hice:** Convertí a WebP la foto de "Sobre mí" (`index.html`), la única imagen de la home que seguía en JPG grande.
+
+**Detalle del cambio:**
+
+- **Por qué:** después de publicar la v1.80, PageSpeed web seguía mostrando "Mejorar la entrega de imágenes" con 31 KiB (antes 88 KiB), y no pude abrir el detalle de esa fila (usa un componente que no se puede leer desde el navegador). Lighthouse 13.6 local, la misma versión que usa PageSpeed, dio esa auditoría sin pendientes, pero esa foto va con `loading="lazy"` y no se descarga si no se hace scroll. Es la única imagen de la home que quedaba en JPG grande, así que es el candidato más probable; **no pude confirmar que sea lo que marca PageSpeed**.
+- **Archivos nuevos:** `imagenes/sabrina-fundadora-sabri-studios-640.webp` (27,8 KB) y `imagenes/sabrina-fundadora-sabri-studios-800.webp` (36 KB), contra el JPG de 53 KB (800×800).
+- **HTML:** la imagen usa `srcset` con las dos medidas y `sizes="(min-width: 768px) 50vw, 100vw"`, y el `src` apunta al de 800 px. Conserva `width`, `height="800"` y `loading="lazy"`.
+- **Se conserva** `imagenes/sabrina-fundadora-sabri-studios.jpg`: es la imagen de los datos estructurados (JSON-LD) de la home y de la guía de Google Maps.
+- **Verificación (navegador local):** la imagen carga, se ve nítida (518 px de ancho en una ventana de 1280 px) y el navegador eligió el archivo de 640 px.
+- **Lo que no se puede cambiar:** la caché de `dist/output.css` (1 hora) es la que PageSpeed marca para el sitio propio (5 KiB de ahorro). Subirla exige renombrar el archivo en cada compilación; los demás archivos están a 7 días y casi no suman. El JavaScript sin usar (`gtag/js` de Google, 87 KiB) y la caché del script de Vercel (2 KB) tampoco dependen del sitio.
+- **Pendiente:** con la v1.81 publicada, volver a pasar PageSpeed y ver si baja el aviso de "entrega de imágenes".
+
+**Por qué lo hice:** Sabrina pidió investigar el aviso de 31 KiB que quedaba en PageSpeed.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -2000,3 +2018,4 @@ Antes de publicar cambios:
 | 1.78 | 31 de octubre de 2026 | Sabri Studios | Roadmap (sección 16) actualizado: pricing y FAQ de precio descartados, casos y tracking de GA marcados como hechos, el resto con su motivo de pendiente |
 | 1.79 | 31 de octubre de 2026 | Sabri Studios | Punto 7.5 (Proyectos) y sección 18 (checklist) actualizados; corregido que Mombé se sumó en la v1.18, no en la v1.44 |
 | 1.80 | 31 de octubre de 2026 | Sabri Studios | Imágenes de proyectos (logos y portada) convertidas a WebP y achicadas al doble de lo que se ve: los logos de la home pasan de unos 90 KB a unos 9 KB |
+| 1.81 | 31 de octubre de 2026 | Sabri Studios | Foto de "Sobre mí" convertida a WebP con dos medidas (640 y 800 px): de 53 KB a 28 o 36 KB; aviso de entrega de imágenes de PageSpeed investigado |
