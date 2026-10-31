@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.75
+**Versión:** 1.76
 
 **Fecha:** Octubre 2026
 
@@ -1824,6 +1824,23 @@ Antes de publicar cambios:
 
 ---
 
+### v1.76 — 31 de octubre de 2026
+
+**Qué hice:** Agregué `https://c.bing.com` a la directiva `img-src` del CSP en `vercel.json` y lo dejé dicho en la política de privacidad.
+
+**Detalle del cambio:**
+
+- **Cómo lo encontré:** después de publicar la v1.75 (que permitió `*.clarity.ms` en `img-src`), PageSpeed Insights (31/10/2026, móvil) siguió dando 92 en "Prácticas recomendadas". El error de consola cambió: ahora `c.clarity.ms/c.gif` carga, pero se redirige a `https://c.bing.com/c.gif?ctsa=mr&CtsSyncId=...&RedC=c.clarity.ms&MXFR=...` y el CSP bloquea esa segunda dirección.
+- **Qué cambia:** `img-src` pasa a `'self' data: https://*.clarity.ms https://c.bing.com https://www.google-analytics.com ...`. Sabrina decidió permitirlo después de que le expliqué el costo de privacidad.
+- **Qué NO sé:** la documentación de Microsoft no la leí. Por el nombre de los parámetros (`CtsSyncId`, `RedC=c.clarity.ms`) parece una sincronización de identificadores entre Clarity y Bing, pero no lo confirmé.
+- **Política de privacidad (`politica-de-privacidad.html`):** el punto de Microsoft Clarity aclara que Clarity pide imágenes a servidores de Microsoft (`clarity.ms` y `bing.com`), que Microsoft recibe esas solicitudes con los datos habituales de una conexión (dirección IP y navegador) y un identificador de sincronización. La fecha de última actualización pasa a 31 de octubre de 2026. Normalicé los saltos de línea del archivo (tenía 2 saltos sueltos de un cambio anterior).
+- **Verificación local:** `vercel.json` sigue siendo un JSON válido. El efecto real (error de consola fuera, "Prácticas recomendadas" en 100) solo se ve con el sitio publicado.
+- **Pendiente:** (1) con la v1.76 publicada, pasar PageSpeed y confirmar que el error desaparece; (2) revisar si Clarity muestra sesiones con `whatsapp_click` (los eventos ya figuran en la lista del filtro "Eventos inteligentes"); (3) las etiquetas (`traffic_source`, `utm_*`, `navegador_interno`) siguen sin verificar en Clarity; (4) el CLS intermitente sigue sin causa (1 corrida con CLS 0,839 en 11 de PageSpeed móvil).
+
+**Por qué lo hice:** Sabrina pidió permitir `c.bing.com` para eliminar el último error de consola de PageSpeed.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -1908,3 +1925,4 @@ Antes de publicar cambios:
 | 1.73 | 30 de octubre de 2026 | Sabri Studios | Sitemap con las 4 páginas de proyecto y fechas respaldadas (la home figuraba con `2026-09-05`) y archivo de verificación de Bing (`BingSiteAuth.xml`) |
 | 1.74 | 31 de octubre de 2026 | Sabri Studios | Limpieza de rendimiento: Space Mono alojada en el sitio con fuente de reserva de medidas parecidas, foto sin usar de 1,9 MB borrada y logo de JL achicado |
 | 1.75 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://*.clarity.ms` en `img-src` para que Clarity pueda cargar su imagen de seguimiento (`c.gif`) |
+| 1.76 | 31 de octubre de 2026 | Sabri Studios | CSP: se permite `https://c.bing.com` en `img-src` (redirección del pixel de Clarity) y se aclara en la política de privacidad |
