@@ -417,7 +417,7 @@
       </p>
     </div>
 
-    <!-- Dos columnas desde tablet: con 4 tarjetas quedan 2 por fila y no una sola huérfana abajo. Cada tarjeta es un contenedor (@container): su pie pasa a fila según el ancho de la tarjeta y no el de la pantalla, porque en tablet las tarjetas son angostas -->
+    <!-- Dos columnas desde tablet: con 5 tarjetas quedan 2 por fila y la quinta va sola y centrada abajo. Cada tarjeta es un contenedor (@container): su pie pasa a fila según el ancho de la tarjeta y no el de la pantalla, porque en tablet las tarjetas son angostas -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-md md:gap-lg">
 
       <!--
@@ -530,6 +530,37 @@
           </div>
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">De una página en Lovable a una web completa, con perfil profesional y servicios más claros.</p>
+        <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
+          <div class="flex items-center gap-xs">
+            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
+            </span>
+            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
+          </div>
+          <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
+            Ver proyecto
+            <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Quinta tarjeta: sola en la última fila, así que desde tablet la centro con el ancho exacto de una columna (mitad del grid menos la mitad del espacio entre columnas: 32px / 2 = 16px) -->
+      <a href="proyecto-ca-control-documental.html"
+        aria-label="Ver el proceso del proyecto de CA Control Documental, gestión documental, desarrollado por Sabri Studios"
+        class="project-card @container group bg-white p-sm md:p-md rounded-lg border border-gris-claro hover:border-azul-primario transition-colors duration-200 flex flex-col gap-sm md:col-span-2 md:mx-auto md:w-[calc(50%-16px)]">
+        <div class="flex flex-col items-start @[260px]:flex-row @[260px]:items-center gap-sm">
+          <div class="w-16 h-16 shrink-0 rounded-full overflow-hidden border border-gris-claro bg-gris-neutro">
+            <img src="imagenes/logo-ca-control-documental-128.webp" width="128" height="128" loading="lazy"
+              alt="Logo de CA Control Documental" class="w-full h-full object-cover">
+          </div>
+          <div class="flex flex-col gap-1 min-w-0">
+            <h3 class="font-headline-h3 text-headline-h3 text-azul-primario break-words">CA Control Documental</h3>
+            <span class="font-body-main text-sm text-texto-fuerte opacity-80">Gestión documental</span>
+          </div>
+        </div>
+        <p class="font-body-main text-body-main text-texto-fuerte">Una web simple con el detalle de sus servicios y su perfil de Google para aparecer en Google Maps.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
           <div class="flex items-center gap-xs">
             <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">

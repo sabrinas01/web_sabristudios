@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.84
+**Versión:** 1.86
 
 **Fecha:** Octubre 2026
 
@@ -1983,6 +1983,37 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina no puede excluir su IP porque cambia todos los días, y sus visitas de prueba ensucian "Sesiones reales" en Landing Analytics.
 
+### v1.85 — 18 de noviembre de 2026
+
+**Qué hice:** Armé la página del proyecto CA Control Documental (`proyecto-ca-control-documental.html`), con el mismo formato que las otras páginas de proyecto terminado.
+
+**Detalle del cambio:**
+
+- **De dónde sale el contenido:** de dos fuentes. El relato de las 3 etapas que Sabrina escribió en la historia de usuario "Subir proyecto CA Control Documental" (Notion, base de Tareas de desarrollo) y el sitio real del cliente, `https://www.cacontroldocumental.com/`, que abrí y leí. De ahí salen: gestión documental en Rosario, para empresas, contratistas y profesionales de Higiene y Seguridad, y que el sitio tiene servicios, plataformas, preguntas frecuentes y contacto por WhatsApp. No agregué resultados, cifras ni frases del cliente porque no hay fuente.
+- **Qué tiene la página:** encabezado, los 3 pasos (Diagnóstico, Diseño y Estrategia, Resultados) con el texto del relato, y cierre con el botón "Ver sitio web" (con el evento `project_site_click`, igual que Mombé) y el de WhatsApp. Misma barra, footer, consentimiento, medición y evento `whatsapp_click` que las demás.
+- **Link del sitio del cliente:** Sabrina pasó un link de Instagram con parámetros de seguimiento (`utm_source`, `fbclid`); usé la dirección limpia, sin esos parámetros.
+- **Sin logo:** no tengo el logo del cliente, así que el encabezado va sin el círculo de logo, y la imagen al compartir es la de Sabri Studios.
+- **`sitemap.xml`:** agregué la página.
+- **Qué no hice:** no agregué la tarjeta del proyecto en la home (las tarjetas llevan logo) y no la sumé a `llms.txt` (ahí no figura ninguna página de proyecto).
+- **Pruebas:** sin restos de la página de Mombé, etiquetas balanceadas, todas las referencias locales existen, sitemap válido, sin errores en consola, sin scroll horizontal en escritorio ni en 375 px, y los eventos `project_site_click` y `whatsapp_click` se disparan con el formato esperado.
+
+**Por qué lo hice:** Sabrina pidió armar la página del proyecto en la web y pasó el link del sitio del cliente.
+
+### v1.86 — 18 de noviembre de 2026
+
+**Qué hice:** Sumé el logo de CA Control Documental a su página de proyecto y agregué su tarjeta en la sección "Proyectos desarrollados" de la home.
+
+**Detalle del cambio:**
+
+- **Logo:** Sabrina pasó el logo (JPG cuadrado de 1280x1280, fondo blanco). Guardé el original como `imagenes/logo-ca-control-documental.jpg` y generé `logo-ca-control-documental-128.webp` (tarjeta) y `-320.webp` (encabezado), igual que los otros proyectos. También `imagenes/og-ca-control-documental.jpg` (1200x630, logo centrado sobre blanco) para la vista previa al compartir. Las imágenes las procesé con `sharp` instalado en una carpeta temporal, sin tocar el `package.json`.
+- **`proyecto-ca-control-documental.html`:** el encabezado vuelve al formato de las otras páginas de proyecto (círculo con el logo a la izquierda en escritorio) y las etiquetas `og:image` y `twitter:image` apuntan a la imagen nueva, con su texto alternativo.
+- **`index.html`:** tarjeta nueva con el logo, "Gestión documental", la frase "Una web simple con el detalle de sus servicios y su perfil de Google para aparecer en Google Maps" (sale del relato de Sabrina) y los 3 tramos llenos de "Proceso completo".
+- **Quinta tarjeta centrada:** con 5 tarjetas en 2 columnas, la última quedaba sola a la izquierda. Le puse `md:col-span-2 md:mx-auto md:w-[calc(50%-16px)]`: el ancho exacto de una columna (la mitad del grid menos 16 px, que es la mitad del espacio entre columnas de 32 px) y centrada. Corrí `npm run build` porque es una clase arbitraria nueva.
+- **Pruebas:** en la home hay 5 tarjetas sin scroll horizontal a 1200, 768 y 375 px; a 1200 y 768 px la quinta mide lo mismo que las otras (544 y 328 px) y queda centrada; las 5 imágenes cargan; el servidor entrega las 3 imágenes nuevas. En la página del proyecto el logo carga a 320x320 y las etiquetas de la imagen para compartir son las correctas.
+- **Pendiente de verificar:** una pestaña del navegador que uso para las pruebas quedó sin renderizar y no cargaba las imágenes diferidas, tampoco las de las otras tarjetas. Lo repetí en una pestaña nueva y ahí cargan todas, así que fue un problema de esa pestaña. Sigue pendiente ver la vista previa al compartir en WhatsApp o redes con la página ya publicada.
+
+**Por qué lo hice:** Sabrina pasó el logo del cliente para completar la página del proyecto.
+
 ---
 
 ---
@@ -2078,3 +2109,5 @@ Antes de publicar cambios:
 | 1.82 | 18 de noviembre de 2026 | Sabri Studios | Guía de Google Maps optimizada con las búsquedas reales de Search Console: sección y pregunta frecuente "¿Es lo mismo aparecer en Google que en Google Maps?" (fuente oficial de Google), descripción y respuesta corta ajustadas, fechas y sitemap actualizados |
 | 1.83 | 18 de noviembre de 2026 | Sabri Studios | Mombé terminado: la tarjeta de la home pasa a "Proceso completo" con frase nueva, y `proyecto-mombe.html` queda con los 3 pasos hechos, link a su sitio y `project_site_click`; sitemap actualizado |
 | 1.84 | 18 de noviembre de 2026 | Sabri Studios | Marca de mi navegador (`?sinmedicion=1`) para que mis visitas no cuenten en GA4 ni en Clarity aunque mi IP cambie; el script de corte de medición de las 7 páginas la lee de `localStorage` |
+| 1.85 | 18 de noviembre de 2026 | Sabri Studios | Página del proyecto CA Control Documental (`proyecto-ca-control-documental.html`) con el relato de las 3 etapas y el sitio real del cliente como fuentes; sin logo ni tarjeta en la home todavía; agregada al `sitemap.xml` |
+| 1.86 | 18 de noviembre de 2026 | Sabri Studios | Logo de CA Control Documental en su página de proyecto, imagen para compartir propia y tarjeta nueva en la home (la quinta, centrada con `md:w-[calc(50%-16px)]`) |
