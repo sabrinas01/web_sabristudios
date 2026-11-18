@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.84
+**Versión:** 1.85
 
 **Fecha:** Octubre 2026
 
@@ -1983,6 +1983,22 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina no puede excluir su IP porque cambia todos los días, y sus visitas de prueba ensucian "Sesiones reales" en Landing Analytics.
 
+### v1.85 — 18 de noviembre de 2026
+
+**Qué hice:** Armé la página del proyecto CA Control Documental (`proyecto-ca-control-documental.html`), con el mismo formato que las otras páginas de proyecto terminado.
+
+**Detalle del cambio:**
+
+- **De dónde sale el contenido:** de dos fuentes. El relato de las 3 etapas que Sabrina escribió en la historia de usuario "Subir proyecto CA Control Documental" (Notion, base de Tareas de desarrollo) y el sitio real del cliente, `https://www.cacontroldocumental.com/`, que abrí y leí. De ahí salen: gestión documental en Rosario, para empresas, contratistas y profesionales de Higiene y Seguridad, y que el sitio tiene servicios, plataformas, preguntas frecuentes y contacto por WhatsApp. No agregué resultados, cifras ni frases del cliente porque no hay fuente.
+- **Qué tiene la página:** encabezado, los 3 pasos (Diagnóstico, Diseño y Estrategia, Resultados) con el texto del relato, y cierre con el botón "Ver sitio web" (con el evento `project_site_click`, igual que Mombé) y el de WhatsApp. Misma barra, footer, consentimiento, medición y evento `whatsapp_click` que las demás.
+- **Link del sitio del cliente:** Sabrina pasó un link de Instagram con parámetros de seguimiento (`utm_source`, `fbclid`); usé la dirección limpia, sin esos parámetros.
+- **Sin logo:** no tengo el logo del cliente, así que el encabezado va sin el círculo de logo, y la imagen al compartir es la de Sabri Studios.
+- **`sitemap.xml`:** agregué la página.
+- **Qué no hice:** no agregué la tarjeta del proyecto en la home (las tarjetas llevan logo) y no la sumé a `llms.txt` (ahí no figura ninguna página de proyecto).
+- **Pruebas:** sin restos de la página de Mombé, etiquetas balanceadas, todas las referencias locales existen, sitemap válido, sin errores en consola, sin scroll horizontal en escritorio ni en 375 px, y los eventos `project_site_click` y `whatsapp_click` se disparan con el formato esperado.
+
+**Por qué lo hice:** Sabrina pidió armar la página del proyecto en la web y pasó el link del sitio del cliente.
+
 ---
 
 ---
@@ -2078,3 +2094,4 @@ Antes de publicar cambios:
 | 1.82 | 18 de noviembre de 2026 | Sabri Studios | Guía de Google Maps optimizada con las búsquedas reales de Search Console: sección y pregunta frecuente "¿Es lo mismo aparecer en Google que en Google Maps?" (fuente oficial de Google), descripción y respuesta corta ajustadas, fechas y sitemap actualizados |
 | 1.83 | 18 de noviembre de 2026 | Sabri Studios | Mombé terminado: la tarjeta de la home pasa a "Proceso completo" con frase nueva, y `proyecto-mombe.html` queda con los 3 pasos hechos, link a su sitio y `project_site_click`; sitemap actualizado |
 | 1.84 | 18 de noviembre de 2026 | Sabri Studios | Marca de mi navegador (`?sinmedicion=1`) para que mis visitas no cuenten en GA4 ni en Clarity aunque mi IP cambie; el script de corte de medición de las 7 páginas la lee de `localStorage` |
+| 1.85 | 18 de noviembre de 2026 | Sabri Studios | Página del proyecto CA Control Documental (`proyecto-ca-control-documental.html`) con el relato de las 3 etapas y el sitio real del cliente como fuentes; sin logo ni tarjeta en la home todavía; agregada al `sitemap.xml` |
