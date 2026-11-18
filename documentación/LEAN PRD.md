@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.81
+**Versión:** 1.84
 
 **Fecha:** Octubre 2026
 
@@ -1969,6 +1969,22 @@ Antes de publicar cambios:
 
 ---
 
+### v1.84 — 18 de noviembre de 2026
+
+**Qué hice:** Agregué una marca de mi navegador para que mis propias visitas no cuenten en Google Analytics ni en Clarity, aunque mi IP cambie todos los días.
+
+**Detalle del cambio:**
+
+- **Cómo funciona:** el script de corte de medición que ya está en las 7 páginas (`index.html`, `guia-aparecer-en-google-maps.html`, `politica-de-privacidad.html` y las 4 páginas de proyecto) ahora también mira `localStorage.sin_medicion`. Entrando una vez a `https://web-sabristudios.vercel.app/?sinmedicion=1` desde un navegador, ese navegador queda marcado y no manda datos a GA4 ni a Clarity. Con `?sinmedicion=0` se quita la marca.
+- **Por qué no por IP:** la IP de Sabrina cambia todos los días, así que excluirla en Clarity o GA4 no serviría.
+- **Límites:** la marca vive en el navegador. Hay que repetirla en cada navegador y dispositivo, y si se borran los datos del sitio o se navega en modo incógnito se pierde. No afecta a ningún visitante real.
+- **Qué no cambia:** el banner de cookies, el consentimiento y las reglas de vistas previas, localhost y navegadores automáticos siguen igual.
+- **Pendiente de verificar:** entrar con `?sinmedicion=1` en el celular y en la compu, y comprobar en Clarity (Grabaciones) y en GA4 (Tiempo real) que esa visita no aparece.
+
+**Por qué lo hice:** Sabrina no puede excluir su IP porque cambia todos los días, y sus visitas de prueba ensucian "Sesiones reales" en Landing Analytics.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -2061,3 +2077,4 @@ Antes de publicar cambios:
 | 1.81 | 31 de octubre de 2026 | Sabri Studios | Foto de "Sobre mí" convertida a WebP con dos medidas (640 y 800 px): de 53 KB a 28 o 36 KB; aviso de entrega de imágenes de PageSpeed investigado |
 | 1.82 | 18 de noviembre de 2026 | Sabri Studios | Guía de Google Maps optimizada con las búsquedas reales de Search Console: sección y pregunta frecuente "¿Es lo mismo aparecer en Google que en Google Maps?" (fuente oficial de Google), descripción y respuesta corta ajustadas, fechas y sitemap actualizados |
 | 1.83 | 18 de noviembre de 2026 | Sabri Studios | Mombé terminado: la tarjeta de la home pasa a "Proceso completo" con frase nueva, y `proyecto-mombe.html` queda con los 3 pasos hechos, link a su sitio y `project_site_click`; sitemap actualizado |
+| 1.84 | 18 de noviembre de 2026 | Sabri Studios | Marca de mi navegador (`?sinmedicion=1`) para que mis visitas no cuenten en GA4 ni en Clarity aunque mi IP cambie; el script de corte de medición de las 7 páginas la lee de `localStorage` |
