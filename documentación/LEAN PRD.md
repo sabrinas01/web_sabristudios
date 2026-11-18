@@ -168,7 +168,7 @@ Cierre o no-cierre (fuera del scope del PRD)
 
 ### 7.5 Sección "Proyectos" ⚠️ (Mejorar)
 
-**Estado actual:** 4 casos (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF y Mombé, que sigue en desarrollo en el paso 2). Desde la v1.69 cada tarjeta es un solo link a la página del proyecto (ya no giran, como en la v1.5), con una frase de qué cambió para ese negocio, el logo y una barra de estado de 3 tramos que indica en qué paso del proceso está.
+**Estado actual:** 4 casos (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF y Mombé, terminado el 18/11/2026 en la v1.83). Desde la v1.69 cada tarjeta es un solo link a la página del proyecto (ya no giran, como en la v1.5), con una frase de qué cambió para ese negocio, el logo y una barra de estado de 3 tramos que indica en qué paso del proceso está; hoy los cuatro casos tienen los 3 tramos llenos ("Proceso completo").
 
 **Problemas identificados:**
 
@@ -556,7 +556,7 @@ Escenario: La persona abre la landing desde un celular
 
 ### Fase 2 (Corto plazo: Noviembre 2026)
 
-- [x]  Agregar 2-3 casos más (mínimo 3 totales) → hecho con un matiz: hoy hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.18). Mombé sigue en desarrollo (paso 2, Diseño y Estrategia, desde la v1.65).
+- [x]  Agregar 2-3 casos más (mínimo 3 totales) → hecho con un matiz: hoy hay 4 tarjetas en "Proyectos" (AR Estética Vehicular, JL Construcciones en Seco, Servicios AF desde la v1.25 y Mombé desde la v1.18). Mombé terminó el 18/11/2026 (v1.83): la tarjeta pasó a "Proceso completo" y su página a los 3 pasos hechos, con link a su sitio.
 - [ ]  Crear video testimonial cliente (30s). Pendiente.
 - [x]  ~~Expandir FAQ con objeción de precio, una vez definido el pricing visible.~~ Descartado en v1.44, junto con el pricing.
 - [x]  Setup de Google Analytics + tracking de WhatsApp → hecho: GA4 con scroll y fuente de tráfico desde la v1.11, eventos de contacto y `generate_lead` desde la v1.30, y desde la v1.72 los eventos de contacto también llegan a Clarity (verificado en una sesión real el 31/10/2026, ver v1.77).
@@ -1728,7 +1728,7 @@ Antes de publicar cambios:
 **Detalle del cambio:**
 
 - **Tarjetas de proyectos (`index.html`):** cada tarjeta cuenta qué cambió para ese negocio, con una frase tomada de la propia página del proyecto, y en qué paso del proceso está. AR Estética: "Del boca a boca a una web con sus servicios y un camino directo a WhatsApp". JL Construcciones: "De trabajar por recomendación a una web con sus servicios, una galería de trabajos y contacto directo". Servicios AF: "De una página en Lovable a una web completa, con perfil profesional y servicios más claros". Mombé: "En desarrollo: hoy estamos en el paso 2, diseño y estrategia". No se inventó ningún dato.
-- **Barra de estado:** 3 tramos que indican el proceso. Llena en los tres proyectos con los 3 pasos completos ("Proceso completo") y con 2 tramos llenos en Mombé ("Paso 2 de 3"). Lleva `role="img"` y `aria-label`. **Cuando Mombé pase de paso hay que actualizar esa barra y el texto de su tarjeta a mano.**
+- **Barra de estado:** 3 tramos que indican el proceso. Llena en los tres proyectos con los 3 pasos completos ("Proceso completo") y con 2 tramos llenos en Mombé ("Paso 2 de 3"). Lleva `role="img"` y `aria-label`. **Cuando Mombé pase de paso hay que actualizar esa barra y el texto de su tarjeta a mano.** (Hecho en la v1.83: Mombé quedó con los 3 tramos llenos.)
 - **Layout:** texto alineado a la izquierda, logo de 64 px al costado del nombre y del rubro, grilla de 2 columnas desde tablet (antes 3 columnas con una tarjeta huérfana abajo). El pie (estado y link) pasa a fila solo si la tarjeta tiene 400 px de contenido o más, y si no se apila en dos líneas. Eso depende del ancho de la tarjeta y no del de la pantalla (container query con `@container` y `@[400px]:`): una primera versión usaba el ancho de la pantalla (420 px) y en tablet, con dos tarjetas de unos 330 px por fila, el link "Ver proyecto" se partía en dos líneas y la flecha se salía; Sabrina lo avisó con una captura. El link lleva `whitespace-nowrap`. Se quitó la etiqueta azul en mayúsculas de la esquina: el rubro pasa a ser texto normal bajo el nombre.
 - **"Ver proyecto" / "Ver avance":** pasan de botón naranja a link subrayado con flecha, para dejar el naranja a la acción principal. La tarjeta entera sigue siendo un solo link. El hover es un cambio de borde a `azul-primario`.
 - **Seguimiento:** se conserva la clase `project-card` y el `href`: el evento `project_click` de GA4 sigue enviándose con el mismo `project_name`. Lo comprobé disparando un clic en la tarjeta de Mombé.
@@ -1949,6 +1949,26 @@ Antes de publicar cambios:
 
 ---
 
+### v1.83 — 18 de noviembre de 2026
+
+**Qué hice:** Pasé Mombé de "en desarrollo" a proyecto terminado: tarjeta de la home (`index.html`) y página `proyecto-mombe.html`, ahora con link a su sitio publicado ([mombe.vercel.app](https://mombe.vercel.app/)).
+
+**Detalle del cambio:**
+
+- **Por qué:** Sabrina terminó la web de Mombé. La solicitud "Mombé: actualizar su tarjeta de la home" estaba esperando justo este paso.
+- **Fuente del contenido:** leí el sitio publicado el 18/11/2026 para no afirmar nada de más: es de "Textiles artesanales de diseño de autor en Río Cuarto, Córdoba", con dos líneas ("Textiles artesanales" y "Esenciales BB"), galería, "Nuestra historia", preguntas frecuentes, contacto por WhatsApp e Instagram.
+- **Tarjeta de la home:** la frase pasa a "Una web con sus dos líneas textiles, galería, preguntas frecuentes y contacto directo por WhatsApp." La barra queda con los 3 tramos llenos y la etiqueta "Proceso completo"; el botón vuelve a decir "Ver proyecto" (antes "Ver avance"). Se quitó el comentario y el `aria-label` que decían "en desarrollo".
+- **Página del proyecto:** la etiqueta del encabezado pierde "· En desarrollo" y el texto pasa a "Así fue el proceso que hicimos para llevar su marca a una web propia". "En qué paso estamos" pasa a "Los 3 pasos que hicimos", con el mismo formato que la página de JL (sin etiquetas "Completado / Estamos acá / Próximamente", paso 3 en naranja, línea completa y animación de 2 s entre pasos). El paso 2 pasa a pasado y el paso 3 describe la web ya publicada.
+- **CTA final:** "¿Querés ver el resultado final?" con el botón "Ver sitio web" (abre mombe.vercel.app en otra pestaña) y el de "Quiero algo así para mi negocio". El botón manda `project_site_click` con `project_name=mombe`, igual que los otros proyectos.
+- **Metadescripciones** (description, Open Graph y Twitter): "Cómo ayudamos a Mombé, textiles artesanales de diseño de autor en Río Cuarto, a tener su web propia con sus líneas textiles, galería y contacto por WhatsApp."
+- **Sitemap:** `lastmod` de `proyecto-mombe.html` al 2026-11-18.
+- **Verificación:** no quedan referencias a `is-pending`, `is-current` ni `process-line-done`; las clases de la página son todas clases que ya usa la página de JL (no hace falta `npm run build`); sin ids repetidos. **No pude ver las páginas renderizadas antes de publicar** (el sistema bloqueó iniciar un servidor local y Chrome no abre archivos locales), así que falta revisarlas publicadas.
+- **Backlink:** el pie de mombe.vercel.app ya lleva "Desarrollado por Sabri Studios" apuntando a la web (verificado el 18/11/2026).
+
+**Por qué lo hice:** Sabrina avisó que terminó la web de Mombé y pidió actualizar su tarjeta.
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -2040,3 +2060,4 @@ Antes de publicar cambios:
 | 1.80 | 31 de octubre de 2026 | Sabri Studios | Imágenes de proyectos (logos y portada) convertidas a WebP y achicadas al doble de lo que se ve: los logos de la home pasan de unos 90 KB a unos 9 KB |
 | 1.81 | 31 de octubre de 2026 | Sabri Studios | Foto de "Sobre mí" convertida a WebP con dos medidas (640 y 800 px): de 53 KB a 28 o 36 KB; aviso de entrega de imágenes de PageSpeed investigado |
 | 1.82 | 18 de noviembre de 2026 | Sabri Studios | Guía de Google Maps optimizada con las búsquedas reales de Search Console: sección y pregunta frecuente "¿Es lo mismo aparecer en Google que en Google Maps?" (fuente oficial de Google), descripción y respuesta corta ajustadas, fechas y sitemap actualizados |
+| 1.83 | 18 de noviembre de 2026 | Sabri Studios | Mombé terminado: la tarjeta de la home pasa a "Proceso completo" con frase nueva, y `proyecto-mombe.html` queda con los 3 pasos hechos, link a su sitio y `project_site_click`; sitemap actualizado |
