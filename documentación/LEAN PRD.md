@@ -1929,6 +1929,26 @@ Antes de publicar cambios:
 
 ---
 
+### v1.82 — 18 de noviembre de 2026
+
+**Qué hice:** Ajusté la guía "Cómo aparecer en Google Maps" (`guia-aparecer-en-google-maps.html`) para responder mejor a las búsquedas reales que ya le traen impresiones en Search Console.
+
+**Detalle del cambio:**
+
+- **Por qué:** Search Console (28 días, hasta el 16/11) muestra 66 impresiones, 1 clic y posición media 24,1. Las búsquedas con impresiones son "aparecer en google maps" (4), "que mi negocio aparezca en google maps" (2), "aparecer en google" (2) y "aparecer en google negocio" (1); otra de 17 impresiones ("aparecer en google maps fuenlabrada") es de España y no se tomó como señal. La guía no contestaba la duda de "aparecer en Google" frente a "aparecer en Google Maps".
+- **Descripción (meta):** pasa a "Cómo hacer que tu negocio aparezca en Google y en Google Maps: …". El título y el H1 no cambian (ya incluyen "aparecer en Google Maps").
+- **Respuesta corta:** el título pasa a "Cómo hacer que tu negocio aparezca en Google Maps: la respuesta corta" y el texto suma "y en los resultados locales de Google".
+- **Sección nueva** "¿Es lo mismo aparecer en Google que aparecer en Google Maps?" (id `google-o-maps`), después de "¿Qué es el Perfil de Negocio…?". Dice solo lo que respalda la fuente oficial: Google muestra resultados locales en Google Maps y en la Búsqueda, y el Perfil de Negocio es la herramienta para mejorar ese ranking local.
+- **Pregunta frecuente nueva** con la misma pregunta, en el HTML y en el JSON-LD (FAQPage pasa de 4 a 5 preguntas).
+- **Fuente:** [Sugerencias para mejorar tu ranking local en Google](https://support.google.com/business/answer/7091?hl=es-419), leída el 18/11/2026. La sección de Fuentes aclara que la parte de "Google y Google Maps" se revisó ese día y que el resto sigue revisado el 20/10/2026. Se actualizó la línea de esa fuente en la lista.
+- **Fechas:** "Actualizada el 18 de noviembre de 2026", `dateModified` del JSON-LD y `lastmod` del `sitemap.xml`.
+- **Verificación:** el JSON-LD se lee bien (Article, FAQPage con 5 preguntas y BreadcrumbList), hay 5 `<details>` en el HTML y no hay ids repetidos. **No pude abrir la página en un servidor local** (el sistema bloqueó iniciarlo), así que falta revisarla en el navegador una vez publicada. No usé clases nuevas de Tailwind, por lo que no hizo falta `npm run build`.
+- **Pendiente:** repetir el informe de Rendimiento de Search Console a las 3-4 semanas de publicar (principios de diciembre) y comparar posición e impresiones de la guía.
+
+**Por qué lo hice:** Sabrina pidió empezar con la optimización de la guía (solicitud "Optimizar la guía de Google Maps para la búsqueda 'aparecer en google maps'").
+
+---
+
 ---
 
 ## 20. Tabla de Versiones
@@ -2019,3 +2039,4 @@ Antes de publicar cambios:
 | 1.79 | 31 de octubre de 2026 | Sabri Studios | Punto 7.5 (Proyectos) y sección 18 (checklist) actualizados; corregido que Mombé se sumó en la v1.18, no en la v1.44 |
 | 1.80 | 31 de octubre de 2026 | Sabri Studios | Imágenes de proyectos (logos y portada) convertidas a WebP y achicadas al doble de lo que se ve: los logos de la home pasan de unos 90 KB a unos 9 KB |
 | 1.81 | 31 de octubre de 2026 | Sabri Studios | Foto de "Sobre mí" convertida a WebP con dos medidas (640 y 800 px): de 53 KB a 28 o 36 KB; aviso de entrega de imágenes de PageSpeed investigado |
+| 1.82 | 18 de noviembre de 2026 | Sabri Studios | Guía de Google Maps optimizada con las búsquedas reales de Search Console: sección y pregunta frecuente "¿Es lo mismo aparecer en Google que en Google Maps?" (fuente oficial de Google), descripción y respuesta corta ajustadas, fechas y sitemap actualizados |
