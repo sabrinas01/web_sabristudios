@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proyecto: Mombé | Sabri Studios</title>
-  <meta name="description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
+  <meta name="description" content="Cómo ayudamos a Mombé, textiles artesanales de diseño de autor en Río Cuarto, a tener su web propia con sus líneas textiles, galería y contacto por WhatsApp.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://web-sabristudios.vercel.app/proyecto-mombe.html">
 
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="es_AR">
   <meta property="og:url" content="https://web-sabristudios.vercel.app/proyecto-mombe.html">
   <meta property="og:title" content="Proyecto: Mombé | Sabri Studios">
-  <meta property="og:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
+  <meta property="og:description" content="Cómo ayudamos a Mombé, textiles artesanales de diseño de autor en Río Cuarto, a tener su web propia con sus líneas textiles, galería y contacto por WhatsApp.">
   <!-- Vista previa al compartir: el logo de Mombé centrado sobre su fondo crema (1200x630) -->
   <meta property="og:image" content="https://web-sabristudios.vercel.app/imagenes/og-mombe.jpg">
   <meta property="og:image:width" content="1200">
@@ -25,7 +25,7 @@
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Proyecto: Mombé | Sabri Studios">
-  <meta name="twitter:description" content="Mombé, textiles artesanales: un proyecto en desarrollo de Sabri Studios. Hoy estamos en el paso 2, diseño y estrategia.">
+  <meta name="twitter:description" content="Cómo ayudamos a Mombé, textiles artesanales de diseño de autor en Río Cuarto, a tener su web propia con sus líneas textiles, galería y contacto por WhatsApp.">
   <meta name="twitter:image" content="https://web-sabristudios.vercel.app/imagenes/og-mombe.jpg">
 
   <link rel="icon" type="image/svg+xml" href="imagenes/favicon-web.svg">
@@ -47,7 +47,14 @@
   <script>
     (function () {
       var ua = navigator.userAgent || '';
-      if (location.hostname !== 'web-sabristudios.vercel.app' || navigator.webdriver || /HeadlessChrome|Lighthouse|PageSpeed|Googlebot/i.test(ua)) {
+      // Marca de mi navegador: entrar una vez con ?sinmedicion=1 (y ?sinmedicion=0 para quitarla).
+      var propio = false;
+      try {
+        if (/[?&]sinmedicion=1(&|$)/.test(location.search)) localStorage.setItem('sin_medicion', '1');
+        else if (/[?&]sinmedicion=0(&|$)/.test(location.search)) localStorage.removeItem('sin_medicion');
+        propio = localStorage.getItem('sin_medicion') === '1';
+      } catch (e) { /* sin almacenamiento: no hay marca */ }
+      if (propio || location.hostname !== 'web-sabristudios.vercel.app' || navigator.webdriver || /HeadlessChrome|Lighthouse|PageSpeed|Googlebot/i.test(ua)) {
         window.sinMedicion = true;
         window['ga-disable-G-HLPQM5HE7G'] = true;
       }
@@ -100,25 +107,23 @@
       transform: translateY(0) scale(1);
     }
     /*
-      Este proyecto está en desarrollo: el paso 1 ya está completo, el 2 es el actual y el 3
-      todavía no llegó, así que los pasos aparecen más rápido que en las otras páginas de
-      proyecto y el 3 queda "apagado" (opacidad baja), para que el foco esté en el paso 2,
-      que es donde estamos hoy.
+      Los 3 pasos están uno al lado del otro (grid horizontal en desktop), y cada uno
+      aparece 2 segundos después que el anterior, de izquierda a derecha.
     */
     .process-step-1 { --step-delay: 0s; }
-    .process-step-2 { --step-delay: 0.3s; }
-    .process-step-3 { --step-delay: 0.6s; }
-    .process-step.is-pending.is-visible {
-      opacity: 0.45;
-    }
+    .process-step-2 { --step-delay: 2s; }
+    .process-step-3 { --step-delay: 4s; }
+    /*
+      El número de cada paso, además de agrandarse, hace un pequeño "rebote" con giro
+      (overshoot) al aparecer. Usa el mismo retraso que su tarjeta (--step-delay).
+    */
     .process-step-number {
       transition: box-shadow 0.65s ease-out;
       transition-delay: var(--step-delay, 0s);
     }
-    /* Solo el paso actual hace el "rebote" del número y queda con el halo naranja */
-    .process-step.is-current.is-visible .process-step-number {
+    .process-step.is-visible .process-step-number {
       animation: numberPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) var(--step-delay, 0s) both;
-      box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.18), 0 2px 8px rgba(30, 58, 95, 0.08);
+      box-shadow: 0 0 0 8px rgba(217, 122, 60, 0.12), 0 2px 8px rgba(30, 58, 95, 0.08);
     }
     @keyframes numberPop {
       0% { transform: scale(1) rotate(0deg); }
@@ -126,15 +131,15 @@
       100% { transform: scale(1.12) rotate(0deg); }
     }
     /*
-      La línea que conecta los pasos se "dibuja" solo hasta el paso 2 (la mitad del recorrido),
-      y el resto queda punteado, como camino que todavía falta recorrer.
+      La línea que conecta los 3 pasos se "dibuja" de izquierda a derecha, con una duración
+      pensada para terminar justo cuando aparece el paso 3 (2 pasos x 2s + su propia animación).
     */
-    .process-line-done {
+    .process-line {
       transform: scaleX(0);
       transform-origin: left center;
-      transition: transform 1s ease-out 0.3s;
+      transition: transform 4.6s linear 0.1s;
     }
-    .process-grid.is-visible .process-line-done {
+    .process-grid.is-visible .process-line {
       transform: scaleX(1);
     }
 
@@ -207,13 +212,10 @@
         transform: none;
         transition: none;
       }
-      .process-step.is-pending {
-        opacity: 0.45;
-      }
-      .process-step.is-current.is-visible .process-step-number {
+      .process-step.is-visible .process-step-number {
         animation: none;
       }
-      .process-line-done {
+      .process-line {
         transition: none;
         transform: scaleX(1);
       }
@@ -294,13 +296,14 @@
 
     <div class="flex flex-col gap-sm items-center md:items-start">
       <span class="hero-fade-up hero-fade-up-1 font-label-cta text-label-cta text-gris-neutro bg-azul-primario px-sm py-1 rounded">
-        Textiles artesanales · En desarrollo
+        Textiles artesanales
       </span>
       <h1 class="hero-fade-up hero-fade-up-2 font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario">
         Mombé
       </h1>
       <p class="hero-fade-up hero-fade-up-3 font-body-main text-body-main text-texto-fuerte opacity-80 max-w-xl">
-        Textiles artesanales. Este proyecto está en desarrollo: hoy estamos en el paso 2, diseño y estrategia.
+        Textiles artesanales de diseño de autor en Río Cuarto, Córdoba. Así fue el proceso que
+        hicimos para llevar su marca a una web propia.
       </p>
     </div>
 
@@ -314,53 +317,41 @@
 
       <div class="text-center max-w-2xl mx-auto">
         <h2 class="font-headline-h2 text-headline-h2 text-azul-primario mb-sm">
-          En qué paso estamos
+          Los 3 pasos que hicimos
         </h2>
         <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
-          El mismo proceso que uso con cada negocio, aplicado a Mombé. Voy actualizando esta página a medida que avanzamos.
+          El mismo proceso que uso con cada negocio, aplicado puntualmente a Mombé.
         </p>
       </div>
 
       <div class="process-grid grid grid-cols-1 md:grid-cols-3 gap-md relative">
 
-        <!-- Línea de fondo punteada (camino que falta) + tramo naranja ya recorrido hasta el paso 2. Solo en desktop -->
-        <div class="hidden md:block absolute top-[24px] left-[15%] right-[15%] border-t border-dashed border-gris-claro z-0"></div>
-        <div class="process-line-done hidden md:block absolute top-[24px] left-[15%] w-[35%] h-px bg-naranja z-0"></div>
+        <div class="process-line hidden md:block absolute top-[24px] left-[15%] right-[15%] h-px bg-gris-claro z-0"></div>
 
-        <!-- Paso 1: completo -->
-        <div class="process-step process-step-1 is-done flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-azul-primario border border-azul-primario flex items-center justify-center text-gris-neutro font-headline-h3 text-headline-h3 mb-2">1</div>
-          <span class="font-label-cta text-label-cta text-azul-primario inline-flex items-center gap-1 px-sm py-1">
-            Completado
-          </span>
+        <!-- Paso 1 -->
+        <div class="process-step process-step-1 flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">1</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diagnóstico</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
             Conocimos el negocio: qué hace Mombé, a quién le vende, cómo trabaja y cómo la encuentran hoy sus clientes. De ahí salió el brief del proyecto.
           </p>
         </div>
 
-        <!-- Paso 2: el actual -->
-        <div class="process-step process-step-2 is-current flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-texto-fuerte font-headline-h3 text-headline-h3 mb-2">2</div>
-          <span class="font-label-cta text-label-cta text-azul-primario border border-naranja inline-flex items-center gap-1 px-sm py-1 rounded-lg">
-            <span class="ti ti-tools text-base" aria-hidden="true"></span>
-            Estamos acá
-          </span>
+        <!-- Paso 2 -->
+        <div class="process-step process-step-2 flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">2</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Diseño y Estrategia</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            Luego del brief resultante del diagnóstico, pasamos a unificar la identidad visual de Mombé y definimos la de sus dos líneas textiles. Comenzamos a bajar la idea en un borrador de diseño y lo seguimos iterando.
+            Luego del brief resultante del diagnóstico, unificamos la identidad visual de Mombé y definimos la de sus dos líneas textiles. Bajamos la idea en un borrador de diseño y lo fuimos iterando hasta llegar a la web final.
           </p>
         </div>
 
-        <!-- Paso 3: pendiente -->
-        <div class="process-step process-step-3 is-pending flex flex-col items-center text-center gap-sm relative z-10">
-          <div class="process-step-number w-12 h-12 rounded-full bg-white border border-gris-claro flex items-center justify-center text-naranja font-headline-h3 text-headline-h3 mb-2">3</div>
-          <span class="font-label-cta text-label-cta text-texto-fuerte inline-flex items-center gap-1 px-sm py-1">
-            Próximamente
-          </span>
+        <!-- Paso 3 -->
+        <div class="process-step process-step-3 flex flex-col items-center text-center gap-sm relative z-10">
+          <div class="process-step-number w-12 h-12 rounded-full bg-naranja border border-naranja flex items-center justify-center text-texto-fuerte font-headline-h3 text-headline-h3 mb-2">3</div>
           <h3 class="font-headline-h3 text-headline-h3 text-azul-primario">Resultados</h3>
           <p class="font-body-main text-body-main text-texto-fuerte opacity-80 px-4">
-            La web de Mombé publicada y lista para que sus clientes la encuentren.
+            La web de Mombé ya está publicada: presenta sus dos líneas textiles, una galería, su historia, preguntas frecuentes y contacto directo por WhatsApp, para que sus clientes la encuentren y le escriban.
           </p>
         </div>
 
@@ -369,20 +360,25 @@
   </section>
 
   <!-- ============================== -->
-  <!-- CTA FINAL                      -->
+  <!-- CTA FINAL: VER SITIO WEB       -->
   <!-- ============================== -->
-  <!-- Todavía no hay sitio para visitar, así que el CTA final invita directamente a la demo por WhatsApp -->
   <section id="cta-final" class="cta-final py-lg md:py-xl max-w-container-max mx-auto px-sm md:px-lg text-center flex flex-col items-center gap-md">
     <h2 class="font-headline-h2 text-headline-h2 text-azul-primario">
-      ¿Querés que tu negocio sea el próximo?
+      ¿Querés ver el resultado final?
     </h2>
     <p class="font-body-main text-body-main text-texto-fuerte opacity-80 max-w-lg">
-      Empezamos igual que con Mombé: con una demo gratuita para conocer tu negocio.
+      Entrá al sitio y recorré la experiencia completa que armamos para Mombé.
     </p>
     <div class="flex flex-col sm:flex-row gap-sm w-full sm:w-auto">
+      <a href="https://mombe.vercel.app/" target="_blank" rel="noopener noreferrer"
+        aria-label="Visitar el sitio web de Mombé"
+        class="cta-shine font-label-cta text-label-cta text-texto-fuerte bg-naranja hover:bg-naranja-hover transition-all duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient hover:shadow-media">
+        Ver sitio web
+        <span class="ti ti-external-link text-base" aria-hidden="true"></span>
+      </a>
       <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_final&utm_campaign=demo"
         target="_blank" rel="noopener noreferrer"
-        class="cta-shine font-label-cta text-label-cta text-texto-fuerte bg-naranja hover:bg-naranja-hover transition-all duration-200 inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg shadow-ambient hover:shadow-media">
+        class="cta-shine font-label-cta text-label-cta text-azul-primario bg-transparent border border-azul-primario hover:bg-azul-primario hover:text-gris-neutro transition-all duration-200 hover:shadow-media inline-flex items-center justify-center gap-1 px-md py-[12px] rounded-lg">
         Quiero algo así para mi negocio
       </a>
     </div>
@@ -538,6 +534,21 @@
           gtag('event', 'generate_lead', {
             method: 'whatsapp',
             lead_source: whatsappSource,
+            button_location: window.location.pathname,
+            traffic_source: fuenteTrafico,
+          });
+        }
+      });
+    });
+
+    // Clic en "Ver sitio web": project_name sale del nombre del archivo (proyecto-xxx.html -> xxx),
+    // igual que project_click en index.html, así se cruzan las tarjetas con los sitios visitados.
+    const nombreProyecto = window.location.pathname.split('/').pop().replace(/^proyecto-/, '').replace(/\.html.*$/, '');
+    document.querySelectorAll('a[aria-label^="Visitar el sitio web"]').forEach((link) => {
+      link.addEventListener('click', () => {
+        if (typeof gtag === 'function') {
+          gtag('event', 'project_site_click', {
+            project_name: nombreProyecto,
             button_location: window.location.pathname,
             traffic_source: fuenteTrafico,
           });
