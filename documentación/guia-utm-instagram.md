@@ -16,8 +16,11 @@ Con pocas visitas por semana no vale la pena etiquetar cada publicación. Alcanz
 | Bio | No cambiar nada: Instagram ya agrega solo `utm_source=ig`, `utm_medium=social` y `utm_content=link_in_bio` (se vio en una sesión real de Clarity el 31/10/2026) | el que ya está |
 | Stories (sticker de link) | Pegar siempre este link | `https://web-sabristudios.vercel.app/?utm_source=instagram&utm_medium=story&utm_campaign=general` |
 | Reels (descripción o comentario fijado) | Pegar siempre este link | `https://web-sabristudios.vercel.app/?utm_source=instagram&utm_medium=reel&utm_campaign=general` |
+| Facebook (publicaciones, descripción de la página o comentarios con link a la web) | Pegar siempre este link | `https://web-sabristudios.vercel.app/?utm_source=facebook&utm_medium=social&utm_campaign=general` |
 
-Con esto se distingue **de dónde** viene la visita (bio, stories o reels), pero no **qué publicación puntual** la trajo. Si más adelante hay más tráfico y hace falta ese detalle, se usa la estructura completa de abajo.
+**Por qué Facebook:** en GA4, del 1 al 18/11/2026, 4 de 20 sesiones llegaron desde `l.facebook.com` y `facebook.com` sin etiqueta, y se mezclaban con el resto. Con el link fijo se separan como `facebook / social`. El medio `social` hace que GA4 las ponga en el canal "Organic Social" (según la [documentación de Google](https://support.google.com/analytics/answer/9756891), ese canal incluye a las fuentes de la lista de sitios sociales o con medio `social`).
+
+Con esto se distingue **de dónde** viene la visita (bio, stories, reels o Facebook), pero no **qué publicación puntual** la trajo. Si más adelante hay más tráfico y hace falta ese detalle, se usa la estructura completa de abajo.
 
 Dos cosas sin confirmar, que se ven en Clarity después de usar los links nuevos: (1) si Instagram también agrega sus propios parámetros a los links de los stickers, y (2) qué pasa si un link ya trae `utm_*` y Instagram suma los suyos.
 
