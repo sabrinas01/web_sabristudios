@@ -2,7 +2,7 @@
 
 ## Versión
 
-**Versión:** 1.86
+**Versión:** 1.87
 
 **Fecha:** Octubre 2026
 
@@ -2014,6 +2014,36 @@ Antes de publicar cambios:
 
 **Por qué lo hice:** Sabrina pasó el logo del cliente para completar la página del proyecto.
 
+### v1.87 — 18 de noviembre de 2026
+
+**Qué hice:** Agregué un link fijo con UTM para Facebook a la guía `documentación/guia-utm-instagram.md`.
+
+**Detalle del cambio:**
+
+- **Por qué:** en GA4 (Adquisición de tráfico, del 1 al 18 de noviembre, 20 sesiones), 4 sesiones llegaron desde Facebook sin etiqueta: 3 de `l.facebook.com / referral` y 1 de `facebook.com / referral`.
+- **Link nuevo:** `https://web-sabristudios.vercel.app/?utm_source=facebook&utm_medium=social&utm_campaign=general`, en la tabla "Versión simple" de la guía, con la explicación de por qué se agregó.
+- **Por qué `utm_medium=social`:** según la documentación de Google (grupo de canales predeterminado de GA4), "Organic Social" se asigna si la fuente es un sitio social o si el medio es `social`, así que con ese medio la visita queda en ese canal de las dos maneras.
+- **Qué no cambia:** el código de la web no se tocó; ya lee `utm_source` de la dirección para `traffic_source`. Probé que el link responde (200).
+- **Dato sobre los links de Instagram:** del 1 al 18/11 no hubo ninguna sesión `instagram / story` ni `instagram / reel`. Sabrina usó los links y nadie los tocó. La solicitud de Notion queda en revisión hasta que llegue un clic.
+
+**Por qué lo hice:** Sabrina pidió guardar el link de Facebook.
+
+### v1.88 — 26 de noviembre de 2026
+
+**Qué hice:** Pulido visual de la home dentro de la marca (sin cambiar paleta ni tipografía): hero, tarjetas de proyectos y fondo de "Sobre mí".
+
+**Detalle del cambio:**
+
+- **Hero (`index.html`):** saqué el degradé de fondo (`bg-gradient-to-br from-background to-white`) y quedó `bg-background` plano, porque el Design System pide sin gradientes. La línea "✓ Demo gratuita • ✓ Sin compromiso • ✓ 30 minutos" pasó a una lista (`ul`) con íconos `ti-circle-check`, con el mismo texto.
+- **Tarjetas de proyectos:** las 5 mostraban la misma barra de 3 tramos y "Proceso completo", un dato que no distingue una de otra. La saqué de las tarjetas y la bajada de la sección ahora dice "Los cinco pasaron por el proceso completo, de tres pasos."
+- **"Sobre mí":** el fondo pasó de blanco a `bg-background` (crema). Antes quedaba entre la demo y las preguntas, que también son blancas; ahora las secciones alternan y la tarjeta blanca se distingue.
+- **Alineación de los botones del hero:** "Reservá tu demo" quedaba con el texto pegado arriba porque "Agendá una reunión" ocupaba dos líneas y la grilla estiró los dos botones. Ahora ambos llevan `inline-flex items-center justify-center`, y el texto queda centrado en vertical y en horizontal (medí los márgenes con el navegador). En la lista de ventajas achiqué el espacio entre ítems (`gap-x-sm`) para que "30 minutos" no quede solo en una segunda línea.
+- **Pruebas:** corrí `npm run build`; en la home hay 5 tarjetas, ninguna con la barra de proceso, y no hay scroll horizontal a 375 px ni en desktop. Medí los fondos de las secciones: crema, sin fondo, tinte azul, blanco, crema y blanco.
+- **No toqué:** las páginas de proyecto, que ya siguen el sistema (misma estructura de 3 pasos y CTA final). Mejorarlas más pide capturas de cada sitio entregado, que hoy no están en el repo.
+- **Eyebrow del hero:** Sabrina pidió sacar "El costo de la invisibilidad", la etiqueta sobre el titular. El titular "Si tu negocio no aparece en Google, no existe" ya dice lo mismo y el hero empieza directo por él.
+
+**Por qué lo hice:** Sabrina pidió aplicar el criterio de diseño a toda la web, dentro del Design System.
+
 ---
 
 ---
@@ -2111,3 +2141,5 @@ Antes de publicar cambios:
 | 1.84 | 18 de noviembre de 2026 | Sabri Studios | Marca de mi navegador (`?sinmedicion=1`) para que mis visitas no cuenten en GA4 ni en Clarity aunque mi IP cambie; el script de corte de medición de las 7 páginas la lee de `localStorage` |
 | 1.85 | 18 de noviembre de 2026 | Sabri Studios | Página del proyecto CA Control Documental (`proyecto-ca-control-documental.html`) con el relato de las 3 etapas y el sitio real del cliente como fuentes; sin logo ni tarjeta en la home todavía; agregada al `sitemap.xml` |
 | 1.86 | 18 de noviembre de 2026 | Sabri Studios | Logo de CA Control Documental en su página de proyecto, imagen para compartir propia y tarjeta nueva en la home (la quinta, centrada con `md:w-[calc(50%-16px)]`) |
+| 1.87 | 18 de noviembre de 2026 | Sabri Studios | Link fijo con UTM para Facebook (`utm_source=facebook&utm_medium=social&utm_campaign=general`) en la guía de UTM, porque 4 de 20 sesiones de noviembre llegaron de Facebook sin etiqueta |
+| 1.88 | 26 de noviembre de 2026 | Sabri Studios | Pulido visual de la home dentro de la marca: hero sin degradé, sin eyebrow y con lista de ventajas con íconos, tarjetas de proyectos sin la barra de proceso repetida y "Sobre mí" sobre fondo crema |
