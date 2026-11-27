@@ -304,15 +304,11 @@
   <!-- Tiene un degradé suave de fondo. El alto lo define el contenido (ya no ocupa toda la pantalla en desktop): con min-h-screen quedaban ~200px en blanco arriba y abajo del texto, que se prestaban a clics muertos -->
   <!-- Todas las secciones usan padding vertical "py-lg md:py-xl" (32px / 48px) y separación interna "gap-lg" (32px), para no dejar bloques vacíos grandes que parezcan clickeables -->
 
-  <section id="hero" class="flex items-center px-sm md:px-lg py-lg md:py-xl bg-gradient-to-br from-background to-white">
+  <section id="hero" class="flex items-center px-sm md:px-lg py-lg md:py-xl bg-background">
     <div class="max-w-container-max mx-auto w-full flex flex-col md:flex-row items-center gap-lg md:gap-xl">
 
       <!-- Acá va la columna izquierda, con el texto principal y los botones -->
       <div class="w-full md:w-1/2 flex flex-col gap-md md:gap-lg items-start">
-        <span class="font-label-cta text-label-cta text-azul-primario mb-2 block">
-          El costo de la invisibilidad
-        </span>
-
         <!-- El golpe de efecto del titular lo da la ventana de búsqueda de al lado (el hueco donde no aparece el negocio), así que el titular va en un solo color -->
         <h1 class="font-headline-h1-mobile md:font-headline-h1 text-headline-h1-mobile md:text-headline-h1 text-azul-primario max-w-2xl leading-tight">
           Si tu negocio no aparece en Google, no existe
@@ -331,19 +327,21 @@
         <div class="flex flex-col sm:grid sm:grid-cols-2 gap-sm w-full sm:w-auto">
           <a href="https://wa.me/5492645854487?text=Hola%2C%20quiero%20reservar%20mi%20demo%20gratuita&utm_source=whatsapp&utm_medium=cta_hero&utm_campaign=demo"
             target="_blank" rel="noopener noreferrer"
-            class="border border-naranja bg-naranja text-texto-fuerte hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-block">
+            class="border border-naranja bg-naranja text-texto-fuerte hover:bg-naranja-hover hover:border-naranja-hover font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 shadow-ambient hover:shadow-media w-full sm:w-auto text-center inline-flex items-center justify-center">
             Reservá tu demo
           </a>
           <a href="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2CILTyTIw1ABL4Fnq4pwfRRJQChWzYNploOLmvIGisZNwtl23KD7UbQfwht2mHh-_p4Nazemau?gv=true"
             target="_blank" rel="noopener noreferrer"
-            class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-block">
+            class="border border-azul-primario bg-transparent text-azul-primario hover:bg-azul-primario hover:text-gris-neutro font-whatsapp-cta font-medium px-md py-[15px] rounded-lg transition-all duration-200 hover:shadow-media w-full sm:w-auto text-center inline-flex items-center justify-center">
             Agendá una reunión
           </a>
         </div>
 
-        <p class="font-body-main text-sm text-texto-fuerte opacity-70">
-          ✓ Demo gratuita &nbsp;•&nbsp; ✓ Sin compromiso &nbsp;•&nbsp; ✓ 30 minutos
-        </p>
+        <ul class="flex flex-wrap gap-x-sm gap-y-xs font-body-main text-sm text-texto-fuerte list-none p-0 m-0">
+          <li class="flex items-center gap-1"><span class="ti ti-circle-check text-lg text-azul-primario" aria-hidden="true"></span>Demo gratuita</li>
+          <li class="flex items-center gap-1"><span class="ti ti-circle-check text-lg text-azul-primario" aria-hidden="true"></span>Sin compromiso</li>
+          <li class="flex items-center gap-1"><span class="ti ti-circle-check text-lg text-azul-primario" aria-hidden="true"></span>30 minutos</li>
+        </ul>
       </div>
 
       <!--
@@ -414,6 +412,7 @@
       </h2>
       <p class="font-body-main text-body-main text-texto-fuerte opacity-80">
         Negocios que ya dieron el paso hacia una presencia digital que trabaja para ellos.
+        Los cinco pasaron por el proceso completo, de tres pasos.
       </p>
     </div>
 
@@ -441,14 +440,6 @@
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">Del boca a boca a una web con sus servicios y un camino directo a WhatsApp.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
-          <div class="flex items-center gap-xs">
-            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            </span>
-            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
-          </div>
           <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
             Ver proyecto
             <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
@@ -471,14 +462,6 @@
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">De trabajar por recomendación a una web con sus servicios, una galería de trabajos y contacto directo.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
-          <div class="flex items-center gap-xs">
-            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            </span>
-            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
-          </div>
           <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
             Ver proyecto
             <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
@@ -501,14 +484,6 @@
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">Una web con sus dos líneas textiles, galería, preguntas frecuentes y contacto directo por WhatsApp.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
-          <div class="flex items-center gap-xs">
-            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            </span>
-            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
-          </div>
           <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
             Ver proyecto
             <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
@@ -531,14 +506,6 @@
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">De una página en Lovable a una web completa, con perfil profesional y servicios más claros.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
-          <div class="flex items-center gap-xs">
-            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            </span>
-            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
-          </div>
           <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
             Ver proyecto
             <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
@@ -562,14 +529,6 @@
         </div>
         <p class="font-body-main text-body-main text-texto-fuerte">Una web simple con el detalle de sus servicios y su perfil de Google para aparecer en Google Maps.</p>
         <div class="mt-auto flex flex-col gap-sm @[400px]:flex-row @[400px]:items-center @[400px]:justify-between border-t border-gris-claro pt-sm">
-          <div class="flex items-center gap-xs">
-            <span class="flex items-center gap-1" role="img" aria-label="Proceso completo">
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            <span class="block h-1.5 w-6 rounded-full bg-azul-primario"></span>
-            </span>
-            <span class="font-body-main text-sm text-texto-fuerte whitespace-nowrap">Proceso completo</span>
-          </div>
           <span class="font-label-cta text-label-cta text-azul-primario underline group-hover:text-azul-secundario inline-flex items-center gap-1 whitespace-nowrap">
             Ver proyecto
             <span class="ti ti-arrow-right text-base" aria-hidden="true"></span>
@@ -723,7 +682,8 @@
   <!-- ============================== -->
   <!-- SECCIÓN "SOBRE MÍ"              -->
   <!-- ============================== -->
-  <section id="sobre-mi" class="py-lg md:py-xl bg-white">
+  <!-- Fondo crema (y no blanco): la demo de arriba y las preguntas de abajo ya son blancas, así la tarjeta blanca se distingue y las secciones alternan -->
+  <section id="sobre-mi" class="py-lg md:py-xl bg-background">
     <div class="max-w-container-max mx-auto px-sm md:px-lg">
       <div class="bg-white rounded-lg border border-gris-claro p-md md:p-lg flex flex-col md:flex-row items-center gap-lg">
 
